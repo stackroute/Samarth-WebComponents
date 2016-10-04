@@ -1,0 +1,83 @@
+
+
+<md-card class="card" ng-repeat="(key, value) in $ctrl.skill" layout="column">
+    <md-card-title>
+        <md-card-title-text layout="row" >
+            <div class="md-headline" flex="90">{{key}}</div>
+            <div flex="10">({{$ctrl.primary.length+$ctrl.secondary.length}})</div>
+        </md-card-title-text>
+    </md-card-title>
+    <h2 class="md-title"> Primary <span class="numbers">({{$ctrl.primary.length}})</span> 
+        </h2>
+    <div layout="row" class="items" layout-wrap layout-padding>
+
+        <md-whiteframe class="md-whiteframe-1dp" flex="30" flex-xs="100" ng-repeat="value in $ctrl.primary| limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout="column"  id="{{value.Expertise}}">
+        <div layout="row" >
+        <span class="names">{{value.Name}}</span>
+        </div>
+            
+            <div layout="row">
+                <div flex="40">{{value.Experience}} yrs</div> 
+                <div flex="45"></div>
+                <div flex="15"><md-icon ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" >mode_edit</md-icon></div>
+            </div>
+        </md-whiteframe>
+    
+        <div layout="row" flex="80"></div>
+        <div layout="row" flex="20" layout-align="center center">
+            <a ng-model="collapsed" ng-hide="collapsed" ng-click="collapsed=!collapsed;$ctrl.increaseLimit()">more
+              <md-icon class="material-icons" ng-hide="collapsed">arrow_drop_down</md-icon>
+            </a>
+            <a ng-model="collapsed" ng-show="collapsed" ng-click="collapsed=!collapsed;$ctrl.decreaseLimit()">less
+            <md-icon class="material-icons" ng-show="collapsed">arrow_drop_up</md-icon>
+            </a>
+        </div>
+        
+    </div>
+    
+    <h2 class="md-title">Others <span class="numbers">({{$ctrl.secondary.length}})</span></h2>
+    <div layout="row" class="items" layout-wrap layout-padding>
+        
+        <md-whiteframe class="md-whiteframe-1dp" flex="30" flex-xs="100" ng-repeat="value in $ctrl.secondary" layout="column" id="{{value.Expertise}}" ng-if="$index < 3">
+            <div layout="row" >
+        <span class="names">{{value.Name}}</span>
+        </div>
+            
+            <div layout="row">
+                <div flex="40">{{value.Experience}} yrs</div> 
+                <div flex="45"></div>
+                <div flex="15"><md-icon ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" >mode_edit</md-icon></div>
+            </div>
+            
+        </md-whiteframe>
+        
+        <md-whiteframe class="md-whiteframe-1dp" flex="30" flex-xs="100" ng-repeat="value in $ctrl.secondary" layout="column"  id="{{value.Expertise}}" ng-if="$index > 3" ng-show="collapsed1">
+            <div layout="row" >
+        <span class="names">{{value.Name}}</span>
+        </div>
+            
+            <div layout="row">
+                <div flex="40">{{value.Experience}} yrs</div> 
+                <div flex="45"></div>
+                <div flex="15"><md-icon ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" >mode_edit</md-icon></div>
+            </div>
+            
+        </md-whiteframe>
+        <div layout="row" flex="80"></div>
+        <div layout="row" flex="20" layout-align="center center">
+            <a ng-model="collapsed1" ng-hide="collapsed1" ng-click="collapsed1=!collapsed1">more
+              <md-icon class="material-icons" ng-hide="collapsed1">arrow_drop_down</md-icon>
+            </a>
+            <a ng-model="collapsed1" ng-show="collapsed1" ng-click="collapsed1=!collapsed1">less
+            <md-icon class="material-icons" ng-show="collapsed1">arrow_drop_up</md-icon>
+            </a>
+        </div>
+    </div>
+    
+    <md-card-actions layout="row" layout-align="end end">
+        <md-button ng-click="$ctrl.showAdvanced($event,'','Add Skill')">
+            ADD
+        </md-button>
+    </md-card-actions>
+</md-card>
+

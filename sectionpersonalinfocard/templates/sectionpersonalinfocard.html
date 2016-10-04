@@ -1,0 +1,39 @@
+    <md-card  flex  ng-repeat="per in $ctrl.personal">
+        
+            <md-card-title class="title">
+                <md-card-title-text layout="row">
+                    <div flex="90" class="md-headline" >Personal Information</div>
+                    <!-- <div flex="10">23</div> -->
+                </md-card-title-text>
+            </md-card-title>
+       
+        <md-card-content>
+            <div layout-padding layout-wrap layout="row" flex layout-xs="column" ng-repeat="val in per" ng-if="$index<1">
+                <div layout="column" flex="40" >
+                    <p><b>name</b>: {{val.name }}</p>
+                    <p><b>dob</b>: {{val.dob}}</p>
+                    <p><b>gender</b>: {{val.gender}}
+                    <p><b>Maritialstatus</b>: {{val.maritialstatus}}</p>
+                    <!-- <p>DOB:{{$ctrl.details.DOB}}</p> -->
+                    
+                </div>
+    
+ 
+                <div layout="column" flex="60"> 
+                    <!-- <p>Maritial Status:{{$ctrl.details.maritialstatus}}</p> -->
+                    <p><b>MotherTongue</b>: {{val.mothertongue}}</p>
+                    <p><b>Email</b>: {{val.email}}</p>
+                    <p><b>contact</b>: {{val.mobile}}</p>
+                    <p><b>address</b>: {{val.address}}</p>
+                    <!-- <p>pincode:{{$ctrl.details.pincode}}</p> -->
+                </div>
+            </div>
+        </md-card-content>
+        <div class="md-actions" layout="row" layout-align="end center">
+            <md-footer>
+                <md-button ng-click="$ctrl.save()">Save</md-button>
+                <md-button>ADD</md-button>
+            </md-footer>
+        </div>
+    </md-card>
+

@@ -1,0 +1,166 @@
+
+
+
+
+#header , #footer
+{
+	background-color: #d9d9d9;
+}
+
+
+#icon
+{
+	margin-top:0px;
+}
+
+.conversationDialog,#conversationDialogtoolbar
+{
+	background: white;
+}
+#conversationDialogcontent
+{
+	min-width: 600px;
+	min-height:250px;
+	/*font-size: 30px;*/
+	font-size:2em;
+	color: grey;
+	line-height: 1.5;
+	word-break: normal;
+}
+#headingtext
+{
+	color: grey;
+}
+.fields
+{
+	color: blue;
+	/*font-size: 36px;*/
+	font-size: 3vw;
+}
+
+.fields:hover
+{
+	color: black;
+}
+
+#conversationDialogActionButton
+{
+	font-size:26px;
+	color:grey;
+	background:#f1eded;
+}
+#fwdicon
+{
+	background:#d9d9d9;
+	margin: 0px;
+	padding: 0px;
+	height:34px;
+	font-size: 35px;
+}
+#fwdicon:focus
+{
+	outline: none;
+}
+
+.textboxes
+{
+	outline:none;
+	border-style: none;
+	/*width: 20vw;*/
+	padding:0px;
+}
+
+.textboxes:focus
+{
+	outline:none;
+	border-style: none;
+	background-color: cyan;
+	filter: blur(10px);
+}
+
+#educardcontent:focus
+{
+	outline: none;
+}
+#educardcontent
+{
+	cursor: pointer;
+}
+
+#savebtnicon
+{
+	font-size: 1.5em;
+}
+#convosavebtn
+{
+	width:20%;
+	height:50px;
+	font-size: .8em;
+}
+
+
+
+/* -------------- */
+.nlui-conv-form {
+	font-size: 2.5em;
+	line-height: 1.5;	
+	color: #a2a2a2; /*#808080;*/
+}
+
+.nlui-inline-input {
+	display: inline-block;
+	border-style: none;
+	border-bottom: 1px dashed #000000;
+	color: #0000ff;
+
+}
+
+.nlui-conv-form textarea:focus
+{
+	outline:none;
+	resize:all;
+}
+
+/*-----educonvoNEW styles-------*/
+
+
+#input1:focus
+{
+	outline:none;
+	
+}
+
+#btntxt
+{
+	background-color: #e0e0e0;
+	padding: 5px;
+	height:48px;
+}
+#btntxt a
+{
+	text-decoration:none;
+	font-size: 2em;
+	color:rgb(255, 64, 139);
+	cursor: pointer;
+
+
+}
+
+#input1
+{
+	border-bottom: 1px dashed rgb(255, 64, 139);
+	color:rgb(255, 64, 139);
+}
+#btn
+{
+	background-color: #cac8c8;
+	padding: 4px;
+
+}
+#btn #icon
+{
+	font-size:2.5em;
+	cursor: pointer;
+
+
+}
