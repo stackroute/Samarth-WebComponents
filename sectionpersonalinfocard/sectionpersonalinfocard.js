@@ -4,7 +4,7 @@ var currentScriptPath = scripts[scripts.length - 1].src;
 angular.module('samarth-webcomponents')
     .component('myPersonalinfocard', {
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-            '/')) + 'templates/sectionpersonalinfocard.html',
+            '/')) + '/templates/sectionpersonalinfocard.html',
         controller: personalinfoCardController
     });
 

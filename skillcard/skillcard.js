@@ -3,7 +3,7 @@ var currentScriptPath = scripts[scripts.length - 1].src;
 
 angular.module('samarth-webcomponents')        .component('mySkillcard',          {            
     templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-        '/')) + 'templates/skillcard.html',
+        '/')) + '/templates/skillcard.html',
                 controller: skillcardctrl,
     bindings: {
         data: "="

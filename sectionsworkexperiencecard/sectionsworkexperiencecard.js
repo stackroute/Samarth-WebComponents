@@ -5,7 +5,7 @@ var app = angular
     .module('samarth-webcomponents')
     .component('myWorkexperiencecard', {
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-            '/')) + 'templates/sectionsworkexperiencecard.html',
+            '/')) + '/templates/sectionsworkexperiencecard.html',
         controller: workexperienceCardController
 
     });

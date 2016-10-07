@@ -4,7 +4,7 @@ var currentScriptPath = scripts[scripts.length - 1].src;
 angular.module('samarth-webcomponents')
     .component('myQuestionbox', {            
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-            '/')) + 'templates/questionbox.html',
+            '/')) + '/templates/questionbox.html',
         controller: questionBoxCtrl          
     });
 
