@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Samarth Webcomponents</title>
+</head>
+<link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+<link rel="stylesheet" href="./bower_components/google-material-icons/dist/material-icons-font.css">
+<link rel="stylesheet" href="./bower_components/samarth-webcomponents/skillcard/css/skillcard.css">
+<script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+<script src="./bower_components/angular-animate/angular-animate.js"></script>
+<script src="./bower_components//angular-aria/angular-aria.js"></script>
+<script src="./bower_components//angular-material/angular-material.js"></script>
+<script src="./bower_components//angular-messages/angular-messages.js"></script>
+<script type="text/javascript" src="./bower_components/samarth-webcomponents/samarth-webcomponents.js"></script>
+<script type="text/javascript" src="./bower_components/samarth-webcomponents/skillcard/skillcard.js"></script>
+<script>
+angular
+    .module('testApp', ['samarth-webcomponents'])
+    .controller('testCtrl', function($scope) {
+        $scope.message = "Welcome to test suite for Samarth Webcomponents"
+    });
+</script>
+
+<body ng-app='testApp' ng-controller="testCtrl">
+    <h2>{{message}}</h2>
+    <my-skillcard></my-skillcard>
+</body>
+
+</html>
