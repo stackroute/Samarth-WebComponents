@@ -1,6 +1,10 @@
+var scripts = document.getElementsByTagName("script");
+var currentScriptPath = scripts[scripts.length - 1].src;
+
 angular.module('samarth-webcomponents')
     .component('myPersonalinfocard', {
-        templateUrl: '/webcomponents/sectionpersonalinfocard/templates/sectionpersonalinfocard.html',
+        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+            '/')) + 'templates/sectionpersonalinfocard.html',
         controller: personalinfoCardController
     });
 
@@ -21,9 +25,9 @@ function personalinfoCardController($http) {
         url: 'api/profiles/01'
     }).then(function successCallback(response) {
         for (var prop in response.data)  {
-            if (prop=="Personalinfo" ) { 
+            if (prop == "Personalinfo") { 
                 ctrl.personal[prop] = response.data[prop]; 
-              
+
             }
         }
     }, function errorCallback(response) {

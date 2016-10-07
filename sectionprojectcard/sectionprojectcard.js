@@ -1,6 +1,10 @@
+var scripts = document.getElementsByTagName("script");
+var currentScriptPath = scripts[scripts.length - 1].src;
+
 angular.module('samarth-webcomponents')
     .component('myProjectsectioncard', {            
-        templateUrl: 'webcomponents/sectionprojectcard/templates/sectionprojectcard.html',
+        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+            '/')) + 'templates/sectionprojectcard.html',
         controller: projectsectioncardCtrl          
     });
 
@@ -23,7 +27,9 @@ function projectsectioncardCtrl($http, $mdDialog) {
         url: 'api/profiles/01',
     }).then(function successCallback(response) {
         for (var prop in response.data)  {
-            if (prop != "id" && prop != "UserName" && prop != "Personalinfo" && prop != "Education" && prop != "Skills" && prop != "Work Experiance" && prop != "Certification") { 
+            if (prop != "id" && prop != "UserName" && prop != "Personalinfo" &&
+                prop != "Education" && prop != "Skills" && prop !=
+                "Work Experiance" && prop != "Certification") { 
                 ctrl.profile[prop] = response.data[prop]; 
                 ctrl.totalProjects = ctrl.profile[prop].length;
             }
@@ -105,4 +111,3 @@ function projectsectioncardCtrl($http, $mdDialog) {
     }
 
 }
-

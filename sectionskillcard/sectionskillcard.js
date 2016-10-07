@@ -1,24 +1,26 @@
-
+var scripts = document.getElementsByTagName("script");
+var currentScriptPath = scripts[scripts.length - 1].src;
 
 angular.module('samarth-webcomponents')
     .component('mysectionSkillCard', {
-        templateUrl: 'webcomponents/sectionskillcard/templates/sectionskillcard.html',
+        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+            '/')) + 'templates/sectionskillcard.html',
         controller: sectionskillcardctrl
     });
 
 function sectionskillcardctrl($http, sectionskillcard, $mdDialog) {
     var ctrl = this;
-         ctrl.limitval=3;
+    ctrl.limitval = 3;
     ctrl.value = 40;
     ctrl.skill = {};
     ctrl.primary = [];
     ctrl.secondary = []; 
-    ctrl.increaseLimit=function(){
-        ctrl.limitval=ctrl.primary.length;
+    ctrl.increaseLimit = function() {
+        ctrl.limitval = ctrl.primary.length;
     }
 
-    ctrl.decreaseLimit=function(){
-        ctrl.limitval=3;
+    ctrl.decreaseLimit = function() {
+        ctrl.limitval = 3;
     }
 
     sectionskillcard.getjson().then(function(result) {
