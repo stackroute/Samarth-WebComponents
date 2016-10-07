@@ -1,4 +1,4 @@
-angular.module('sm-skillprofile')
+angular.module('samarth-webcomponents')
     .factory('sectionskillcard', function($http) 
     {
         return {

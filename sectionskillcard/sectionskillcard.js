@@ -1,6 +1,6 @@
 
 
-angular.module('sm-skillprofile')
+angular.module('samarth-webcomponents')
     .component('mysectionSkillCard', {
         templateUrl: 'webcomponents/sectionskillcard/templates/sectionskillcard.html',
         controller: sectionskillcardctrl

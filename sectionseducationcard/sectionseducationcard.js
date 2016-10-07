@@ -6,7 +6,7 @@
 
 
 var app=angular
-.module('sm-skillprofile')
+.module('samarth-webcomponents')
 .component('myEducationcard',
 {
   templateUrl:'/webcomponents/sectionseducationcard/templates/sectionseducationcard.html',

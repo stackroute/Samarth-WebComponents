@@ -1,4 +1,4 @@
-angular.module('sm-skillprofile')
+angular.module('samarth-webcomponents')
         .component('mySkillcard',
         {
             templateUrl:'webcomponents/skillcard/templates/skillcard.html',

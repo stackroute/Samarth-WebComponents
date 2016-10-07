@@ -1,7 +1,7 @@
 
 
 
-angular.module('sm-skillprofile')
+angular.module('samarth-webcomponents')
     .component('myQuestionbox',{             
         templateUrl: 'webcomponents/questionbox/templates/questionbox.html',
         controller: questionBoxCtrl          

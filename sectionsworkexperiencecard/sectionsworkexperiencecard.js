@@ -1,5 +1,5 @@
 var app = angular
-    .module('sm-skillprofile')
+    .module('samarth-webcomponents')
     .component('myWorkexperiencecard', {
         templateUrl: '/webcomponents/sectionsworkexperiencecard/templates/sectionsworkexperiencecard.html',
         controller: workexperienceCardController
