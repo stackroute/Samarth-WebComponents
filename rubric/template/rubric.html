@@ -1,0 +1,59 @@
+<md-card class="rubrictable">
+    <div layout="row" layout-gt-xs="column" layout-padding>
+        <div class="caption">
+            RUBRIC {{$ctrl.brand}}
+        </div>
+        <md-table-container>
+            <table md-table>
+                <thead md-head>
+                    <tr md-row>
+                        <th md-column>
+                            <div layout="row" layout-margin flex>
+                                <div flex="10">Traits/Scale--></div>
+                                <div flex="90" layout="row">
+                                    <div class="md-title" ng-repeat="a in $ctrl.headers" flex="20">
+                                        {{a}}
+                                    </div>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="x in $ctrl.descriptions">
+                        <td md-cell>
+                            <md-radio-group layout="row" layout-padding ng-model="x.model">
+                                <div flex="10" class="md-subhead">{{x.name}}</div>
+                                <div flex="20">
+                                    <md-radio-button class="md-primary" value="{{x.invalidvalue}}">{{x.invalid}}
+                                    </md-radio-button>
+                                </div>
+                                <div flex="20">
+                                    <md-radio-button class="md-accent" value="{{x.validvalue}}">{{x.valid}}</md-radio-button>
+                                </div>
+                                <div flex="20">
+                                    <md-radio-button class="md-primary" value="{{x.wrongvalue}}">{{x.wrong}}</md-radio-button>
+                                </div>
+                                <div flex="20">
+                                    <md-radio-button class="md-primary" value="{{x.satisfactoryvalue}}"> {{x.satisfactory}}</md-radio-button>
+                                </div>
+                                <div flex="20">
+                                    <md-input-container>
+                                        <label> Ratings
+                                        </label>
+                                        <input type="text" ng-model="x.model" disabled>
+                                    </md-input-container>
+                                </div>
+                            </md-radio-group>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+        <div layout-align="center" layout="row" flex>
+            <md-button class="md-raised md-warn md-block" ng-click="$ctrl.average($ctrl.descriptions)">
+                Overall Grade</md-button>
+            <p>{{$ctrl.avg}}</p>
+        </div>
+    </div>
+</md-card>
