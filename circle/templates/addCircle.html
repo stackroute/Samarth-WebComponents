@@ -1,0 +1,69 @@
+<md-dialog>
+    <form ng-cloak ng-submit="$ctrl.addCircle()">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add Circles</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+                    <ng-md-icon icon="cancel"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-content layout-gt-sm="column">
+            <div>
+                <md-input-container>
+                    <label>name</label>
+                    <input ng-model="circle.name" required>
+                </md-input-container>
+                <md-input-container>
+                    <label>Discription</label>
+                    <input ng-model="circle.circleDiscription">
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container>
+                    <label>circleType</label>
+                    <md-select ng-model=circle.circleType value={{circle.circleType}}>
+                        <md-option value='Profiling'>
+                            Profiling
+                        </md-option>
+                        <md-option value="social">
+                            social
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container>
+                    <label>Visuality</label>
+                    <md-select ng-model=circle.visuality value={{circle.visuality}}>
+                        <md-option value='shared'>
+                            shared
+                        </md-option>
+                        <md-option value="personal">
+                            personal
+                        </md-option>
+                        <md-option value="public">
+                            public
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container>
+                    <label>profile Image Url</label>
+                    <input ng-model="circle.profile">
+                </md-input-container>
+            </div>
+            <md-dialog-actions layout="row">
+                <md-button>
+                    <ng-md-icon icon="save"></ng-md-icon>
+                </md-button>
+            </md-dialog-actions>
+        </md-content>
+    </form>
+</md-dialog>
+<!--  name: { type: String, require: true },
+    circleDiscription: { type: String },
+    circleType: { type: String, require: true },
+    visuality: { type: String, require: true },
+    Admin: { type: String, require: true },
+    profile: { type: String } -->

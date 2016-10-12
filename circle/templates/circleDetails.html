@@ -1,0 +1,48 @@
+<md-content class="md-padding" flex="100" layout="row" layout-wrap>
+    <md-toolbar>
+        <div class="md-toolbar-tools">Angular </div>
+    </md-toolbar>
+    <div flex-gt-sm="25">
+        <md-toolbar layout="row" class="md-hue-3">
+            <div class="md-toolbar-tools">
+                <span>Members</span>
+            </div>
+        </md-toolbar>
+        <md-content>
+            <md-list flex>
+                <md-subheader class="md-no-sticky">Details of member</md-subheader>
+                <md-list-item class="md-3-line" ng-repeat="item in messages" ng-click="null">
+                    <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{ item.who }}</h3>
+                        <h4>{{ item.what }}</h4>
+                        <p>{{ item.notes }}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
+    <md-card ng-repeat="post in posts" flex="30">
+        <md-card-header>
+            <md-card-avatar>
+                <img src='{{profilePic}}' />
+            </md-card-avatar>
+            <md-card-header-text>
+                <span class="md-title">{{post.admin}}</span>
+                <span class="md-subhead">{{post.time}}</span>
+            </md-card-header-text>
+        </md-card-header>
+        <img ng-src="{{post.img}}" class="md-card-image" alt="Washed Out">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{post.postTitle}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <p>{{post.details}}</p>
+            <p>
+                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+            </p>
+        </md-card-content>
+    </md-card>
+</md-content>
