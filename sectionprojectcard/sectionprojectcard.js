@@ -1,7 +1,6 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
 
-
 angular.module('samarth-webcomponents')
     .component('myProjectsectioncard', {            
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
@@ -10,7 +9,7 @@ angular.module('samarth-webcomponents')
     });
 
 function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope,
-    localStorageService, UserAuthService) {
+    UserAuthService) {
 
     var ctrl = this;  
     var candidateid = UserAuthService.getUser().uname;
@@ -25,7 +24,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope,
     ctrl.loadLangData(getItem("lang"));
 
     function getItem(key) {
-        return localStorageService.get(key);
+        // return localStorageService.get(key);
     }
     //$scope.loadLangData("Hindi");
     $rootScope.$on("lang_changed", function(event, data) {
@@ -95,7 +94,8 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope,
     ctrl.showAdvanced = function(ev, header, object) {
         $mdDialog.show({
                 controller: DialogController,
-                templateUrl: '/webcomponents/sectionprojectcard/templates/sectionprojectconversation.html',
+                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+                    '/')) + '/templates/sectionprojectconversation.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -111,7 +111,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope,
     };
 
     function DialogController($scope, $mdDialog, $http, header, object,
-        localStorageService, UserAuthService) {
+        UserAuthService) {
         var candidateid = UserAuthService.getUser().uname;
         $scope.header = header;
         $scope.projectObj = object;

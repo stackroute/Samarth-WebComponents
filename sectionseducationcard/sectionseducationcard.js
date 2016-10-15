@@ -1,7 +1,6 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
 
-
 var app = angular
     .module('samarth-webcomponents')
     .component('myEducationcard', {
@@ -12,7 +11,7 @@ var app = angular
     });
 
 function educationCardController($mdDialog, $http, datagenerate, $rootScope,
-    localStorageService, UserAuthService) {
+    UserAuthService) {
     var ctrl = this;
     var candidateid = UserAuthService.getUser().uname;
     ctrl.loadLangData = function(lang) {
@@ -26,7 +25,7 @@ function educationCardController($mdDialog, $http, datagenerate, $rootScope,
     ctrl.loadLangData(getItem("lang"));
 
     function getItem(key) {
-        return localStorageService.get(key);
+        // return localStorageService.get(key);
     }
     //$scope.loadLangData("Hindi");
     $rootScope.$on("lang_changed", function(event, data) {
@@ -101,7 +100,8 @@ function educationCardController($mdDialog, $http, datagenerate, $rootScope,
     ctrl.showAdvanced = function(ev, header, object) {
         $mdDialog.show({
                 controller: DialogController,
-                templateUrl: '/webcomponents/sectionseducationcard/templates/educonvoNEW.html',
+                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+                    '/')) + '/templates/educonvoNEW.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -117,7 +117,7 @@ function educationCardController($mdDialog, $http, datagenerate, $rootScope,
     };
 
     function DialogController($scope, $mdDialog, $http, header, object,
-        localStorageService, UserAuthService, $rootScope) {
+        UserAuthService, $rootScope) {
         var candidateid = UserAuthService.getUser().uname;
         $scope.header = header;
         // $scope.yearval="";

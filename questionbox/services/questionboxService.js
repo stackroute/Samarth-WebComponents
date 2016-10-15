@@ -1,5 +1,5 @@
 angular.module('samarth-webcomponents')
-    .service('quesnboxService', function($http, $rootScope, localStorageService,
+    .service('quesnboxService', function($http, $rootScope,
         UserAuthService) {
         var candidateid = UserAuthService.getUser().uname;
         var candidateid = 7204487502;

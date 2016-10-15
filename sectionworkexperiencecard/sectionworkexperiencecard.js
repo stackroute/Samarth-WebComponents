@@ -1,7 +1,11 @@
+var scripts = document.getElementsByTagName("script");
+var currentScriptPath = scripts[scripts.length - 1].src;
+
 var app = angular
     .module('samarth-webcomponents')
     .component('myWorkexperiencecard', {
-        templateUrl: '/webcomponents/sectionworkexperiencecard/templates/sectionworkexperiencecard.html',
+        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+            '/')) + '/templates/sectionworkexperiencecard.html',
         controller: workexperienceCardController,
         bindings: {
             candidateid: '<'
@@ -37,7 +41,7 @@ var app = angular
     })
 
 function workexperienceCardController($http, $mdDialog,
-    datagenerate, localStorageService, $rootScope) {
+    datagenerate, $rootScope) {
     var ctrl = this;
     ctrl.loadLangData = function(lang) {
         datagenerate.getjson("section", lang).then(function(result) {
@@ -50,7 +54,7 @@ function workexperienceCardController($http, $mdDialog,
     ctrl.loadLangData(getItem("lang"));
 
     function getItem(key) {
-        return localStorageService.get(key);
+        // return localStorageService.get(key);
     }
     //$scope.loadLangData("Hindi");
     $rootScope.$on("lang_changed", function(event, data) {
@@ -112,7 +116,8 @@ function workexperienceCardController($http, $mdDialog,
 
         $mdDialog.show({
                 controller: DialogController,
-                templateUrl: '/webcomponents/sectionworkexperiencecard/templates/sectionworkexperienceconversation.html',
+                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+                    '/')) + '/templates/sectionworkexperienceconversation.html',
                 parent: angular.element(document.body),
                 targetEvent: $event,
                 clickOutsideToClose: true,

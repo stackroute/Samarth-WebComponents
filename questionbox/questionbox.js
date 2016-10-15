@@ -8,8 +8,7 @@ angular.module('samarth-webcomponents')
         controller: questionBoxCtrl          
     });
 
-function questionBoxCtrl($timeout, quesnboxService, $rootScope,
-    localStorageService, UserAuthService) {
+function questionBoxCtrl($timeout, quesnboxService, $rootScope, UserAuthService) {
     var candidateid = UserAuthService.getUser().uname
     console.log("data from user", candidateid);
     var ctrl = this;
@@ -41,7 +40,7 @@ function questionBoxCtrl($timeout, quesnboxService, $rootScope,
     ctrl.loadquestionarray(getItem("lang"));
 
     function getItem(key) {
-        return localStorageService.get(key);
+        // return localStorageService.get(key);
     }
     ctrl.tempLang = '';
     $rootScope.$on("lang_changed", function(event, data) {

@@ -16,7 +16,7 @@ angular.module('samarth-webcomponents')
 
 
 function sectionskillcardctrl($http, sectionskillcard, $mdDialog, datagenerate,
-    $rootScope, localStorageService, UserAuthService) {
+    $rootScope, UserAuthService) {
     var ctrl = this;
     var candidateid = UserAuthService.getUser().uname;
     console.log("Inside skill section", candidateid);
@@ -31,7 +31,7 @@ function sectionskillcardctrl($http, sectionskillcard, $mdDialog, datagenerate,
     ctrl.loadLangData(getItem("lang"));
 
     function getItem(key) {
-        return localStorageService.get(key);
+        // return localStorageService.get(key);
     }
     //$scope.loadLangData("Hindi");
     $rootScope.$on("lang_changed", function(event, data) {
@@ -129,7 +129,8 @@ function sectionskillcardctrl($http, sectionskillcard, $mdDialog, datagenerate,
     ctrl.showAdvanced = function(ev, value, title) {
         $mdDialog.show({
                 controller: DialogController,
-                templateUrl: '/webcomponents/sectionskillcard/templates/sectionskillconversation.html',
+                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+                    '/')) + '/templates/sectionskillconversation.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -146,7 +147,7 @@ function sectionskillcardctrl($http, sectionskillcard, $mdDialog, datagenerate,
             });
     };
 
-    function DialogController($scope, $mdDialog, val, header, localStorageService,
+    function DialogController($scope, $mdDialog, val, header,
         UserAuthService) {
         $scope.exp = [];
         for (i = 0; i <= 40; i++) {

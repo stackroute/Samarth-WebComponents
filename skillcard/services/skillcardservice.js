@@ -1,6 +1,5 @@
 angular.module('samarth-webcomponents')
-    .service('skillcardservice', function($http, $filter, $rootScope,
-        localStorageService) {
+    .service('skillcardservice', function($http, $filter, $rootScope) {
         return {
             getskillcarddata: function(candidateid) {
                 var skillcarddata = {};
@@ -14,7 +13,6 @@ angular.module('samarth-webcomponents')
 
                     if (object.personalinfo[0].name != undefined) {
                         skillcarddata['name'] = object.personalinfo[0].name;
-                        localStorageService.set('User', object.personalinfo[0].name);
                     }
                     if (object.personalinfo[0].dob != undefined) {
                         skillcarddata['dob'] = $filter('date')(object.personalinfo[
@@ -42,9 +40,6 @@ angular.module('samarth-webcomponents')
                         skillcarddata['designation'] = object.workexp[0].workexperience[
                             0].designation;
                     }
-                    // if (object.skill[0].skills.length > 0) {
-                    //     skillcarddata['skills'] = [(object.skill[0].skills[0].skillname)];
-                    // }
                     if (object.skill[0].skills.length > 0) {
                         skillcarddata['skills'] = [(object.skill[0].skills)];
                     }

@@ -35,7 +35,7 @@ angular.module('samarth-webcomponents')
 
 
 function personalinfoCardController($http, $mdDialog, $rootScope,
-    localStorageService, UserAuthService, datagenerate) {
+    UserAuthService, datagenerate) {
     var ctrl = this;
     ctrl.personalInfo = {};
     var candidateid = UserAuthService.getUser().uname;
@@ -49,7 +49,7 @@ function personalinfoCardController($http, $mdDialog, $rootScope,
     ctrl.loadLangData(getItem("lang"));
 
     function getItem(key) {
-        return localStorageService.get(key);
+        // return localStorageService.get(key);
     }
     //$scope.loadLangData("Hindi");
     $rootScope.$on("lang_changed", function(event, data) {
@@ -83,7 +83,8 @@ function personalinfoCardController($http, $mdDialog, $rootScope,
     ctrl.showAdvanced = function(ev, personalInfo, title) {
         $mdDialog.show({
                 controller: DialogController,
-                templateUrl: '/webcomponents/sectionpersonalinfocard/templates/sectionpersonalinfoconversation.html',
+                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+                    '/')) + '/templates/sectionpersonalinfoconversation.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,

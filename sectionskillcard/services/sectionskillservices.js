@@ -1,5 +1,5 @@
 angular.module('samarth-webcomponents')
-    .factory('sectionskillcard', function($http, $rootScope, localStorageService,
+    .factory('sectionskillcard', function($http, $rootScope,
         UserAuthService) {
         return {
             getjson: function() {
