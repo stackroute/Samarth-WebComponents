@@ -1,26 +1,30 @@
 angular.module('samarth-webcomponents')
-    .factory('sectionskillcard', function($http) 
-    {
+    .factory('sectionskillcard', function($http, $rootScope, localStorageService,
+        UserAuthService) {
         return {
             getjson: function() {
-        	var skill={};
-            return    $http({ 
+                var skill = {};
+                var candidateid = UserAuthService.getUser().uname;
+
+                return $http({ 
                     method: "get",
-                     url: "api/profiles/01",
-                     
+                    url: "http://localhost:8081/skill/" + candidateid,
+
                 }).then(function mySucces(response)  { 
-                    for (var prop in response.data)  { 
-                        if (prop == "Skills")  { 
-                            skill[prop] = response.data[prop]; 
+                    // console.log("res",response.data[0])
+                    for (var prop in response.data[0])  { 
+                        if (prop == "skills")  { 
+
+                            skill[prop] = response.data[0][prop]; 
                         }
-                        
+
                     }
-                   
+                    //console.log("skill",skill);
                      
                     return skill;
 
                 }, function myError(response) { 
-                    alert('error'); 
+                    console.log('error in getting sectionskill'); 
                 });
             }
 

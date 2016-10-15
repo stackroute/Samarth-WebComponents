@@ -4,6 +4,7 @@ md-card>md-card-title{
 my-personalinfocard{
 	width:100%;
 }
-/*md-card-title-text{
-	height: 30%;
-}*/
+.md-title{
+	padding:0px;
+}
+
