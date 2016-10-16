@@ -4,30 +4,56 @@
 <head>
     <title>Test Samarth Webcomponents</title>
 </head>
+<!--Include all your css for the webcomponents-->
 <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
 <link rel="stylesheet" href="./bower_components/google-material-icons/dist/material-icons-font.css">
 <link rel="stylesheet" href="./bower_components/samarth-webcomponents/skillcard/css/skillcard.css">
+<link rel="stylesheet" href="./bower_components/samarth-webcomponents/sectionworkexperiencecard/css/workexpriencecard.css">
+<link rel="stylesheet" href="./bower_components/samarth-webcomponents/sectionskillcard/css/sectionskillcard.css">
+<link rel="stylesheet" href="./bower_components/samarth-webcomponents/sectionseducationcard/css/sectionseducationcard.css">
+<link rel="stylesheet" href="./bower_components/samarth-webcomponents/sectionprojectcard/css/sectionprojectcard.css">
+<link rel="stylesheet" href="./bower_components/samarth-webcomponents/sectionpersonalinfocard/css/sectionpersonalinfocard.css">
+<!--Include all your bower dependencies scripts-->
 <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
 <script src="./bower_components/angular-animate/angular-animate.js"></script>
 <script src="./bower_components/angular-aria/angular-aria.js"></script>
-<script src="./bower_components/angular-material/angular-material.js"></script>
+<!-- <script src="./bower_components/angular-material/angular-material.js"></script> -->
 <script src="./bower_components/angular-messages/angular-messages.js"></script>
+<script src="./bower_components/html2canvas/build/html2canvas.js"></script>
 <!-- Now create the dependency on webcomponent from your angular app -->
 <script>
 angular
-    .module('testApp', ['samarth-webcomponents'])
+    .module('testApp', ['samarth-webcomponents', 'ngMessages', 'ngMaterial'])
     .controller('testCtrl', function($scope) {
         $scope.message = "Welcome to test suite for Samarth Webcomponents"
     });
 </script>
 
 <body ng-app='testApp' ng-controller="testCtrl">
-    <h2>{{message}}</h2>
-    <my-skillcard></my-skillcard>
+    <center>
+        <h2>{{message}}</h2></center>
+    <!--Pass the candidateid to components-->
+    <my-skillcard candidateid='9501485397'></my-skillcard>
+    <my-workexperiencecard candidateid='9501485397'></my-workexperiencecard>
+    <mysection-skill-card candidateid='9501485397'></mysection-skill-card>
+    <my-educationcard candidateid='9501485397'></my-educationcard>
+    <my-projectsectioncard candidateid='9501485397'></my-projectsectioncard>
+    <my-personalinfocard candidateid='9501485397'></my-personalinfocard>
 </body>
+<!--Include all your webcomponents scripts-->
 <script src="./bower_components/samarth-webcomponents/samarth-webcomponents.js"></script>
 <script src="./bower_components/samarth-webcomponents/skillcard/skillcard.js"></script>
 <script src="./bower_components/samarth-webcomponents/skillcard/services/skillcardservice.js"></script>
+<script src="./bower_components/samarth-webcomponents/sectionworkexperiencecard/service/sectionworkexperience.js"></script>
+<script src="./bower_components/samarth-webcomponents/sectionworkexperiencecard/sectionworkexperiencecard.js"></script>
+<script src="./bower_components/samarth-webcomponents/sectionskillcard/services/sectionskillservices.js"></script>
+<script src="./bower_components/samarth-webcomponents/sectionskillcard/sectionskillcard.js"></script>
+<script src="./bower_components/samarth-webcomponents/sectionseducationcard/services/sectioneducationservice.js"></script>
+<script src="./bower_components/samarth-webcomponents/sectionseducationcard/sectionseducationcard.js"></script>
+<script src="./bower_components/samarth-webcomponents/sectionprojectcard/services/sectionprojectservice.js"></script>
+<script src="./bower_components/samarth-webcomponents/sectionprojectcard/sectionprojectcard.js"></script>
+<script src="./bower_components/samarth-webcomponents/sectionpersonalinfocard/sectionpersonalinfocard.js"></script>
+<script src="./bower_components/samarth-webcomponents/sectionpersonalinfocard/services/sectionpersonalinfoservice.js"></script>
 
 </html>

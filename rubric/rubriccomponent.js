@@ -6,8 +6,8 @@
     angular.module('samarth-webcomponents')
         .component('smVerificationRubric', {
             bindings: {
-                brand: '<',
-                data: '=',
+                name: '<',
+                profiletype: '<',
                 outcome: '='
 
             },
@@ -16,122 +16,129 @@
             controller: rubricCtrl
         });
 
-    function rubricCtrl() {
+    function rubricCtrl(rubricservice) {
 
-        console.log(this.brand);
-        console.log(this.data);
-        if (this.data == 'Candidate') {
+        // console.log(this.brand);
+        // console.log(this.data);
+        this.description = [];
+        rubricfactory.getrubricdata(this.name, this.profiletype).then(function(response) {
+            this.description = response.data;
+        }, function(err) {
+            console.log(err);
+        });
 
-            this.description = [{
-                name: "Education Details",
-                columns: [
-                    { title: 'invalid', desc: 'The profile is invalid due to invalid education details', value: 1 },
-                    { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-                    { title: 'wrong', desc: "Wrong description given", value: 3 },
-                    { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
+        // if (this.data == 'Candidate') {
 
-                ],
-                model: 'edu'
+        //     this.description = [{
+        //         name: "Education Details",
+        //         columns: [
+        //             { title: 'invalid', desc: 'The profile is invalid due to invalid education details', value: 1 },
+        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
+        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
+        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
 
-
-
-            }, {
-                name: "Personal Details",
-                columns: [
-                    { title: 'invalid', desc: 'The profile is invalid due to invalid personal details', value: 1 },
-                    { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-                    { title: 'wrong', desc: "Wrong description given", value: 3 },
-                    { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-                ],
-                model: 'pd'
-
-
-            }, {
-                name: "Experience Details",
-                columns: [
-                    { title: 'invalid', desc: 'The profile is invalid due to invalid experience details', value: 1 },
-                    { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-                    { title: 'wrong', desc: "Wrong description given", value: 3 },
-                    { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-                ],
-                model: 'ed'
-
-
-            }, {
-                name: "Skill Details",
-                columns: [
-                    { title: 'invalid', desc: 'The profile is invalid due to invalid skill details', value: 1 },
-                    { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-                    { title: 'wrong', desc: "Wrong description given", value: 3 },
-                    { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-                ],
-                model: 'sd'
+        //         ],
+        //         model: 'edu'
 
 
 
-            }];
-        } else {
-            this.description = [{
-                name: "Job Description",
-                columns: [
-                    { title: 'invalid', desc: 'The profile is invalid due to invalid job details', value: 1 },
-                    { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-                    { title: 'wrong', desc: "Wrong description given", value: 3 },
-                    { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
+        //     }, {
+        //         name: "Personal Details",
+        //         columns: [
+        //             { title: 'invalid', desc: 'The profile is invalid due to invalid personal details', value: 1 },
+        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
+        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
+        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
 
-                ],
-                model: 'jd'
+        //         ],
+        //         model: 'pd'
 
 
+        //     }, {
+        //         name: "Experience Details",
+        //         columns: [
+        //             { title: 'invalid', desc: 'The profile is invalid due to invalid experience details', value: 1 },
+        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
+        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
+        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
 
-            }, {
-                name: "Required Skills",
-                columns: [
-                    { title: 'invalid', desc: 'The profile is invalid due to invalid required skill details', value: 1 },
-                    { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-                    { title: 'wrong', desc: "Wrong description given", value: 3 },
-                    { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-                ],
-                model: 'rs'
-
+        //         ],
+        //         model: 'ed'
 
 
-            }, {
-                name: "Required Experience",
-                columns: [
-                    { title: 'invalid', desc: 'The profile is invalid due to invalid required experience details', value: 1 },
-                    { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-                    { title: 'wrong', desc: "Wrong description given", value: 3 },
-                    { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
+        //     }, {
+        //         name: "Skill Details",
+        //         columns: [
+        //             { title: 'invalid', desc: 'The profile is invalid due to invalid skill details', value: 1 },
+        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
+        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
+        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
 
-                ],
-                model: 're'
-
-
-            }, {
-                name: "Salary Details",
-                columns: [
-                    { title: 'invalid', desc: 'The profile is invalid due to invalid salary details', value: 1 },
-                    { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-                    { title: 'wrong', desc: "Wrong description given", value: 3 },
-                    { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-                ],
-                model: 'sal'
-
-
-            }];
-        }
+        //         ],
+        //         model: 'sd'
 
 
 
+        //     }];
+        // } else {
+        //     this.description = [{
+        //         name: "Job Description",
+        //         columns: [
+        //             { title: 'invalid', desc: 'The profile is invalid due to invalid job details', value: 1 },
+        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
+        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
+        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
+
+        //         ],
+        //         model: 'jd'
 
 
-        this.headers = ['Invalid', 'Valid', 'Wrong', 'Satisfactory', 'Grade'];
+
+        //     }, {
+        //         name: "Required Skills",
+        //         columns: [
+        //             { title: 'invalid', desc: 'The profile is invalid due to invalid required skill details', value: 1 },
+        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
+        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
+        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
+
+        //         ],
+        //         model: 'rs'
+
+
+
+        //     }, {
+        //         name: "Required Experience",
+        //         columns: [
+        //             { title: 'invalid', desc: 'The profile is invalid due to invalid required experience details', value: 1 },
+        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
+        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
+        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
+
+        //         ],
+        //         model: 're'
+
+
+        //     }, {
+        //         name: "Salary Details",
+        //         columns: [
+        //             { title: 'invalid', desc: 'The profile is invalid due to invalid salary details', value: 1 },
+        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
+        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
+        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
+
+        //         ],
+        //         model: 'sal'
+
+
+        //     }];
+        // }
+
+
+
+
+
+        // this.headers = ['Invalid', 'Valid', 'Wrong', 'Satisfactory', 'Grade'];
         // this.domains = ['Education Details', 'Personal Details', 'Experience Details', 'Skill Details'];
 
 

@@ -1,20 +1,21 @@
 {
-    "name": "testSamarthWebComponents",
-    "description": "",
-    "main": "",
-    "license": "MIT",
-    "homepage": "",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "test",
-        "tests"
-    ],
-    "dependencies": {
-        "samarth-webcomponents": "https://github.com/stackroute/Samarth-WebComponents.git#intgbranch_wave9",
-        "angular": "angularjs#^1.5.8",
-        "angular-material": "^1.1.1",
-        "google-material-icons": "#2.1.3"
-    }
+  "name": "testSamarthWebComponents",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "samarth-webcomponents": "https://github.com/stackroute/Samarth-WebComponents.git#intgbranch_wave9",
+    "angular": "angularjs#^1.5.8",
+    "angular-material": "^1.1.1",
+    "google-material-icons": "#2.1.3",
+    "html2canvas": "^0.4.1"
+  }
 }
