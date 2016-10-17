@@ -1,21 +1,21 @@
 <div flex-xs="100" flex-gt-xs="100">
-    <div layout="row" layout-xs="column" flex>
-        <a ui-sref="circleDetail" ng-repeat="prof in $ctrl.profiling" flex-xs="40" flex-gt-xs="25">
-            <div class="card">
-                <div>
-                    <img ng-src="{{prof.profile}}" />
-                </div>
-                <div>
-                    <span class="md-headline">{{prof.name}}</span>
-                </div>
-                <div>
-                    <span class="md-subhead">{{prof.Admin}}</span>
-                    <span class="md-subhead">{{prof.circleDiscription}}</span>
-                </div>
-            </div>
-        </a>
-    </div>
     <md-button class="md-fab" class="md-primary md-raised" ng-click="$ctrl.showForm($event)" aria-label="Add circles">
         <ng-md-icon icon="add"></ng-md-icon>
     </md-button>
+    <div layout="row" layout-xs="column" flex>
+        <a ui-sref="circleDetail" ng-repeat="prof in $ctrl.profiling" flex-xs="25" flex-gt-xs="25">
+            <md-card class="card">
+                <img ng-src="{{prof.profilePic}}" class="md-card-image" />
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-title">{{prof.name}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <span class="md-subhead">{{prof.count(rel)}}</span>
+                    <span class="md-subhead">{{prof.domain}}'s</span>
+                </md-card-content>
+            </md-card>
+        </a>
+    </div>
 </div>

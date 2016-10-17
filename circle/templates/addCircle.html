@@ -1,10 +1,10 @@
 <md-dialog>
-    <form ng-cloak ng-submit="$ctrl.addCircle()">
+    <form ng-cloak>
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>Add Circles</h2>
                 <span flex></span>
-                <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+                <md-button class="md-icon-button" ng-click="cancel()">
                     <ng-md-icon icon="cancel"></ng-md-icon>
                 </md-button>
             </div>
@@ -49,21 +49,23 @@
             </div>
             <div>
                 <md-input-container>
-                    <label>profile Image Url</label>
-                    <input ng-model="circle.profile">
+                    <label>Domain</label>
+                    <input ng-model="circle.domain">
                 </md-input-container>
             </div>
             <md-dialog-actions layout="row">
                 <md-button>
-                    <ng-md-icon icon="save"></ng-md-icon>
+                    <ng-md-icon icon="save" ng-click="submit(circle)"></ng-md-icon>
                 </md-button>
             </md-dialog-actions>
         </md-content>
     </form>
 </md-dialog>
-<!--  name: { type: String, require: true },
-    circleDiscription: { type: String },
-    circleType: { type: String, require: true },
-    visuality: { type: String, require: true },
-    Admin: { type: String, require: true },
-    profile: { type: String } -->
+<!-- //name: req.body.name,
+//        circleDiscription: req.body.circleDiscription,
+//        domain:req.body.domain
+//        circleType: req.body.circleType,
+//        visuality:req.body.visuality,
+//        admin:req.body.admin,
+//        profilePic:req.body.profilePic,
+ -->
