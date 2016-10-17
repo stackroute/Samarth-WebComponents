@@ -34,12 +34,12 @@
                 </md-chips>
             </div>
             <div layout-xs="column" layout-gt-xs="row">
-                <span class="md-title" flex-xs flex-gt-xs="60">Experience:{{job.experience.experienceYear}}Years&nbsp;{{job.experience.experienceMonth}}&nbsp;months</span>
-                <span class="md-title" flex-xs flex-gt-xs="40">Posted on {{job.jobPostDate}}</span>
+                <span class="md-title" flex-xs flex-gt-xs="60">Experience:&nbsp;{{job.experience.experienceYear}}&nbsp;Years&nbsp;{{job.experience.experienceMonth}}&nbsp;months</span>
+                <span class="md-title" flex-xs flex-gt-xs="40">Posted on: {{job.jobPostDate | date:'yyyy-MM-dd'}}</span>
             </div>
             <div layout-xs="column" layout-xs="column" layout-gt-xs="row">
-                <span class="md-title" flex-xs flex-gt-xs="60">Salary offered : {{job.salaryOffered}}</span>
-                <span class="md-title" flex-xs flex-gt-xs="40">Last date: {{job.jobLastDate}}.</span>
+                <span class="md-title" flex-xs flex-gt-xs="60">Salary offered : &#8377; {{job.salaryOffered}}</span>
+                <span class="md-title" flex-xs flex-gt-xs="40">Last date: {{job.jobLastDate | date:'yyyy-MM-dd'}}.</span>
             </div>
         </md-card-content>
         <!-- The action bar for card, can include anything inside this while using the webcomponents -->
