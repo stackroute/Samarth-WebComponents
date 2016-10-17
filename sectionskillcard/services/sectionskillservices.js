@@ -1,10 +1,9 @@
 angular.module('samarth-webcomponents')
-    .factory('sectionskillcard', function($http, $rootScope,
-        UserAuthService) {
+    .factory('sectionskillcard', function($http, $rootScope) {
         return {
-            getjson: function() {
+            getjson: function(candidateid) {
                 var skill = {};
-                var candidateid = UserAuthService.getUser().uname;
+                // var candidateid = UserAuthService.getUser().uname;
 
                 return $http({ 
                     method: "get",
@@ -25,6 +24,29 @@ angular.module('samarth-webcomponents')
 
                 }, function myError(response) { 
                     console.log('error in getting sectionskill'); 
+                });
+            }
+
+        };
+    })
+    .factory('datagenerate', function($http) {
+        return {
+            getjson: function(key, lang) {
+                var data = {};
+                return $http({
+                    method: 'GET',
+                    url: 'http://localhost:8081/resource/' + key + lang,
+                    type: 'JSON'
+
+                }).then(function mySucces(response) {
+                    data = response.data;
+
+
+                    console.log(data);
+                    return data;
+
+                }, function errorCallback(response) {
+                    return (response.error.message);
                 });
             }
 

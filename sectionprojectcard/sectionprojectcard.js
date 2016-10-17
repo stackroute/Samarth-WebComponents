@@ -5,32 +5,35 @@ angular.module('samarth-webcomponents')
     .component('myProjectsectioncard', {            
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionprojectcard.html',
-        controller: projectsectioncardCtrl          
+        controller: projectsectioncardCtrl,
+        bindings: {
+            candidateid: '<'
+        }          
     });
 
-function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope,
-    UserAuthService) {
+function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
 
     var ctrl = this;  
-    var candidateid = UserAuthService.getUser().uname;
+    //var candidateid = UserAuthService.getUser().uname;
     ctrl.loadLangData = function(lang) {
-        datagenerate.getjson("section", lang).then(function(result) {
-            ctrl.items = result;
-            // console.log("for skills");
-            // console.log(result);
+            datagenerate.getjson("section", lang).then(function(result) {
+                ctrl.items = result;
+                // console.log("for skills");
+                // console.log(result);
 
-        }); //end datagenerate
-    }
-    ctrl.loadLangData(getItem("lang"));
+            }); //end datagenerate
+        }
+        // ctrl.loadLangData(getItem("lang"));
 
     function getItem(key) {
         // return localStorageService.get(key);
     }
     //$scope.loadLangData("Hindi");
-    $rootScope.$on("lang_changed", function(event, data) {
-        // console.log("User switch to language " + data.language);
-        ctrl.loadLangData(data.language);
-    });
+    ctrl.loadLangData("English");
+    // $rootScope.$on("lang_changed", function(event, data) {
+    //     // console.log("User switch to language " + data.language);
+    //     ctrl.loadLangData(data.language);
+    // });
 
     ctrl.changeFont = 'changeProjectNameFont';
     ctrl.profile = []; 
@@ -51,7 +54,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope,
 
     $http({
         method: 'GET',
-        url: 'http://localhost:8081/project/' + candidateid
+        url: 'http://localhost:8081/project/' + this.candidateid
 
     }).then(function successCallback(response) {
         for (var noOfObjects = 0; noOfObjects < response.data.length; noOfObjects++) {
@@ -72,7 +75,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope,
         ctrl.totalProjects = 0;
         $http({
             method: 'GET',
-            url: 'http://localhost:8081/project/' + candidateid
+            url: 'http://localhost:8081/project/' + this.candidateid
 
         }).then(function successCallback(response) {
             for (var noOfObjects = 0; noOfObjects < response.data.length; noOfObjects++) {
@@ -110,9 +113,8 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope,
             );
     };
 
-    function DialogController($scope, $mdDialog, $http, header, object,
-        UserAuthService) {
-        var candidateid = UserAuthService.getUser().uname;
+    function DialogController($scope, $mdDialog, $http, header, object) {
+        // var candidateid = UserAuthService.getUser().uname;
         $scope.header = header;
         $scope.projectObj = object;
         $scope.skills = $scope.projectObj.skills;
@@ -179,7 +181,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope,
                 console.log("before adding project", projectData);
                 $http({
                     method: 'POST',
-                    url: 'http://localhost:8081/project/' + candidateid,
+                    url: 'http://localhost:8081/project/' + this.candidateid,
                     data: projectData,
                     crossDomain: true
                 }).then(function successCallback(response) {
@@ -193,7 +195,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope,
                 console.log("projectdata", projectData);
                 $http({
                     method: 'PATCH',
-                    url: 'http://localhost:8081/project/' + candidateid + "/" +
+                    url: 'http://localhost:8081/project/' + this.candidateid + "/" +
                         object.name,
                     data: projectData,
                     crossDomain: true

@@ -6,37 +6,40 @@ var app = angular
     .component('myEducationcard', {
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionseducationcard.html',
-        controller: educationCardController
+        controller: educationCardController,
+        bindings: {
+            candidateid: '<'
+        }
 
     });
 
-function educationCardController($mdDialog, $http, datagenerate, $rootScope,
-    UserAuthService) {
+function educationCardController($mdDialog, $http, datagenerate, $rootScope) {
     var ctrl = this;
-    var candidateid = UserAuthService.getUser().uname;
+    // var candidateid = UserAuthService.getUser().uname;
     ctrl.loadLangData = function(lang) {
-        datagenerate.getjson("section", lang).then(function(result) {
-            ctrl.items = result;
+            datagenerate.getjson("section", lang).then(function(result) {
+                ctrl.items = result;
 
 
 
-        }); //end datagenerate
-    }
-    ctrl.loadLangData(getItem("lang"));
+            }); //end datagenerate
+        }
+        // ctrl.loadLangData(getItem("lang"));
 
     function getItem(key) {
         // return localStorageService.get(key);
     }
     //$scope.loadLangData("Hindi");
-    $rootScope.$on("lang_changed", function(event, data) {
+    ctrl.loadLangData("English");
+    // $rootScope.$on("lang_changed", function(event, data) {
 
-        ctrl.loadLangData(data.language);
-    });
+    //     ctrl.loadLangData(data.language);
+    // });
 
     ctrl.eduDetails = [];
     ctrl.schools = [];
     ctrl.colleges = [];
-    $http.get('http://localhost:8081/education/' + candidateid).then(function(
+    $http.get('http://localhost:8081/education/' + this.candidateid).then(function(
         response) {
 
         for (var noOfObjects = 0; noOfObjects < response.data[0].qualification.length; noOfObjects++) {
@@ -66,7 +69,7 @@ function educationCardController($mdDialog, $http, datagenerate, $rootScope,
         ctrl.schools = [];
         ctrl.colleges = [];
         console.log("data changed");
-        $http.get('http://localhost:8081/education/' + candidateid).then(
+        $http.get('http://localhost:8081/education/' + this.candidateid).then(
             function(response) {
 
                 for (var noOfObjects = 0; noOfObjects < response.data[0].qualification
@@ -116,9 +119,8 @@ function educationCardController($mdDialog, $http, datagenerate, $rootScope,
             );
     };
 
-    function DialogController($scope, $mdDialog, $http, header, object,
-        UserAuthService, $rootScope) {
-        var candidateid = UserAuthService.getUser().uname;
+    function DialogController($scope, $mdDialog, $http, header, object, $rootScope) {
+        // var candidateid = UserAuthService.getUser().uname;
         $scope.header = header;
         // $scope.yearval="";
 
@@ -196,7 +198,7 @@ function educationCardController($mdDialog, $http, datagenerate, $rootScope,
             if (header == ("Add Education")) {
                 $http({
                         method: 'POST',
-                        url: 'http://localhost:8081/education/' + candidateid,
+                        url: 'http://localhost:8081/education/' + this.candidateid,
                         // 'Content-Type':'application/json',
                         data: education
                     })
@@ -213,7 +215,7 @@ function educationCardController($mdDialog, $http, datagenerate, $rootScope,
             if (header == "Edit School" || header == "Edit College") {
                 $http({
                         method: 'PATCH',
-                        url: 'http://localhost:8081/education/' + candidateid + "/" +
+                        url: 'http://localhost:8081/education/' + this.candidateid + "/" +
                             $scope.title,
                         // 'Content-Type':'application/json',
                         data: education

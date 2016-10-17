@@ -6,7 +6,8 @@ angular.module('samarth-webcomponents')        .component('mySkillcard',
         '/')) + '/templates/skillcard.html',
                 controller: skillcardctrl,
     bindings: {
-        // data: "="
+        candidateid: '<'
+            // data: "="
     },
     transclude: true             
 });
@@ -15,7 +16,7 @@ function skillcardctrl($window, $timeout, $mdDialog, skillcardservice)     
     var ctrl = this;
     var name;
     console.log("Inside skill card ctrl....");
-    skillcardservice.getskillcarddata().then(function(result) {
+    skillcardservice.getskillcarddata(this.candidateid).then(function(result) {
         ctrl.data = result;
     });
 

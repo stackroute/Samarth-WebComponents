@@ -5,7 +5,10 @@ angular.module('samarth-webcomponents')
     .component('myPersonalinfocard', {
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionpersonalinfocard.html',
-        controller: personalinfoCardController
+        controller: personalinfoCardController,
+        bindings: {
+            candidateid: '<'
+        }
     }).directive('formattedDate', function(dateFilter) {
         return {
             require: 'ngModel',
@@ -34,32 +37,32 @@ angular.module('samarth-webcomponents')
 
 
 
-function personalinfoCardController($http, $mdDialog, $rootScope,
-    UserAuthService, datagenerate) {
+function personalinfoCardController($http, $mdDialog, $rootScope, datagenerate) {
     var ctrl = this;
     ctrl.personalInfo = {};
-    var candidateid = UserAuthService.getUser().uname;
+    // var candidateid = UserAuthService.getUser().uname;
 
     ctrl.loadLangData = function(lang) {
-        datagenerate.getjson("section", lang).then(function(result) {
-            ctrl.items = result;
+            datagenerate.getjson("section", lang).then(function(result) {
+                ctrl.items = result;
 
-        }); //end datagenerate
-    }
-    ctrl.loadLangData(getItem("lang"));
+            }); //end datagenerate
+        }
+        //  ctrl.loadLangData(getItem("lang"));
 
     function getItem(key) {
         // return localStorageService.get(key);
     }
+    ctrl.loadLangData("English");
     //$scope.loadLangData("Hindi");
-    $rootScope.$on("lang_changed", function(event, data) {
+    // $rootScope.$on("lang_changed", function(event, data) {
 
-        ctrl.loadLangData(data.language);
-    });
+    //     ctrl.loadLangData(data.language);
+    // });
 
     $http({
         method: "GET",
-        url: 'http://localhost:8081/personalinfo/' + candidateid
+        url: 'http://localhost:8081/personalinfo/' + this.candidateid
     }).then(function successCallback(response) {
 
         ctrl.personalInfo = response.data[0];
@@ -103,7 +106,7 @@ function personalinfoCardController($http, $mdDialog, $rootScope,
 
     function DialogController($scope, $mdDialog, val, header) {
         $scope.personalObject = val;
-        var candidateid = UserAuthService.getUser().uname;
+        //var candidateid = UserAuthService.getUser().uname;
 
         $scope.header = header;
         $scope.hide = function() {
@@ -133,7 +136,7 @@ function personalinfoCardController($http, $mdDialog, $rootScope,
             if (header === "Edit Info") {
                 $http({ 
                     method: "POST",
-                    url: "http://localhost:8081/personalinfo/" + candidateid,
+                    url: "http://localhost:8081/personalinfo/" + this.candidateid,
                     data: personalinfoObj
 
                 }).then(function mySucces(response)  { 

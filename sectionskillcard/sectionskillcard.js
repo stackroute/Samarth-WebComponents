@@ -5,7 +5,10 @@ angular.module('samarth-webcomponents')
     .component('mysectionSkillCard', {
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionskillcard.html',
-        controller: sectionskillcardctrl
+        controller: sectionskillcardctrl,
+        bindings: {
+            candidateid: '<'
+        }
     })
     .filter('capitalize', function() {
         return function(input) {
@@ -16,10 +19,10 @@ angular.module('samarth-webcomponents')
 
 
 function sectionskillcardctrl($http, sectionskillcard, $mdDialog, datagenerate,
-    $rootScope, UserAuthService) {
+    $rootScope) {
     var ctrl = this;
-    var candidateid = UserAuthService.getUser().uname;
-    console.log("Inside skill section", candidateid);
+    // var candidateid = UserAuthService.getUser().uname;
+    console.log("Inside skill section", this.candidateid);
     ctrl.loadLangData = function(lang) {
         datagenerate.getjson("section", lang).then(function(result) {
             ctrl.items = result;
@@ -28,16 +31,17 @@ function sectionskillcardctrl($http, sectionskillcard, $mdDialog, datagenerate,
     }
 
 
-    ctrl.loadLangData(getItem("lang"));
+    // ctrl.loadLangData(getItem("lang"));
 
     function getItem(key) {
         // return localStorageService.get(key);
     }
     //$scope.loadLangData("Hindi");
-    $rootScope.$on("lang_changed", function(event, data) {
+    ctrl.loadLangData("English");
+    // $rootScope.$on("lang_changed", function(event, data) {
 
-        ctrl.loadLangData(data.language);
-    });
+    //     ctrl.loadLangData(data.language);
+    // });
     ctrl.limitval = 3;
     ctrl.limitval2 = 3;
     ctrl.value = 40;
@@ -62,7 +66,7 @@ function sectionskillcardctrl($http, sectionskillcard, $mdDialog, datagenerate,
         ctrl.limitval2 = ctrl.limitval2 - 3;
     }
 
-    sectionskillcard.getjson().then(function(result) {
+    sectionskillcard.getjson(this.candidateid).then(function(result) {
         ctrl.skill = result;
         //console.log("skill object", ctrl.skill);
 
@@ -90,7 +94,7 @@ function sectionskillcardctrl($http, sectionskillcard, $mdDialog, datagenerate,
 
     });
     $rootScope.$on("skilldatachanged", function() {
-        sectionskillcard.getjson().then(function(result) {
+        sectionskillcard.getjson(this.candidateid).then(function(result) {
             ctrl.skill = result;
             //console.log("skill object", ctrl.skill);
             ctrl.primary = [];
@@ -147,13 +151,12 @@ function sectionskillcardctrl($http, sectionskillcard, $mdDialog, datagenerate,
             });
     };
 
-    function DialogController($scope, $mdDialog, val, header,
-        UserAuthService) {
+    function DialogController($scope, $mdDialog, val, header) {
         $scope.exp = [];
         for (i = 0; i <= 40; i++) {
             $scope.exp.push(i);
         }
-        var candidateid = UserAuthService.getUser().uname;
+        // var candidateid = UserAuthService.getUser().uname;
         $scope.skillObject = val;
         var skill = val.skillname;
         //console.log("coming", skill);
@@ -179,7 +182,7 @@ function sectionskillcardctrl($http, sectionskillcard, $mdDialog, datagenerate,
             if (header === "Add Skill") {
                 $http({ 
                     method: "post",
-                    url: "http://localhost:8081/skill/" + candidateid,
+                    url: "http://localhost:8081/skill/" + this.candidateid,
                     data: skillObj
                 }).then(function mySucces(response)  { 
                     console.log("res", response.data[0])
@@ -192,7 +195,7 @@ function sectionskillcardctrl($http, sectionskillcard, $mdDialog, datagenerate,
             if (header === "Edit Skill") {
                 $http({ 
                     method: "patch",
-                    url: "http://localhost:8081/skill/" + candidateid + "/" + skill,
+                    url: "http://localhost:8081/skill/" + this.candidateid + "/" + skill,
                     data: skillObj
                 }).then(function mySucces(response)  { 
                     console.log("res", response)

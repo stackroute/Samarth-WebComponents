@@ -51,16 +51,17 @@ function workexperienceCardController($http, $mdDialog,
     }
 
 
-    ctrl.loadLangData(getItem("lang"));
+    // ctrl.loadLangData(getItem("lang"));
 
     function getItem(key) {
         // return localStorageService.get(key);
     }
     //$scope.loadLangData("Hindi");
-    $rootScope.$on("lang_changed", function(event, data) {
+    ctrl.loadLangData("English");
+    // $rootScope.$on("lang_changed", function(event, data) {
 
-        ctrl.loadLangData(data.language);
-    });
+    //     ctrl.loadLangData(data.language);
+    // });
 
     ctrl.workexperiences = [];
     ctrl.workexperience1 = [];
