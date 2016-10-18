@@ -8,9 +8,12 @@ angular.module('samarth-webcomponents')        .component('mySkillcard',
     bindings: {
         candidateid: '<'
             // data: "="
-    },
-    transclude: true             
-});
+        },
+        transclude: {
+            cardactions : "cardactions",
+            badges : "badges"
+        }             
+    });
 
 function skillcardctrl($window, $timeout, $mdDialog, skillcardservice)            {
     var ctrl = this;
@@ -27,9 +30,9 @@ function skillcardctrl($window, $timeout, $mdDialog, skillcardservice)     
         ctrl.downloaddata = JSON.stringify(ctrl.data1);
 
         blob = new Blob([ctrl.downloaddata], {
-                type: 'text/plain'
-            }),
-            url = $window.URL || $window.webkitURL;
+            type: 'text/plain'
+        }),
+        url = $window.URL || $window.webkitURL;
         ctrl.fileUrl = url.createObjectURL(blob);
     }
     var getCanvas;
