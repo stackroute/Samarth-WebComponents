@@ -91,9 +91,18 @@
         </div>
     </div>
     <md-divider id="divider2" hide-xs></md-divider>
-    <div id="section4" flex hide-xs>
-        SKILLS:
-        <span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}} &nbsp</span>
+    <div id="section4" flex >
+        <md-chips ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined"  readonly="true" md-removable="false" name="skills">
+
+            <md-chip-template>
+                <strong>
+                    {{$chip.skillname}}
+                </strong>
+                
+            </md-chip-template>
+        </md-chips>
+
+        <!-- <span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}} &nbsp</span> -->
     </div>
 </div>
 </md-card-content>
