@@ -17,12 +17,20 @@
         });
 
     function rubricCtrl(rubricservice) {
+        var ctrl = this;
 
-        // console.log(this.brand);
-        // console.log(this.data);
-        this.description = [];
-        rubricfactory.getrubricdata(this.name, this.profiletype).then(function(response) {
-            this.description = response.data;
+        ctrl.description = [];
+        ctrl.desc = {};
+
+        rubricservice.getrubricdata(ctrl.name, ctrl.profiletype).then(function(response) {
+
+            ctrl.description.push(response.data);
+
+            ctrl.desc = ctrl.description[0];
+
+            ctrl.desc1 = ctrl.desc[0];
+            //console.log(ctrl.desc1.header);
+
         }, function(err) {
             console.log(err);
         });
@@ -143,7 +151,7 @@
 
 
 
-        this.average = function(desc) {
+        ctrl.average = function(desc) {
             var sum = 0;
             angular.forEach(desc, function(value, key) {
 
@@ -153,8 +161,8 @@
             });
             var len = desc.length;
 
-            this.outcome = (sum / len);
-            console.log(this.outcome);
+            ctrl.outcome = (sum / len);
+            console.log(ctrl.outcome);
 
 
         }

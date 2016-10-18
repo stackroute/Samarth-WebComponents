@@ -27,7 +27,9 @@
 angular
     .module('testApp', ['samarth-webcomponents', 'ngMessages', 'ngMaterial'])
     .controller('testCtrl', function($scope) {
-        $scope.message = "Welcome to test suite for Samarth Webcomponents"
+        $scope.message = "Welcome to test suite for Samarth Webcomponents";
+        $scope.job = "Job";
+        $scope.profiletype = "Engineer";
     });
 </script>
 
@@ -42,7 +44,7 @@ angular
 <my-projectsectioncard candidateid='9677875999'></my-projectsectioncard>
 <my-personalinfocard candidateid='9677875999'></my-personalinfocard>
  -->
-    <sm-verification-rubric name="'Job'" profiletype="'Engineer'" outcome="0">
+    <sm-verification-rubric name="job" profiletype="profiletype" outcome="0">
     </sm-verification-rubric>
 </body>
 <!--Include all your webcomponents scripts-->
