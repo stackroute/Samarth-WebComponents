@@ -1,7 +1,7 @@
 <md-card class="rubrictable">
     <div layout="row" layout-gt-xs="column" layout-padding>
         <div class="caption">
-            RUBRIC {{$ctrl.brand}} DATA {{$ctrl.data}}
+            RUBRIC {{$ctrl.name}} DATA {{$ctrl.profiletype}}
         </div>
         <md-table-container>
             <table md-table>
@@ -11,7 +11,7 @@
                             <div layout="row" layout-margin flex>
                                 <div flex="10">Traits/Scale--></div>
                                 <div flex="90" layout="row">
-                                    <div class="md-title" ng-repeat="a in $ctrl.headers" flex="20">
+                                    <div class="md-title" ng-repeat="a in $ctrl.desc1.header" flex="20">
                                         {{a}}
                                     </div>
                                 </div>
@@ -20,12 +20,12 @@
                     </tr>
                 </thead>
                 <tbody md-body>
-                    <tr md-row ng-repeat="x in $ctrl.description">
+                    <tr md-row ng-repeat="x in $ctrl.desc1.criteria">
                         <td md-cell>
                             <md-radio-group layout="row" layout-padding ng-model="x.model">
-                                <div flex="10" class="md-subhead">{{x.name}}</div>
-                                <div flex="20" ng-repeat=" a in x.columns">
-                                    <md-radio-button class="md-primary" value="{{a.value}}">{{a.desc}}
+                                <div flex="10" class="md-subhead">{{x.criterianame}}</div>
+                                <div flex="20" ng-repeat=" m in x.columns">
+                                    <md-radio-button class="md-primary" value="{{m.value}}">{{m.desc}}
                                     </md-radio-button>
                                 </div>
                                 <div flex="20">
@@ -42,9 +42,9 @@
             </table>
         </md-table-container>
         <div layout-align="center" layout="row" flex>
-            <md-button class="md-raised md-warn md-block" ng-click="$ctrl.average($ctrl.description)">
+            <md-button class="md-raised md-warn md-block" ng-click="$ctrl.average($ctrl.desc1.criteria)">
                 Overall Grade</md-button>
-            <p>{{$ctrl.avg}}</p>
+            <p>{{$ctrl.outcome}}</p>
         </div>
     </div>
 </md-card>

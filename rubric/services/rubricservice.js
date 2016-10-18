@@ -1,5 +1,5 @@
 angular.module('samarth-webcomponents')
-    .factory('rubricfactory', function($http) {
+    .service('rubricservice', function($http) {
         return {
             getrubricdata: function(name, profiletype) {
                 var data = {};
@@ -9,8 +9,8 @@ angular.module('samarth-webcomponents')
 
 
                 }).then(function(response) {
-                    data = response.data;
-
+                    data = response;
+                    //console.log("from service", data);
 
                     //console.log(data);
                     return data;
