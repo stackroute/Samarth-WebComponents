@@ -1,11 +1,13 @@
-angular.module('samarth-coordinator')
+angular.module('samarth-webcomponents')
     .service('circlesGetService', function($http, $window) {
         var objcircle = {};
-        var userdata = $window.localStorage["member-user"];
-        var username = userdata.data.email;
-        //gets the circle from neo4j 
+        // var userdata = $window.localStorage["member-user"];
+        // var username = userdata.data.email;
+
+        //gets the circle from neo4j and mongo
         objcircle.getCircle = function() {
-            return $http.get('http://localhost:8081/circle/getcircle/' + username)
+            var username = 'ak@gmail.com';
+            return $http.get('http://localhost:8081/circle/' + username)
                 .then(function(res) {
                     //console.log("got circles data");
                     return res;
@@ -19,7 +21,7 @@ angular.module('samarth-coordinator')
         objcircle.addCircle = function(circle) {
             //console.log("service circle", circle);
             return $http({
-                    url: "http://localhost:8081/circle/createcircle",
+                    url: "http://localhost:8081/circle/",
                     method: "POST",
                     data: circle
                 })
