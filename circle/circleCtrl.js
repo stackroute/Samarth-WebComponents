@@ -9,12 +9,17 @@ angular.module('samarth-webcomponents')
     });
 // Ctrl for circle component
 function circleCrtl($http, $log, $mdDialog, circlesGetService) {
-    // console.log("enter in controller");
+    console.log("enter in controller");
     var ctrl = this;
+    // ctrl.circle.profilePic = "http://images.mentalfloss.com/sites/default/files/styles/article_640x430/public/artheader.jpg";
+
     circlesGetService.getCircle()
         .then(function(response) {
             ctrl.profiling = response.data;
-            //console.log(ctrl.profiling);
+
+            // console.log(ctrl.profiling.rCount);
+ // console.log(ctrl.profiling.name);
+
         }, function(err) {
 
         });
