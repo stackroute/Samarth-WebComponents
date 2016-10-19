@@ -19,10 +19,10 @@ function jobCardController($scope, jobCardService) {
     //$scope.job = this.job;
     var data = this.data;
     var jobID = data.jobID;
-    var companyName = data.companyName;
+    var employerID = data.employerID;
     console.log("ID : " + this.data);
     /*Calling the service for getting the details*/
-    jobCardService.getJobByID(jobID, companyName)
+    jobCardService.getJobByID(jobID, employerID)
         .then(function successCallback(response) {
                 console.log("Connected successfully" + response.data);
                 var job = response.data;
