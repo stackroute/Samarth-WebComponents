@@ -7,7 +7,6 @@ angular.module('samarth-webcomponents')
         /*Binding jobID*/
         bindings: {
             data: '<'
-
         },
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/jobCard.html',
@@ -18,10 +17,12 @@ angular.module('samarth-webcomponents')
 /*Controller for job Card*/
 function jobCardController($scope, jobCardService) {
     //$scope.job = this.job;
-    var jobID = this.data;
+    var data = this.data;
+    var jobID = data.jobID;
+    var companyName = data.companyName;
     console.log("ID : " + this.data);
     /*Calling the service for getting the details*/
-    jobCardService.getJobByID(jobID)
+    jobCardService.getJobByID(jobID, companyName)
         .then(function successCallback(response) {
                 console.log("Connected successfully" + response.data);
                 var job = response.data;
