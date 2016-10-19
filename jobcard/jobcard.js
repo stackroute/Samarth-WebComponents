@@ -9,7 +9,7 @@ angular.module('samarth-webcomponents')
             data: '<'
         },
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-            '/')) + '/templates/jobCard.html',
+            '/')) + '/templates/jobcard.html',
         controller: jobCardController,
         transclude: true
     });
