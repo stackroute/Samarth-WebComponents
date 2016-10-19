@@ -1,0 +1,16 @@
+.headerSection {
+    background-color: #B2DFDB;
+}
+
+.bodyContent {
+    background-color: #E0F2F1;
+}
+
+.action {
+    background-color: #80CBC4;
+}
+
+.avatar {
+    height: 70px;
+    width: 60px;
+}
