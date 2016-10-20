@@ -7,12 +7,27 @@ angular.module('samarth-webcomponents')
             '/')) + '/templates/circles.html',
         controller: circleCrtl,
         bindings: {
-            prof: '<'
+            data: '<'
         }
     });
 // Ctrl for circle component
-function circleCrtl($http, $log) {
+function circleCrtl($http, $log, $scope) {
+    console.log("data : " + this.data);
+    $scope.prof = this.data;
     $log.log("enter in component");
+
+
+    $scope.getRandomColor = function() {
+
+
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+
+        color += letters[Math.round(Math.random() * 15)] + letters[Math.round(Math.random() * 15)] + letters[Math.round(Math.random() * 15)] + letters[Math.round(Math.random() * 15)] + letters[Math.round(Math.random() * 15)] + letters[Math.round(Math.random() * 15)];
+
+        return color;
+
+    }
 
 }
 

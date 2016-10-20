@@ -1,13 +1,13 @@
- .card img {
-     position: relative;
-     width: 250px;
-     height: 200px;
- }
+ /*.card img {
+     position: absolute;
+ }*/
  
  .card {
-     width: 250px;
-     height: 300px;
-     overflow: hidden;
+    /* width: 200px;
+ height: 200px;
+ overflow: hidden;
+*/
+     color: white;
  }
  
  a {

@@ -1,16 +1,23 @@
-<md-card class="card " auto-colour='true' text-colour="white">
-    <img ng-src="{{prof.profilePic}} " class="md-card-image " />
-    <md-card-title>
-        <md-card-title-text>
+<md-card class="card transparent" style="background-color:{{getRandomColor()}}">
+    <!-- <img ng-src="{{prof.profilePic}} " class="md-card-image " />
+ -->
+    <md-card-header>
+        <md-card-header-text>
             <span class="md-title ">{{prof.name | uppercase}}</span>
-        </md-card-title-text>
-    </md-card-title>
+        </md-card-header-text>
+        <!-- <md-card-avatar>
+    <img class="md-user-avatar" src="{{prof.profilePic}}" />
+</md-card-avatar>
+ -->
+    </md-card-header>
     <md-card-content>
         <span class="md-subhead ">{{prof.rCount}}</span>
         <span class="md-subhead ">{{prof.domain}}'s</span>
     </md-card-content>
-    <md-card-actions layout="row" layout-align="end center">
+    <md-card-actions layout="row">
         <md-button>Jobs</md-button>
         <md-button>Candidates</md-button>
+        <!-- <md-button>Employer</md-button>
+ -->
     </md-card-actions>
 </md-card>
