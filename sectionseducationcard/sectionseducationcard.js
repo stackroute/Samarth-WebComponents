@@ -6,14 +6,14 @@ var app = angular
     .component('myEducationcard', {
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionseducationcard.html',
-        controller: educationCardController,
+        controller: educationcardCtrl,
         bindings: {
             candidateid: '<'
         }
 
     });
 
-function educationCardController($mdDialog, $http, datagenerate, $rootScope) {
+function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
     var ctrl = this;
     // var candidateid = UserAuthService.getUser().uname;
     ctrl.loadLangData = function(lang) {
@@ -102,7 +102,7 @@ function educationCardController($mdDialog, $http, datagenerate, $rootScope) {
 
     ctrl.showAdvanced = function(ev, header, object) {
         $mdDialog.show({
-                controller: DialogController,
+                controller: dialogCtrl,
                 templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
                     '/')) + '/templates/educonvoNEW.html',
                 parent: angular.element(document.body),
@@ -119,7 +119,7 @@ function educationCardController($mdDialog, $http, datagenerate, $rootScope) {
             );
     };
 
-    function DialogController($scope, $mdDialog, $http, header, object, $rootScope) {
+    function dialogCtrl($scope, $mdDialog, $http, header, object, $rootScope) {
         // var candidateid = UserAuthService.getUser().uname;
         $scope.header = header;
         // $scope.yearval="";

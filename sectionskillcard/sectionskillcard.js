@@ -5,7 +5,7 @@ angular.module('samarth-webcomponents')
     .component('mysectionSkillCard', {
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionskillcard.html',
-        controller: sectionskillcardctrl,
+        controller: sectionskillcardCtrl,
         bindings: {
             candidateid: '<'
         }
@@ -18,7 +18,8 @@ angular.module('samarth-webcomponents')
     });
 
 
-function sectionskillcardctrl($http, sectionskillcard, $mdDialog, datagenerate,
+function sectionskillcardCtrl($http, sectionskillcard
+, $mdDialog, datagenerate,
     $rootScope) {
     var ctrl = this;
     // var candidateid = UserAuthService.getUser().uname;

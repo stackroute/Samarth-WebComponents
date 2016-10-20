@@ -6,7 +6,7 @@ var app = angular
     .component('myWorkexperiencecard', {
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionworkexperiencecard.html',
-        controller: workexperienceCardController,
+        controller: workexperiencecardCtrl,
         bindings: {
             candidateid: '<'
         }
@@ -40,7 +40,7 @@ var app = angular
         }
     })
 
-function workexperienceCardController($http, $mdDialog,
+function workexperiencecardCtrl($http, $mdDialog,
     datagenerate, $rootScope) {
     var ctrl = this;
     ctrl.loadLangData = function(lang) {
@@ -116,7 +116,7 @@ function workexperienceCardController($http, $mdDialog,
     ctrl.showAdvanced = function($event, header, object) {
 
         $mdDialog.show({
-                controller: DialogController,
+                controller: dialogCtrl,
                 templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
                     '/')) + '/templates/sectionworkexperienceconversation.html',
                 parent: angular.element(document.body),
@@ -135,7 +135,7 @@ function workexperienceCardController($http, $mdDialog,
     };
 
 
-    function DialogController($scope, $mdDialog, $http, header, object,
+    function dialogCtrl($scope, $mdDialog, $http, header, object,
         candidateid) {
 
         $scope.header = header;

@@ -10,12 +10,12 @@ angular.module('samarth-webcomponents')
         },
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/jobcard.html',
-        controller: jobCardController,
+        controller: jobcardCtrl,
         transclude: true
     });
 
 /*Controller for job Card*/
-function jobCardController($scope, jobCardService) {
+function jobcardCtrl($scope, jobCardService) {
     //$scope.job = this.job;
     var data = this.data;
     var jobID = data.jobID;

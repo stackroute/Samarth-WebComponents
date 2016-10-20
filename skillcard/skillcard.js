@@ -4,22 +4,22 @@ var currentScriptPath = scripts[scripts.length - 1].src;
 angular.module('samarth-webcomponents')        .component('mySkillcard',          {            
     templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
         '/')) + '/templates/skillcard.html',
-                controller: skillcardctrl,
+                controller: skillcardCtrl,
     bindings: {
         candidateid: '<'
             // data: "="
-        },
-        transclude: {
-            cardactions : "cardactions",
-            badges : "badges"
-        }             
-    });
+    },
+    transclude: {
+        cardactions: "cardactions",
+        badges: "badges"
+    }             
+});
 
-function skillcardctrl($window, $timeout, $mdDialog, skillcardservice)            {
+function skillcardCtrl($window, $timeout, $mdDialog, skillcardService)            {
     var ctrl = this;
     var name;
     console.log("Inside skill card ctrl....");
-    skillcardservice.getskillcarddata(this.candidateid).then(function(result) {
+    skillcardService.getskillcarddata(this.candidateid).then(function(result) {
         ctrl.data = result;
     });
 
@@ -30,9 +30,9 @@ function skillcardctrl($window, $timeout, $mdDialog, skillcardservice)     
         ctrl.downloaddata = JSON.stringify(ctrl.data1);
 
         blob = new Blob([ctrl.downloaddata], {
-            type: 'text/plain'
-        }),
-        url = $window.URL || $window.webkitURL;
+                type: 'text/plain'
+            }),
+            url = $window.URL || $window.webkitURL;
         ctrl.fileUrl = url.createObjectURL(blob);
     }
     var getCanvas;

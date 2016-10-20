@@ -30,6 +30,7 @@ angular
         $scope.message = "Welcome to test suite for Samarth Webcomponents";
         $scope.job = "Job";
         $scope.profiletype = "Engineer";
+        $scope.candidateid = 9418751459;
     });
 </script>
 
@@ -44,8 +45,44 @@ angular
 <my-projectsectioncard candidateid='9677875999'></my-projectsectioncard>
 <my-personalinfocard candidateid='9677875999'></my-personalinfocard>
  -->
-    <sm-verification-rubric name="job" profiletype="profiletype" outcome="0">
-    </sm-verification-rubric>
+    <my-skillcard candidateid="candidateid">
+        <badges>
+            <verification-badge candidateid="candidateid">
+            </verification-badge>
+        </badges>
+        <cardactions>
+            <md-menu>
+                <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
+                    <md-icon class="material-icons">more horiz</md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    </menu-content>
+                    <md-menu-item>
+                        <md-button>
+                            View profile
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            Verify profile
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            Show Similar profiles
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            Add to Circles
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </cardactions>
+    </my-skillcard>
+    <!--  <sm-verification-rubric name="job" profiletype="profiletype" outcome="0">
+        </sm-verification-rubric> -->
 </body>
 <!--Include all your webcomponents scripts-->
 <script src="./bower_components/samarth-webcomponents/samarth-webcomponents.js"></script>
@@ -63,5 +100,7 @@ angular
 <script src="./bower_components/samarth-webcomponents/sectionpersonalinfocard/services/sectionpersonalinfoservice.js"></script>
 <script type="text/javascript" src="./bower_components/samarth-webcomponents/rubric/services/rubricservice.js"></script>
 <script type="text/javascript" src="./bower_components/samarth-webcomponents/rubric/rubriccomponent.js"></script>
+<script type="text/javascript" src="./bower_components/samarth-webcomponents/verification/services/verificationbadgeservice.js"></script>
+<script type="text/javascript" src="./bower_components/samarth-webcomponents/verification/verificationbadge.js"></script>
 
 </html>

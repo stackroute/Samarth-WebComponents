@@ -5,7 +5,7 @@ angular.module('samarth-webcomponents')
     .component('myPersonalinfocard', {
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionpersonalinfocard.html',
-        controller: personalinfoCardController,
+        controller: personalinfocardCtrl,
         bindings: {
             candidateid: '<'
         }
@@ -37,7 +37,7 @@ angular.module('samarth-webcomponents')
 
 
 
-function personalinfoCardController($http, $mdDialog, $rootScope, datagenerate) {
+function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
     var ctrl = this;
     ctrl.personalInfo = {};
     // var candidateid = UserAuthService.getUser().uname;
@@ -85,7 +85,7 @@ function personalinfoCardController($http, $mdDialog, $rootScope, datagenerate) 
     ctrl.customFullscreen = false;
     ctrl.showAdvanced = function(ev, personalInfo, title) {
         $mdDialog.show({
-                controller: DialogController,
+                controller: dialogCtrl,
                 templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
                     '/')) + '/templates/sectionpersonalinfoconversation.html',
                 parent: angular.element(document.body),
@@ -104,7 +104,7 @@ function personalinfoCardController($http, $mdDialog, $rootScope, datagenerate) 
             });
     };
 
-    function DialogController($scope, $mdDialog, val, header) {
+    function dialogCtrl($scope, $mdDialog, val, header) {
         $scope.personalObject = val;
         //var candidateid = UserAuthService.getUser().uname;
 
