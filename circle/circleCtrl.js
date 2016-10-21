@@ -11,25 +11,17 @@ angular.module('samarth-webcomponents')
         }
     });
 // Ctrl for circle component
-function circleCrtl($http, $log, $scope) {
+function circleCrtl($http, $log, $scope, $mdColorPalette) {
     console.log("data : " + this.data);
     $scope.prof = this.data;
-    $log.log("enter in component");
+    var colors = Object.keys($mdColorPalette);
 
-
-    $scope.getRandomColor = function() {
-
-
-        var letters = '0123456789ABCDEF'.split('');
-        var color = '#';
-
-        color += letters[Math.round(Math.random() * 15)] + letters[Math.round(Math.random() * 15)] + letters[Math.round(Math.random() * 15)] + letters[Math.round(Math.random() * 15)] + letters[Math.round(Math.random() * 15)] + letters[Math.round(Math.random() * 15)];
-
-        return color;
-
+    $scope.gerColler = function(a) {
+        console.log(a.length)
+        return colors[a.length];
     }
-
 }
+
 
 
 // angular.module('samarth-webcomponents')
