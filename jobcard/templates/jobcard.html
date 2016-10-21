@@ -44,8 +44,16 @@
         </md-card-content>
         <!-- The action bar for card, can include anything inside this while using the webcomponents -->
         <md-card-actions class="headerSection" layout="row" layout-align="end center" ng-transclude>
-            <md-button class="md-icon-button"><i class="material-icons">file_download</i></md-button>
-            <md-button class="md-icon-button"><i class="material-icons">share</i></md-button>
+            <!-- <md-button class="md-icon-button"><i class="material-icons">file_download</i></md-button>
+            <md-button class="md-icon-button"><i class="material-icons">share</i></md-button> -->
+            <a ng-href="{{ $ctrl.fileUrl }}" download="Jcard.json">
+                <md-icon class="material-icons">share</md-icon>
+            </a>
+            <a id="download">
+                <md-button ng-click="$ctrl.render($event)">
+                    <md-icon class="material-icons">file_download</md-icon>
+                </md-button>
+            </a>
         </md-card-actions>
     </md-card>
 </div>
