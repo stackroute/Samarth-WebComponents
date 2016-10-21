@@ -1,5 +1,12 @@
-<div layout-gt-md="column" layout-align="end end">
-    <md-icon class="material-icon md-24" layout-align="end end">{{$ctrl.verification_status}}</md-icon>
-    <p> Ratings: {{$ctrl.verification_ratings}} / 4 </p>
-    <span class="md-caption"> Last Verified On : {{$ctrl.a|date:'medium'}} </span>
+<div layout-gt-md="column" flex ng-if="$ctrl.verification_ratings>0">
+    <div flex-offset="75">
+        <md-icon class="material-icons md-36" style="color:green" layout-align="end end">verified_user</md-icon>
+    </div>
+    <div layout="row" layout-align="end end">
+        <div ng-repeat="x in $ctrl.arr">
+            <md-icon class="material-icons md-36 md-raised" layout-align="end end" style="color:#FFEA00">{{$ctrl.verification_status}}</md-icon>
+        </div>
+        <!-- <span>{{$ctrl.verification_ratings}}</span> -->
+    </div>
+    <span class="md-caption"> Last Verified :<time am-time-ago="$ctrl.a"></time></span>
 </div>

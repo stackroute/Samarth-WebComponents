@@ -13,10 +13,21 @@ angular.module('samarth-webcomponents')
 
 function badgeCtrl(verificationbadgeService) {
     var ctrl = this;
+    ctrl.arr = [];
     verificationbadgeService.getbadgedata(ctrl.candidateid)
         .then(function(res) {
                 ctrl.verification_status = res.data[0].verification_status;
                 ctrl.verification_ratings = res.data[0].verification_ratings;
+                var i = parseInt(ctrl.verification_ratings);
+
+                for (var a = 0; a < i; a++) {
+
+                    ctrl.arr.push(a);
+
+
+                }
+                console.log(ctrl.arr);
+
 
                 ctrl.updated_on = res.data[0].updated_on;
                 ctrl.a = new
