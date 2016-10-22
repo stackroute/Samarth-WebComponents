@@ -23,7 +23,7 @@
                             <span>
                                 <md-icon class="material-icons">cake</md-icon> 
                                 {{$ctrl.data.dob}} ({{$ctrl.data.age}} yrs)
-                            </span>>
+                            </span>
                         </div>
                         <!-- <div flex>
                 <p>{{$ctrl.data.gender}}</p>
@@ -106,7 +106,7 @@
     </div>
 </div>
 </md-card-content>
-<md-card-actions id="skillcardtoolbar" layout="row" layout-align="end center" ng-transclude="cardactions">
+<md-card-actions id="skillcardtoolbar" layout="row" layout-align="end center" >
     <a ng-href="{{ $ctrl.fileUrl }}" download="Scard.json">
         <md-icon class="material-icons">share</md-icon>
     </a>
@@ -115,6 +115,9 @@
             <md-icon class="material-icons">file_download</md-icon>
         </md-button>
     </a>
+    <span ng-transclude="cardactions">
+
+    </span>
 </md-card-actions>
 </md-card>
 </div>
