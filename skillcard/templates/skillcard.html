@@ -6,14 +6,18 @@
                 <span class="md-headline">{{$ctrl.data.name}}<br><span id="headerage" hide-lg>({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
                 <span class="md-subhead">{{$ctrl.data.designation}}</span>
             </md-card-header-text>
-            <div layout=column>
+            <!-- <div layout=column> -->
+            <div layout="row">
                 <md-card-avatar id="avatar">
-                    <img class="md-user-avatar" src="webcomponents/skillcard/images/user.png">
+                    <img class="md-user-avatar" src="Samarth-WebComponents/skillcard/images/user.png">
                 </md-card-avatar>
+                <!-- <span layout-align="end"><md-icon class="material-icons" style="color:green">verified_user</md-icon></span> -->
+                <!--  <div ng-transclude="verified">
+                </div> -->
                 <div ng-transclude="badges">
-
                 </div>
             </div>
+            <!--  </div> -->
         </md-card-header>
         <md-card-content>
             <div layout="column">
@@ -28,20 +32,20 @@
                         <!-- <div flex>
                 <p>{{$ctrl.data.gender}}</p>
             </div> -->
-            <div flex layout>
-                <p>{{$ctrl.data.maritalstatus}}</p> ,
-                <p>{{$ctrl.data.gender}}</p>
-            </div>
-        </div>
-        <md-divider></md-divider>
-        <div flex id="section2" align="center" layout="column">
-            <div flex>
-                <img id="professionimage" src="webcomponents/skillcard/images/profession.png">
-            </div>
-            <div flex>
-                <p>{{$ctrl.data.designation}}</p>
-            </div>
-        </div>
+                        <div flex layout>
+                            <p>{{$ctrl.data.maritalstatus}}</p> ,
+                            <p>{{$ctrl.data.gender}}</p>
+                        </div>
+                    </div>
+                    <md-divider></md-divider>
+                    <div flex id="section2" align="center" layout="column">
+                        <div flex>
+                            <img id="professionimage" src="webcomponents/skillcard/images/profession.png">
+                        </div>
+                        <div flex>
+                            <p>{{$ctrl.data.designation}}</p>
+                        </div>
+                    </div>
                     <!-- <div flex id="section2" align="center">
               (graph)
           </div> -->
@@ -50,32 +54,32 @@
               <md-icon class="material-icons">star rate</md-icon>
               <md-icon class="material-icons">star rate</md-icon>
           </div> -->
-      </div>
-      <div id="blankarea" hide-sm hide-xs hide-md>
-        <br>
-    </div>
-    <md-divider id="divider1" hide-xs hide-sm hide-md></md-divider>
+                </div>
+                <div id="blankarea" hide-sm hide-xs hide-md>
+                    <br>
+                </div>
+                <md-divider id="divider1" hide-xs hide-sm hide-md></md-divider>
                 <!--  <div id="section2" flex hide-xs hide-sm>
             <p align="center">DOB:{{$ctrl.data.DOB}} ({{$ctrl.data.age}} years)</p>
             <hr>
         </div> -->
-        <div id="blankarea" hide-sm hide-xs hide-md>
-            <br>
-        </div>
-        <div id="section3" layout="row" layout-xs="column" layout-sm="column" layout-md="column" flex>
+                <div id="blankarea" hide-sm hide-xs hide-md>
+                    <br>
+                </div>
+                <div id="section3" layout="row" layout-xs="column" layout-sm="column" layout-md="column" flex>
                     <!-- <div hide-sm hide-xs hide-md hide-lg>
               <br>
           </div> -->
-          <div flex layout="column">
-            <p>
-                <md-icon class="material-icons">phone</md-icon>
-                <span>{{$ctrl.data.contact}}</span>
-            </p>
-            <p>
-                <md-icon class="material-icons">room</md-icon>
-                <span>{{$ctrl.data.location}}</span>
-            </p>
-        </div>
+                    <div flex layout="column">
+                        <p>
+                            <md-icon class="material-icons">phone</md-icon>
+                            <span>{{$ctrl.data.contact}}</span>
+                        </p>
+                        <p>
+                            <md-icon class="material-icons">room</md-icon>
+                            <span>{{$ctrl.data.location}}</span>
+                        </p>
+                    </div>
                     <!--  <div flex>
             <p>
               <md-icon class="material-icons">room</md-icon>
@@ -83,39 +87,36 @@
             </p>
               
         </div> -->
-        <div flex>
-            <p>
-                <md-icon class="material-icons">mail outline</md-icon>
-                <span>{{$ctrl.data.email}}</span>
-            </p>
-        </div>
-    </div>
-    <md-divider id="divider2" hide-xs></md-divider>
-    <div id="section4" flex >
-        <md-chips ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined"  readonly="true" md-removable="false" name="skills">
-
-            <md-chip-template>
-                <strong>
+                    <div flex>
+                        <p>
+                            <md-icon class="material-icons">mail outline</md-icon>
+                            <span>{{$ctrl.data.email}}</span>
+                        </p>
+                    </div>
+                </div>
+                <md-divider id="divider2" hide-xs></md-divider>
+                <div id="section4" flex>
+                    <md-chips ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills">
+                        <md-chip-template>
+                            <strong>
                     {{$chip.skillname}}
                 </strong>
-                
-            </md-chip-template>
-        </md-chips>
-
-        <!-- <span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}} &nbsp</span> -->
-    </div>
-</div>
-</md-card-content>
-<md-card-actions id="skillcardtoolbar" layout="row" layout-align="end center" ng-transclude="cardactions">
-    <a ng-href="{{ $ctrl.fileUrl }}" download="Scard.json">
-        <md-icon class="material-icons">share</md-icon>
-    </a>
-    <a id="download">
-        <md-button ng-click="$ctrl.render($event)">
-            <md-icon class="material-icons">file_download</md-icon>
-        </md-button>
-    </a>
-</md-card-actions>
-</md-card>
+                        </md-chip-template>
+                    </md-chips>
+                    <!-- <span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}} &nbsp</span> -->
+                </div>
+            </div>
+        </md-card-content>
+        <md-card-actions id="skillcardtoolbar" layout="row" layout-align="end center" ng-transclude="cardactions">
+            <a ng-href="{{ $ctrl.fileUrl }}" download="Scard.json">
+                <md-icon class="material-icons">share</md-icon>
+            </a>
+            <a id="download">
+                <md-button ng-click="$ctrl.render($event)">
+                    <md-icon class="material-icons">file_download</md-icon>
+                </md-button>
+            </a>
+        </md-card-actions>
+    </md-card>
 </div>
 <!-- </div>
