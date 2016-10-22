@@ -27,7 +27,7 @@
                             <span>
                                 <md-icon class="material-icons">cake</md-icon> 
                                 {{$ctrl.data.dob}} ({{$ctrl.data.age}} yrs)
-                            </span>>
+                            </span>
                         </div>
                         <!-- <div flex>
                 <p>{{$ctrl.data.gender}}</p>
@@ -101,10 +101,10 @@
                             <strong>
                     {{$chip.skillname}}
                 </strong>
-                        </md-chip-template>
+                            <!--                      </md-chip-template>
                     </md-chips>
-                    <!-- <span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}} &nbsp</span> -->
-                </div>
+                    <!-<span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}} &nbsp</span> -->
+                            <!--  </div>
             </div>
         </md-card-content>
         <md-card-actions id="skillcardtoolbar" layout="row" layout-align="end center" ng-transclude="cardactions">
@@ -116,6 +116,26 @@
                     <md-icon class="material-icons">file_download</md-icon>
                 </md-button>
             </a>
+        </md-card-actions>
+    </md-card>  -->
+                        </md-chip-template>
+                    </md-chips>
+                    <!-- <span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}} &nbsp</span> -->
+                </div>
+            </div>
+        </md-card-content>
+        <md-card-actions id="skillcardtoolbar" layout="row" layout-align="end center">
+            <a ng-href="{{ $ctrl.fileUrl }}" download="Scard.json">
+                <md-icon class="material-icons">share</md-icon>
+            </a>
+            <a id="download">
+                <md-button ng-click="$ctrl.render($event)">
+                    <md-icon class="material-icons">file_download</md-icon>
+                </md-button>
+            </a>
+            <span ng-transclude="cardactions">
+
+    </span>
         </md-card-actions>
     </md-card>
 </div>
