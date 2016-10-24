@@ -1,41 +1,155 @@
-angular.module('sm-skillprofile')
+var scripts = document.getElementsByTagName("script");
+var currentScriptPath = scripts[scripts.length - 1].src;
+
+angular.module('samarth-webcomponents')
     .component('myPersonalinfocard', {
-        templateUrl: '/webcomponents/sectionpersonalinfocard/templates/sectionpersonalinfocard.html',
-        controller: personalinfoCardController
-    });
+        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+            '/')) + '/templates/sectionpersonalinfocard.html',
+        controller: personalinfocardCtrl,
+        bindings: {
+            candidateid: '<'
+        },
+        transclude: {
+            verify: "verify"
+        }
+    }).directive('formattedDate', function(dateFilter) {
+        return {
+            require: 'ngModel',
+            scope: {
+                format: "="
+            },
+            link: function(scope, element, attrs, ngModelController) {
+                ngModelController.$parsers.push(function(data) {
+                    //convert data from view format to model format
+                    return dateFilter(data, scope.format); //converted
+                });
 
-function personalinfoCardController($http) {
-    var ctrl = this;
-
-    // ctrl.name='Afrin';
-    //   ctrl.age=22;
-    //   ctrl.dob='22/4/99';
-    //   ctrl.matstatus='unmarried';
-    //   ctrl.contact=9978674543;
-    //   ctrl.email='afrin@gmail.com';
-    //   ctrl.address='7th block, koramangala,bangalore';
-    //   ctrl.pin=571342;
-    ctrl.personal = {};
-    $http({
-        method: "GET",
-        url: 'api/profiles/01'
-    }).then(function successCallback(response) {
-        for (var prop in response.data)  {
-            if (prop=="Personalinfo" ) { 
-                ctrl.personal[prop] = response.data[prop]; 
-              
+                ngModelController.$formatters.push(function(data) {
+                    //convert data from model format to view format
+                    return dateFilter(data, scope.format); //converted
+                });
             }
         }
-    }, function errorCallback(response) {
-        console.log('Error ');
-    });  
+    })
+    .filter('capitalize', function() {
+        return function(input) {
+            return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() :
+                '';
+        }
+    });
 
-    // }).success(function(response) {
-    //     ctrl.details = response[0];
-    //     console.log(response[0]);
+
+
+function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
+    var ctrl = this;
+    ctrl.personalInfo = {};
+    // var candidateid = UserAuthService.getUser().uname;
+
+    ctrl.loadLangData = function(lang) {
+            datagenerate.getjson("section", lang).then(function(result) {
+                ctrl.items = result;
+
+            }); //end datagenerate
+        }
+        //  ctrl.loadLangData(getItem("lang"));
+
+    function getItem(key) {
+        // return localStorageService.get(key);
+    }
+    ctrl.loadLangData("English");
+    //$scope.loadLangData("Hindi");
+    // $rootScope.$on("lang_changed", function(event, data) {
+
+    //     ctrl.loadLangData(data.language);
     // });
 
-    ctrl.save = function() {
+    $http({
+        method: "GET",
+        url: 'http://localhost:8081/personalinfo/' + this.candidateid
+    }).then(function successCallback(response) {
+
+        ctrl.personalInfo = response.data[0];
+
+    }, function errorCallback(response) {
+        console.log('Error in personal info');
+    }); 
+    ctrl.value = false;
+    ctrl.value1 = true; 
+
+    ctrl.toggle = function() {
+
+        ctrl.value = !(ctrl.value) ? true : false;
+        ctrl.value1 = !(ctrl.value1) ? true : false;
+        console.log('toggle', ctrl.value);
 
     };
+
+    ctrl.status = '  ';
+    ctrl.customFullscreen = false;
+    ctrl.showAdvanced = function(ev, personalInfo, title) {
+        $mdDialog.show({
+                controller: dialogCtrl,
+                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+                    '/')) + '/templates/sectionpersonalinfoconversation.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                locals: {
+                    val: personalInfo,
+                    header: title
+                },
+                fullscreen: ctrl.customFullscreen // Only for -xs, -sm breakpoints.
+            })
+            .then(function(answer) {
+                ctrl.status = 'You said the information was "' + answer + '".';
+            }, function() {
+                ctrl.status = 'You cancelled the dialog.';
+            });
+    };
+
+    function dialogCtrl($scope, $mdDialog, val, header) {
+        $scope.personalObject = val;
+        //var candidateid = UserAuthService.getUser().uname;
+
+        $scope.header = header;
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+        $scope.save = function(personalinfoObject, header) {
+
+
+            var personalinfoObj = {
+                "personalInfo": {
+                    "name": personalinfoObject.name,
+                    "dob": personalinfoObject.dob,
+                    "gender": personalinfoObject.gender,
+                    "maritialstatus": personalinfoObject.maritialstatus,
+                    "location": personalinfoObject.location,
+                    "mothertongue": personalinfoObject.mothertongue,
+                    "email": personalinfoObject.email,
+                    "contact": personalinfoObject.contact,
+                    "address": personalinfoObject.address,
+                    "pincode": personalinfoObject.pincode
+                }
+            };
+
+            if (header === "Edit Info") {
+                $http({ 
+                    method: "POST",
+                    url: "http://localhost:8081/personalinfo/" + this.candidateid,
+                    data: personalinfoObj
+
+                }).then(function mySucces(response)  { 
+                    //console.log("res inn pi", response)
+
+                }, function myError(response) { 
+                    console.log(response); 
+                });
+            }
+            $mdDialog.hide();
+        };
+    }
 }

@@ -1,39 +1,104 @@
-    <md-card  flex  ng-repeat="per in $ctrl.personal">
-        
-            <md-card-title class="title">
-                <md-card-title-text layout="row">
-                    <div flex="90" class="md-headline" >Personal Information</div>
-                    <!-- <div flex="10">23</div> -->
-                </md-card-title-text>
-            </md-card-title>
-       
+<div>
+    <md-card flex>
+        <md-card-title class="title">
+            <md-card-title-text layout="row">
+                <div class="md-headline">{{$ctrl.items.personalinfoheader}}</div>
+                <!-- <div flex="10">23</div> -->
+            </md-card-title-text>
+        </md-card-title>
         <md-card-content>
-            <div layout-padding layout-wrap layout="row" flex layout-xs="column" ng-repeat="val in per" ng-if="$index<1">
-                <div layout="column" flex="40" >
-                    <p><b>name</b>: {{val.name }}</p>
-                    <p><b>dob</b>: {{val.dob}}</p>
-                    <p><b>gender</b>: {{val.gender}}
-                    <p><b>Maritialstatus</b>: {{val.maritialstatus}}</p>
-                    <!-- <p>DOB:{{$ctrl.details.DOB}}</p> -->
-                    
+            <div layout-xs="column" layout-gt-xs="row" layout-padding flex>
+                <div layout="column" layout-align="center center" flex-gt-xs="50" flex-xs="100">
+                    <div class="md-title" flex-xs="100">{{$ctrl.personalInfo.name }}</div>
+                    <div>
+                        <br>
+                    </div>
+                    <div class="md-subhead">{{$ctrl.personalInfo.maritialstatus}}, {{$ctrl.personalInfo.gender}}</div>
+                    <div>{{$ctrl.personalInfo.dob|date:'MMM dd,yyyy'}}</div>
+                    <div>
+                        <br>
+                    </div>
+                    <div layout="row" layout-align="start center">
+                        <div>
+                            <md-icon>call</md-icon>
+                        </div>
+                        <div> {{$ctrl.personalInfo.contact}}</div>
+                    </div>
                 </div>
-    
- 
-                <div layout="column" flex="60"> 
-                    <!-- <p>Maritial Status:{{$ctrl.details.maritialstatus}}</p> -->
-                    <p><b>MotherTongue</b>: {{val.mothertongue}}</p>
-                    <p><b>Email</b>: {{val.email}}</p>
-                    <p><b>contact</b>: {{val.mobile}}</p>
-                    <p><b>address</b>: {{val.address}}</p>
-                    <!-- <p>pincode:{{$ctrl.details.pincode}}</p> -->
+                <div layout-xs="column" flex-gt-xs="50" flex-xs="100" hide-xs>
+                    <div layout="row">
+                        <div>
+                            <md-icon>place</md-icon>
+                        </div>
+                        <div>{{$ctrl.personalInfo.location }}</div>
+                    </div>
+                    <div hide-xs>
+                        <br>
+                    </div>
+                    <div layout="row">
+                        <div>
+                            <md-icon>language</md-icon>
+                        </div>
+                        <div>{{$ctrl.personalInfo.mothertongue}}</div>
+                    </div>
+                    <div hide-xs>
+                        <br>
+                    </div>
+                    <div layout="row" flex>
+                        <div>
+                            <md-icon>email</md-icon>
+                        </div>
+                        <div> {{$ctrl.personalInfo.email}}</div>
+                    </div>
+                    <div hide-xs>
+                        <br>
+                    </div>
+                    <div layout="row" flex>
+                        <div>
+                            <md-icon>home</md-icon>
+                        </div>
+                        <div> {{$ctrl.personalInfo.address}}, {{$ctrl.personalInfo.pincode}}
+                        </div>
+                    </div>
+                </div>
+                <div layout-xs="column" flex-gt-xs="50" flex-xs="100" hide-lg hide-md ng-hide="$ctrl.value1">
+                    <div>
+                        <md-icon>place</md-icon>{{$ctrl.personalInfo.location }}</div>
+                    <div>
+                        <md-icon>language</md-icon> {{$ctrl.personalInfo.mothertongue}}</div>
+                    <div layout="row" flex>
+                        <div>
+                            <md-icon>email</md-icon>
+                        </div>
+                        <div> {{$ctrl.personalInfo.email}}</div>
+                    </div>
+                    <div layout="row" flex>
+                        <div>
+                            <md-icon>home</md-icon>
+                        </div>
+                        <div> {{$ctrl.personalInfo.address}}, {{$ctrl.personalInfo.pincode}}
+                        </div>
+                    </div>
+                </div>
+                <div layout="column" hide-lg hide-md hide-gt-md hide-sm hide-gt-lg ng-hide="$ctrl.value1">
+                    <md-button ng-click="$ctrl.toggle()">
+                        <md-icon class="material-icon">keyboard_arrow_up</md-icon>
+                    </md-button>
+                </div>
+                <div layout="column" layout-align="center center" hide-lg hide-md hide-gt-md hide-sm hide-gt-lg ng-hide="$ctrl.value">
+                    <md-button ng-click="$ctrl.toggle()">
+                        <md-icon class="material-icon">keyboard_arrow_down</md-icon>
+                    </md-button>
                 </div>
             </div>
         </md-card-content>
-        <div class="md-actions" layout="row" layout-align="end center">
-            <md-footer>
-                <md-button ng-click="$ctrl.save()">Save</md-button>
-                <md-button>ADD</md-button>
+        <md-card-actions layout="row" flex layout-align="end">
+            <md-footer layout="row">
+                <div ng-transclude="verify">
+                </div>
+                <div flex="30"></div>
+                <md-button ng-click="$ctrl.showAdvanced($event,$ctrl.personalInfo,'Edit Info')">{{$ctrl.items.edit}}</md-button>
             </md-footer>
-        </div>
+        </md-card-actions>
     </md-card>
-
+</div>
