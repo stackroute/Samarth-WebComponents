@@ -1,6 +1,9 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
 
+var skillconvopath = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+    '/')) + '/templates/sectionskillconversation.html';
+
 angular.module('samarth-webcomponents')
     .component('mysectionSkillCard', {
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
@@ -25,7 +28,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
     $rootScope) {
     var ctrl = this;
     // var candidateid = UserAuthService.getUser().uname;
-    console.log("Inside skill section", this.candidateid);
+    console.log("Inside skill section", ctrl.candidateid);
     ctrl.loadLangData = function(lang) {
         datagenerate.getjson("section", lang).then(function(result) {
             ctrl.items = result;
@@ -69,7 +72,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
         ctrl.limitval2 = ctrl.limitval2 - 3;
     }
 
-    sectionskillcard.getjson(this.candidateid).then(function(result) {
+    sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
         ctrl.skill = result;
         //console.log("skill object", ctrl.skill);
 
@@ -97,7 +100,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
 
     });
     $rootScope.$on("skilldatachanged", function() {
-        sectionskillcard.getjson(this.candidateid).then(function(result) {
+        sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
             ctrl.skill = result;
             //console.log("skill object", ctrl.skill);
             ctrl.primary = [];
@@ -136,14 +139,14 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
     ctrl.showAdvanced = function(ev, value, title) {
         $mdDialog.show({
                 controller: DialogController,
-                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                    '/')) + '/templates/sectionskillconversation.html',
+                templateUrl: skillconvopath,
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 locals: {
                     val: value,
-                    header: title
+                    header: title,
+                    candidateid: ctrl.candidateid
                 },
                 fullscreen: ctrl.customFullscreen // Only for -xs, -sm breakpoints.
             })
@@ -154,7 +157,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
             });
     };
 
-    function DialogController($scope, $mdDialog, val, header) {
+    function DialogController($scope, $mdDialog, val, header, candidateid) {
         $scope.exp = [];
         for (i = 0; i <= 40; i++) {
             $scope.exp.push(i);
@@ -185,7 +188,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
             if (header === "Add Skill") {
                 $http({ 
                     method: "post",
-                    url: "http://localhost:8081/skill/" + this.candidateid,
+                    url: "http://localhost:8081/skill/" + ctrl.candidateid,
                     data: skillObj
                 }).then(function mySucces(response)  { 
                     console.log("res", response.data[0])
@@ -198,7 +201,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
             if (header === "Edit Skill") {
                 $http({ 
                     method: "patch",
-                    url: "http://localhost:8081/skill/" + this.candidateid + "/" + skill,
+                    url: "http://localhost:8081/skill/" + ctrl.candidateid + "/" + skill,
                     data: skillObj
                 }).then(function mySucces(response)  { 
                     console.log("res", response)

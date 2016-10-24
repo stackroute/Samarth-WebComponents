@@ -2,7 +2,9 @@
     <md-card flex>
         <md-card-title class="title">
             <md-card-title-text layout="row">
-                <div class="md-headline">{{$ctrl.items.personalinfoheader}}</div>
+                <div class="md-headline" flex>{{$ctrl.items.personalinfoheader}}</div>
+                <div ng-transclude="badges">
+                </div>
                 <!-- <div flex="10">23</div> -->
             </md-card-title-text>
         </md-card-title>

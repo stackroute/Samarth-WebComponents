@@ -1,6 +1,11 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
 
+var workpath = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+    '/')) + '/templates/sectionworkexperienceconversation.html';
+
+
+
 var app = angular
     .module('samarth-webcomponents')
     .component('myWorkexperiencecard', {
@@ -79,7 +84,7 @@ function workexperiencecardCtrl($http, $mdDialog,
         ctrl.limitval = 2;
     }
 
-    $http.get('http://localhost:8081/work/' + this.candidateid)
+    $http.get('http://localhost:8081/work/' + ctrl.candidateid)
         .then(function success(response) {
             for (var noofobj = 0; noofobj < response.data.length; noofobj++) {
                 for (var record = 0; record < response.data[noofobj].workexperience.length; record++) {
@@ -97,7 +102,7 @@ function workexperiencecardCtrl($http, $mdDialog,
     $rootScope.$on("workexpdata", function() {
         ctrl.workexperiences = [];
         ctrl.totalworkexperience = 0;
-        $http.get('http://localhost:8081/work/' + this.candidateid)
+        $http.get('http://localhost:8081/work/' + ctrl.candidateid)
             .then(function success(response) {
                 for (var noofobj = 0; noofobj < response.data.length; noofobj++) {
                     for (var record = 0; record < response.data[noofobj].workexperience
@@ -120,15 +125,14 @@ function workexperiencecardCtrl($http, $mdDialog,
 
         $mdDialog.show({
                 controller: dialogCtrl,
-                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                    '/')) + '/templates/sectionworkexperienceconversation.html',
+                templateUrl: workpath,
                 parent: angular.element(document.body),
                 targetEvent: $event,
                 clickOutsideToClose: true,
                 locals: {
                     header: header,
                     object: object,
-                    candidateid: this.candidateid
+                    candidateid: ctrl.candidateid
                 }
             })
             .then(
@@ -143,6 +147,7 @@ function workexperiencecardCtrl($http, $mdDialog,
 
         $scope.header = header;
         $scope.projectObj = object;
+        $scope.candidateid = candidateid;
         if (object != '') {
             $scope.designation = object.designation;
             $scope.workplace = object.workplace;
@@ -212,7 +217,7 @@ function workexperiencecardCtrl($http, $mdDialog,
                 console.log("Inside work adding...")
                 $http({
                     method: 'POST',
-                    url: 'http://localhost:8081/work/' + candidateid,
+                    url: 'http://localhost:8081/work/' + $scope.candidateid,
                     data: workdata,
                     crossDomain: true
                 }).then(function successCallback(response) {
@@ -225,7 +230,7 @@ function workexperiencecardCtrl($http, $mdDialog,
                 console.log("data after saving", workdata);
                 $http({
                     method: 'PATCH',
-                    url: 'http://localhost:8081/work/' + candidateid + '/' + object
+                    url: 'http://localhost:8081/work/' + $scope.candidateid + '/' + object
                         .workplace,
                     data: workdata,
                     crossDomain: true

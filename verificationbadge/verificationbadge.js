@@ -3,6 +3,7 @@ var currentScriptPath = scripts[scripts.length - 1].src;
 
 angular.module('samarth-webcomponents')
     .component('verificationBadge', {
+        // templateUrl: '/templates/badge.html',
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/badge.html',
         controller: badgeCtrl,
@@ -29,11 +30,11 @@ function badgeCtrl(verificationbadgeService) {
                 console.log(ctrl.average);
                 var i = parseInt(ctrl.average);
 
+
+
                 for (var a = 0; a < i; a++) {
 
                     ctrl.arr.push(a);
-
-
                 }
                 //console.log(ctrl.arr);
 

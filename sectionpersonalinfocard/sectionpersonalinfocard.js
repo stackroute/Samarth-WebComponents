@@ -1,16 +1,21 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
 
+//console.log("When loading the path: ", currentScriptPath);
+var personalinfopath = currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/')) + '/templates/sectionpersonalinfoconversation.html';
+//console.log("basav path: ", basav);
+
 angular.module('samarth-webcomponents')
     .component('myPersonalinfocard', {
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionpersonalinfocard.html',
         controller: personalinfocardCtrl,
         bindings: {
-            candidateid: '<'
+            candidateid: '<',
         },
         transclude: {
-            verify: "verify"
+            verify: "verify",
+            badges: "badges"
         }
     }).directive('formattedDate', function(dateFilter) {
         return {
@@ -87,10 +92,12 @@ function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
     ctrl.status = '  ';
     ctrl.customFullscreen = false;
     ctrl.showAdvanced = function(ev, personalInfo, title) {
+        console.log("Current Script path ", currentScriptPath);
         $mdDialog.show({
                 controller: dialogCtrl,
-                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                    '/')) + '/templates/sectionpersonalinfoconversation.html',
+                // templateUrl: 'sectionpersonalinfocard/templates/sectionpersonalinfoconversation.html',
+                // templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/')) + '/templates/sectionpersonalinfoconversation.html',
+                templateUrl: personalinfopath,
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -139,7 +146,7 @@ function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
             if (header === "Edit Info") {
                 $http({ 
                     method: "POST",
-                    url: "http://localhost:8081/personalinfo/" + this.candidateid,
+                    url: "http://localhost:8081/personalinfo/" + personalinfoObject.contact,
                     data: personalinfoObj
 
                 }).then(function mySucces(response)  { 
