@@ -19,7 +19,7 @@ angular.module('samarth-webcomponents')
     });
 
 /*Controller for job Card*/
-function jobcardCtrl($scope, jobCardService) {
+function jobcardCtrl($scope, jobCardService, $window, $timeout) {
     //$scope.job = this.job;
     var data = this.data;
     var jobID = data.jobID;
@@ -49,6 +49,7 @@ function jobcardCtrl($scope, jobCardService) {
         $scope.fileUrl = url.createObjectURL(blob);
     }
     var getCanvas;
+    $timeout(createDownloadUrl, 1000);
     $scope.render = function(ev) {
         var card = angular.element(document.querySelector('#totalcardarea'));
         html2canvas(card, {
@@ -57,6 +58,10 @@ function jobcardCtrl($scope, jobCardService) {
                 $scope.downloadCard();
             }
         });
+    }
+    $scope.downloadedData = function() {
+        var download = angular.element(document.querySelector('#jsonDownload'));
+        download.attr("download", $scope.job.jobID + ".json").attr("href", $scope.fileUrl);
     }
     $scope.downloadCard = function() {
         var imageData = getCanvas.toDataURL("image/png");
