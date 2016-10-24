@@ -12,8 +12,8 @@ angular.module('samarth-webcomponents')
             '/')) + '/templates/jobcard.html',
         controller: jobcardCtrl,
         transclude: {
-            actions: "actions",
-            badges: "badges"
+            badges: "badges",
+            actions: "actions"
                 // verified: "verified"
         }    
     });
@@ -46,7 +46,7 @@ function jobcardCtrl($scope, jobCardService) {
                 type: 'text/plain'
             }),
             url = $window.URL || $window.webkitURL;
-        ctrl.fileUrl = url.createObjectURL(blob);
+        $scope.fileUrl = url.createObjectURL(blob);
     }
     var getCanvas;
     $scope.render = function(ev) {
