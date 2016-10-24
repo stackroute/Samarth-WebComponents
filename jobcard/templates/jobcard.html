@@ -13,8 +13,7 @@
                         <md-card-avatar class="avatar">
                             <img class="md-user-avatar avatar" src="{{job.employer.employerLogo}}" alt="Logo">
                         </md-card-avatar>
-                        <div ng-transclude="badges">
-                        </div>
+                        <div></div>
                     </div>
                 </div>
                 <!-- Company name and location -->
@@ -54,7 +53,7 @@
                     <md-icon class="material-icons">file_download</md-icon>
                 </md-button>
             </a>
-            <div ng-transclude="actions" layout>
+            <div ng-transclude>
             </div>
         </md-card-actions>
     </md-card>

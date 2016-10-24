@@ -11,11 +11,7 @@ angular.module('samarth-webcomponents')
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/jobcard.html',
         controller: jobcardCtrl,
-        transclude: {
-            badges: "badges",
-            actions: "actions"
-                // verified: "verified"
-        }    
+        transclude: true
     });
 
 /*Controller for job Card*/
@@ -42,7 +38,7 @@ function jobcardCtrl($scope, jobCardService, $window, $timeout) {
         //ctrl.data1 = ctrl.data;            
         $scope.downloaddata = JSON.stringify($scope.job);
 
-        blob = new Blob([$scope.downloaddata], {
+        var blob = new Blob([$scope.downloaddata], {
                 type: 'text/plain'
             }),
             url = $window.URL || $window.webkitURL;
