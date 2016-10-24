@@ -11,7 +11,11 @@ angular.module('samarth-webcomponents')
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/jobcard.html',
         controller: jobcardCtrl,
-        transclude: true
+        transclude: {
+            actions: "actions",
+            badges: "badges"
+                // verified: "verified"
+        }    
     });
 
 /*Controller for job Card*/

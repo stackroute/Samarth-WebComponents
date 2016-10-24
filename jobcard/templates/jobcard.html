@@ -4,15 +4,17 @@
             <md-card-header-text layout="column" layout flex>
                 <div layout="row" layout-align="start center">
                     <!-- Job role and job Department fields-->
-                    <div flex-gt-xs="90" flex-xs layout="column">
+                    <div flex="90" layout="column">
                         <span class="md-display-1">{{job.jobRole}}&#44; &nbsp;</span>
                         <span class="md-display-1">{{job.jobDepartment}}</span>
                     </div>
                     <!-- Logo -->
-                    <div hide-xs flex-gt-xs="10">
+                    <div flex="10" layout="column">
                         <md-card-avatar class="avatar">
                             <img class="md-user-avatar avatar" src="{{job.employer.employerLogo}}" alt="Logo">
                         </md-card-avatar>
+                        <div ng-transclude="badges">
+                        </div>
                     </div>
                 </div>
                 <!-- Company name and location -->
@@ -43,7 +45,7 @@
             </div>
         </md-card-content>
         <!-- The action bar for card, can include anything inside this while using the webcomponents -->
-        <md-card-actions class="headerSection" layout="row" layout-align="end center" ng-transclude>
+        <md-card-actions class="headerSection" layout="row" layout-align="end center">
             <!-- <md-button class="md-icon-button"><i class="material-icons">file_download</i></md-button>
             <md-button class="md-icon-button"><i class="material-icons">share</i></md-button> -->
             <a ng-href="{{ $ctrl.fileUrl }}" download="Jcard.json">
@@ -54,6 +56,8 @@
                     <md-icon class="material-icons">file_download</md-icon>
                 </md-button>
             </a>
+            <div ng-transclude="actions" layout>
+            </div>
         </md-card-actions>
     </md-card>
 </div>
