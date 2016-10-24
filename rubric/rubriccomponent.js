@@ -7,8 +7,8 @@
         .component('smVerificationRubric', {
             bindings: {
                 name: '<',
-                profiletype: '<',
-                outcome: '='
+                outcome: '=',
+                remarks: '='
 
             },
             templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
@@ -21,148 +21,36 @@
 
         ctrl.description = [];
         ctrl.desc = {};
+        ctrl.outcome = 0;
+        ctrl.remarks = "";
 
-        rubricservice.getrubricdata(ctrl.name, ctrl.profiletype).then(function(response) {
+        rubricservice.getrubricdata(ctrl.name)
+            .then(function(response) {
+                // console.log("inside rubricCtrl", response.data);
+                ctrl.description.push(response.data);
 
-            ctrl.description.push(response.data);
+                ctrl.desc = ctrl.description[0];
 
-            ctrl.desc = ctrl.description[0];
-
-            ctrl.desc1 = ctrl.desc[0];
-            //console.log(ctrl.desc1.header);
-
-        }, function(err) {
-            console.log(err);
-        });
-
-        // if (this.data == 'Candidate') {
-
-        //     this.description = [{
-        //         name: "Education Details",
-        //         columns: [
-        //             { title: 'invalid', desc: 'The profile is invalid due to invalid education details', value: 1 },
-        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
-        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-        //         ],
-        //         model: 'edu'
+                ctrl.desc1 = ctrl.desc[0];
+                // console.log(ctrl.desc1);
+                // console.log(ctrl.desc1.scale);
 
 
+            }, function(err) {
+                console.log(err);
+            });
 
-        //     }, {
-        //         name: "Personal Details",
-        //         columns: [
-        //             { title: 'invalid', desc: 'The profile is invalid due to invalid personal details', value: 1 },
-        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
-        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-        //         ],
-        //         model: 'pd'
-
-
-        //     }, {
-        //         name: "Experience Details",
-        //         columns: [
-        //             { title: 'invalid', desc: 'The profile is invalid due to invalid experience details', value: 1 },
-        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
-        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-        //         ],
-        //         model: 'ed'
-
-
-        //     }, {
-        //         name: "Skill Details",
-        //         columns: [
-        //             { title: 'invalid', desc: 'The profile is invalid due to invalid skill details', value: 1 },
-        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
-        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-        //         ],
-        //         model: 'sd'
-
-
-
-        //     }];
-        // } else {
-        //     this.description = [{
-        //         name: "Job Description",
-        //         columns: [
-        //             { title: 'invalid', desc: 'The profile is invalid due to invalid job details', value: 1 },
-        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
-        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-        //         ],
-        //         model: 'jd'
-
-
-
-        //     }, {
-        //         name: "Required Skills",
-        //         columns: [
-        //             { title: 'invalid', desc: 'The profile is invalid due to invalid required skill details', value: 1 },
-        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
-        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-        //         ],
-        //         model: 'rs'
-
-
-
-        //     }, {
-        //         name: "Required Experience",
-        //         columns: [
-        //             { title: 'invalid', desc: 'The profile is invalid due to invalid required experience details', value: 1 },
-        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
-        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-        //         ],
-        //         model: 're'
-
-
-        //     }, {
-        //         name: "Salary Details",
-        //         columns: [
-        //             { title: 'invalid', desc: 'The profile is invalid due to invalid salary details', value: 1 },
-        //             { title: 'valid', desc: "The profile is valid and proper", value: 2 },
-        //             { title: 'wrong', desc: "Wrong description given", value: 3 },
-        //             { title: 'satisfactory', desc: "Looks like a good satisfactory profile", value: 4 }
-
-        //         ],
-        //         model: 'sal'
-
-
-        //     }];
-        // }
-
-
-
-
-
-        // this.headers = ['Invalid', 'Valid', 'Wrong', 'Satisfactory', 'Grade'];
-        // this.domains = ['Education Details', 'Personal Details', 'Experience Details', 'Skill Details'];
+        // console.log(ctrl.outcome);
 
 
 
         ctrl.average = function(desc) {
-            var sum = 0;
             angular.forEach(desc, function(value, key) {
+                ctrl.outcome = parseInt(value.model);
 
-
-                sum = sum + parseInt(value.model);
-                //console.log(sum);
             });
-            var len = desc.length;
-
-            ctrl.outcome = (sum / len);
             console.log(ctrl.outcome);
+            console.log(ctrl.remarks);
 
 
         }

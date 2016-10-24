@@ -8,6 +8,9 @@ angular.module('samarth-webcomponents')
         controller: sectionskillcardCtrl,
         bindings: {
             candidateid: '<'
+        },
+        transclude: {
+            verify: "verify"
         }
     })
     .filter('capitalize', function() {
@@ -18,8 +21,7 @@ angular.module('samarth-webcomponents')
     });
 
 
-function sectionskillcardCtrl($http, sectionskillcard
-, $mdDialog, datagenerate,
+function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
     $rootScope) {
     var ctrl = this;
     // var candidateid = UserAuthService.getUser().uname;

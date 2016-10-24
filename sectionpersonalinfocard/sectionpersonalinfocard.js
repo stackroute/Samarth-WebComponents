@@ -8,6 +8,9 @@ angular.module('samarth-webcomponents')
         controller: personalinfocardCtrl,
         bindings: {
             candidateid: '<'
+        },
+        transclude: {
+            verify: "verify"
         }
     }).directive('formattedDate', function(dateFilter) {
         return {

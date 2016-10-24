@@ -9,6 +9,9 @@ var app = angular
         controller: workexperiencecardCtrl,
         bindings: {
             candidateid: '<'
+        },
+        transclude: {
+            verify: "verify"
         }
 
     })

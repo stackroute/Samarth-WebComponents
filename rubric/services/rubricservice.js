@@ -5,12 +5,13 @@ angular.module('samarth-webcomponents')
                 var data = {};
                 return $http({
                     method: 'GET',
-                    url: 'http://localhost:8081/rubric/' + name + '/' + profiletype
+                    url: 'http://localhost:8081/rubric/' + name
 
 
                 }).then(function(response) {
+
                     data = response;
-                    //console.log("from service", data);
+                    console.log("from service", data);
 
                     //console.log(data);
                     return data;

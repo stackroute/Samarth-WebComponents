@@ -109,6 +109,8 @@
                 </a>
             </div>
             <md-card-actions layout="row " layout-align="end center">
+                <div ng-transclude="verify">
+                </div>
                 <md-button ng-click="$ctrl.showAdvanced($event, 'Add Workexperience', '') ">{{$ctrl.items.addworkexp}}
                 </md-button>
             </md-card-actions>

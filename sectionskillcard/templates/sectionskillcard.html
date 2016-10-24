@@ -59,6 +59,8 @@
         </div>
     </div>
     <md-card-actions layout="row" layout-align="end end">
+        <div ng-transclude="verify">
+        </div>
         <md-button ng-click="$ctrl.showAdvanced($event,'','Add Skill')">
             {{$ctrl.items.addskill}}
         </md-button>

@@ -33,6 +33,8 @@
         </div>
     </md-card-content>
     <md-card-actions layout="row" layout-align="end end">
+        <div ng-transclude="verify">
+        </div>
         <md-button ng-click="$ctrl.showAdvanced($event,'Add Education','')">{{$ctrl.items.addeducation}}</md-button>
         <!-- <md-button ng-click="$ctrl.showAdvanced($event,'Add College','')">+ college</md-button> -->
     </md-card-actions>

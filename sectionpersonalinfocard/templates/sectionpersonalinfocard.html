@@ -92,8 +92,11 @@
                 </div>
             </div>
         </md-card-content>
-        <md-card-actions layout="row" flex layout-align="end end">
-            <md-footer>
+        <md-card-actions layout="row" flex layout-align="end">
+            <md-footer layout="row">
+                <div ng-transclude="verify">
+                </div>
+                <div flex="30"></div>
                 <md-button ng-click="$ctrl.showAdvanced($event,$ctrl.personalInfo,'Edit Info')">{{$ctrl.items.edit}}</md-button>
             </md-footer>
         </md-card-actions>

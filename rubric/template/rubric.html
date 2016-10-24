@@ -1,17 +1,17 @@
 <md-card class="rubrictable">
     <div layout="row" layout-gt-xs="column" layout-padding>
         <div class="caption">
-            RUBRIC {{$ctrl.name}} DATA {{$ctrl.profiletype}}
+            Verification Guide
         </div>
         <md-table-container>
             <table md-table>
                 <thead md-head>
                     <tr md-row>
                         <th md-column>
-                            <div layout="row" layout-margin flex>
-                                <div flex="10">Traits/Scale--></div>
+                            <div layout="row" layout-padding flex>
+                                <div flex="10">Scale</div>
                                 <div flex="90" layout="row">
-                                    <div class="md-title" ng-repeat="a in $ctrl.desc1.header" flex="20">
+                                    <div class="md-title" ng-repeat="a in $ctrl.desc1.scale" flex-offset="10">
                                         {{a}}
                                     </div>
                                 </div>
@@ -20,31 +20,49 @@
                     </tr>
                 </thead>
                 <tbody md-body>
-                    <tr md-row ng-repeat="x in $ctrl.desc1.criteria">
+                    <tr md-row ng-repeat="x in $ctrl.desc1.type">
                         <td md-cell>
-                            <md-radio-group layout="row" layout-padding ng-model="x.model">
-                                <div flex="10" class="md-subhead">{{x.criterianame}}</div>
-                                <div flex="20" ng-repeat=" m in x.columns">
-                                    <md-radio-button class="md-primary" value="{{m.value}}">{{m.desc}}
-                                    </md-radio-button>
-                                </div>
-                                <div flex="20">
-                                    <md-input-container>
-                                        <label> Ratings
-                                        </label>
-                                        <input type="text" ng-model="x.model" disabled>
-                                    </md-input-container>
-                                </div>
-                            </md-radio-group>
+                            <div layout="row">
+                                <md-radio-group layout="row" ng-model="x.model">
+                                    <div flex class="md-subhead">{{x.name}}</div>
+                                    <div flex="20" ng-repeat=" m in x.colums">
+                                        <md-radio-button class="md-primary" value="{{m.value}}">
+                                            <!-- {{m.desc}} -->
+                                            <ul ng-repeat="b in m.checklist" layout="column">
+                                                <li class="md-caption">{{b}}
+                                                </li>
+                                            </ul>
+                                        </md-radio-button>
+                                    </div>
+                                    <div flex="10">
+                                        <md-input-container>
+                                            <label> Ratings
+                                            </label>
+                                            <input type="text" ng-model="x.model" disabled>
+                                        </md-input-container>
+                                    </div>
+                                </md-radio-group>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </md-table-container>
-        <div layout-align="center" layout="row" flex>
-            <md-button class="md-raised md-warn md-block" ng-click="$ctrl.average($ctrl.desc1.criteria)">
-                Overall Grade</md-button>
-            <p>{{$ctrl.outcome}}</p>
+        <div layout-align="center" layout="column">
+            <md-input-container class="md-block">
+                <label>Comments</label>
+                <textarea ng-model="$ctrl.remarks" md-maxlength="20" rows="2" md-select-on-focus></textarea>
+            </md-input-container>
+            <!-- <p>{{$ctrl.desc1.type.model}}</p> -->
+            <!--  <div ng-repeat="y in $ctrl.desc1.type"> -->
+            <div layout-align="center">
+                <md-button class="md-raised md-primary" ng-click="$ctrl.average($ctrl.desc1.type)" style="width:20px">Save
+                </md-button>
+            </div>
+            <!-- <p>
+                {{$ctrl.outcome}}
+            </p> -->
+            <!-- </div> -->
         </div>
     </div>
 </md-card>

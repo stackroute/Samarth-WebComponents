@@ -8,7 +8,10 @@ angular.module('samarth-webcomponents')
         controller: projectsectioncardCtrl,
         bindings: {
             candidateid: '<'
-        }          
+        },
+        transclude: {
+            verify: "verify"
+        }         
     });
 
 function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {

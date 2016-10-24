@@ -9,6 +9,9 @@ var app = angular
         controller: educationcardCtrl,
         bindings: {
             candidateid: '<'
+        },
+        transclude: {
+            verify: "verify"
         }
 
     });
