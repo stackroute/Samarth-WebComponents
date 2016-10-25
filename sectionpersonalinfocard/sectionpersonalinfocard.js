@@ -15,7 +15,7 @@ angular.module('samarth-webcomponents')
         },
         transclude: {
             verify: "verify",
-            badges: "badges"
+
         }
     }).directive('formattedDate', function(dateFilter) {
         return {

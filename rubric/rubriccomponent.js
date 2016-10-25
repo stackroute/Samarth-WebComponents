@@ -3,6 +3,12 @@
     'use strict';
     var scripts = document.getElementsByTagName("script");
     var currentScriptPath = scripts[scripts.length - 1].src;
+
+
+    var path = currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/')) + '/template/notification.html';
+
+
+
     angular.module('samarth-webcomponents')
         .component('smVerificationRubric', {
             bindings: {
@@ -16,7 +22,7 @@
             controller: rubricCtrl
         });
 
-    function rubricCtrl(rubricservice) {
+    function rubricCtrl(rubricservice, $scope, $mdToast) {
         var ctrl = this;
 
         ctrl.description = [];
@@ -32,6 +38,7 @@
                 ctrl.desc = ctrl.description[0];
 
                 ctrl.desc1 = ctrl.desc[0];
+                ctrl.name = ctrl.desc1.type.name[0];
                 // console.log(ctrl.desc1);
                 // console.log(ctrl.desc1.scale);
 
@@ -47,6 +54,14 @@
         ctrl.average = function(desc) {
             angular.forEach(desc, function(value, key) {
                 ctrl.outcome = parseInt(value.model);
+
+            });
+
+            $mdToast.show({
+                hideDelay: 3000,
+                position: 'top right',
+
+                templateUrl: path
 
             });
             console.log(ctrl.outcome);
