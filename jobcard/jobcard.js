@@ -20,14 +20,11 @@ function jobcardCtrl($scope, jobCardService, $window, $timeout) {
     var data = this.data;
     var jobID = data.jobID;
     var employerID = data.employerID;
-    console.log("ID : " + this.data);
     /*Calling the service for getting the details*/
     jobCardService.getJobByID(jobID, employerID)
         .then(function successCallback(response) {
-                console.log("Connected successfully" + response.data);
                 var job = response.data;
                 $scope.job = job[0];
-                //console.log("ID" + $scope.job.jobID);
             },
             function errorCallback(response) {
                 console.log("some error occured");
