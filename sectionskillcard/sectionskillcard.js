@@ -151,7 +151,9 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
                 fullscreen: ctrl.customFullscreen // Only for -xs, -sm breakpoints.
             })
             .then(function(answer) {
-                ctrl.status = 'You said the information was "' + answer + '".';
+               // console.log("Answer: "+answer);
+                //ctrl.status = 'You said the information was "' + answer + '".';
+                ctrl.status = answer;
             }, function() {
                 ctrl.status = 'You cancelled the dialog.';
             });
@@ -184,7 +186,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
                     "metadata": {}
                 }]
             };
-
+ctrl.message="";
             if (header === "Add Skill") {
                 $http({ 
                     method: "post",
@@ -193,9 +195,12 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
                 }).then(function mySucces(response)  { 
                     console.log("res", response.data[0])
                     $rootScope.$emit("skilldatachanged", {});
-                    // alert(response);
+                    $mdDialog.hide("success inserted skill");// alert(response);
                 }, function myError(response) { 
-                    console.log("error in adding skill section") 
+
+                    console.log("error in adding skill section") ;
+                    var message  = "error in adding skill section";
+                    $mdDialog.hide(" Profession and Skill not matched");
                 });
             }
             if (header === "Edit Skill") {
@@ -211,7 +216,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
                     console.log('error in updating skill section'); 
                 });
             }
-            $mdDialog.hide();
+            //$mdDialog.hide();
         };
     }
 
