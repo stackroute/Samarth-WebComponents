@@ -19,8 +19,8 @@
     </md-card-content>
     <md-divider></md-divider>
     <md-card-actions layout="row" layout-sm="column">
-        <md-button ui-sref="index.searchjob">Jobs</md-button>
-        <md-button ui-sref="index.candidatessearch">Candidates</md-button>
+        <md-button ui-sref="index.searchjob({circleName:'{{prof.name}}',circleDomain:'{{prof.domain}}'})">Jobs</md-button>
+        <md-button ui-sref="index.candidatessearch({circleName:'{{prof.name}}',circleDomain:'{{prof.domain}}'})">Candidates</md-button>
         <!-- <md-button>Employer</md-button>
  -->
     </md-card-actions>
