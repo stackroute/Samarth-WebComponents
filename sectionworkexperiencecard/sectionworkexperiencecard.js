@@ -1,6 +1,7 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
-
+var path = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+            '/')) + '/templates/sectionworkexperienceconversation.html';
 var app = angular
     .module('samarth-webcomponents')
     .component('myWorkexperiencecard', {
@@ -79,7 +80,7 @@ function workexperiencecardCtrl($http, $mdDialog,
         ctrl.limitval = 2;
     }
 
-    $http.get('http://localhost:8081/work/' + this.candidateid)
+    $http.get('http://localhost:8081/work/' + ctrl.candidateid)
         .then(function success(response) {
             for (var noofobj = 0; noofobj < response.data.length; noofobj++) {
                 for (var record = 0; record < response.data[noofobj].workexperience.length; record++) {
@@ -97,7 +98,7 @@ function workexperiencecardCtrl($http, $mdDialog,
     $rootScope.$on("workexpdata", function() {
         ctrl.workexperiences = [];
         ctrl.totalworkexperience = 0;
-        $http.get('http://localhost:8081/work/' + this.candidateid)
+        $http.get('http://localhost:8081/work/' + ctrl.candidateid)
             .then(function success(response) {
                 for (var noofobj = 0; noofobj < response.data.length; noofobj++) {
                     for (var record = 0; record < response.data[noofobj].workexperience
@@ -120,15 +121,14 @@ function workexperiencecardCtrl($http, $mdDialog,
 
         $mdDialog.show({
                 controller: dialogCtrl,
-                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                    '/')) + '/templates/sectionworkexperienceconversation.html',
+                templateUrl: path,
                 parent: angular.element(document.body),
                 targetEvent: $event,
                 clickOutsideToClose: true,
                 locals: {
                     header: header,
                     object: object,
-                    candidateid: this.candidateid
+                    candidateid: ctrl.candidateid
                 }
             })
             .then(

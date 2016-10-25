@@ -1,5 +1,7 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
+var path = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+                    '/')) + '/templates/sectionpersonalinfoconversation.html';
 
 angular.module('samarth-webcomponents')
     .component('myPersonalinfocard', {
@@ -65,7 +67,7 @@ function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
 
     $http({
         method: "GET",
-        url: 'http://localhost:8081/personalinfo/' + this.candidateid
+        url: 'http://localhost:8081/personalinfo/' + ctrl.candidateid
     }).then(function successCallback(response) {
 
         ctrl.personalInfo = response.data[0];
@@ -89,8 +91,7 @@ function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
     ctrl.showAdvanced = function(ev, personalInfo, title) {
         $mdDialog.show({
                 controller: dialogCtrl,
-                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                    '/')) + '/templates/sectionpersonalinfoconversation.html',
+                templateUrl: path,
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -139,7 +140,7 @@ function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
             if (header === "Edit Info") {
                 $http({ 
                     method: "POST",
-                    url: "http://localhost:8081/personalinfo/" + this.candidateid,
+                    url: "http://localhost:8081/personalinfo/" + ctrl.candidateid,
                     data: personalinfoObj
 
                 }).then(function mySucces(response)  { 

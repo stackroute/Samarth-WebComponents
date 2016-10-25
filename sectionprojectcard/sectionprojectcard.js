@@ -1,5 +1,6 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
+var path = currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/')) + '/templates/sectionprojectconversation.html';
 
 angular.module('samarth-webcomponents')
     .component('myProjectsectioncard', {            
@@ -57,7 +58,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
 
     $http({
         method: 'GET',
-        url: 'http://localhost:8081/project/' + this.candidateid
+        url: 'http://localhost:8081/project/' + ctrl.candidateid
 
     }).then(function successCallback(response) {
         for (var noOfObjects = 0; noOfObjects < response.data.length; noOfObjects++) {
@@ -78,7 +79,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
         ctrl.totalProjects = 0;
         $http({
             method: 'GET',
-            url: 'http://localhost:8081/project/' + this.candidateid
+            url: 'http://localhost:8081/project/' + ctrl.candidateid
 
         }).then(function successCallback(response) {
             for (var noOfObjects = 0; noOfObjects < response.data.length; noOfObjects++) {
@@ -100,8 +101,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
     ctrl.showAdvanced = function(ev, header, object) {
         $mdDialog.show({
                 controller: DialogController,
-                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                    '/')) + '/templates/sectionprojectconversation.html',
+                templateUrl: path,
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -184,7 +184,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
                 console.log("before adding project", projectData);
                 $http({
                     method: 'POST',
-                    url: 'http://localhost:8081/project/' + this.candidateid,
+                    url: 'http://localhost:8081/project/' + ctrl.candidateid,
                     data: projectData,
                     crossDomain: true
                 }).then(function successCallback(response) {
@@ -198,7 +198,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
                 console.log("projectdata", projectData);
                 $http({
                     method: 'PATCH',
-                    url: 'http://localhost:8081/project/' + this.candidateid + "/" +
+                    url: 'http://localhost:8081/project/' + ctrl.candidateid + "/" +
                         object.name,
                     data: projectData,
                     crossDomain: true
