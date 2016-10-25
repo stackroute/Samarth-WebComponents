@@ -1,6 +1,9 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
 
+var projectconversationpath = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+    '/')) + '/templates/sectionprojectconversation.html';
+
 angular.module('samarth-webcomponents')
     .component('myProjectsectioncard', {            
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
@@ -57,7 +60,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
 
     $http({
         method: 'GET',
-        url: 'http://localhost:8081/project/' + this.candidateid
+        url: 'http://localhost:8081/project/' + ctrl.candidateid
 
     }).then(function successCallback(response) {
         for (var noOfObjects = 0; noOfObjects < response.data.length; noOfObjects++) {
@@ -73,12 +76,16 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
 
         console.log('Error accord during Project Section')
     });
+
+    console.log("########################3", ctrl.candidateid);
+
+
     $rootScope.$on("projectdata", function() {
         ctrl.profile = [];
         ctrl.totalProjects = 0;
         $http({
             method: 'GET',
-            url: 'http://localhost:8081/project/' + this.candidateid
+            url: 'http://localhost:8081/project/' + ctrl.candidateid
 
         }).then(function successCallback(response) {
             for (var noOfObjects = 0; noOfObjects < response.data.length; noOfObjects++) {
@@ -100,14 +107,14 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
     ctrl.showAdvanced = function(ev, header, object) {
         $mdDialog.show({
                 controller: DialogController,
-                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                    '/')) + '/templates/sectionprojectconversation.html',
+                templateUrl: projectconversationpath,
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 locals: {
                     header: header,
-                    object: object
+                    object: object,
+                    candidateid: this.candidateid
                 }
             })
             .then(
@@ -116,8 +123,9 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
             );
     };
 
-    function DialogController($scope, $mdDialog, $http, header, object) {
+    function DialogController($scope, $mdDialog, $http, header, object, candidateid) {
         // var candidateid = UserAuthService.getUser().uname;
+        $scope.candidateid = candidateid;
         $scope.header = header;
         $scope.projectObj = object;
         $scope.skills = $scope.projectObj.skills;
@@ -184,7 +192,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
                 console.log("before adding project", projectData);
                 $http({
                     method: 'POST',
-                    url: 'http://localhost:8081/project/' + this.candidateid,
+                    url: 'http://localhost:8081/project/' + $scope.candidateid,
                     data: projectData,
                     crossDomain: true
                 }).then(function successCallback(response) {
@@ -198,12 +206,13 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
                 console.log("projectdata", projectData);
                 $http({
                     method: 'PATCH',
-                    url: 'http://localhost:8081/project/' + this.candidateid + "/" +
+                    url: 'http://localhost:8081/project/' + $scope.candidateid + "/" +
                         object.name,
                     data: projectData,
                     crossDomain: true
                 }).then(function successCallback(response) {
-                    console.log("After updating project", response.data)
+                    console.log("After updating project", response.data);
+
                     $rootScope.$emit("projectdata", {});
                 }, function errorCallback(response) {
                     console.log('Error accord during updating Project Section')
