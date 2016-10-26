@@ -20,21 +20,26 @@ my-personalinfocard{
 
 .vertical-divider {
   border-top-width: 0;
-  border-right-width: 10px;
+  border-right-width: 5px;
   border-right-style: solid;
   height: 100%;
-  margin-right: 15px;
-  margin-left: 15px;
+  /*margin-right: 10px;
+  margin-left: 10px;*/
 
 }
 
 .layout-row > .horizontal-divider{
-	border-top-width: 1.5px;
-}
+	border-top-width: 1px;
 
+}
 
 .icons{
 	color: black;
+  padding-right: 5px;
+}
+
+.padding_class{
+  padding-bottom: 10px;
 }
 
 
