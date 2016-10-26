@@ -29,11 +29,12 @@ function badgeCtrl(verificationbadgeService) {
                 //ctrl.verification_ratings = res.data[0].verification_ratings;
                 console.log(ctrl.average);
                 var i = parseInt(ctrl.average);
+                console.log("value", i);
 
 
-
+                // var i = 5;
                 for (var a = 0; a < i; a++) {
-
+                    //  var a = 5;
                     ctrl.arr.push(a);
                 }
                 //console.log(ctrl.arr);

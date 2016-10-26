@@ -8,14 +8,14 @@
             </md-card-header-text>
             <!-- <div layout=column> -->
             <div layout="row">
+                <div ng-transclude="badges">
+                </div>
                 <md-card-avatar id="avatar">
                     <img class="md-user-avatar" src="Samarth-WebComponents/skillcard/images/user.png">
                 </md-card-avatar>
                 <!-- <span layout-align="end"><md-icon class="material-icons" style="color:green">verified_user</md-icon></span> -->
                 <!--  <div ng-transclude="verified">
                 </div> -->
-                <div ng-transclude="badges">
-                </div>
             </div>
             <!--  </div> -->
         </md-card-header>
