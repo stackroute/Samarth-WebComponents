@@ -1,6 +1,6 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
-var path = currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/')) + '/templates/sectionprojectconversation.html';
+var path3 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/')) + '/templates/sectionprojectconversation.html';
 
 angular.module('samarth-webcomponents')
     .component('myProjectsectioncard', {            
@@ -101,7 +101,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
     ctrl.showAdvanced = function(ev, header, object) {
         $mdDialog.show({
                 controller: DialogController,
-                templateUrl: path,
+                templateUrl: path3,
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,

@@ -1,6 +1,6 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
-var path = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+var path1 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionskillconversation.html';
 
 angular.module('samarth-webcomponents')
@@ -138,7 +138,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
     ctrl.showAdvanced = function(ev, value, title) {
         $mdDialog.show({
                 controller: DialogController,
-                templateUrl: path,
+                templateUrl: path1,
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,

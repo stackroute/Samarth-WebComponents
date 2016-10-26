@@ -1,6 +1,6 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
-var path = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+var path5 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionworkexperienceconversation.html';
 var app = angular
     .module('samarth-webcomponents')
@@ -121,7 +121,7 @@ function workexperiencecardCtrl($http, $mdDialog,
 
         $mdDialog.show({
                 controller: dialogCtrl,
-                templateUrl: path,
+                templateUrl: path5,
                 parent: angular.element(document.body),
                 targetEvent: $event,
                 clickOutsideToClose: true,
@@ -147,6 +147,7 @@ function workexperiencecardCtrl($http, $mdDialog,
             $scope.designation = object.designation;
             $scope.workplace = object.workplace;
             $scope.Location = object.Location;
+            $scope.salary = object.salary;
             $scope.year = object.duration.duration;
             $scope.from = object.duration.from;
             $scope.to = object.duration.to;
@@ -162,6 +163,7 @@ function workexperiencecardCtrl($http, $mdDialog,
             $scope.workplace = "";
             $scope.Location = "";
             $scope.workplace = "";
+            $scope.salary = "";
             $scope.year = "";
             $scope.from = "";
             $scope.to = "";
@@ -196,6 +198,7 @@ function workexperiencecardCtrl($http, $mdDialog,
                     "designation": $scope.designation,
                     "workplace": $scope.workplace,
                     "Location": $scope.Location,
+                    "salary" : $scope.salary,
                     "duration": {
                         "duration": $scope.year,
                         "from": $scope.from,
