@@ -7,4 +7,48 @@ my-personalinfocard{
 .md-title{
 	padding:0px;
 }
+.layout-row > .horizontal-divider > md-divider{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-top-width: 2px;
+    /*border-right-width: 400px;*/
+    border-right-style: solid;
+    color: grey;
+    width: 100%
+}
+
+
+.vertical-divider {
+  border-top-width: 0;
+  border-right-width: 5px;
+  border-right-style: solid;
+  height: 100%;
+  /*margin-right: 10px;
+  margin-left: 10px;*/
+
+}
+
+.layout-row > .horizontal-divider{
+	border-top-width: 1px;
+
+}
+
+/*.horizontal-divider > md-divider{
+  border-top-width: 1px;
+}*/
+
+.icons{
+	color: black;
+  padding-right: 5px;
+  /*padding-left: 5px;*/
+}
+
+.comp-padding{
+  padding-bottom: 10px;
+}
+
+.align_data{
+  text-align: center;
+}
+
 
