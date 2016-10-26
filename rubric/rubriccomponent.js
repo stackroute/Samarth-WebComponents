@@ -22,7 +22,7 @@
             controller: rubricCtrl
         });
 
-    function rubricCtrl(rubricservice, $scope, $mdToast) {
+    function rubricCtrl(rubricservice, $scope) {
         var ctrl = this;
 
         ctrl.description = [];
@@ -57,13 +57,7 @@
 
             });
 
-            $mdToast.show({
-                hideDelay: 3000,
-                position: 'top right',
-
-                templateUrl: path
-
-            });
+            ctrl.message = "Ratings Saved Successfully!";
             console.log(ctrl.outcome);
             console.log(ctrl.remarks);
 

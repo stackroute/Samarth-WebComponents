@@ -1,12 +1,33 @@
-<div layout-gt-md="column" flex ng-if="$ctrl.average>0">
-    <div flex-offset="75">
-        <md-icon class="material-icons md-36" style="color:green" layout-align="end end">verified_user</md-icon>
+<div>
+    <div layout-gt-xs="column" ng-show="$ctrl.average>0" md-padding>
+        <div flex-offset="35" hide-xs>
+            <md-icon class="material-icons md-36" style="color:green" layout-align="end end">verified_user</md-icon>
+        </div>
+        <div layout="row" layout-align="end end" hide-xs>
+            <div ng-repeat="x in $ctrl.arr">
+                <md-icon class="material-icons md-24 md-raised" layout-align="center" style="color:#FFEA00">{{$ctrl.verification_status}}</md-icon>
+            </div>
+            <span>/ 5 </span>
+            <!-- <span>{{$ctrl.verification_ratings}}</span> -->
+        </div>
+        <br>
+        <span class="md-caption">Verified :<time am-time-ago="$ctrl.a"></time></span>
+    </div>
+    <div layout-gt-xs="column" ng-show="$ctrl.average==0" md-padding>
+        <div flex-offset="35" hide-xs>
+            <md-icon class="material-icons md-36" style="color:orange" layout-align="end end">error</md-icon>
+        </div>
+    </div>
+</div>
+<!-- <div layout-gt-md="column" ng-if="$ctrl.average=0">
+    <div flex-offset="30">
+        <md-icon class="material-icons md-36" style="color:orange" layout-align="end end">error</md-icon>
     </div>
     <div layout="row" layout-align="end end">
         <div ng-repeat="x in $ctrl.arr">
-            <md-icon class="material-icons md-36 md-raised" layout-align="end end" style="color:#FFEA00">{{$ctrl.verification_status}}</md-icon>
+            <md-icon class="material-icons md-24 md-raised" layout-align="center" style="color:#FFEA00">{{$ctrl.verification_status}}</md-icon>
         </div>
-        <!-- <span>{{$ctrl.verification_ratings}}</span> -->
+        <span>{{$ctrl.verification_ratings}}</span>
     </div>
     <span class="md-caption"> Last Verified :<time am-time-ago="$ctrl.a"></time></span>
-</div>
+</div> -->
