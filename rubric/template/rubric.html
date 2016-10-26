@@ -48,8 +48,7 @@
                 </tbody>
             </table>
         </md-table-container>
-        <div layout-align="center center"
- layout="column" flex>
+        <div layout-align="center center" layout="column" flex>
             <md-input-container>
                 <label>Comments</label>
                 <textarea ng-model="$ctrl.remarks" md-maxlength="20" rows="2" md-select-on-focus></textarea>
@@ -59,6 +58,9 @@
             <div layout-align="center">
                 <md-button class="md-raised md-primary" ng-click="$ctrl.average($ctrl.desc1.type)" style="width:20px">Save
                 </md-button>
+                <div flex>
+                    {{$ctrl.message}}
+                </div>
             </div>
             <!-- <p>
                 {{$ctrl.outcome}}
