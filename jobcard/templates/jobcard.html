@@ -1,15 +1,21 @@
 <div id="totalcardarea">
-    <md-card layout="column" class="bodyContent" flex>
-        <md-card-header layout-gt-sm="row" layout-sm="column" layout-xs="column" flex layout-padding class="headerSection">
+    <md-card md-theme='default' md-theme-watch layout="column" class="bodyContent" flex>
+        <md-card-header layout-gt-sm="row" layout-sm="column" layout-xs="column" flex layout-padding>
             <md-card-header-text layout="column" layout flex>
-                <div layout="row" layout-align="start center">
+                <div layout="row" layout-align="start center" class="md-padding">
                     <!-- Job role and job Department fields-->
-                    <div flex="90" layout="column">
-                        <span class="md-display-1">{{job.jobRole}}&#44; &nbsp;</span>
-                        <span class="md-display-1">{{job.jobDepartment}}</span>
+                    <div flex="80" layout="column">
+                        <div class="md-block md-padding">
+                            <i class="material-icons md-display-1">school</i>
+                            <span class="md-display-1">{{job.jobRole}}&#44; &nbsp;</span>
+                        </div>
+                        <div layout="row" class="md-block">
+                            <i class="material-icons">group_work</i>
+                            <span class="md-display-1" layout="row">{{job.departmentName}}</span>
+                        </div>
                     </div>
                     <!-- Logo -->
-                    <div flex="10" layout="column">
+                    <div flex="20" layout="column" hide-xs>
                         <md-card-avatar class="avatar">
                             <img class="md-user-avatar avatar" src="{{job.employer.employerLogo}}" alt="Logo">
                         </md-card-avatar>
@@ -18,16 +24,16 @@
                 </div>
                 <!-- Company name and location -->
                 <div layout-xs="column" layout-gt-xs="row" flex>
-                    <span class="md-title" flex-xs flex-gt-xs="60">{{job.employer.employerName}}&#44; &nbsp;</span>
-                    <span class="md-title" flex-xs flex-gt-xs="40"><i class="material-icons">location_on</i>{{job.jobLocation}}</span>
+                    <span class="md-title" flex-xs flex-gt-xs="60"><i class="material-icons md-padding">business</i>&nbsp;{{job.employer.employerName}}&#44; &nbsp;</span>
+                    <span class="md-title" flex-xs flex-gt-xs="40"><i class="material-icons md-padding">location_on</i>&nbsp;{{job.jobLocation}}</span>
                 </div>
             </md-card-header-text>
         </md-card-header>
-        <md-card-content flex layout="column">
-            <div layout="column">
+        <md-card-content flex layout="column" layout-padding>
+            <div layout="column" class="md-padding">
                 <!-- Skills required -->
-                <label class="md-title">Skills Required</label>
-                <md-chips ng-model="job.skillsRequired" md-max-chips="3" readonly="true">
+                <label class="md-title md-padding">Skills Required</label>
+                <md-chips ng-model="job.skillsRequired" class="md-padding" md-max-chips="3" readonly="true">
                     <md-chip-template>
                         <strong>{{$chip.skillName}}</strong>
                         <em>({{$chip.experience}})</em>
@@ -35,7 +41,7 @@
                 </md-chips>
             </div>
             <div layout-xs="column" layout-gt-xs="row">
-                <span class="md-title" flex-xs flex-gt-xs="60">Experience:&nbsp;{{job.experience.experienceYear}}&nbsp;Years&nbsp;{{job.experience.experienceMonth}}&nbsp;months</span>
+                <span class="md-title" flex-xs flex-gt-xs="60">Experience:{{job.experience.experienceYear}}&nbsp;Years&nbsp;{{job.experience.experienceMonth}}&nbsp;months</span>
                 <span class="md-title" flex-xs flex-gt-xs="40">Posted on: {{job.jobPostDate | date:'yyyy-MM-dd'}}</span>
             </div>
             <div layout-xs="column" layout-xs="column" layout-gt-xs="row">
@@ -44,7 +50,7 @@
             </div>
         </md-card-content>
         <!-- The action bar for card, can include anything inside this while using the webcomponents -->
-        <md-card-actions class="headerSection" layout="row" layout-align="end center">
+        <md-card-actions layout="row" layout-align="end center">
             <a id="jsonDownload" ng-click="downloadedData()">
                 <md-icon class="material-icons">share</md-icon>
             </a>
@@ -53,7 +59,7 @@
                     <md-icon class="material-icons">file_download</md-icon>
                 </md-button>
             </a>
-            <div ng-transclude>
+            <div class="action" ng-transclude>
             </div>
         </md-card-actions>
     </md-card>
