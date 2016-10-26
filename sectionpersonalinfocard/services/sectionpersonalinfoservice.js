@@ -11,7 +11,6 @@ angular.module('samarth-webcomponents')
                 }).then(function mySucces(response) {
                     data = response.data;
 
-
                     console.log(data);
                     return data;
 
@@ -19,6 +18,5 @@ angular.module('samarth-webcomponents')
                     return (response.error.message);
                 });
             }
-
         };
     });
