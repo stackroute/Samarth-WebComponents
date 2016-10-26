@@ -1,6 +1,7 @@
 var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
-
+var path2 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+            '/')) + '/templates/educonvoNEW.html';
 var app = angular
     .module('samarth-webcomponents')
     .component('myEducationcard', {
@@ -8,7 +9,8 @@ var app = angular
             '/')) + '/templates/sectionseducationcard.html',
         controller: educationcardCtrl,
         bindings: {
-            candidateid: '<'
+            candidateid: '<',
+            showheader:'<'
         },
         transclude: {
             verify: "verify"
@@ -42,7 +44,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
     ctrl.eduDetails = [];
     ctrl.schools = [];
     ctrl.colleges = [];
-    $http.get('http://localhost:8081/education/' + this.candidateid).then(function(
+    $http.get('http://localhost:8081/education/' + ctrl.candidateid).then(function(
         response) {
 
         for (var noOfObjects = 0; noOfObjects < response.data[0].qualification.length; noOfObjects++) {
@@ -72,7 +74,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
         ctrl.schools = [];
         ctrl.colleges = [];
         console.log("data changed");
-        $http.get('http://localhost:8081/education/' + this.candidateid).then(
+        $http.get('http://localhost:8081/education/' + ctrl.candidateid).then(
             function(response) {
 
                 for (var noOfObjects = 0; noOfObjects < response.data[0].qualification
@@ -106,8 +108,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
     ctrl.showAdvanced = function(ev, header, object) {
         $mdDialog.show({
                 controller: dialogCtrl,
-                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                    '/')) + '/templates/educonvoNEW.html',
+                templateUrl: path2,
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -201,7 +202,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
             if (header == ("Add Education")) {
                 $http({
                         method: 'POST',
-                        url: 'http://localhost:8081/education/' + this.candidateid,
+                        url: 'http://localhost:8081/education/' + ctrl.candidateid,
                         // 'Content-Type':'application/json',
                         data: education
                     })
@@ -218,7 +219,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
             if (header == "Edit School" || header == "Edit College") {
                 $http({
                         method: 'PATCH',
-                        url: 'http://localhost:8081/education/' + this.candidateid + "/" +
+                        url: 'http://localhost:8081/education/' + ctrl.candidateid + "/" +
                             $scope.title,
                         // 'Content-Type':'application/json',
                         data: education
