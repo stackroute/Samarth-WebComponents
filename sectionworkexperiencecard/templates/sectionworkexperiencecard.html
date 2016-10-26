@@ -10,15 +10,15 @@
             <md-card-content layout-wrap layout="column">
                 <div layout="column" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval">
                     <div flex="10">
-                        <dr/>
+                        <br/>
                     </div>
                     <div layout="row">
-                        <div flex="20" flex-xs="30">
-                            <span class="circle" layout layout-align="center-center">
+                        <div flex="40" flex-xs="30">
+                            <span class="circle" layout layout-align="center center">
                                 {{value.duration.duration}}
                             </span>
                         </div>
-                        <div flex="80" flex="70" class="designation">
+                        <div flex="60" flex-xs="70" class="designation">
                             <span class="md-headline">
                                 {{value.designation}}
                             </span>
@@ -28,15 +28,18 @@
                     <div layout="row">
                         <div flex="10">
                         </div>
+                        <br>
                         <div layout="column" flex="90">
                             <div layout-gt-xs="row" layout-xs="column">
                                 <div flex>
                                     <md-icon class="material-icons">business_center</md-icon>{{value.workplace}}
                                 </div>
+
                                 <div flex>
                                     <md-icon class="material-icons">place</md-icon>{{value.Location}}
                                 </div>
                             </div>
+                            <br>
                             <div layout-gt-xs="row" layout-xs="column" hide-xs>
                                 <div flex>
                                     <md-icon class="material-icons">date_range</md-icon>{{value.duration.from|date:'dd-MM-yyyy'}}
@@ -45,16 +48,20 @@
                                     <md-icon class="material-icons">date_range</md-icon>{{value.duration.to|date:'dd-MM-yyyy'}}
                                 </div>
                             </div>
+                            <br>
                             <div layout-gt-xs="row" layout-xs="row" layout-wrap>
                                 <span ng-repeat="skill in value.skills" flex-xs="100">
-                                    <md-button flex-xs="100"  ng-disabled="true" class="md-raised">{{skill}}
+                                    <md-button flex-xs="100" class="md-warn">{{skill}}
                                     </md-button>    
                                 </span>
                             </div>
                         </div>
+                        <br>
                         <div flex="16">
-                            <md-button ng-click="$ctrl.showAdvanced($event,'Edit work',value)">
+                            <md-button class="md-primary" ng-click="$ctrl.showAdvanced($event,'Edit work',value)">
+                                <span>EDIT
                                 <md-icon>mode_edit</md-icon>
+                                </span>
                             </md-button>
                         </div>
                     </div>
@@ -111,7 +118,7 @@
             <md-card-actions layout="row " layout-align="end center">
                 <div ng-transclude="verify">
                 </div>
-                <md-button ng-click="$ctrl.showAdvanced($event, 'Add Workexperience', '') ">{{$ctrl.items.addworkexp}}
+                <md-button class="md-primary" ng-click="$ctrl.showAdvanced($event, 'Add Workexperience', '') ">{{$ctrl.items.addworkexp}}
                 </md-button>
             </md-card-actions>
         </div>
