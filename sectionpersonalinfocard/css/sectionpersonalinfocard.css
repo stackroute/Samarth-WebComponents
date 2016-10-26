@@ -7,10 +7,10 @@ my-personalinfocard{
 .md-title{
 	padding:0px;
 }
-.layout-row > md-divider{
+.layout-row > .horizontal-divider > md-divider{
 	margin-top: 15px;
 	margin-bottom: 15px;
-	/*border-top-width: 0.5px;*/
+	border-top-width: 2px;
     /*border-right-width: 400px;*/
     border-right-style: solid;
     color: grey;
@@ -33,13 +33,22 @@ my-personalinfocard{
 
 }
 
+/*.horizontal-divider > md-divider{
+  border-top-width: 1px;
+}*/
+
 .icons{
 	color: black;
   padding-right: 5px;
+  /*padding-left: 5px;*/
 }
 
-.padding_class{
+.comp-padding{
   padding-bottom: 10px;
+}
+
+.align_data{
+  text-align: center;
 }
 
 
