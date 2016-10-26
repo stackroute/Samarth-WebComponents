@@ -9,7 +9,8 @@ var app = angular
             '/')) + '/templates/sectionseducationcard.html',
         controller: educationcardCtrl,
         bindings: {
-            candidateid: '<'
+            candidateid: '<',
+            showheader:'<'
         },
         transclude: {
             verify: "verify"

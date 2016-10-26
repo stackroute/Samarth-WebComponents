@@ -8,7 +8,8 @@ angular.module('samarth-webcomponents')
             '/')) + '/templates/sectionprojectcard.html',
         controller: projectsectioncardCtrl,
         bindings: {
-            candidateid: '<'
+            candidateid: '<',
+            showheader: '<'
         },
         transclude: {
             verify: "verify"

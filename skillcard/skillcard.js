@@ -6,7 +6,8 @@ angular.module('samarth-webcomponents')        .component('mySkillcard',
         '/')) + '/templates/skillcard.html',
                 controller: skillcardCtrl,
     bindings: {
-        candidateid: '<'
+        candidateid: '<',
+        showheader: '<'
             // data: "="
     },
     transclude: {

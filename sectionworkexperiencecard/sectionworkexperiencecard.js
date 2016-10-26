@@ -9,7 +9,8 @@ var app = angular
             '/')) + '/templates/sectionworkexperiencecard.html',
         controller: workexperiencecardCtrl,
         bindings: {
-            candidateid: '<'
+            candidateid: '<',
+            showheader:'<'
         },
         transclude: {
             verify: "verify"

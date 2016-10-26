@@ -6,7 +6,8 @@ angular.module('samarth-webcomponents')
     .component('jobCard', {
         /*Binding jobID*/
         bindings: {
-            data: '<'
+            data: '<',
+            showheader:'<'
         },
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/jobcard.html',

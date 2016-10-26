@@ -9,7 +9,8 @@ angular.module('samarth-webcomponents')
             '/')) + '/templates/sectionpersonalinfocard.html',
         controller: personalinfocardCtrl,
         bindings: {
-            candidateid: '<'
+            candidateid: '<',
+            showheader: '<'
         },
         transclude: {
             verify: "verify"
