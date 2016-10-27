@@ -5,10 +5,12 @@
             <div flex="10">({{$ctrl.total}})</div>
         </md-card-title-text>
     </md-card-title>
-    <h2 class="md-title"> {{$ctrl.items.primary}} <span class="numbers">({{$ctrl.plen}})</span> 
-        </h2>
+    <!-- <h2 class="md-title"> {{$ctrl.items.primary}} <span class="numbers">({{$ctrl.plen}})</span> 
+        </h2> -->
     <div layout="row" class="items" layout-wrap layout-padding>
-        <md-whiteframe class="md-whiteframe-1dp" flex="30" flex-xs="100" ng-repeat="value in $ctrl.primary| limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout="column" id="{{value.expertise}}">
+        <!-- <md-whiteframe class="md-whiteframe-1dp" flex="30" flex-xs="100" ng-repeat="value in $ctrl.primary| limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout="column" id="{{value.expertise}}"> -->
+        <!-- md-card class="transparent" -->
+        <span flex="20" flex-xs="100" ng-repeat="value in $ctrl.primary| limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout="column" id="{{value.expertise}}">
             <div layout="row">
                 <span class="names">{{value.skillname | capitalize}}</span>
             </div>
@@ -19,10 +21,10 @@
                     <md-icon ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')">mode_edit</md-icon>
                 </div>
             </div>
-        </md-whiteframe>
+        </span>
         <div layout="row" flex="80"></div>
         <div layout="column" flex="20" layout-align="center center">
-            <md-button class="md-icon-button" ng-click="$ctrl.decreaseLimit()" ng-disabled="$ctrl.limitval<=3" ng-hide="$ctrl.limitval<=3">
+            <md-button class="md-icon-button" ng-click="$ctrl.decreaseLimit()" ng-disabled="$ctrl.limitval<=4" ng-hide="$ctrl.limitval<=4">
                 <md-icon class="material-icons">keyboard_arrow_up</md-icon>
             </md-button>
             <md-button class="md-icon-button" ng-click="$ctrl.increaseLimit()" ng-disabled="$ctrl.limitval>=$ctrl.primary.length" ng-hide="$ctrl.limitval>=$ctrl.primary.length">
@@ -34,9 +36,11 @@
             
         </div> -->
     </div>
-    <h2 class="md-title">{{$ctrl.items.secondary}} <span class="numbers">({{$ctrl.slen}})</span></h2>
+    <md-divider></md-divider>
+    <!-- <h2 class="md-title">{{$ctrl.items.secondary}} <span class="numrs">({{$ctrl.slen}})</span></h2> -->
     <div layout="row" class="items" layout-wrap layout-padding>
-        <md-whiteframe class="md-whiteframe-1dp" flex="30" flex-xs="100" ng-repeat="value in $ctrl.secondary| limitTo: $ctrl.limitval2" ng-model="$ctrl.limitval2" layout="column" id="{{value.expertise}}">
+        <!-- <md-whiteframe class="md-whiteframe-1dp" flex="30" flex-xs="100" ng-repeat="value in $ctrl.secondary| limitTo: $ctrl.limitval2" ng-model="$ctrl.limitval2" layout="column" id="{{value.expertise}}"> -->
+        <span flex="20" flex-xs="100" ng-repeat="value in $ctrl.secondary| limitTo: $ctrl.limitval2" ng-model="$ctrl.limitval2" layout="column" id="{{value.expertise}}">
             <div layout="row">
                 <span class="names">{{value.skillname | capitalize}}</span>
             </div>
@@ -47,10 +51,11 @@
                     <md-icon ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')">mode_edit</md-icon>
                 </div>
             </div>
-        </md-whiteframe>
+        <!-- </md-whiteframe> -->
+        </span>
         <div layout="row" flex="80"></div>
         <div layout="column" flex="20" layout-align="center center">
-            <md-button class="md-icon-button" ng-click="$ctrl.decreaseLimit2()" ng-hide="$ctrl.limitval2<=3" ng-disabled="$ctrl.limitval2<=3">
+            <md-button class="md-icon-button" ng-click="$ctrl.decreaseLimit2()" ng-hide="$ctrl.limitval2<=4" ng-disabled="$ctrl.limitval2<=4">
                 <md-icon class="material-icons">keyboard_arrow_up</md-icon>
             </md-button>
             <md-button class="md-icon-button" ng-click="$ctrl.increaseLimit2()" ng-disabled="$ctrl.limitval2>=$ctrl.secondary.length" ng-hide="$ctrl.limitval2>=$ctrl.secondary.length">

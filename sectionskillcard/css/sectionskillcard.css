@@ -20,8 +20,8 @@
  }
  
  .card >div>div >md-button {
-     /*font-weight: bold;*/
-     /*cursor: pointer;*/
+     font-weight: bold;
+     cursor: pointer;
  }
  
  .card >.items>div >md-button>md-icon {
@@ -30,7 +30,10 @@
      /*font-size: x-large;*/
      /*cursor: pointer;*/
  }
- 
+ .card >.items>span{
+     margin-left: 0.7em;
+ }
+
  .items {
      /*margin:30px;*/
  }
@@ -57,22 +60,23 @@
  }
  
  #Proficient {
-     background: linear-gradient(to right, #63EB6C 3%, white 0%);
+     background: linear-gradient(to top, #63EB6C 3%, white 0%);
      /*background-color: #DAF9D6     ;*/
  }
  
  #Begginner {
      /*background-color: #F0CACA  ;*/
      /*background-color: red  ;*/
-     background: linear-gradient(to right, #EC4C39 3%, white 0%);
+     background: linear-gradient(to top, #EC4C39 3%, white 0%);
+     /*background: linear-gradient(to left, black 3%, white 3%);*/
  }
  
  #Expert {
-     background: linear-gradient(to right, #587DE6 3%, white 0%);
+     background: linear-gradient(to top, #587DE6 3%, white 0%);
      /*background-color: #E6FBFC     ;*/
  }
  
  #Skilled {
-     background: linear-gradient(to right, #E5EA5C 3%, white 0%);
+     background: linear-gradient(to top, #E5EA5C 3%, white 0%);
      /*background-color: #F8F4D2   ;*/
  }
