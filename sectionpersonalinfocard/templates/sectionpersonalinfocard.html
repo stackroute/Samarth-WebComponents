@@ -26,13 +26,14 @@
                     <div layout-xs="column" layout="column" flex-xs="100" flex-gt-xs="25" layout-align="center center" class="align_data">
                        
                        <div layout="row" flex layout-align="center center" class="padding_class" > 
-                            <div  >
+                            <div >
                                 <md-icon class="icons">call</md-icon>
                             </div>
                             <div> {{$ctrl.personalInfo.contact}}</div>
+                            
                         </div>
 
-                        <div layout="row" flex layout-align="center center" class="padding_class" layout-wrap>
+                        <div layout="row" flex layout-align="center center" class="padding_class" layout-wrap layout-fill>
 
                             <div >
                                 <md-icon class="icons">email</md-icon>
@@ -42,11 +43,8 @@
                         </div>
                     </div>
 
+                    <md-divider id="horizontal-divider" hide-gt-xs show-xs ></md-divider>
                     <md-divider hide-xs show-gt-xs class="vertical-divider"></md-divider>
-                   <!--  <md-divider class="horizontal-divider" hide-gt-xs show-xs ></md-divider> -->
-
-                   <md-divider class="horizontal-divider"></md-divider>    
-
 
                     <div layout="column" flex-xs="100" flex-gt-xs="25" layout-align="center center" class="align_data">
                         <div layout="row" layout-align="center center" class="comp-padding" layout-wrap>
@@ -69,43 +67,47 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <md-divider hide-xs show-gt-xs class="vertical-divider"></md-divider>
-                    <md-divider class="horizontal-divider" hide-gt-xs show-xs ></md-divider>
+                    <md-divider  hide-gt-xs show-xs id="horizontal-divider"></md-divider>
 
                     <div layout="column" flex-xs="100" flex-gt-xs="25" layout-align="center center" class="align_data">
 
                         <div layout="column" flex layout-align="center start">
-                            <div class="md-subhead">
-                            <ul>
-                               <li>
-                                    <div>
-                                    {{$ctrl.personalInfo.maritialstatus}}
-                                    </div> 
-                               </li>
-                               <li>
-                                    <div>
-                                    {{$ctrl.personalInfo.gender}}
-                                    </div>
-                                </li>
-                                
-                                <li>
-                                    <div>
-                                        {{$ctrl.personalInfo.dob|date:'MMM dd,yyyy'}}
-                                    </div>
-                                </li>
-                            </ul>             
+                            <div class="md-subhead"    hide-xs>
+                            
+                                <div>
+                                {{$ctrl.personalInfo.maritialstatus}}
+                                </div> 
+                           
+                                <div>
+                                {{$ctrl.personalInfo.gender}}
+                                </div>
+                            
+                                <div>
+                                    {{$ctrl.personalInfo.dob|date:'MMM dd,yyyy'}}
+                                </div>
+                                            
+                        </div>
+
+                        <div class="md-subhead" hide-gt-xs>
+                            
+                            <div>
+                                {{$ctrl.personalInfo.maritialstatus}}, {{$ctrl.personalInfo.gender}}
+                            </div> 
+                        
+                            <div>
+                                {{$ctrl.personalInfo.dob|date:'MMM dd,yyyy'}}
+                            </div>
+                                            
                         </div>
                     </div>
                 </div>
-
-                   
+                 
                     <md-divider hide-xs show-gt-xs class="vertical-divider"></md-divider>
-                    <md-divider class="horizontal-divider" hide-gt-xs show-xs></md-divider>
+                    <md-divider id="horizontal-divider" hide-gt-xs show-xs></md-divider>
                    
-
                     <div layout="column" flex-xs="100" flex-gt-xs="25" layout-align="center center" class="align_data">
                         
                         <div layout="row" layout-align="center center">
@@ -115,10 +117,7 @@
                             <div>{{$ctrl.personalInfo.mothertongue}}</div>
                         </div>
                     </div>
-
-                    <!-- <div layout="column" flex-xs="100" flex-gt-xs="25" layout-align="center center" class="align_data">
-                    </div> -->
-                         
+                        
                 </div>
             </div>
 
