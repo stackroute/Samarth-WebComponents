@@ -7,6 +7,10 @@
     text-align: center;
 }
 
+.datasmall {
+    font-size: 15px;
+}
+
 .buttonsave {
     padding: 80 80px 9 90px;
     margin: 6px 90px 6px 8px;
