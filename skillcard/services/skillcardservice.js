@@ -32,9 +32,8 @@ angular.module('samarth-webcomponents')
                     if (object.personalinfo[0].email != undefined) {
                         skillcarddata['email'] = object.personalinfo[0].email;
                     }
-                    if (object.workexp[0].workexperience.length > 0) {
-                        skillcarddata['location'] = object.workexp[0].workexperience[
-                            0].Location;
+                    if (object.personalinfo[0].location != undefined) {
+                        skillcarddata['location'] = object.personalinfo[0].location;
                     }
                     if (object.workexp[0].workexperience.length > 0) {
                         skillcarddata['designation'] = object.workexp[0].workexperience[

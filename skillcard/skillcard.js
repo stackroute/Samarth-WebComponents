@@ -20,7 +20,7 @@ function skillcardCtrl($window, $timeout, $mdDialog, skillcardService)     
     var ctrl = this;
     var name;
     // console.log("Inside skill card ctrl....");
-    skillcardService.getskillcarddata(this.candidateid).then(function(result) {
+    skillcardService.getskillcarddata(ctrl.candidateid).then(function(result) {
         ctrl.data = result;
     });
 

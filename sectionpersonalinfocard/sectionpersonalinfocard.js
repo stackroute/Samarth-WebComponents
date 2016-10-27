@@ -70,7 +70,7 @@ function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
 
     $http({
         method: "GET",
-        url: 'http://localhost:8081/personalinfo/' + this.candidateid
+        url: 'http://localhost:8081/personalinfo/' + ctrl.candidateid
     }).then(function successCallback(response) {
 
         ctrl.personalInfo = response.data[0];
