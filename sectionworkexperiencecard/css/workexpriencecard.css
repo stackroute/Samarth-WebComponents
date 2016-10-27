@@ -38,25 +38,25 @@
 }
 
 .changeProjectDurationFont {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .changeProjectLocationFont {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .changeProjectClientFont {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .changeProjectSalaryFont {
-    font-size: 14px;
+    font-size: 18px;
 }
 .pointCursor{
   cursor: pointer;
 }
 .decreasemdIconFont md-icon{
-    font-size: 20px;
+    font-size: 25px;
 }
 
 
