@@ -18,7 +18,7 @@ function circleCrtl($http, $log, $scope, $mdColorPalette) {
 
     $scope.gerColler = function(a) {
         //  console.log(a.length)
-        return colors[a.length];
+        return colors[6 + a.length];
     }
 }
 

@@ -1,5 +1,5 @@
 <div id="totalcardarea">
-    <md-card md-theme='default' md-theme-watch layout="column" class="bodyContent" flex>
+    <md-card md-theme='default' md-theme-watch layout="column" class="md-padding" flex>
         <md-card-header layout-gt-sm="row" layout-sm="column" layout-xs="column" flex layout-padding>
             <md-card-header-text layout="column" layout flex>
                 <div layout="row" layout-align="start center">
@@ -7,7 +7,7 @@
                     <div flex="80" layout="column">
                         <div class="md-block md-padding">
                             <i class="material-icons md-display-1">school</i>
-                            <span class="md-display-1">{{job.jobRole}}&#44; &nbsp;</span>
+                            <span class="md-display-1">{{job.jobRole}}</span>
                         </div>
                         <div layout="row" class="md-block md-padding">
                             <i class="material-icons">layers</i>
@@ -28,7 +28,7 @@
                 </div>
                 <!-- Company name and location -->
                 <div layout-xs="column" layout-gt-xs="row" flex>
-                    <span class="md-title" flex-xs flex-gt-xs="60"><i class="material-icons md-padding">business</i>&nbsp;{{job.employer.employerName}}&#44; &nbsp;</span>
+                    <span class="md-title" flex-xs flex-gt-xs="60"><i class="material-icons md-padding">business</i>&nbsp;{{job.employer.employerName}}</span>
                     <span class="md-title" flex-xs flex-gt-xs="40"><i class="material-icons md-padding">location_on</i>&nbsp;{{job.jobLocation}}</span>
                 </div>
             </md-card-header-text>
