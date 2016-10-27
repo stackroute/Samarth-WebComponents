@@ -1,36 +1,64 @@
-<md-card layout="column" layout-xs="column" layout-sm="column" layout md="column" flex>
+<md-card layout="column" layout-xs="column" layout-sm="column" layout-md="column" flex>
     <md-card-header id="header" ng-show="$ctrl.showheader" hide-gt-sm>
         <md-card-header-text>
             <span id="heading" class="md-title">{{$ctrl.items.educationheader}}</span>
         </md-card-header-text>
     </md-card-header>
     <md-card-content layout="row" layout-xs="column" layout-wrap layout-padding>
-        <div layout="row" flex="50" layout-xs="column" flex-xs="100" layout-wrap layout-padding>
-            <div layout="column">
-                <div id="educardcontent" layout="row" flex="50" flex-xs="80" ng-repeat="school in $ctrl.schools" ng-click="$ctrl.showAdvanced($event,'Edit School',school)">
-                    <md-icon id="icon" flex="10" class="material-icons">{{school.institute.type}}</md-icon>
-                    <div flex>
-                        {{school.title}} Standard
-                        <br> {{school.batch}} , {{school.outcome.result}}{{school.outcome.unit}} ,
-                        <br> {{school.institute.name}}, {{school.institute.affiliation}}
-                        <br> {{school.institute.location}}
+        <div flex="50" flex-xs="100">
+            <md-card flex="100" ng-repeat="school in $ctrl.schools" ng-click="$ctrl.showAdvanced($event,'Edit School',school)">
+                <md-card-header style="background-color:#A5D6A7" align="center">
+                    <md-card-header-text>
+                        <span class="md-title"> <md-icon>{{school.institute.type}}</md-icon> {{school.title}}</span>
+                    </md-card-header-text>
+                </md-card-header>
+                <md-card-content>
+                    <div layout-wrap>
+                        <md-icon>schedule</md-icon><span>{{school.batch}}</span>
+                        <span><md-icon>stars</md-icon>{{school.outcome.result}} {{school.outcome.unit}}</span>
+                        <br>
+                        <md-icon>work</md-icon>
+                        <span class="changeProjectClientFont">{{school.institute.name}}</span><span>,</span>
+                        <md-icon>account_balance</md-icon>
+                        <span class="changeProjectLocationFont">{{school.institute.affiliation}}</span></span>
+                        <br>
+                        <md-icon>room</md-icon>
+                        <span>
+                        <span class="changeProjectLocationFont">{{school.institute.location}}</span></span>
                     </div>
-                </div>
-            </div>
+                </md-card-content>
+            </md-card>
         </div>
-        <div layout="row" flex="50" layout-xs="column" flex-xs="100" layout-wrap layout-padding>
-            <div layout="column">
-                <div id="educardcontent" layout="row" flex="50" flex-xs="80" ng-repeat="college in $ctrl.colleges" ng-click="$ctrl.showAdvanced($event,'Edit College',college)">
-                    <md-icon id="icon" flex="10" class="material-icons">{{college.institute.type}}</md-icon>
-                    <div flex>
-                        {{college.title}}
-                        <br> {{college.batch}} , {{college.outcome.result}}{{college.outcome.unit}},
-                        <br> {{college.institute.name}}, {{college.institute.affiliation}}
-                        <br> {{college.institute.location}}
+        <div flex="50" flex-xs="100">
+            <md-card ng-repeat="college in $ctrl.colleges" ng-click="$ctrl.showAdvanced($event,'Edit College',college)">
+                <md-card-header style="background-color:#EF9A9A" align="center">
+                    <md-card-header-text>
+                        <span><md-icon>{{college.institute.type}}</md-icon>  {{college.title}}</span>
+                    </md-card-header-text>
+                </md-card-header>
+                <md-card-content>
+                    <div layout-wrap>
+                        <md-icon>schedule</md-icon><span>{{college.batch}}</span>
+                        <span><md-icon>stars</md-icon>{{college.outcome.result}} {{college.outcome.unit}}</span>
+                        <br>
+                        <md-icon>work</md-icon>
+                        <span class="changeProjectClientFont">{{college.institute.name}}</span><span>,</span>
+                        <md-icon>account_balance</md-icon>
+                        <span class="changeProjectLocationFont">{{college.institute.affiliation}}</span></span>
+                        <br>
+                        <md-icon>room</md-icon>
+                        <span>
+                        <span class="changeProjectLocationFont">{{college.institute.location}}</span></span>
+                        <!-- 
+                            <li>{{college.batch}}</li>
+                            <br>{{college.outcome.result}}{{college.outcome.unit}},
+                            <br> {{college.institute.name}}, {{college.institute.affiliation}}
+                            <br> {{college.institute.location}}
+                            -->
                     </div>
-                </div>
-            </div>
-        </div>
+                </md-card-content>
+            </md-card>
+        </div>    
     </md-card-content>
     <md-card-actions layout="row" layout-align="end end">
         <div ng-transclude="verify">
