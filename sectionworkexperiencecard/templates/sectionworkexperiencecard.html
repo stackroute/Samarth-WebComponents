@@ -19,59 +19,66 @@
             <div flex="10">
                 <br/>
             </div>
-            <div layout="row" layout-padding>
-                <div flex="30" flex-xs="30">
-                    <span class="circle" layout layout-align="center center">
-                        {{value.duration.duration}}
-                    </span>
-                </div>
-                <div flex="60" flex-xs="60" class="designation">
+
+            <div class="designation" layout="row" layout-padding layout-align="center">
+                
+                <!-- <div flex="60" flex-xs="60" class="designation"> -->
                     <span class="md-headline">
                     <md-icon>work</md-icon>
                         {{value.designation}}
                     </span>
-                </div>
+                <!-- </div> -->
             </div>
+         <!-- <div layout="row" layout-padding> -->
+                <!-- <div flex="30" flex-xs="30"> -->
+                    <!-- <span class="circle" layout layout-align="center center">
+                        {{value.duration.duration}}
+                    </span> -->
+               <!--  </div> -->
+
+       <!--  </div> -->
             <br/>
             <div layout="row">
                 <div flex="10">
                 </div>
                 <br>
                 <div layout="column" flex="90">
-                    <div layout-gt-xs = "row" layout-xs="column">
+                    <div layout-gt-xs = "column" layout-xs="row">
                         <div flex>
                             <strong><md-icon class="material-icons">business_center</md-icon>{{value.workplace}}</strong>
+                        
+                            <strong><md-icon class="material-icons">place</md-icon>{{value.Location}}</strong>
+
                         </div>
 
-                        <div flex>
-                            <strong><md-icon class="material-icons">place</md-icon>{{value.Location}}</strong>
-                        </div>
                     </div>
                     <br>
-                    <div layout-gt-xs = "row" layout-xs="column">
+
+                    <div layout-gt-xs= "column" layout-xs="row">
                         <div flex>
                             <strong><md-icon class="material-icons">date_range</md-icon>{{value.duration.from|date:'dd-MM-yyyy'}}</strong>
-                        </div>
-                        <div flex>
+                        
+                        
                             <strong><md-icon class="material-icons">date_range</md-icon>{{value.duration.to|date:'dd-MM-yyyy'}}</strong>
                         </div>
                     </div>
                     <br>
-                    <div layout-gt-xs="row" layout-xs="row" layout-wrap>
+                    <div layout ="row" layout-wrap>
+                    <md-whiteframe class="md-whiteframe-5dp" flex-xs="100" ng-disabled="true" class="md-raised md-primary">
                         <span ng-repeat="skill in value.skills" flex-xs="100">
-                            <md-button flex-xs="100" ng-disabled="true" class="md-raised md-primary">
+                            
                                 <md-icon >school</md-icon>
-                            <strong>{{skill}}<strong>
-                            </md-button>    
+                            <strong>{{skill}}</strong>
+                            </md-whiteframe>
                         </span>
                     </div>
                 </div>
                 <br>
                 <div flex="16">
                     <md-button class="md-primary" ng-click="$ctrl.showAdvanced($event,'Edit work',value)">
-                        <span>EDIT
+                        
                             <md-icon class="">mode_edit</md-icon>
-                        </span>
+                        
                     </md-button>
                 </div>
             </div>
