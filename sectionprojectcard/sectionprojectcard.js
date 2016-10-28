@@ -44,7 +44,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
     ctrl.profile = []; 
     ctrl.profile1 = [];
     ctrl.totalProjects = 0;
-    ctrl.limitval = 4;
+    ctrl.limitval = 8;
     ctrl.increaseLimit = function() {
         /*if((ctrl.limitval+3)<=ctrl.totalProjects){
           ctrl.limitval = ctrl.limitval+4;
@@ -54,12 +54,12 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
     }
 
     ctrl.decreaseLimit = function() {
-        ctrl.limitval = 4;
+        ctrl.limitval = 8;
     }
 
     $http({
         method: 'GET',
-        url: 'http://localhost:8081/project/' + ctrl.candidateid
+        url: '/project/' + ctrl.candidateid
 
     }).then(function successCallback(response) {
         for (var noOfObjects = 0; noOfObjects < response.data.length; noOfObjects++) {
@@ -80,7 +80,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
         ctrl.totalProjects = 0;
         $http({
             method: 'GET',
-            url: 'http://localhost:8081/project/' + ctrl.candidateid
+            url: '/project/' + ctrl.candidateid
 
         }).then(function successCallback(response) {
             for (var noOfObjects = 0; noOfObjects < response.data.length; noOfObjects++) {
@@ -185,7 +185,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
                 console.log("before adding project", projectData);
                 $http({
                     method: 'POST',
-                    url: 'http://localhost:8081/project/' + ctrl.candidateid,
+                    url: '/project/' + ctrl.candidateid,
                     data: projectData,
                     crossDomain: true
                 }).then(function successCallback(response) {
@@ -199,7 +199,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
                 console.log("projectdata", projectData);
                 $http({
                     method: 'PATCH',
-                    url: 'http://localhost:8081/project/' + ctrl.candidateid + "/" +
+                    url: '/project/' + ctrl.candidateid + "/" +
                         object.name,
                     data: projectData,
                     crossDomain: true

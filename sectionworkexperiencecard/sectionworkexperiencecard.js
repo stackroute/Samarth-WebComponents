@@ -71,17 +71,17 @@ function workexperiencecardCtrl($http, $mdDialog,
     ctrl.workexperiences = [];
     ctrl.workexperience1 = [];
     ctrl.totalworkexperience = 0;
-    ctrl.limitval = 2;
+    ctrl.limitval = 3;
     ctrl.increaseLimit = function() {
 
         ctrl.limitval = ctrl.totalworkexperience;
     }
 
     ctrl.decreaseLimit = function() {
-        ctrl.limitval = 2;
+        ctrl.limitval = 3;
     }
 
-    $http.get('http://localhost:8081/work/' + ctrl.candidateid)
+    $http.get('/work/' + ctrl.candidateid)
         .then(function success(response) {
             for (var noofobj = 0; noofobj < response.data.length; noofobj++) {
                 for (var record = 0; record < response.data[noofobj].workexperience.length; record++) {
@@ -99,7 +99,7 @@ function workexperiencecardCtrl($http, $mdDialog,
     $rootScope.$on("workexpdata", function() {
         ctrl.workexperiences = [];
         ctrl.totalworkexperience = 0;
-        $http.get('http://localhost:8081/work/' + ctrl.candidateid)
+        $http.get('/work/' + ctrl.candidateid)
             .then(function success(response) {
                 for (var noofobj = 0; noofobj < response.data.length; noofobj++) {
                     for (var record = 0; record < response.data[noofobj].workexperience
@@ -216,7 +216,7 @@ function workexperiencecardCtrl($http, $mdDialog,
                 console.log("Inside work adding...")
                 $http({
                     method: 'POST',
-                    url: 'http://localhost:8081/work/' + candidateid,
+                    url: '/work/' + candidateid,
                     data: workdata,
                     crossDomain: true
                 }).then(function successCallback(response) {
@@ -229,7 +229,7 @@ function workexperiencecardCtrl($http, $mdDialog,
                 console.log("data after saving", workdata);
                 $http({
                     method: 'PATCH',
-                    url: 'http://localhost:8081/work/' + candidateid + '/' + object
+                    url: '/work/' + candidateid + '/' + object
                         .workplace,
                     data: workdata,
                     crossDomain: true

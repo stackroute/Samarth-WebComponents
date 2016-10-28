@@ -7,7 +7,7 @@ angular.module('samarth-webcomponents')
 
                 return $http({ 
                     method: "get",
-                    url: "http://localhost:8081/skill/" + candidateid,
+                    url: "/skill/" + candidateid,
 
                 }).then(function mySucces(response)  { 
                     // console.log("res",response.data[0])
@@ -35,7 +35,7 @@ angular.module('samarth-webcomponents')
                 var data = {};
                 return $http({
                     method: 'GET',
-                    url: 'http://localhost:8081/resource/' + key + lang,
+                    url: '/resource/' + key + lang,
                     type: 'JSON'
 
                 }).then(function mySucces(response) {

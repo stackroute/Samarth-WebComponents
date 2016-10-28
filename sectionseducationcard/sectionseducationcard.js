@@ -44,7 +44,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
     ctrl.eduDetails = [];
     ctrl.schools = [];
     ctrl.colleges = [];
-    $http.get('http://localhost:8081/education/' + ctrl.candidateid).then(function(
+    $http.get('/education/' + ctrl.candidateid).then(function(
         response) {
 
         for (var noOfObjects = 0; noOfObjects < response.data[0].qualification.length; noOfObjects++) {
@@ -74,7 +74,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
         ctrl.schools = [];
         ctrl.colleges = [];
         console.log("data changed");
-        $http.get('http://localhost:8081/education/' + ctrl.candidateid).then(
+        $http.get('/education/' + ctrl.candidateid).then(
             function(response) {
 
                 for (var noOfObjects = 0; noOfObjects < response.data[0].qualification
@@ -202,7 +202,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
             if (header == ("Add Education")) {
                 $http({
                         method: 'POST',
-                        url: 'http://localhost:8081/education/' + ctrl.candidateid,
+                        url: '/education/' + ctrl.candidateid,
                         // 'Content-Type':'application/json',
                         data: education
                     })
@@ -219,7 +219,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
             if (header == "Edit School" || header == "Edit College") {
                 $http({
                         method: 'PATCH',
-                        url: 'http://localhost:8081/education/' + ctrl.candidateid + "/" +
+                        url: '/education/' + ctrl.candidateid + "/" +
                             $scope.title,
                         // 'Content-Type':'application/json',
                         data: education
