@@ -82,7 +82,7 @@ function workexperiencecardCtrl($http, $mdDialog,
         ctrl.limitval = 3;
     }
 
-    $http.get('/work/' + ctrl.candidateid)
+    $http.get('/proxy/work/' + ctrl.candidateid)
         .then(function success(response) {
             for (var noofobj = 0; noofobj < response.data.length; noofobj++) {
                 for (var record = 0; record < response.data[noofobj].workexperience.length; record++) {
@@ -100,7 +100,7 @@ function workexperiencecardCtrl($http, $mdDialog,
     $rootScope.$on("workexpdata", function() {
         ctrl.workexperiences = [];
         ctrl.totalworkexperience = 0;
-        $http.get('/work/' + ctrl.candidateid)
+        $http.get('/proxy/work/' + ctrl.candidateid)
             .then(function success(response) {
                 for (var noofobj = 0; noofobj < response.data.length; noofobj++) {
                     for (var record = 0; record < response.data[noofobj].workexperience
@@ -217,7 +217,7 @@ function workexperiencecardCtrl($http, $mdDialog,
                 console.log("Inside work adding...")
                 $http({
                     method: 'POST',
-                    url: '/work/' + candidateid,
+                    url: '/proxy/work/' + candidateid,
                     data: workdata,
                     crossDomain: true
                 }).then(function successCallback(response) {
@@ -230,7 +230,7 @@ function workexperiencecardCtrl($http, $mdDialog,
                 console.log("data after saving", workdata);
                 $http({
                     method: 'PATCH',
-                    url: '/work/' + candidateid + '/' + object
+                    url: '/proxy/work/' + candidateid + '/' + object
                         .workplace,
                     data: workdata,
                     crossDomain: true

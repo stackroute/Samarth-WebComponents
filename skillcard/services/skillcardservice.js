@@ -5,7 +5,7 @@ angular.module('samarth-webcomponents')
                 var skillcarddata = {};
                 return $http({ 
                     method: "get",
-                    url: "/skillcard/" + candidateid,
+                    url: "/proxy/skillcard/" + candidateid,
 
                 }).then(function mySucces(response)  { 
 

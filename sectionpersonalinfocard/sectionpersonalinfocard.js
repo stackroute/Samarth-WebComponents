@@ -69,7 +69,7 @@ function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
 
     $http({
         method: "GET",
-        url: '/personalinfo/' + ctrl.candidateid
+        url: '/proxy/personalinfo/' + ctrl.candidateid
     }).then(function successCallback(response) {
 
         ctrl.personalInfo = response.data[0];
@@ -142,7 +142,7 @@ function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
             if (header === "Edit Info") {
                 $http({ 
                     method: "POST",
-                    url: "/personalinfo/" + personalinfoObject.contact,
+                    url: "/proxy/personalinfo/" + personalinfoObject.contact,
                     data: personalinfoObj
 
                 }).then(function mySucces(response)  { 
