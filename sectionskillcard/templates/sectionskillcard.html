@@ -1,15 +1,16 @@
 <md-card class="card" layout="column" >
     <md-card-title ng-show="$ctrl.showheader" hide-gt-sm>
         <md-card-title-text layout="row">
-            <div class="md-headline" flex="90">{{$ctrl.items.skillheader}}</div>
+            <div class="md-headline" flex="90">{{$ctrl.languagedata.skillheader}}</div>
             <div flex="10">({{$ctrl.total}})</div>
         </md-card-title-text>
     </md-card-title>
-    <h2 class="md-title"> {{$ctrl.items.primary}} <span class="numbers">({{$ctrl.plen}})</span> 
+    <h2 class="md-title"> {{$ctrl.languagedata.primary}} <span class="numbers">({{$ctrl.plen}})</span> 
         </h2>
     <div layout="row" class="items" layout-wrap layout-padding>
         <md-whiteframe class="md-whiteframe-1dp" flex="30" flex-xs="100" ng-repeat="value in $ctrl.primary| limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout="column" id="{{value.expertise}}">
             <div layout="row">
+
                 <span class="names">{{value.skillname | capitalize}}</span>
             </div>
             <div layout="row">
@@ -34,7 +35,7 @@
             
         </div> -->
     </div>
-    <h2 class="md-title">{{$ctrl.items.secondary}} <span class="numbers">({{$ctrl.slen}})</span></h2>
+    <h2 class="md-title">{{$ctrl.languagedata.secondary}} <span class="numbers">({{$ctrl.slen}})</span></h2>
     <div layout="row" class="items" layout-wrap layout-padding>
         <md-whiteframe class="md-whiteframe-1dp" flex="30" flex-xs="100" ng-repeat="value in $ctrl.secondary| limitTo: $ctrl.limitval2" ng-model="$ctrl.limitval2" layout="column" id="{{value.expertise}}">
             <div layout="row">
@@ -62,7 +63,7 @@
         <div ng-transclude="verify">
         </div>
         <md-button ng-click="$ctrl.showAdvanced($event,'','Add Skill')">
-            {{$ctrl.items.addskill}}
+            {{$ctrl.languagedata.addskill}}
         </md-button>
     </md-card-actions>
 </md-card>

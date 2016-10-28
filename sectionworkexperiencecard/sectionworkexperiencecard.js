@@ -10,7 +10,8 @@ var app = angular
         controller: workexperiencecardCtrl,
         bindings: {
             candidateid: '<',
-            showheader:'<'
+            showheader:'<',
+            languagedata:'='
         },
         transclude: {
             verify: "verify"

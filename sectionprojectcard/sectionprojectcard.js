@@ -9,14 +9,15 @@ angular.module('samarth-webcomponents')
         controller: projectsectioncardCtrl,
         bindings: {
             candidateid: '<',
-            showheader: '<'
+            showheader: '<',
+            languagedata:'='
         },
         transclude: {
             verify: "verify"
         }         
     });
 
-function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
+function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope,$scope) {
 
     var ctrl = this;  
     //var candidateid = UserAuthService.getUser().uname;
@@ -24,7 +25,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope) {
             datagenerate.getjson("section", lang).then(function(result) {
                 ctrl.items = result;
                 // console.log("for skills");
-                // console.log(result);
+               
 
             }); //end datagenerate
         }

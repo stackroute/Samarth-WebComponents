@@ -10,7 +10,8 @@ angular.module('samarth-webcomponents')
         controller: sectionskillcardCtrl,
         bindings: {
             candidateid: '<',
-            showheader: '<'
+            showheader: '<',
+            languagedata:'='
         },
         transclude: {
             verify: "verify"
@@ -28,6 +29,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
     $rootScope) {
     
     var ctrl = this;
+   
 
     // var candidateid = UserAuthService.getUser().uname;
     console.log("Inside skill section", ctrl.candidateid);

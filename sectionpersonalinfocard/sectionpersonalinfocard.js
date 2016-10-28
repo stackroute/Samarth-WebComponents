@@ -10,7 +10,8 @@ angular.module('samarth-webcomponents')
         controller: personalinfocardCtrl,
         bindings: {
             candidateid: '<',
-            showheader: '<'
+            showheader: '<',
+            languagedata:'='
         },
         transclude: {
             verify: "verify"

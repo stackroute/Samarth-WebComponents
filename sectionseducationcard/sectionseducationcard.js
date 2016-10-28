@@ -10,7 +10,8 @@ var app = angular
         controller: educationcardCtrl,
         bindings: {
             candidateid: '<',
-            showheader:'<'
+            showheader:'<',
+            languagedata:'='
         },
         transclude: {
             verify: "verify"

@@ -2,7 +2,7 @@
     <md-card flex>
         <md-card-title class="title" ng-show="$ctrl.showheader" hide-gt-sm>
             <md-card-title-text layout="row">
-                <div class="md-headline">{{$ctrl.items.personalinfoheader}}</div>
+                <div class="md-headline">{{$ctrl.languagedata.personalinfoheader}}</div>
                 <!-- <div flex="10">23</div> -->
             </md-card-title-text>
         </md-card-title>
@@ -142,7 +142,7 @@
                     <div ng-transclude="verify">
                     </div>
                     <div flex="30"></div>
-                    <md-button ng-click="$ctrl.showAdvanced($event,$ctrl.personalInfo,'Edit Info')">{{$ctrl.items.edit}}</md-button>
+                    <md-button ng-click="$ctrl.showAdvanced($event,$ctrl.personalInfo,'Edit Info')">{{$ctrl.languagedata.edit}}</md-button>
                 </md-footer>
             </md-card-actions>
         </md-card>
