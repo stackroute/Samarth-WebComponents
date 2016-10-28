@@ -10,7 +10,8 @@ angular.module('samarth-webcomponents')
         controller: personalinfocardCtrl,
         bindings: {
             candidateid: '<',
-            showheader: '<'
+            showheader: '<',
+            languagedata:'='
         },
         transclude: {
             verify: "verify"
@@ -68,7 +69,7 @@ function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
 
     $http({
         method: "GET",
-        url: 'http://localhost:8080/personalinfo/' + ctrl.candidateid
+        url: '/personalinfo/' + ctrl.candidateid
     }).then(function successCallback(response) {
 
         ctrl.personalInfo = response.data[0];
@@ -141,7 +142,7 @@ function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
             if (header === "Edit Info") {
                 $http({ 
                     method: "POST",
-                    url: "http://localhost:8080/personalinfo/" + personalinfoObject.contact,
+                    url: "/personalinfo/" + personalinfoObject.contact,
                     data: personalinfoObj
 
                 }).then(function mySucces(response)  { 

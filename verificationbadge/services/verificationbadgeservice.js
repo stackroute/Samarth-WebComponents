@@ -4,7 +4,7 @@ angular.module('samarth-webcomponents')
 
         return {
             getbadgedata: function(candidateid) {
-                return $http.get('http://localhost:8080/verification/' + candidateid);
+                return $http.get('/verification/' + candidateid);
             }
         }
 

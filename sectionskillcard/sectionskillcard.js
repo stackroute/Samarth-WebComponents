@@ -10,7 +10,8 @@ angular.module('samarth-webcomponents')
         controller: sectionskillcardCtrl,
         bindings: {
             candidateid: '<',
-            showheader: '<'
+            showheader: '<',
+            languagedata:'='
         },
         transclude: {
             verify: "verify"
@@ -28,6 +29,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
     $rootScope) {
     
     var ctrl = this;
+   
 
     // var candidateid = UserAuthService.getUser().uname;
     console.log("Inside skill section", ctrl.candidateid);
@@ -50,8 +52,8 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
 
     //     ctrl.loadLangData(data.language);
     // });
-    ctrl.limitval = 3;
-    ctrl.limitval2 = 3;
+    ctrl.limitval = 6;
+    ctrl.limitval2 =6;
     ctrl.value = 40;
     ctrl.skill = {};
     ctrl.primary = [];
@@ -60,18 +62,18 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
     ctrl.secondary = [];
     ctrl.total = 0; 
     ctrl.increaseLimit = function() {
-        ctrl.limitval = ctrl.limitval + 3;
+        ctrl.limitval = ctrl.limitval + 6;
     }
 
     ctrl.decreaseLimit = function() {
-        ctrl.limitval = ctrl.limitval - 3;
+        ctrl.limitval = ctrl.limitval - 6;
     }
     ctrl.increaseLimit2 = function() {
-        ctrl.limitval2 = ctrl.limitval2 + 3;
+        ctrl.limitval2 = ctrl.limitval2 + 6;
     }
 
     ctrl.decreaseLimit2 = function() {
-        ctrl.limitval2 = ctrl.limitval2 - 3;
+        ctrl.limitval2 = ctrl.limitval2 - 6;
     }
 
     sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
@@ -189,7 +191,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
             if (header === "Add Skill") {
                 $http({ 
                     method: "post",
-                    url: "http://localhost:8080/skill/" + ctrl.candidateid,
+                    url: "/skill/" + ctrl.candidateid,
                     data: skillObj
                 }).then(function mySucces(response)  { 
                     console.log("res", response.data[0])
@@ -202,7 +204,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
             if (header === "Edit Skill") {
                 $http({ 
                     method: "patch",
-                    url: "http://localhost:8080/skill/" + ctrl.candidateid + "/" + skill,
+                    url: "/skill/" + ctrl.candidateid + "/" + skill,
                     data: skillObj
                 }).then(function mySucces(response)  { 
                     console.log("res", response)

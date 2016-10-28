@@ -1,7 +1,7 @@
 <md-card layout="column" layout-xs="column" layout-sm="column" layout-md="column" flex>
     <md-card-header id="header" ng-show="$ctrl.showheader" hide-gt-sm>
         <md-card-header-text>
-            <span id="heading" class="md-title">{{$ctrl.items.educationheader}}</span>
+            <span id="heading" class="md-title">{{$ctrl.languagedata.educationheader}}</span>
         </md-card-header-text>
     </md-card-header>
     <md-card-content layout="row" layout-xs="column" layout-wrap layout-padding >
@@ -63,7 +63,7 @@
     <md-card-actions layout="row" layout-align="end end">
         <div ng-transclude="verify">
         </div>
-        <md-button ng-click="$ctrl.showAdvanced($event,'Add Education','')">{{$ctrl.items.addeducation}}</md-button>
+        <md-button ng-click="$ctrl.showAdvanced($event,'Add Education','')">{{$ctrl.languagedata.addeducation}}</md-button>
         <!-- <md-button ng-click="$ctrl.showAdvanced($event,'Add College','')">+ college</md-button> -->
     </md-card-actions>
 </md-card>
