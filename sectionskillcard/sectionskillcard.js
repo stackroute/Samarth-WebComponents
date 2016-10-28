@@ -50,8 +50,8 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
 
     //     ctrl.loadLangData(data.language);
     // });
-    ctrl.limitval = 4;
-    ctrl.limitval2 =4;
+    ctrl.limitval = 6;
+    ctrl.limitval2 =6;
     ctrl.value = 40;
     ctrl.skill = {};
     ctrl.primary = [];
@@ -60,18 +60,18 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
     ctrl.secondary = [];
     ctrl.total = 0; 
     ctrl.increaseLimit = function() {
-        ctrl.limitval = ctrl.limitval + 4;
+        ctrl.limitval = ctrl.limitval + 6;
     }
 
     ctrl.decreaseLimit = function() {
-        ctrl.limitval = ctrl.limitval - 4;
+        ctrl.limitval = ctrl.limitval - 6;
     }
     ctrl.increaseLimit2 = function() {
-        ctrl.limitval2 = ctrl.limitval2 + 4;
+        ctrl.limitval2 = ctrl.limitval2 + 6;
     }
 
     ctrl.decreaseLimit2 = function() {
-        ctrl.limitval2 = ctrl.limitval2 - 4;
+        ctrl.limitval2 = ctrl.limitval2 - 6;
     }
 
     sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
