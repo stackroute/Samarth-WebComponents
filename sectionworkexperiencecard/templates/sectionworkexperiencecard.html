@@ -14,7 +14,7 @@
         <!-- <div layout="column" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval"> -->
 
 
-        <md-whiteframe class="md-whiteframe-10dp" flex="30" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval">
+        <md-whiteframe class="md-whiteframe-10dp" flex="30" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout-padding>
 
             <div flex="10">
                 <br/>
@@ -64,7 +64,7 @@
                     </div>
                     <br>
                     <div layout ="row" layout-wrap>
-                    <md-whiteframe class="md-whiteframe-5dp" flex-xs="100" ng-disabled="true" class="md-raised md-primary">
+                    <md-whiteframe class="md-whiteframe-5dp" layout-padding>
                         <span ng-repeat="skill in value.skills" flex-xs="100">
                             
                                 <md-icon >school</md-icon>
