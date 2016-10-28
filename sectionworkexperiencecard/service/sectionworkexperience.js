@@ -8,7 +8,7 @@ angular.module('samarth-webcomponents')
                 var data = {};
                 return $http({
                     method: 'GET',
-                    url: 'http://localhost:8081/resource/' + key + lang,
+                    url: 'http://localhost:8080/resource/' + key + lang,
                     type: 'JSON'
 
                 }).then(function mySucces(response) {
