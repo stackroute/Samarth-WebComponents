@@ -13,6 +13,8 @@ angular.module('samarth-webcomponents')        .component('mySkillcard',
     transclude: {
         cardactions: "cardactions",
         badges: "badges"
+
+        
             // verified: "verified"
     }             
 });
