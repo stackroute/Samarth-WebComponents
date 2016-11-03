@@ -22,7 +22,9 @@
 .md-raised {
     margin-right: 1px;
 }
-
+.md-headline{
+     font-size: 16px
+}
  .designation{
     padding-top: 17px;
 } 
@@ -38,26 +40,27 @@
 }
 
 .changeProjectDurationFont {
-    font-size: 18px;
+    font-size: 12px;
 }
 
 .changeProjectLocationFont {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .changeProjectClientFont {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .changeProjectSalaryFont {
-    font-size: 18px;
+    font-size: 12px;
 }
 .pointCursor{
   cursor: pointer;
 }
-.decreasemdIconFont md-icon{
-    font-size: 25px;
+/*.decreasemdIconFont md-icon{
+    font-size: 100px;
 }
-
+*/
+.material-icons.md-14 { font-size: 14px; }
 
 

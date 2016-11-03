@@ -11,42 +11,42 @@
 
         <md-whiteframe class="md-whiteframe-10dp" flex="30" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout-padding>
 
-            <div class="designation" layout="row" layout-padding layout-align="center">
+            <div class="designation" layout="row" layout-padding layout-align="space-around center">
 
                 <span class="md-headline">
-                    <md-icon>work</md-icon>
+                    <md-icon class="material-icons md-14">work</md-icon>
                     {{value.designation}}
                 </span>
             </div>
             
             <div layout="row" layout-padding  layout-align="space-around center">
 
-                <div layout = "column" layout-xs="row">
+                <div layout-gt-xs = "column" layout-xs="row">
 
-                    <strong><md-icon class="material-icons">business_center</md-icon>{{value.workplace}}</strong>
+                    <span><md-icon class="material-icons md-14">business_center</md-icon>{{value.workplace}}</span>
                 </div>
 
-                <div layout = "column" layout-xs="row">
-                    <strong><md-icon class="material-icons">place</md-icon>{{value.Location}}</strong>
+                <div layout-gt-xs = "column" layout-xs="row">
+                    <span><md-icon class="material-icons md-14">place</md-icon>{{value.Location}}</span>
                 </div>
             </div>
 
             <div layout ="row" layout-padding layout-align="space-around center">
-                <div layout= "column" layout-xs="row" >
+                <div layout-gt-xs = "column" layout-xs="row" >
 
-                    <strong><md-icon class="material-icons">date_range</md-icon>{{value.duration.from|date:'dd-MM-yyyy'}}</strong>
+                    <span class="changeProjectDurationFont"><md-icon class="material-icons md-14">date_range</md-icon>{{value.duration.from|date:'dd-MM-yyyy'}}</span>
                 </div>
 
 
-                <div layout= "column" layout-xs="row" >
-                    <strong><md-icon class="material-icons">date_range</md-icon>{{value.duration.to|date:'dd-MM-yyyy'}}</strong>
+                <div layout-gt-xs = "column" layout-xs="row" >
+                    <span class="changeProjectDurationFont"><md-icon class="material-icons md-14">date_range</md-icon>{{value.duration.to|date:'dd-MM-yyyy'}}</span>
 
                 </div>
             </div>
 
             <div layout ="row" layout-align="space-around center">
 
-                <div layout = "column">
+                <div layout = "row">
                     <md-whiteframe class="md-whiteframe-5dp" layout-padding>
                         <span ng-repeat="skill in value.skills" flex-xs="100">
 
@@ -57,16 +57,17 @@
                     </md-whiteframe>
                 </div>
 
-                <div layout = "column">
+                
+
+            </div>
+            
+            <div layout = "row" layout layout-align="end end">
                     <md-button class="md-primary" ng-click="$ctrl.showAdvanced($event,'Edit work',value)">
 
                         <md-icon class="">mode_edit</md-icon>
                         
                     </md-button>
                 </div>
-
-            </div>
-            
 
         </md-whiteframe>
     </div>
