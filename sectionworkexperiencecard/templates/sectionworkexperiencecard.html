@@ -44,23 +44,28 @@
                 </div>
             </div>
 
-            <div layout-gt-xs ="row" ng-repeat="skill in value.skills" flex-xs="100" layout-align="space-around center">
+            <div layout="row" ng-repeat="skill in value.skills" flex-xs="100" layout-align="space-around center">
 
                 
                     <!-- <md-icon >school</md-icon> -->
                     <!-- <div ng-repeat="skill in value.skills" flex-xs="100"> -->
-                    <md-button class="ng-class: ($first)? 'groupX left' :  (($last)? 'groupX right' : 'groupX middle');">
+                    <!-- <md-button class="ng-class: ($first)? 'groupX left' :  (($last)? 'groupX right' : 'groupX middle');">
 
                             {{skill}}
-                        </md-button>
+                        </md-button> -->
                     <!-- </div> -->
-
+                     <md-whiteframe class="md-whiteframe-5dp" layout-padding>
+                        <span ng-repeat="skill in value.skills">
+                            <md-icon >school</md-icon>
+                            <strong>{{skill}}</strong>
+                        </span>
+                    </md-whiteframe>
             </div>
             
             <div layout = "row" layout layout-align="end end">
-                <md-button class="md-primary" ng-click="$ctrl.showAdvanced($event,'Edit work',value)">
+                <md-button class="md-primary" ng-click="$ctrl.showAdvanced($event,'Edit work',value)">EDIT
 
-                    <md-icon class="">mode_edit</md-icon>
+                   <!--  <md-icon class="">mode_edit</md-icon> -->
 
                 </md-button>
             </div>
