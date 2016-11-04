@@ -46,6 +46,18 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
     ctrl.eduDetails = [];
     ctrl.schools = [];
     ctrl.colleges = [];
+
+    
+    ctrl.limitval = 1;
+    ctrl.increaseLimit = function() {
+
+        ctrl.limitval = ctrl.limitval+2;
+    }
+
+    ctrl.decreaseLimit = function() {
+        ctrl.limitval = ctrl.limitval-2;
+    }
+
     $http.get('/proxy/education/' + ctrl.candidateid).then(function(
         response) {
 

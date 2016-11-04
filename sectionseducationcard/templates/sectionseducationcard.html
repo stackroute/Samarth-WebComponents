@@ -6,7 +6,7 @@
     </md-card-header>
     <md-card-content layout="row" layout-xs="column" layout-wrap layout-padding>
         <div flex flex-xs="100" layout-padding title="Click to edit">
-            <div flex="100" ng-repeat="school in $ctrl.schools" ng-click="$ctrl.showAdvanced($event,'Edit School',school)" class="md-whiteframe-5dp" layout-margin>
+            <div flex="100" ng-repeat="school in $ctrl.schools|limitTo: $ctrl.limitval" ng-click="$ctrl.showAdvanced($event,'Edit School',school)" class="md-whiteframe-5dp" layout-margin>
                 <div align="center">
                     <span class="md-title"> <md-icon>{{school.institute.type}}</md-icon> {{school.title}}</span>
                 </div>
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div flex flex-xs="100" layout-padding>
-            <div ng-repeat="college in $ctrl.colleges" ng-click="$ctrl.showAdvanced($event,'Edit College',college)" class="md-whiteframe-5dp" layout-margin title="Click to edit">
+            <div ng-repeat="college in $ctrl.colleges|limitTo: $ctrl.limitval" ng-click="$ctrl.showAdvanced($event,'Edit College',college)" class="md-whiteframe-5dp" layout-margin title="Click to edit">
                 <div align="center">
                     <span><md-icon>{{college.institute.type}}</md-icon>  {{college.title}}</span>
                 </div>
@@ -58,6 +58,16 @@
             </div>
         </div>
     </md-card-content>
+      <div layout="row" flex-offset="90" layout-align="center center">
+        <a ng-model="$ctrl.collapsed" ng-hide="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed ;$ctrl.increaseLimit()" class="pointCursor">
+        {{$ctrl.languagedata.more}}
+            <md-icon class="material-icons" ng-hide="$ctrl.collapsed">expand_more</md-icon>
+        </a>
+        <a ng-model="$ctrl.collapsed" ng-show="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed;$ctrl.decreaseLimit()" class="pointCursor ">
+        {{$ctrl.languagedata.less}}
+            <md-icon class="material-icons " ng-show="$ctrl.collapsed ">expand_less</md-icon>
+        </a>
+    </div>
     <md-card-actions layout="row" layout-align="end end">
         <div ng-transclude="verify">
         </div>
