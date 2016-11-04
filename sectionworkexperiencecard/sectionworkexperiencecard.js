@@ -72,14 +72,14 @@ function workexperiencecardCtrl($http, $mdDialog,
     ctrl.workexperiences = [];
     ctrl.workexperience1 = [];
     ctrl.totalworkexperience = 0;
-    ctrl.limitval = 3;
+    ctrl.limitval = 2;
     ctrl.increaseLimit = function() {
 
         ctrl.limitval = ctrl.totalworkexperience;
     }
 
     ctrl.decreaseLimit = function() {
-        ctrl.limitval = 3;
+        ctrl.limitval = 2;
     }
 
     $http.get('/proxy/work/' + ctrl.candidateid)
