@@ -25,6 +25,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
     ctrl.loadLangData = function(lang) {
             datagenerate.getjson("section", lang).then(function(result) {
                 ctrl.items = result;
+                
 
 
 
@@ -127,6 +128,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
     function dialogCtrl($scope, $mdDialog, $http, header, object, $rootScope) {
         // var candidateid = UserAuthService.getUser().uname;
         $scope.header = header;
+        console.log("-----------",header);
         // $scope.yearval="";
 
         $scope.years = [];

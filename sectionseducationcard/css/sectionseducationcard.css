@@ -8,6 +8,10 @@
  font-size: 17px;
 
 }
+#addbutton
+{                  
+    color: #0098b4;
+}
 
 .changeEducationLocationFont {
     font-size: 14px;
@@ -19,9 +23,9 @@
 .material-icons.md-18 {
   font-size: 100px; }
 
-.conversationDialog,
+
 #conversationDialogtoolbar {
-    background: white;
+    background: #0098b4;
 }
 
 #conversationDialogcontent {
@@ -37,7 +41,7 @@
 }
 
 #headingtext {
-    color: grey;
+    color: white;
 }
 
 #conversationDialogActionButton {
