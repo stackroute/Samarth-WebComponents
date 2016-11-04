@@ -7,7 +7,10 @@ my-personalinfocard{
 .md-title{
   padding:0px;
 }
-
+#savebutton
+{
+  color: #0098b4;
+}
 .email{
   padding-left: 15px;
 }

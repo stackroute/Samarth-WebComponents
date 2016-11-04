@@ -6,7 +6,9 @@
  .changeProjectNameFont {
     font-size: 16px; 
 }
-
+.savebutton{
+	 color: #0098b4;
+}
 .changeProjectDurationFont {
     font-size: 14px;
 }

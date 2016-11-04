@@ -50,14 +50,9 @@
                 </p>
             </div>
             <div id="savebtn" flex layout="row" layout-align="center center" ng-click="cancel()">
-                <div id="btntxt" contenteditable="false" ng-click="save(header)">
-                    <a>Save Details</a>
-                </div>
-                <div id="btn">
-                    <a ng-click="save(header)">
-                        <md-icon id="icon">play_arrow</md-icon>
-                    </a>
-                </div>
+                <md-button class="md-raised" id="addbutton"" contenteditable="false" ng-click="save(header)">
+                    Save 
+                </md-button>
             </div>
         </md-dialog-content>
         <md-dialog-actions class="conversationDialog" layout="row" layout-align="center center">
