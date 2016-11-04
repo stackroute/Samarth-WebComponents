@@ -6,7 +6,7 @@ module.exports = {
     "es6": true
   },
 
-  "plugins": ["react"],
+  "plugins": ["react", "angular"],
 
   "ecmaFeatures": {
     "arrowFunctions": true,
