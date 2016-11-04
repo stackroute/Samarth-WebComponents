@@ -32,6 +32,7 @@
 }
  .designation{
     padding-top: 10px;
+    font-size: 16px;
 } 
 
 
@@ -41,21 +42,28 @@
  }
  
  .changeProjectNameFont {
-    font-size: 14px; 
+    font-size: 16px; 
 }
 
 .changeProjectDurationFont {
-    font-size: 10x;
+    font-size: 12px;
+}
+.duration{
+    font-size: 14px;
 }
 
+
 .changeProjectLocationFont {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .changeProjectClientFont {
-    font-size: 12px;
+    font-size: 14px;
 }
-
+.client{
+    font-size: 14px;
+}
+}
 .changeProjectSalaryFont {
     font-size: 12px;
 }

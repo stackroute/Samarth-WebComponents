@@ -11,9 +11,9 @@
 
         <md-card-content class="md-whiteframe-5dp" flex="45" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout-padding>
 
-            <div class="designation" layout="row" layout-align="start center">
+            <div layout="row" layout-align="start center">
 
-                <span class="md-headline">
+                <span class="designation">
                     <md-icon class="material-icons md-14">work</md-icon>
                     {{value.designation}}
                 </span>
@@ -23,7 +23,7 @@
 
                 <div layout-gt-xs = "column" layout-xs="row">
 
-                    <span><md-icon class="material-icons md-14">business_center</md-icon>{{value.workplace}}</span>
+                    <span class="client"><md-icon class="material-icons md-14">business_center</md-icon>{{value.workplace}}</span>
                 </div>
 
                 <div layout-gt-xs = "column" layout-xs="row">
@@ -34,7 +34,7 @@
             <div layout ="row" layout-align="start center">
                 <div layout-gt-xs = "column" layout-xs="row" >
 
-                    <span><md-icon class="material-icons md-14">date_range</md-icon>{{value.duration.from|date:'dd-MM-yyyy'}}</span>
+                    <span class="duration"><md-icon class="material-icons md-14">date_range</md-icon>{{value.duration.from|date:'dd-MM-yyyy'}}</span>
                 </div>
 
                 <div layout-gt-xs = "column" layout-xs="row" >
@@ -44,7 +44,7 @@
 
 
                 <div layout-gt-xs = "column" layout-xs="row" >
-                    <span class="padding"><!-- <md-icon class="material-icons md-14">date_range</md-icon> -->{{value.duration.to|date:'dd-MM-yyyy'}}</span>
+                    <span class="padding duration"><!-- <md-icon class="material-icons md-14">date_range</md-icon> -->{{value.duration.to|date:'dd-MM-yyyy'}}</span>
 
                 </div>
             </div>
@@ -61,7 +61,7 @@
                     <!-- </div> -->
                      <div layout-padding flex="90">
                         <span class="md-whiteframe-5dp" ng-repeat="skill in value.skills">
-                            <md-icon >school</md-icon>
+                           <!--  <md-icon >skill</md-icon> -->
                             {{skill}}
                         </span>
                     </div>
