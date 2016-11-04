@@ -9,9 +9,9 @@
 
     <div layout="row" layout-xs = "column" layout-wrap layout-margin>
 
-        <md-whiteframe class="md-whiteframe-5dp" flex="45" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval">
+        <md-card-content class="md-whiteframe-5dp" flex="45" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout-padding>
 
-            <div class="designation" layout="row" layout-padding layout-align="start center">
+            <div class="designation" layout="row" layout-align="start center">
 
                 <span class="md-headline">
                     <md-icon class="material-icons md-14">work</md-icon>
@@ -19,7 +19,7 @@
                 </span>
             </div>
             
-            <div layout="row" layout-padding  layout-align="start center">
+            <div layout="row" layout-align="start center">
 
                 <div layout-gt-xs = "column" layout-xs="row">
 
@@ -27,11 +27,11 @@
                 </div>
 
                 <div layout-gt-xs = "column" layout-xs="row">
-                    <span><md-icon class="material-icons md-14">place</md-icon>{{value.Location}}</span>
+                    <span class="padding"><md-icon class="material-icons md-14">place</md-icon>{{value.Location}}</span>
                 </div>
             </div>
 
-            <div layout ="row" layout-padding layout-align="start center">
+            <div layout ="row" layout-align="start center">
                 <div layout-gt-xs = "column" layout-xs="row" >
 
                     <span><md-icon class="material-icons md-14">date_range</md-icon>{{value.duration.from|date:'dd-MM-yyyy'}}</span>
@@ -39,17 +39,17 @@
 
                 <div layout-gt-xs = "column" layout-xs="row" >
 
-                    <span><md-icon class="material-icons md-24">trending_flat</md-icon></span>
+                    <span class="padding"><md-icon class="material-icons md-24">trending_flat</md-icon></span>
                 </div>
 
 
                 <div layout-gt-xs = "column" layout-xs="row" >
-                    <span><!-- <md-icon class="material-icons md-14">date_range</md-icon> -->{{value.duration.to|date:'dd-MM-yyyy'}}</span>
+                    <span class="padding"><!-- <md-icon class="material-icons md-14">date_range</md-icon> -->{{value.duration.to|date:'dd-MM-yyyy'}}</span>
 
                 </div>
             </div>
 
-            <div layout="row" ng-repeat="skill in value.skills" flex-xs="100" layout-align="start center" layout-margin flex>
+            <div layout="row" ng-repeat="skill in value.skills" flex-xs="100" layout-align="start center" flex>
 
                 
                     <!-- <md-icon >school</md-icon> -->
@@ -75,7 +75,7 @@
                 </md-button>
             </div>
 
-        </md-whiteframe>
+        </md-card-content>
     </div>
 
 

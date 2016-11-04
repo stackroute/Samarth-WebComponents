@@ -22,7 +22,7 @@
     text-align:center;
 
 }my-workexperiencecard{
-    width:100%;
+    width:70%;
 } 
 .md-raised {
     margin-right: 1px;
@@ -31,7 +31,7 @@
      font-size: 20px
 }
  .designation{
-    padding-top: 17px;
+    padding-top: 10px;
 } 
 
 
@@ -41,19 +41,19 @@
  }
  
  .changeProjectNameFont {
-    font-size: 16px; 
+    font-size: 14px; 
 }
 
 .changeProjectDurationFont {
-    font-size: 12px;
+    font-size: 10x;
 }
 
 .changeProjectLocationFont {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .changeProjectClientFont {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .changeProjectSalaryFont {
@@ -103,4 +103,9 @@
     /*color: rgba(44, 65, 164, 0.96);*/
     color: black;
     transition: 0.3s;
+}
+
+.padding{
+    padding-left:10px;
+
 }
