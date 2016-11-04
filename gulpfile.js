@@ -3,17 +3,33 @@ const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const htmlhint = require('gulp-htmlhint');
 
-gulp.task('lint', ['eslint','htmlhint']);
+gulp.task('lint', ['eslint', 'htmlhint']);
 
 gulp.task('eslint', function() {
-  return gulp.src(['jobcard/**/*','questionbox/**/*','sectioneducationcard/**/*','sectionpersonalinfocard/**/*','sectionprojectcard/**/*','sectionskillcard/**/*','sectionworkexperiancecard/**/*','skillcard/**/*','gulpfile.js','!node_modules/**/*'])
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+    return gulp.src(['jobcard/**/*',
+            'circle/**/*',
+            'rubric/**/*',
+            'questionbox/**/*',
+            'sectioneducationcard/**/*',
+            'sectionpersonalinfocard/**/*',
+            'sectionprojectcard/**/*',
+            'sectionskillcard/**/*',
+            'sectionworkexperiancecard/**/*',
+            'skillcard/**/*',
+            'verificationbadge/**/*',
+            'samarth-webcomponents.js',
+            'gulpfile.js',
+            '!node_modules/**/*'
+        ])
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
 
 gulp.task('htmlhint', function() {
-  return gulp.src(['**/*.html','!node_modules/**/*'])
-  .pipe(htmlhint({htmlhintrc: ".htmlhintrc"}))
-  .pipe(htmlhint.failReporter());
+    return gulp.src(['**/*.html', '!node_modules/**/*'])
+        .pipe(htmlhint({
+            htmlhintrc: '.htmlhintrc'
+        }))
+        .pipe(htmlhint.failReporter());
 });
