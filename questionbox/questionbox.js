@@ -1,9 +1,9 @@
-let scripts = document.getElementsByTagName('script');
-let currentScriptPath = scripts[scripts.length - 1].src;
+let scriptsQuestion = document.getElementsByTagName('script');
+let currentScriptPathQuestion = scriptsQuestion[scriptsQuestion.length - 1].src;
 
 angular.module('samarth-webcomponents')
     .component('myQuestionbox', {
-        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+        templateUrl: currentScriptPathQuestion.substring(0, currentScriptPathQuestion.lastIndexOf(
             '/')) + '/templates/questionbox.html',
         controller: questionBoxCtrl
     });

@@ -1,10 +1,10 @@
-let scripts = document.getElementsByTagName('script');
-let currentScriptPath = scripts[scripts.length - 1].src;
-let path3 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/')) + '/templates/sectionprojectconversation.html';
+let scriptsElementProject = document.getElementsByTagName('script');
+let currentScriptPathProject = scriptsElementProject[scriptsElementProject.length - 1].src;
+let path3 = currentScriptPathProject.substring(0, currentScriptPathProject.lastIndexOf('/')) + '/templates/sectionprojectconversation.html';
 
 angular.module('samarth-webcomponents')
     .component('myProjectsectioncard', {
-        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+        templateUrl: currentScriptPathProject.substring(0, currentScriptPathProject.lastIndexOf(
             '/')) + '/templates/sectionprojectcard.html',
         controller: projectsectioncardCtrl,
         bindings: {
