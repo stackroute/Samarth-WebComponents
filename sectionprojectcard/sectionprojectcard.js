@@ -42,7 +42,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $sco
     ctrl.profile = [];
     ctrl.profile1 = [];
     ctrl.totalProjects = 0;
-    ctrl.limitval = 8;
+    ctrl.limitval = 4;
     ctrl.increaseLimit = function() {
         /* if((ctrl.limitval+3)<=ctrl.totalProjects){
           ctrl.limitval = ctrl.limitval+4;
@@ -52,7 +52,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $sco
     };
 
     ctrl.decreaseLimit = function() {
-        ctrl.limitval = 8;
+        ctrl.limitval = 4;
     };
 
     $http({
