@@ -14,11 +14,11 @@
 }
 
 .changeProjectLocationFont {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .changeProjectClientFont {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .changeProjectSalaryFont {
@@ -29,6 +29,9 @@
 }
 .decreasemdIconFont md-icon{
     font-size: 15px;
+}
+.material-icons.md-18 {
+	font-size: 18px;
 }
 
 
