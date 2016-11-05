@@ -9,7 +9,7 @@
 
     <div layout="row" layout-xs = "column" layout-wrap layout-margin>
 
-        <md-card-content class="md-whiteframe-5dp" flex="45" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout-padding>
+        <md-card-content class="md-whiteframe-2dp" flex="45" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout-padding>
 
             <div layout="row" layout-align="start center">
 
@@ -60,7 +60,7 @@
                         </md-button> -->
                         <!-- </div> -->
                         <div layout-padding flex="90">
-                            <span class="md-whiteframe-5dp" ng-repeat="skill in value.skills">
+                            <span class="md-whiteframe-1dp" ng-repeat="skill in value.skills">
                             <md-icon class="material-icons md-14">build</md-icon>
                              {{skill}}
                          </span>

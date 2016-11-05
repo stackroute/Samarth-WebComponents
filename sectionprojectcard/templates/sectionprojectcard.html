@@ -6,7 +6,7 @@
      </md-card-header-text>
  </md-card-header>
  <md-card-content layout="row" layout-xs="column" layout-wrap layout-margin class="decreasemdIconFont">
-     <div class="md-whiteframe-5dp" flex="45" flex-xs="100" layout-padding ng-repeat="project in $ctrl.profile | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval">
+     <div class="md-whiteframe-2dp" flex="45" flex-xs="100" layout-padding ng-repeat="project in $ctrl.profile | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval">
          <div layout="row" layout-align="center center">
              <span class="changeProjectNameFont">
                  <md-icon class="material-icons md-18">fiber_manual_record</md-icon>
@@ -37,7 +37,7 @@
              <div layout="row" ng-repeat="skill in project.skills" flex-xs="100" layout-align="start center" flex>
 
                  <div layout-padding flex="90">
-                     <span class="md-whiteframe-5dp" ng-repeat="(skillname,skill) in project.skills">
+                     <span class="md-whiteframe-1dp" ng-repeat="(skillname,skill) in project.skills">
                          <md-icon>build</md-icon>
                          {{skill}}
                      </span>
