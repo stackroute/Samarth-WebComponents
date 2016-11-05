@@ -1,6 +1,10 @@
+
 <div flex-offset="90" ng-show="$ctrl.showMaxBtn" class="pointCursor" ng-click="$ctrl.showMaxBtn=!$ctrl.displayInputBox; $ctrl.displayInputBox=!$ctrl.displayInputBox;$ctrl.hideDisplayAlertMessage()">
-    <md-icon>content_copy</md-icon>
+    <!-- <md-icon>content_copy</md-icon> -->
+    <!-- <md-button class="md-fab">?</md-button> -->
+    <md-icon md-font-icon="view_module" aria-label="view_module" class="view_module">view_module</md-icon>
 </div>
+<div  flex-xs flex-gt-xs layout="column" layout-xs="column" class="ques-padding">
 <div layout="column" ng-model="$ctrl.displayInputBox" ng-hide="$ctrl.displayInputBox" ng-init="$ctrl.startInpuBox()">
     <div layout="row" class="questionArea">
         <div flex="80">
@@ -8,18 +12,19 @@
         </div>
         <div flex="5" class="pointCursor">
             <md-button ng-click="$ctrl.minimizeQuestionBox();$ctrl.hideDisplayAlertMessage()">
-                <md-icon>close</md-icon>
+            <md-icon md-font-icon="remove" aria-label="remove">remove</md-icon>
+                <!-- <md-icon>close</md-icon> -->
             </md-button>
         </div>
     </div>
     <div flex layout="row" layout-wrap>
-        <div flex="80">
+        <div flex="80" class="input">
             <input class="ques1" name="ques1" type="text" value="$ctrl.clear" ng-model="$ctrl.clear" ng-keyup="$event.keyCode == 13 ? $ctrl.increaseIndex() : null" />
         </div>
         <div flex="20">
             <button class="forward" ng-click="$ctrl.increaseIndex()">
                 <md-icon class="forwardIcon">arrow_forward</md-icon>
-            </button>
+            <button>
         </div>
     </div>
     <div flex>
@@ -34,4 +39,5 @@
 </div>
 <div ng-show="$ctrl.displayAnswerdBox" class="thankuBox">
     Thank you! We'll be in touch.
+</div>
 </div>
