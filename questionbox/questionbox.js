@@ -2,8 +2,8 @@ var scripts = document.getElementsByTagName("script");
 var currentScriptPath = scripts[scripts.length - 1].src;
 
 angular.module('samarth-webcomponents')
-    .component('myQuestionbox', {            
-        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+    .component('myQuestionbox', {
+        templateUrl: currentScriptPathQuestion.substring(0, currentScriptPathQuestion.lastIndexOf(
             '/')) + '/templates/questionbox.html',
         controller: questionBoxCtrl          
     });
@@ -64,7 +64,6 @@ function questionBoxCtrl($timeout, $auth , quesnboxService, $rootScope) {
         if (ctrl.clear == '') {
             ctrl.displayAlertMessage = true;
         } else {
-
             ctrl.displayAlertMessage = false;
             ctrl.currentQuestionIndex = ctrl.currentQuestionIndex + 1;
             ctrl.val = Math.floor((ctrl.currentQuestionIndex / ctrl.questionArray.length) *
@@ -80,7 +79,6 @@ function questionBoxCtrl($timeout, $auth , quesnboxService, $rootScope) {
                     console.log("Inside update question");
                     ctrl.clear = '';
                     noOfObjects++;
-
                 });
         }
     }
@@ -102,5 +100,4 @@ function questionBoxCtrl($timeout, $auth , quesnboxService, $rootScope) {
         ctrl.displayInputBox = false;
         ctrl.displayAnswerdBox = false;
     }                
-
 }

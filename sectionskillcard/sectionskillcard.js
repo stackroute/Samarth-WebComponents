@@ -1,11 +1,11 @@
-let scripts = document.getElementsByTagName('script');
-let currentScriptPath = scripts[scripts.length - 1].src;
-let path1 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+let scriptsElements = document.getElementsByTagName('script');
+let currentScriptPathProvider = scriptsElements[scriptsElements.length - 1].src;
+let path1 = currentScriptPathProvider.substring(0, currentScriptPathProvider.lastIndexOf(
             '/')) + '/templates/sectionskillconversation.html';
 
 angular.module('samarth-webcomponents')
     .component('mysectionSkillCard', {
-        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+        templateUrl: currentScriptPathProvider.substring(0, currentScriptPathProvider.lastIndexOf(
             '/')) + '/templates/sectionskillcard.html',
         controller: sectionskillcardCtrl,
         bindings: {
