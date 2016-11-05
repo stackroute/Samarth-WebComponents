@@ -1,5 +1,5 @@
-var scripts = document.getElementsByTagName("script");
-var currentScriptPath = scripts[scripts.length - 1].src;
+var scriptsquestionbox = document.getElementsByTagName("script");
+var currentScriptPathQuestion = scriptsquestionbox[scriptsquestionbox.length - 1].src;
 
 angular.module('samarth-webcomponents')
     .component('myQuestionbox', {
