@@ -1,29 +1,48 @@
-.ques1{
+input:focus,.forward:focus{
+    outline: none;
+}.ques1{
     width: 100%;
-     background-color:#f1eded;
+     /*background-color:#f1eded;*/
+     background-color: rgb(255,255,255);
+
+     /*color: white;*/
     font-size: 42px;
     height: 100px;
-    border:0;
+    border:0;   
     padding-left: 10px;
 }
 .forward{
-    height: 102px;
-    background-color:#d9d9d9;
-    border:0;
+    height: 100px;
+     background-color: rgb(255,255,255);
+ font-size: 42px;
+  border:0;   
+    padding-left: 10px;
+    /*color: white;*/
+    /*background-color:#d9d9d9;*/
+    /*borders:0;*/
     width:100%;
 }
-
- input:focus,.forward:focus{
-    outline: none;
+.view_module
+{
+  font-size: 50px;
+  padding-top: 20px;
+  /*background-color: red;*/
 }
+
+ 
 .questionArea{
-   color:#868686;
+   /*color:#868686;*/
+   color: rgba(255,255,255,0.87);
    font-size: 26px;  
-   background-color:#e6e6e6;
+   background-color: rgb(0,152,180);
+   /*background-color:#e6e6e6;*/
+   /*background-color: transparent;*/
    padding:10px;
 }
 .forwardIcon{
-    font-size: 50px;
+    font-size: 30px;
+
+     padding-left: 80px;
 }
 .thankuBox{
     text-align: center;
@@ -35,11 +54,19 @@
 .pointCursor{
   cursor: pointer;
   border:0;
+  padding-left: 80px;
+  /*font-size: 40px;*/
+  /*color: red;*/
+  /*margin-left: 20px;*/
+  width: 200px;
 }
 .displayAlertMessage{
     text-align: center;
     color:red;
     font-size: 22px;
 }
-
+.ques-padding
+{
+  padding-top: 20px;
+}
 
