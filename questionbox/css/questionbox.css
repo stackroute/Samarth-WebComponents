@@ -1,4 +1,6 @@
-.ques1{
+input:focus,.forward:focus{
+    outline: none;
+}.ques1{
     width: 100%;
      /*background-color:#f1eded;*/
      background-color: rgb(255,255,255);
@@ -27,9 +29,7 @@
   /*background-color: red;*/
 }
 
- input:focus,.forward:focus{
-    outline: none;
-}
+ 
 .questionArea{
    /*color:#868686;*/
    color: rgba(255,255,255,0.87);
