@@ -1,11 +1,12 @@
-var scriptsElementsWork = document.getElementsByTagName("script");
-var currentScriptPathWork = scriptsElementsWork[scriptsElementsWork.length - 1].src;
-var path5 = currentScriptPathWork.substring(0, currentScriptPathWork.lastIndexOf(
+(function() {
+var scripts = document.getElementsByTagName("script");
+var currentScriptPath = scripts[scripts.length - 1].src;
+var path5 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionworkexperienceconversation.html';
 var app = angular
     .module('samarth-webcomponents')
     .component('myWorkexperiencecard', {
-        templateUrl: currentScriptPathWork.substring(0, currentScriptPathWork.lastIndexOf(
+        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionworkexperiencecard.html',
         controller: workexperiencecardCtrl,
         bindings: {
@@ -82,7 +83,7 @@ function workexperiencecardCtrl($http, $mdDialog,
         ctrl.limitval = 2;
     }
 
-    $http.get('/proxy/work/' + ctrl.candidateid)
+    $http.get('/work/' + ctrl.candidateid)
         .then(function success(response) {
             for (var noofobj = 0; noofobj < response.data.length; noofobj++) {
                 for (var record = 0; record < response.data[noofobj].workexperience.length; record++) {
@@ -100,7 +101,7 @@ function workexperiencecardCtrl($http, $mdDialog,
     $rootScope.$on("workexpdata", function() {
         ctrl.workexperiences = [];
         ctrl.totalworkexperience = 0;
-        $http.get('/proxy/work/' + ctrl.candidateid)
+        $http.get('/work/' + ctrl.candidateid)
             .then(function success(response) {
                 for (var noofobj = 0; noofobj < response.data.length; noofobj++) {
                     for (var record = 0; record < response.data[noofobj].workexperience
@@ -217,7 +218,7 @@ function workexperiencecardCtrl($http, $mdDialog,
                 console.log("Inside work adding...")
                 $http({
                     method: 'POST',
-                    url: '/proxy/work/' + candidateid,
+                    url: '/work/' + candidateid,
                     data: workdata,
                     crossDomain: true
                 }).then(function successCallback(response) {
@@ -230,7 +231,7 @@ function workexperiencecardCtrl($http, $mdDialog,
                 console.log("data after saving", workdata);
                 $http({
                     method: 'PATCH',
-                    url: '/proxy/work/' + candidateid + '/' + object
+                    url: '/work/' + candidateid + '/' + object
                         .workplace,
                     data: workdata,
                     crossDomain: true
@@ -246,3 +247,4 @@ function workexperiencecardCtrl($http, $mdDialog,
         }
     }
 }
+})();

@@ -1,12 +1,12 @@
-"use strict";
-var scriptsElementsEducation = document.getElementsByTagName("script");
-var currentScriptPathProviderEducation = scriptsElementsEducation[scriptsElementsEducation.length - 1].src;
-var path2 = currentScriptPathProviderEducation.substring(0, currentScriptPathProviderEducation.lastIndexOf(
+(function() {
+var scripts = document.getElementsByTagName("script");
+var currentScriptPath = scripts[scripts.length - 1].src;
+var path2 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/educonvoNEW.html';
 var app = angular
     .module('samarth-webcomponents')
     .component('myEducationcard', {
-        templateUrl: currentScriptPathProviderEducation.substring(0, currentScriptPathProviderEducation.lastIndexOf(
+        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionseducationcard.html',
         controller: educationcardCtrl,
         bindings: {
@@ -59,7 +59,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
         ctrl.limitval = ctrl.limitval-2;
     }
 
-    $http.get('/proxy/education/' + ctrl.candidateid).then(function(
+    $http.get('/education/' + ctrl.candidateid).then(function(
         response) {
 
         for (var noOfObjects = 0; noOfObjects < response.data[0].qualification.length; noOfObjects++) {
@@ -89,7 +89,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
         ctrl.schools = [];
         ctrl.colleges = [];
         console.log("data changed");
-        $http.get('/proxy/education/' + ctrl.candidateid).then(
+        $http.get('/education/' + ctrl.candidateid).then(
             function(response) {
 
                 for (var noOfObjects = 0; noOfObjects < response.data[0].qualification
@@ -218,7 +218,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
             if (header == ("Add Education")) {
                 $http({
                         method: 'POST',
-                        url: '/proxy/education/' + ctrl.candidateid,
+                        url: '/education/' + ctrl.candidateid,
                         // 'Content-Type':'application/json',
                         data: education
                     })
@@ -235,7 +235,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
             if (header == "Edit School" || header == "Edit College") {
                 $http({
                         method: 'PATCH',
-                        url: '/proxy/education/' + ctrl.candidateid + "/" +
+                        url: '/education/' + ctrl.candidateid + "/" +
                             $scope.title,
                         // 'Content-Type':'application/json',
                         data: education
@@ -256,3 +256,4 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
 
 
 }
+})();
