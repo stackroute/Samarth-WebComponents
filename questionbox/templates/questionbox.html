@@ -1,37 +1,44 @@
-<div flex-offset="90" ng-show="$ctrl.showMaxBtn" class="pointCursor" ng-click="$ctrl.showMaxBtn=!$ctrl.displayInputBox; $ctrl.displayInputBox=!$ctrl.displayInputBox;$ctrl.hideDisplayAlertMessage()">
-    <md-icon>content_copy</md-icon>
-</div>
-<div layout="column" ng-model="$ctrl.displayInputBox" ng-hide="$ctrl.displayInputBox" ng-init="$ctrl.startInpuBox()">
-    <div layout="row" class="questionArea">
-        <div flex="80">
-            <label for="ques1" ng-model="$ctrl.currentQuestionIndex">{{$ctrl.questionArray[$ctrl.currentQuestionIndex]}}</label>
+<!-- <md-card layout="column" layout-xs="column" layout-sm="column" layout-md="column" flex> -->
+    <div flex-offset="90" ng-show="$ctrl.showMaxBtn" class="pointCursor" ng-click="$ctrl.showMaxBtn=!$ctrl.displayInputBox; $ctrl.displayInputBox=!$ctrl.displayInputBox;$ctrl.hideDisplayAlertMessage()">
+        <!-- <md-icon>content_copy</md-icon> -->
+        <!-- <md-button class="md-fab">?</md-button> -->
+        <md-icon md-font-icon="view_module" aria-label="view_module" class="view_module">view_module</md-icon>
+    </div>
+    <div layout="column" layout-xs="row" layout-padding>
+        <div layout="column" ng-model="$ctrl.displayInputBox" ng-hide="$ctrl.displayInputBox" ng-init="$ctrl.startInpuBox()">
+            <div layout="row" class="questionArea">
+                <div flex="90">
+                    <label for="ques1" ng-model="$ctrl.currentQuestionIndex">{{$ctrl.questionArray[$ctrl.currentQuestionIndex]}}</label>
+                </div>
+                <div flex="10" class="pointCursor">
+                <md-button class="md-warn input" ng-click="$ctrl.minimizeQuestionBox();$ctrl.hideDisplayAlertMessage()" ng-hover="disabled">
+                        <md-icon md-font-icon="remove" aria-label="remove">remove</md-icon>
+                        <!-- <md-icon>close</md-icon> -->
+                    </md-button>
+                </div>
+            </div>
+            <div layout="row">
+                <div flex="90" class="input">
+                    <input class="ques1" name="ques1" type="text" value="$ctrl.clear" ng-model="$ctrl.clear" ng-keyup="$event.keyCode == 13 ? $ctrl.increaseIndex() : null" />
+                </div>
+                <div flex="10">
+                    <button class="forward" ng-click="$ctrl.increaseIndex()">
+                        <md-icon class="forwardIcon">arrow_forward</md-icon>
+                    </button>
+                </div>
+            </div>
+            <div flex>
+                <md-progress-linear md-mode="determinate" value="{{$ctrl.val}}"></md-progress-linear>
+            </div>
+            <div flex flex-offset="90">
+                {{$ctrl.currentQuestionIndex}}/{{$ctrl.questionArray.length}}
+            </div>
         </div>
-        <div flex="5" class="pointCursor">
-            <md-button ng-click="$ctrl.minimizeQuestionBox();$ctrl.hideDisplayAlertMessage()">
-                <md-icon>close</md-icon>
-            </md-button>
+        <div ng-show="$ctrl.displayAlertMessage" class="displayAlertMessage">
+            Please enter something.
+        </div>
+        <div ng-show="$ctrl.displayAnswerdBox" class="thankuBox">
+            Thank you! We'll be in touch.
         </div>
     </div>
-    <div flex layout="row" layout-wrap>
-        <div flex="80">
-            <input class="ques1" name="ques1" type="text" value="$ctrl.clear" ng-model="$ctrl.clear" ng-keyup="$event.keyCode == 13 ? $ctrl.increaseIndex() : null" />
-        </div>
-        <div flex="20">
-            <button class="forward" ng-click="$ctrl.increaseIndex()">
-                <md-icon class="forwardIcon">arrow_forward</md-icon>
-            </button>
-        </div>
-    </div>
-    <div flex>
-        <md-progress-linear md-mode="determinate" value="{{$ctrl.val}}"></md-progress-linear>
-    </div>
-    <div flex flex-offset="90">
-        {{$ctrl.currentQuestionIndex}}/{{$ctrl.questionArray.length}}
-    </div>
-</div>
-<div ng-show="$ctrl.displayAlertMessage" class="displayAlertMessage">
-    Please enter something.
-</div>
-<div ng-show="$ctrl.displayAnswerdBox" class="thankuBox">
-    Thank you! We'll be in touch.
-</div>
+<!-- </md-card> -->

@@ -1,33 +1,40 @@
 angular.module('samarth-webcomponents')
     .service('quesnboxService', function($http, $rootScope,
-        UserAuthService) {
-        var candidateid = UserAuthService.getUser().uname;
-        var candidateid = 7204487502;
+         $auth) {
+        var candidateid = $auth.getPayload().uname;
+       // var candidateid = 7204487502;
 
         return {
             questionGenerator: function(lang) {
-                let sectionArray = [
+                console.log(lang);
+                var sectionArray = [
                     'project',
                     'skills',
                     'qualification'
 
 
                 ];
-                let randomNumber = Math.floor(Math.random() * sectionArray.length);
-                console.log('Section array....', sectionArray[randomNumber]);
+                // var randomNumber = 1;
+                var randomNumber = Math.floor(Math.random() * sectionArray.length);
+                // console.log("Section array....", sectionArray[randomNumber])
                 return $http({
                     method: 'GET',
-                    url: 'http://localhost:8081/candidates/' + candidateid +
-                        '/qboxquestions?sections=' + sectionArray[randomNumber] +
-                        '&limit=2&skip=0&lang=' + lang
+                    // url: 'http://localhost:8081/candidates/' 
+      // url: 'http://localhost:8081/candidates/' + candidateid +
+      //                   '/qboxquestions?sections=' + sectionArray[randomNumber] +
+      //                   '&limit=2&skip=0&lang=English' 
+                  url: 'http://localhost:8081/candidates/' + candidateid +
+                        '/qboxquestions?sections=' + "skills" +
+                        '&limit=2&skip=0&lang=English'         
                 }).then(function successCallback(response) {
-                    let questionObj = response.data;
-                    console.log('About to save questionObj', questionObj);
+                    var questionObj = response.data;
+                    console.log("About to save questionObj", questionObj);
                     return questionObj;
                 }, function errorCallback(response) {
-                    console.log('Error accord during Project Section');
+                    console.log('Error accord during Project Section')
                     return;
-                });
+                });  
+
             },
             updatequestion: function(questiondata, answer) {
                 return $http({
@@ -36,12 +43,14 @@ angular.module('samarth-webcomponents')
                         answer,
                     data: questiondata
                 }).then(function successCallback(response) {
-                    console.log('About to update answer');
+
+                    console.log("About to update answer");
                     return response;
                 }, function errorCallback(response) {
-                    console.log('Error accord during Project Section');
+                    console.log('Error accord during Project Section')
                     return;
-                });
+                });  
             }
         };
+
     });
