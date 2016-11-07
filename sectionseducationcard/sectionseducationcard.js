@@ -1,12 +1,12 @@
-"use strict";
-var scriptsElementsEducation = document.getElementsByTagName("script");
-var currentScriptPathProviderEducation = scriptsElementsEducation[scriptsElementsEducation.length - 1].src;
-var path2 = currentScriptPathProviderEducation.substring(0, currentScriptPathProviderEducation.lastIndexOf(
+(function() {
+var scripts = document.getElementsByTagName("script");
+var currentScriptPath = scripts[scripts.length - 1].src;
+var path2 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/educonvoNEW.html';
 var app = angular
     .module('samarth-webcomponents')
     .component('myEducationcard', {
-        templateUrl: currentScriptPathProviderEducation.substring(0, currentScriptPathProviderEducation.lastIndexOf(
+        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionseducationcard.html',
         controller: educationcardCtrl,
         bindings: {
@@ -256,3 +256,4 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
 
 
 }
+})();

@@ -1,10 +1,11 @@
-let scriptsElementProject = document.getElementsByTagName('script');
-let currentScriptPathProject = scriptsElementProject[scriptsElementProject.length - 1].src;
-let path3 = currentScriptPathProject.substring(0, currentScriptPathProject.lastIndexOf('/')) + '/templates/sectionprojectconversation.html';
+(function() {
+let scripts = document.getElementsByTagName('script');
+let currentScriptPath = scripts[scripts.length - 1].src;
+let path3 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/')) + '/templates/sectionprojectconversation.html';
 
 angular.module('samarth-webcomponents')
     .component('myProjectsectioncard', {
-        templateUrl: currentScriptPathProject.substring(0, currentScriptPathProject.lastIndexOf(
+        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionprojectcard.html',
         controller: projectsectioncardCtrl,
         bindings: {
@@ -199,3 +200,4 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $sco
         };
     }
 }
+})();

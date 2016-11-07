@@ -1,11 +1,12 @@
-let scriptsElementsPersonal = document.getElementsByTagName('script');
-let currentScriptPathPersonal = scriptsElementsPersonal[scriptsElementsPersonal.length - 1].src;
-let path4 = currentScriptPathPersonal.substring(0, currentScriptPathPersonal.lastIndexOf(
+(function() {
+let scripts = document.getElementsByTagName('script');
+let currentScriptPath = scripts[scripts.length - 1].src;
+let path4 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
                     '/')) + '/templates/sectionpersonalinfoconversation.html';
 
 angular.module('samarth-webcomponents')
     .component('myPersonalinfocard', {
-        templateUrl: currentScriptPathPersonal.substring(0, currentScriptPathPersonal.lastIndexOf(
+        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionpersonalinfocard.html',
         controller: personalinfocardCtrl,
         bindings: {
@@ -148,3 +149,4 @@ function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
         };
     }
 }
+})();
