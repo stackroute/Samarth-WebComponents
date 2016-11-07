@@ -68,25 +68,25 @@
             <!-- </div>
             
             <div layout = "row" layout layout-align="end end"> -->
-                <md-button flex="10" class="md-primary" ng-click="$ctrl.showAdvanced($event,'Edit work',value)">{{$ctrl.languagedata.edit}}
+                <a flex="10" ng-click="$ctrl.showAdvanced($event,'Edit work',value)">{{$ctrl.languagedata.edit}}
 
                  <!--  <md-icon class="">mode_edit</md-icon> -->
 
-             </md-button>
+             </a>
          </div>
 
      </md-card-content>
  </div>
 
 
- <div layout="row" flex-offset="90" layout-align="center center">
+ <div layout="row" flex-offset="90" flex-offset-xs="75" layout-align="center center">
     <a ng-model="$ctrl.collapsed" ng-hide="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed ;$ctrl.increaseLimit()" class="pointCursor">
         {{$ctrl.languagedata.more}}
-        <md-icon class="material-icons" ng-hide="$ctrl.collapsed">expand_more</md-icon>
+        <md-icon class="material-icons md-14" ng-hide="$ctrl.collapsed">expand_more</md-icon>
     </a>
     <a ng-model="$ctrl.collapsed" ng-show="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed;$ctrl.decreaseLimit()" class="pointCursor ">
         {{$ctrl.languagedata.less}}
-        <md-icon class="material-icons " ng-show="$ctrl.collapsed ">expand_less</md-icon>
+        <md-icon class="material-icons" ng-show="$ctrl.collapsed ">expand_less</md-icon>
     </a>
 </div>
 <md-card-actions layout="row " layout-align="end center">

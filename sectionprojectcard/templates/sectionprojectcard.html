@@ -43,18 +43,20 @@
                      </span>
                  </div>
 
-                 <md-button flex="10" class="md-primary" ng-click="$ctrl.showAdvanced($event,'Edit Project',project)">
+                 <a flex="10" ng-click="$ctrl.showAdvanced($event,'Edit Project',project)">
                      {{$ctrl.languagedata.edit}}
-                 </md-button>
+                 </a>
 
              </div>
          </div>
      </md-card-content>
-     <div layout="row" flex-offset="90" layout-align="center center">
+     <div layout="row" flex-offset="90" flex-offset-xs="75" layout-align="center center">
          <a ng-model="$ctrl.collapsed" ng-hide="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed ;$ctrl.increaseLimit()" class="pointCursor">
+            {{$ctrl.languagedata.more}}
              <md-icon class="material-icons" ng-hide="$ctrl.collapsed">keyboard_arrow_down</md-icon>
          </a>
-         <a ng-model="$ctrl.collapsed" ng-show="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed;$ctrl.decreaseLimit()" " class="pointCursor ">
+         <a ng-model="$ctrl.collapsed" ng-show="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed;$ctrl.decreaseLimit()" class="pointCursor">
+            {{$ctrl.languagedata.less}}
              <md-icon class="material-icons " ng-show="$ctrl.collapsed ">keyboard_arrow_up</md-icon>
          </a>
      </div>

@@ -16,6 +16,7 @@ input:focus,.forward:focus{
      background-color: rgb(255,255,255);
  font-size: 42px;
   border:0;   
+   padding-right: 5px;
     /*padding-left: 10px;*/
     /*color: white;*/
     /*background-color:#d9d9d9;*/
@@ -58,7 +59,7 @@ input:focus,.forward:focus{
   /*font-size: 40px;*/
   /*color: red;*/
   /*margin-left: 20px;*/
-  width: 200px;
+  /*width: 200px;*/
 }
 .displayAlertMessage{
     text-align: center;

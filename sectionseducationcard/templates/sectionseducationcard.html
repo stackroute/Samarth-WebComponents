@@ -69,7 +69,7 @@
             </div>
         </div>
     </md-card-content>
-    <div layout="row" flex-offset="90" layout-align="center center">
+    <div layout="row" flex-offset="90" flex-offset-xs="75" layout-align="center center">
         <a ng-model="$ctrl.collapsed" ng-hide="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed ;$ctrl.increaseLimit()" class="pointCursor">
             {{$ctrl.languagedata.more}}
             <md-icon class="material-icons" ng-hide="$ctrl.collapsed">expand_more</md-icon>
