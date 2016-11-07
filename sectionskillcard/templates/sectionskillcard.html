@@ -1,3 +1,4 @@
+
 <md-card class="card" layout="column">
     <md-card-title ng-show="$ctrl.showheader" hide-gt-sm md-colors="::{background: 'primary-700'}">
         <md-card-title-text layout="row">
@@ -7,7 +8,14 @@
     </md-card-title>
     <div layout="row" layout-align="center center" class="items" layout-wrap>
         <div ng-repeat="value in $ctrl.primary | limitTo: $ctrl.limitval">
-            <md-button class="ng-class: ($first)? 'groupX left' :  (($last)? 'groupX right' : 'groupX middle');" ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" title="{{value.experience}} yrs">{{value.skillname | capitalize}}</md-button>
+        <!-- class="ng-class: ($first)? 'groupX left' :  (($last)? 'groupX right' : 'groupX middle');" -->
+            <md-chips  >
+                <md-chip ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" title="{{value.experience}} yrs" md-colors="::{background: 'grey-300'}">
+                <md-chip-template >
+                {{value.skillname | capitalize}}
+                </md-chip-template>
+                </md-chip>
+            </md-chips>
         </div>
 
         <div layout="row" flex="80"></div>
@@ -24,7 +32,14 @@
     <md-divider></md-divider>
     <div layout="row" layout-align="center center" class="items" layout-wrap>
         <div ng-repeat="value in $ctrl.secondary| limitTo: $ctrl.limitval2">
-            <md-button class="ng-class: ($first)? 'groupX left' :  (($last)? 'groupX right' : 'groupX middle');" ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" title="{{value.experience}} yrs">{{value.skillname | capitalize}}</md-button>
+            <!-- <md-button class="ng-class: ($first)? 'groupX left' :  (($last)? 'groupX right' : 'groupX middle');" ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" title="{{value.experience}} yrs">{{value.skillname | capitalize}}</md-button> -->
+            <md-chips >
+                <md-chip ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" title="{{value.experience}} yrs" md-colors="::{background: 'grey-300'}">
+                <md-chip-template >
+                {{value.skillname | capitalize}}
+                </md-chip-template>
+                </md-chip>
+            </md-chips>
             <div layout="row" flex="80"></div>
             <div layout="column" flex="20" layout-align="end end">
                 <md-button class="md-icon-button" ng-click="$ctrl.decreaseLimit2()" ng-hide="$ctrl.limitval2<=6" ng-disabled="$ctrl.limitval2<=6">

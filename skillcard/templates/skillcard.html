@@ -124,7 +124,7 @@
                         <md-divider id="divider2" hide-xs></md-divider>
                         <div id="section4" flex layout="row" layout-align-sm="center" layout-align-xs="center">
                             <md-chips ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills">
-                                <md-chip-template>
+                                <md-chip-template md-colors="::{color: 'primary-700'}">
                                     <strong>
                              {{$chip.skillname}}
                              </strong>

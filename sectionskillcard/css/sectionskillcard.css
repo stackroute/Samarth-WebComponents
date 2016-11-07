@@ -52,14 +52,13 @@ md-divider {
     margin-left: 50px;
     margin-right: 50px;
 }
-
+/*
 .groupX {
     font-size: 18px;
     font-weight: bold;
     margin: 20px 2px;
     padding: 3px 15px 3px 15px;
     color: rgb(49, 46, 46);
-    /*background-color: rgba(224, 224, 224, 0.96);*/
     background-color: rgb(141, 227, 243);
     text-transform: none;
     font-weight: bold;
@@ -81,10 +80,8 @@ md-divider {
 }
 
 .md-button:not([disabled]):hover {
-    /*background-color: rgba(193, 193, 193, 0.96);*/
-    /*background-color: rgb(0,152,180);*/
     background-color: rgba(0, 152, 180, 0.65);
-    /*color: rgba(44, 65, 164, 0.96);*/
     color: black;
     transition: 0.3s;
 }
+*/
