@@ -9,7 +9,7 @@
 
     <div layout="row" layout-xs = "column" layout-wrap layout-margin>
 
-        <md-card-content class="md-whiteframe-5dp" flex="45" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout-padding>
+        <md-card-content class="md-whiteframe-2dp" flex="45" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout-padding>
 
             <div layout="row" layout-align="start center">
 
@@ -51,57 +51,57 @@
 
             <div layout="row" ng-repeat="skill in value.skills" flex-xs="100" layout-align="start center" flex>
 
-                
-                    <!-- <md-icon >school</md-icon> -->
-                    <!-- <div ng-repeat="skill in value.skills" flex-xs="100"> -->
+
+                <!-- <md-icon >school</md-icon> -->
+                <!-- <div ng-repeat="skill in value.skills" flex-xs="100"> -->
                     <!-- <md-button class="ng-class: ($first)? 'groupX left' :  (($last)? 'groupX right' : 'groupX middle');">
 
                             {{skill}}
                         </md-button> -->
-                    <!-- </div> -->
-                     <div layout-padding flex="90">
-                        <span class="md-whiteframe-5dp" ng-repeat="skill in value.skills">
-                           <!--  <md-icon >skill</md-icon> -->
-                            {{skill}}
-                        </span>
-                    </div>
+                        <!-- </div> -->
+                        <div layout-padding flex="90">
+                            <span class="md-whiteframe-1dp" ng-repeat="skill in value.skills">
+                            <md-icon class="material-icons md-14">build</md-icon>
+                             {{skill}}
+                         </span>
+                     </div>
             <!-- </div>
             
             <div layout = "row" layout layout-align="end end"> -->
                 <md-button flex="10" class="md-primary" ng-click="$ctrl.showAdvanced($event,'Edit work',value)">{{$ctrl.languagedata.edit}}
 
-                   <!--  <md-icon class="">mode_edit</md-icon> -->
+                 <!--  <md-icon class="">mode_edit</md-icon> -->
 
-                </md-button>
-            </div>
+             </md-button>
+         </div>
 
-        </md-card-content>
-    </div>
+     </md-card-content>
+ </div>
 
 
-    <div layout="row" flex-offset="90" layout-align="center center">
-        <a ng-model="$ctrl.collapsed" ng-hide="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed ;$ctrl.increaseLimit()" class="pointCursor">
+ <div layout="row" flex-offset="90" layout-align="center center">
+    <a ng-model="$ctrl.collapsed" ng-hide="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed ;$ctrl.increaseLimit()" class="pointCursor">
         {{$ctrl.languagedata.more}}
-            <md-icon class="material-icons" ng-hide="$ctrl.collapsed">expand_more</md-icon>
-        </a>
-        <a ng-model="$ctrl.collapsed" ng-show="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed;$ctrl.decreaseLimit()" class="pointCursor ">
+        <md-icon class="material-icons" ng-hide="$ctrl.collapsed">expand_more</md-icon>
+    </a>
+    <a ng-model="$ctrl.collapsed" ng-show="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed;$ctrl.decreaseLimit()" class="pointCursor ">
         {{$ctrl.languagedata.less}}
-            <md-icon class="material-icons " ng-show="$ctrl.collapsed ">expand_less</md-icon>
-        </a>
+        <md-icon class="material-icons " ng-show="$ctrl.collapsed ">expand_less</md-icon>
+    </a>
+</div>
+<md-card-actions layout="row " layout-align="end center">
+    <div ng-transclude="verify">
     </div>
+
     <md-card-actions layout="row " layout-align="end center">
         <div ng-transclude="verify">
         </div>
-
-        <md-card-actions layout="row " layout-align="end center">
-            <div ng-transclude="verify">
-            </div>
-            <md-button class="md-raised"  id="addbutton" ng-click="$ctrl.showAdvanced($event, 'Add Workexperience', '') ">{{$ctrl.languagedata.addworkexp}}
+        <md-button class="md-raised"  id="addbutton" ng-click="$ctrl.showAdvanced($event, 'Add Workexperience', '') ">{{$ctrl.languagedata.addworkexp}}
 
 
-                <!-- <md-icon>mode</md-icon> -->
-            </md-button>
-        </md-card-actions>
-    </div>
+            <!-- <md-icon>mode</md-icon> -->
+        </md-button>
+    </md-card-actions>
+</div>
 </md-card>
 </div>

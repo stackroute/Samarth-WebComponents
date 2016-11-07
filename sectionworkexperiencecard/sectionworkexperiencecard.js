@@ -1,11 +1,12 @@
-var scriptsElementsWork = document.getElementsByTagName("script");
-var currentScriptPathWork = scriptsElementsWork[scriptsElementsWork.length - 1].src;
-var path5 = currentScriptPathWork.substring(0, currentScriptPathWork.lastIndexOf(
+(function() {
+var scripts = document.getElementsByTagName("script");
+var currentScriptPath = scripts[scripts.length - 1].src;
+var path5 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionworkexperienceconversation.html';
 var app = angular
     .module('samarth-webcomponents')
     .component('myWorkexperiencecard', {
-        templateUrl: currentScriptPathWork.substring(0, currentScriptPathWork.lastIndexOf(
+        templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionworkexperiencecard.html',
         controller: workexperiencecardCtrl,
         bindings: {
@@ -246,3 +247,4 @@ function workexperiencecardCtrl($http, $mdDialog,
         }
     }
 }
+})();

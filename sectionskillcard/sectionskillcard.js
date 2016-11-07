@@ -16,6 +16,7 @@
                 },
                 transclude: {
                     verify: 'verify'
+
                 }
             })
             .filter('capitalize', function() {
