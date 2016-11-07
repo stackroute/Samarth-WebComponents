@@ -183,7 +183,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
             if (header === 'Add Skill') {
                 $http({
                     method: 'post',
-                    url: '/proxy/skill/' + ctrl.candidateid,
+                    url: '/skill/' + ctrl.candidateid,
                     data: skillObj
                 }).then(function mySucces(response)  {
                     console.log('res', response.data[0]);
@@ -196,7 +196,7 @@ function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
             if (header === 'Edit Skill') {
                 $http({
                     method: 'patch',
-                    url: '/proxy/skill/' + ctrl.candidateid + '/' + skill,
+                    url: '/skill/' + ctrl.candidateid + '/' + skill,
                     data: skillObj
                 }).then(function mySucces(response)  {
                     console.log('res', response);

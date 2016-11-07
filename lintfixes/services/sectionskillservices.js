@@ -7,7 +7,7 @@ angular.module('samarth-webcomponents')
 
                 return $http({
                     method: 'get',
-                    url: '/proxy/skill/' + candidateid
+                    url: '/skill/' + candidateid
 
                 }).then(function mySucces(response)  {
                     // console.log("res",response.data[0])

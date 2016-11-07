@@ -57,7 +57,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $sco
 
     $http({
         method: 'GET',
-        url: '/proxy/project/' + ctrl.candidateid
+        url: '/project/' + ctrl.candidateid
 
     }).then(function successCallback(response) {
         for (let noOfObjects = 0; noOfObjects < response.data.length; noOfObjects++) {
@@ -74,7 +74,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $sco
         ctrl.totalProjects = 0;
         $http({
             method: 'GET',
-            url: '/proxy/project/' + ctrl.candidateid
+            url: '/project/' + ctrl.candidateid
 
         }).then(function successCallback(response) {
             for (let noOfObjects = 0; noOfObjects < response.data.length; noOfObjects++) {
@@ -172,7 +172,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $sco
                 console.log('before adding project', projectData);
                 $http({
                     method: 'POST',
-                    url: '/proxy/project/' + ctrl.candidateid,
+                    url: '/project/' + ctrl.candidateid,
                     data: projectData,
                     crossDomain: true
                 }).then(function successCallback(response) {
@@ -185,7 +185,7 @@ function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $sco
                 console.log('projectdata', projectData);
                 $http({
                     method: 'PATCH',
-                    url: '/proxy/project/' + ctrl.candidateid + '/' +
+                    url: '/project/' + ctrl.candidateid + '/' +
                         object.name,
                     data: projectData,
                     crossDomain: true
