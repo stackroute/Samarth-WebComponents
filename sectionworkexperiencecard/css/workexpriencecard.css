@@ -22,7 +22,8 @@
             /*background: #72E9FF;*/
     text-align:center;
 
-}my-workexperiencecard{
+}
+my-workexperiencecard{
     width:70%;
 } 
 .md-raised {
@@ -35,8 +36,11 @@
     padding-top: 10px;
     font-size: 16px;
 } 
-
-
+/*.card{
+    padding-top: 15px;
+    padding-left: 10px;
+}
+*/
 
  .projectTitle {
      background-color: #e6e6e6;

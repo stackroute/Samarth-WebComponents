@@ -1,8 +1,8 @@
 /*md-card>md-card-title{
   background-color: #e6e6e6;
 }*/
-my-personalinfocard{
-  width:100%;
+.my-personalinfocard{
+  font-size: 16px;
 }
 .md-title{
   padding:0px;
@@ -38,10 +38,7 @@ my-personalinfocard{
   font-size: 18px;
   /*padding-left: 5px;*/
 }
-md-icon
-{
-  color: black;
-}
+
 
 .comp-padding{
   padding-bottom: 10px;
