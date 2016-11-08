@@ -6,9 +6,9 @@
     margin-top: 10px;
 }
 
-#avatar .md-user-avatar-content{
+/*#avatar .md-user-avatar-content{
     width: 150px;
-}
+}*/
 
 #content
 {
@@ -75,13 +75,32 @@
 
 #headerage
 {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 #header1
 {
     margin-bottom:5px;
+}
 
+.circle {
+    
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    /* background: #E1E1BB; */  
+            /*background:#E0C8F7;*/
+            background:#A1BAB7;
+            /*background: #72E9FF;*/
+    text-align:center;
 
-
+}
+.material-icons.md-18 {
+    font-size: 20px;
+}
+.material-icons.md-24 {
+    font-size: 24px;
+}
+.space{
+    padding-left: 10px;
 }
