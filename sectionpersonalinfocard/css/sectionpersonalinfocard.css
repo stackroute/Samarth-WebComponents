@@ -11,6 +11,9 @@ my-personalinfocard{
 {
   color: #0098b4;
 }
+.pointCursor{
+  cursor: pointer;
+}
 .email{
   padding-left: 15px;
 }
