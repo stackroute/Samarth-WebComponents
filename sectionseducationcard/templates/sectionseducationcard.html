@@ -4,67 +4,68 @@
             <span id="heading" class="md-title">{{$ctrl.languagedata.educationheader}}</span>
         </md-card-header-text>
     </md-card-header>
-    <md-card-content layout="row" layout-xs="column" layout-wrap layout-padding>
-        <div flex flex-xs="100" layout-padding title="Click to edit">
-            <div flex="100" ng-repeat="school in $ctrl.schools|limitTo: $ctrl.limitval" ng-click="$ctrl.showAdvanced($event,'Edit School',school)" class="md-whiteframe-2dp" layout-margin>
+    <md-card-content layout="row" layout-xs="column" layout-wrap >
+        <div flex flex-xs="100" layout-padding>
+            <div flex="100" ng-repeat="school in $ctrl.schools|limitTo: $ctrl.limitval" class="md-whiteframe-2dp" layout-margin>
                 <div align="center">
                     <span class="md-title"> <md-icon>{{school.institute.type}}</md-icon> {{school.title}}</span>
                 </div>
                 <md-divider></md-divider>
-                
                 <div layout="row" layout-wrap id="data">
-                <span flex="25" flex-xs="100"><md-icon>schedule</md-icon>{{school.batch}}</span>
-                    <span flex="75" flex-xs="100"><md-icon>stars</md-icon>{{school.outcome.result}} {{school.outcome.unit}}</span>
+                    <span flex="25" ><md-icon>schedule</md-icon>{{school.batch}}</span>
+                    <span flex="75" ><md-icon>stars</md-icon>{{school.outcome.result}} {{school.outcome.unit}}</span>
                     <br>
                     <span flex="100" class="changeEducationClientFont">
                         <md-icon>work</md-icon>
                         {{school.institute.name}}</span>
-                        <br>
-                        <span flex="25" flex-xs="100" class="changeEducationLocationFont">
+                    <br>
+                    <span flex="25"  class="changeEducationLocationFont">
                             <md-icon>account_balance</md-icon>
-                            {{school.institute.affiliation}}</span>
-                            <span flex="75" flex-xs="100" class="changeEducationLocationFont">
+                            {{school.institute.affiliation}}
+                          </span>
+                    <span flex="75"  class="changeEducationLocationFont">
                                 <md-icon>room</md-icon>
                                 {{school.institute.location}}
-
-                            </span>
-                        </div>
+                    </span>
+                    <div layout="row" flex="90"></div>
+                    <div layout-align="end">
+                    <a class="pointCursor" flex="10" ng-click="$ctrl.showAdvanced($event,'Edit School',school)" title="Click to Edit">
+                        <md-icon class="material-icons md-18">mode_edit</md-icon>
+                    </a>
                     </div>
                 </div>
-                <div flex flex-xs="100" layout-padding>
-                    <div ng-repeat="college in $ctrl.colleges|limitTo: $ctrl.limitval" ng-click="$ctrl.showAdvanced($event,'Edit College',college)" class="md-whiteframe-1dp" layout-margin title="Click to edit">
-                        <div align="center">
-                            <span><md-icon>{{college.institute.type}}</md-icon>  {{college.title}}</span>
-                        </div>
-                        <md-divider></md-divider>
-
-                        <div layout="row" id="data" layout-wrap>
-                            
-                                <span flex="25" flex-xs="100"><md-icon>schedule</md-icon>{{college.batch}}
-                                </span>
-                                <span flex="75" flex-xs="100"><md-icon>stars</md-icon>{{college.outcome.result}} {{college.outcome.unit}}
-                                </span>
-                                <br>
-                                <span flex="100" class="changeEducationClientFont">
-                                <md-icon>work</md-icon>
-                                {{college.institute.name}}
-                                </span>
-                                <br>
-                                <span flex="25" flex-xs="100" class="changeEducationLocationFont">
-                                <md-icon>account_balance</md-icon>
-                                {{college.institute.affiliation}}</span>
-
-                                <span flex="75" flex-xs="100" class="changeEducationLocationFont">
-                                <md-icon>room</md-icon>
-                                {{college.institute.location}}
-                                </span>
-                        <!-- 
-                            <li>{{college.batch}}</li>
-                            <br>{{college.outcome.result}}{{college.outcome.unit}},
-                            <br> {{college.institute.name}}, {{college.institute.affiliation}}
-                            <br> {{college.institute.location}}
-                        -->
-                    
+            </div>
+        </div>
+        <div flex layout-padding >
+            <div ng-repeat="college in $ctrl.colleges|limitTo: $ctrl.limitval" class="md-whiteframe-1dp" layout-margin>
+                <div align="center">
+                    <span><md-icon>{{college.institute.type}}</md-icon>  {{college.title}}</span>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" id="data" layout-wrap>
+                    <span flex="25" ><md-icon>schedule</md-icon>{{college.batch}}
+                            </span>
+                    <span flex="75" ><md-icon>stars</md-icon>{{college.outcome.result}} {{college.outcome.unit}}
+                            </span>
+                    <br>
+                    <span flex="100" class="changeEducationClientFont">
+                            <md-icon>work</md-icon>
+                            {{college.institute.name}}
+                            </span>
+                    <br>
+                    <span flex="25"  class="changeEducationLocationFont">
+                            <md-icon>account_balance</md-icon>
+                            {{college.institute.affiliation}}</span>
+                    <span flex="75"  class="changeEducationLocationFont">
+                            <md-icon>room</md-icon>
+                            {{college.institute.location}}
+                    </span>
+                    <div layout="row" flex="90"></div>
+                    <div layout-align="end">
+                    <a class="pointCursor" flex="10" ng-click="$ctrl.showAdvanced($event,'Edit College',college)" title="Click to Edit">
+                        <md-icon class="material-icons md-18">mode_edit</md-icon>
+                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,10 +80,9 @@
             <md-icon class="material-icons " ng-show="$ctrl.collapsed ">expand_less</md-icon>
         </a>
     </div>
-    <md-card-actions layout="row" layout-align="end end">
+    <md-card-actions layout="row" layout-align="end end" layout-margin>
         <div ng-transclude="verify">
         </div>
         <md-button class="md-raised" id="addbutton" ng-click="$ctrl.showAdvanced($event,'Add Education','')">{{$ctrl.languagedata.addeducation}}</md-button>
-        <!-- <md-button ng-click="$ctrl.showAdvanced($event,'Add College','')">+ college</md-button> -->
     </md-card-actions>
 </md-card>

@@ -121,21 +121,10 @@
                                     <div>
                                         {{$ctrl.personalInfo.maritialstatus}}
                                     </div>
-                                </div>
-
-                                <!-- <div>
-                                    {{$ctrl.personalInfo.maritialstatus}}, {{$ctrl.personalInfo.gender}}
-                                </div> 
-                            
-                                <div>
-                                    {{$ctrl.personalInfo.dob|date:'MMM dd,yyyy'}}
-                                </div>   -->                                         
+                                </div>                                   
                             </div>
                         </div>
                     </div>
-
-                <!-- /div> -->
-                 
                     <md-divider hide-xs show-gt-xs class="vertical-divider"></md-divider>
                     <md-divider id="horizontal-divider" hide-gt-xs show-xs></md-divider>
                    
@@ -152,19 +141,6 @@
                 </div>
             </div>
             </div>
-
-
-                <!-- <div layout="column" hide-lg hide-md hide-gt-md hide-sm hide-gt-lg ng-hide="$ctrl.value1" layout-align="end">
-                    <md-button ng-click="$ctrl.toggle()">
-                        <md-icon class="material-icon">keyboard_arrow_up</md-icon>
-                    </md-button>
-                </div>
-                <div layout="column" layout-align="end" hide-lg hide-md hide-gt-md hide-sm hide-gt-lg ng-hide="$ctrl.value">
-                    <md-button ng-click="$ctrl.toggle()">
-                        <md-icon class="material-icon">keyboard_arrow_down</md-icon>
-                    </md-button>
-                </div> -->
-                
             </md-card-content>
 
             <md-card-actions layout="row" flex layout-align="end">
@@ -172,7 +148,7 @@
                     <div ng-transclude="verify">
                     </div>
                     
-                    <a class="pointCursor" ng-click="$ctrl.showAdvanced($event,$ctrl.personalInfo,'Edit Info')"><md-icon class="">mode_edit</md-icon>
+                    <a class="pointCursor" ng-click="$ctrl.showAdvanced($event,$ctrl.personalInfo,'Edit Info')" title="Click to Edit"><md-icon class="">mode_edit</md-icon>
 </a>
                 </md-footer>
             </md-card-actions>

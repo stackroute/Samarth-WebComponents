@@ -5,46 +5,52 @@
          <div flex="5">({{$ctrl.profile.length}})</div>
      </md-card-header-text>
  </md-card-header>
- <md-card-content layout="row" layout-xs="column" layout-wrap layout-margin class="decreasemdIconFont">
-     <div class="md-whiteframe-2dp" flex="45" flex-xs="100" layout-padding ng-repeat="project in $ctrl.profile | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval">
+ <md-card-content layout="row" layout-xs="column" layout-wrap>
+     <div flex class="md-whiteframe-2dp" flex="45" flex-xs="100" ng-repeat="project in $ctrl.profile | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" class="decreasemdIconFont" layout-margin>
          <div layout="row" layout-align="center center">
-             <span class="changeProjectNameFont">
-                 <md-icon class="material-icons md-18">fiber_manual_record</md-icon>
+             <span class="md-title">
+                 <!-- <md-icon class="material-icons md-18">fiber_manual_record</md-icon> -->
                  {{project.name}}
              </span>
 
          </div>
          <md-divider></md-divider>
-         <div layout="row" layout-align="start center">
-             <span flex="50" class="changeProjectDurationFont">
+         <div  layout-align="start center">
+             <span  class="changeProjectDurationFont">
                  <md-icon class="material-icons md-18">schedule</md-icon>
                  {{project.duration.durationInMonths}}
              </span>
-             <span flex="50">&#8377;
+             <span >&#8377;
                  {{project.income}}</span>
              </div>
 
-             <div layout="row" layout-align="start center">
-                 <span flex="50" class="changeProjectClientFont">
+             <div  layout-align="start center">
+                 <span  class="changeProjectClientFont">
                      <md-icon class="material-icons md-18">work</md-icon>
                      {{project.workplace}}
                  </span>
-                 <span flex="50" class="changeProjectLocationFont">
+                 <span class="changeProjectLocationFont">
                      <md-icon class="material-icons md-18">location_on</md-icon>
                      {{project.location}}
                  </span>
              </div>
              <div layout="row" ng-repeat="skill in project.skills" flex-xs="100" layout-align="start center" flex>
 
-                 <div layout-padding flex="90">
-                     <span class="md-whiteframe-1dp" ng-repeat="(skillname,skill) in project.skills">
-                         <md-icon>build</md-icon>
-                         {{skill}}
+                 <div flex="90">
+                     <span ng-repeat="(skillname,skill) in project.skills">
+                         <!-- <md-icon>build</md-icon> -->
+                            <md-chips>
+                                <md-chip md-colors="::{background: 'grey-300'}">
+                                <!-- <md-chip-template > -->
+                                 {{skill}}
+                                <!-- </md-chip-template> -->
+                                </md-chip>
+                            </md-chips>
                      </span>
                  </div>
 
-                 <a flex="10" class="pointCursor" ng-click="$ctrl.showAdvanced($event,'Edit Project',project)">
-                     <md-icon class="">mode_edit</md-icon>
+                 <a flex="10"  ng-click="$ctrl.showAdvanced($event,'Edit Project',project)" title="Click to Edit">
+                     <md-icon class="editIcon">mode_edit</md-icon>
 
                  </a>
 

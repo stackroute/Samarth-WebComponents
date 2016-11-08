@@ -2,30 +2,33 @@
  .projectTitle {
      background-color: #e6e6e6;
  }
- 
- .changeProjectNameFont {
-    font-size: 16px; 
-}
 .savebutton{
 	 color: #0098b4;
 }
 .changeProjectDurationFont {
     font-size: 14px;
+    margin:10px;
 }
 
 .changeProjectLocationFont {
     font-size: 14px;
+    margin:10px;
 }
 
 .changeProjectClientFont {
     font-size: 14px;
+    margin:10px;
 }
 
 .changeProjectSalaryFont {
     font-size: 14px;
+    margin:10px;
 }
 .pointCursor{
   cursor: pointer;
+}
+.editIcon{
+	font-size: 18px;
 }
 .decreasemdIconFont md-icon{
     font-size: 15px;
