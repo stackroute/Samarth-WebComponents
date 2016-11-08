@@ -55,6 +55,7 @@ input:focus,.forward:focus{
 .pointCursor{
   cursor: pointer;
   border:0;
+  
   /*padding-left: 80px;*/
   /*font-size: 40px;*/
   /*color: red;*/

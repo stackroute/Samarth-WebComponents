@@ -4,6 +4,7 @@
 .decreasemdIconFont md-icon{
     font-size: 15px;
 } */
+
 #savebutton{
      color: #0098b4;
 }
@@ -74,7 +75,7 @@
     font-size: 100px;
 }
 */
-.material-icons.md-14 { font-size: 14px; }
+.material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
 
 .groupX {
