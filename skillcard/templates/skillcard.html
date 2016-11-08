@@ -3,48 +3,51 @@
     <md-card md-theme='default' md-theme-watch>
         <md-card-header id="headersection" ng-show="$ctrl.showheader" hide-gt-sm>
             <md-card-header-text>
-                <span class="md-headline">{{$ctrl.data.name}}<br><span id="headerage" hide-lg>({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
-                <span class="md-subhead">{{$ctrl.data.designation}}</span>
+                <span class="md-headline">{{$ctrl.data.name}}<br><!-- <span id="headerage" hide-lg>({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
+                <span class="md-subhead">{{$ctrl.data.designation}}</span> -->
             </md-card-header-text>
             <!-- <div layout=column> -->
             <div layout="row">
                 <md-card-avatar id="avatar">
-                    <img class="md-user-avatar" src="samarth-webcomponents/skillcard/images/user.png">
+                    <img class="circle" src="samarth-webcomponents/skillcard/images/mir.jpg">
                 </md-card-avatar>
                 <!-- <span layout-align="end"><md-icon class="material-icons" style="color:green">verified_user</md-icon></span> -->
                 <!--  <div ng-transclude="verified">
-               </div> -->
-                <div ng-transclude="badges">
-                </div>
+            </div> -->
+            <div ng-transclude="badges">
             </div>
-            <!--  </div> -->
-        </md-card-header>
-        <md-card-content >
-            <div layout="row" id="coverpagecontainer">
-                <div flex="25" hide-sm hide-xs>
-                    <div layout="column" layout-align="center center">
-                        <div>
-                            <md-card-avatar id="avatar">
-                                <img class="md-user-avatar-content" src="samarth-webcomponents/skillcard/images/user.png">
-                            </md-card-avatar>
-                        </div>
-                        <div class="md-headline">
-                            <span class="md-headline">{{$ctrl.data.name}}<br><span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
-                            <span class="md-subhead">{{$ctrl.data.designation}}</span>
+        </div>
+        <!--  </div> -->
+    </md-card-header>
+    <md-card-content >
+        <div layout="row" id="coverpagecontainer">
+            <div flex="25" hide-sm hide-xs>
+                <div layout="column" layout-align="center center">
+                    <div>
+                        <md-card-avatar id="avatar">
+                            <img class="circle" src="samarth-webcomponents/skillcard/images/mir.jpg">
+                        </md-card-avatar>
+                    </div>
+                    <div class="md-headline">
+                            <span class="md-headline">{{$ctrl.data.name}}<br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
+                            <span class="md-subhead">{{$ctrl.data.designation}}</span> -->
                         </div>
                     </div>
                 </div>
-                <div flex-gt-md="75" flex="100" id="coverpagecontent">
+                <div flex="75" flex-xs="100" id="coverpagecontent">
                     <div flex="100" hide-gt-sm>
                         <div layout="column" layout-align="center center">
                             <div>
                                 <md-card-avatar id="avatar">
-                                    <img class="md-user-avatar-content" src="samarth-webcomponents/skillcard/images/user.png">
+                                    <img class="circle" src="samarth-webcomponents/skillcard/images/mir.jpg">
                                 </md-card-avatar>
                             </div>
                             <div class="md-headline">
-                                <span class="md-headline">{{$ctrl.data.name}}<br><span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
-                                <span class="md-subhead">{{$ctrl.data.designation}}</span>
+                                <span class="md-headline">{{$ctrl.data.name}}
+                                    <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span><br>
+                                    <span>{{$ctrl.data.designation}}</span>
+                                </span>
+                                
                             </div>
                         </div>
                     </div>
@@ -53,81 +56,83 @@
                             <div flex id="section1" align="left" layout="column">
                                 <div flex>
                                     <span>
-                                <md-icon class="material-icons">cake</md-icon>
-                                {{$ctrl.data.dob}} ({{$ctrl.data.age}} yrs)
-                             </span>
+                                        <md-icon class="material-icons">cake</md-icon>
+                                        {{$ctrl.data.dob}} ({{$ctrl.data.age}} yrs)
+                                    </span>
                                 </div>
                                 <!-- <div flex>
                              <p>{{$ctrl.data.gender}}</p>
-                             </div> -->
-                                <div flex layout>
-                                    <p>{{$ctrl.data.maritalstatus}}</p>
-                                    ,
-                                    <p>{{$ctrl.data.gender}}</p>
-                                </div>
-                            </div>
-                            <md-divider></md-divider>
-                            <div flex id="section2" layout="column">
-                                <p>
-                                    <img id="professionimage" src="samarth-webcomponents/skillcard/images/profession.png"> 
-                                    <span>{{$ctrl.data.designation}}</span>
-                                </p>
-                            </div>
+                         </div> -->
+                         <div flex layout="column" flex-offset="5">
+                            {{$ctrl.data.maritalstatus}}
+                            ,
+                            {{$ctrl.data.gender}}
+                        </div>
+                    </div>
+                    <md-divider></md-divider>
+                    <div flex id="section2" layout="column">
+
+                        <!-- <img id="professionimage" src="samarth-webcomponents/skillcard/images/mir.jpg">  -->
+                        <span>
+                            <md-icon class="material-icons md-20">work</md-icon>  {{$ctrl.data.designation}}
+                        </span>
+
+                    </div>
                             <!-- <div flex id="section2" align="center">
                           (graph)
-                          </div> -->
+                      </div> -->
                             <!-- <div flex id="section3" align="center">
                           <md-icon class="material-icons">star rate</md-icon>
                           <md-icon class="material-icons">star rate</md-icon>
                           <md-icon class="material-icons">star rate</md-icon>
-                          </div> -->
-                        </div>
-                        <div id="blankarea" hide-sm hide-xs hide-md>
-                            <br>
-                        </div>
-                        <md-divider id="divider1" hide-xs hide-sm hide-md></md-divider>
+                      </div> -->
+                  </div>
+                  <div id="blankarea" hide-sm hide-xs hide-md>
+                    <br>
+                </div>
+                <md-divider id="divider1" hide-xs hide-sm hide-md></md-divider>
                         <!--  <div id="section2" flex hide-xs hide-sm>
                        <p align="center">DOB:{{$ctrl.data.DOB}} ({{$ctrl.data.age}} years)</p>
                        <hr>
-                       </div> -->
-                        <div id="blankarea" hide-sm hide-xs hide-md>
-                            <br>
-                        </div>
-                        <div id="section3" layout="row" layout-xs="column" layout-sm="column" layout-md="column" flex>
+                   </div> -->
+                   <div id="blankarea" hide-sm hide-xs hide-md>
+                    <br>
+                </div>
+                <div id="section3" layout="row" layout-xs="column" layout-sm="column" layout-md="column" flex>
                             <!-- <div hide-sm hide-xs hide-md hide-lg>
                           <br>
-                          </div> -->
-                            <div flex layout="column" layout-align-xs="center center" layout-align-sm="center center">
-                                <p>
-                                    <md-icon class="material-icons">phone</md-icon>
-                                    <span>{{$ctrl.data.contact}}</span>
-                                </p>
-                                <p>
-                                    <md-icon class="material-icons">room</md-icon>
-                                    <span>{{$ctrl.data.location}}</span>
-                                </p>
-                            </div>
+                      </div> -->
+                      <div flex layout="column" layout-align-xs="center center" layout-align-sm="center center">
+                        <p>
+                            <md-icon class="material-icons">phone</md-icon>
+                            <span>{{$ctrl.data.contact}}</span>
+                        </p>
+                        <p>
+                            <md-icon class="material-icons">room</md-icon>
+                            <span>{{$ctrl.data.location}}</span>
+                        </p>
+                    </div>
                             <!--  <div flex>
                           <p>
                             <md-icon class="material-icons">room</md-icon>
                             <span>{{$ctrl.data.location}}</span>
                           </p>
                             
-                          </div> -->
-                            <div flex layout="row" layout-align-sm="center center" layout-align-xs="center center">
-                                <p >
-                                    <md-icon class="material-icons">mail outline</md-icon>
-                                    <span>{{$ctrl.data.email}}</span>
-                                </p>
-                            </div>
-                        </div>
-                        <md-divider id="divider2" hide-xs></md-divider>
-                        <div id="section4" flex layout="row" layout-align-sm="center" layout-align-xs="center">
-                            <md-chips ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills">
-                                <md-chip-template md-colors="::{color: 'primary-700'}">
-                                    <strong>
-                             {{$chip.skillname}}
-                             </strong>
+                      </div> -->
+                      <div flex layout="row" layout-align-sm="center center" layout-align-xs="center center">
+                        <p >
+                            <md-icon class="material-icons">mail outline</md-icon>
+                            <span>{{$ctrl.data.email}}</span>
+                        </p>
+                    </div>
+                </div>
+                <md-divider id="divider2" hide-xs></md-divider>
+                <div id="section4" flex layout="row" layout-align-sm="center" layout-align-xs="center">
+                    <md-chips ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills">
+                        <md-chip-template md-colors="::{color: 'primary-700'}">
+                            <strong>
+                               {{$chip.skillname}}
+                           </strong>
                                     <!--                      </md-chip-template>
                                 </md-chips>
                                 <!-<span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}}  </span> -->
@@ -144,27 +149,27 @@
                                     </md-button>
                                 </a>
                                 </md-card-actions>
-                                </md-card>  -->
-                                </md-chip-template>
-                            </md-chips>
-                            <!-- <span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}}  </span> -->
-                        </div>
-                    </div>
+                            </md-card>  -->
+                        </md-chip-template>
+                    </md-chips>
+                    <!-- <span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}}  </span> -->
                 </div>
             </div>
-        </md-card-content>
-        <md-card-actions id="skillcardtoolbar" layout="row" layout-align="end center">
-            <a ng-href="{{ $ctrl.fileUrl }}" download="Scard.json">
-                <md-icon class="material-icons">share</md-icon>
-            </a>
-            <a id="download">
-                <md-button ng-click="$ctrl.render($event)">
-                    <md-icon class="material-icons">file_download</md-icon>
-                </md-button>
-            </a>
-            <span ng-transclude="cardactions">
-         </span>
-        </md-card-actions>
-    </md-card>
+        </div>
+    </div>
+</md-card-content>
+<md-card-actions id="skillcardtoolbar" layout="row" layout-align="end center">
+    <a ng-href="{{ $ctrl.fileUrl }}" download="Scard.json">
+        <md-icon class="material-icons">share</md-icon>
+    </a>
+    <a id="download">
+        <md-button ng-click="$ctrl.render($event)">
+            <md-icon class="material-icons">file_download</md-icon>
+        </md-button>
+    </a>
+    <span ng-transclude="cardactions">
+    </span>
+</md-card-actions>
+</md-card>
 </div>
 <!-- </div>
