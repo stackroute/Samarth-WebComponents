@@ -23,7 +23,7 @@
         <div layout="row" id="coverpagecontainer" layout-align="center center">
             <div flex="25" hide-sm hide-xs>
                 <div layout="column" layout-align="center center">
-                    <div>
+                    <div layout-align="center center">
                         <md-card-avatar id="avatar">
                             <img class="circle" src="samarth-webcomponents/skillcard/images/mir.jpg">
                         </md-card-avatar>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                <div flex="75" flex-xs="100" id="coverpagecontent">
+                <div flex="75" flex-xs="100" id="coverpagecontent" layout-align="center center">
                     <div flex="100" hide-gt-sm>
                         <div layout="column" layout-align="center center">
                             <div>
@@ -42,7 +42,7 @@
                                     <img class="circle" src="samarth-webcomponents/skillcard/images/mir.jpg">
                                 </md-card-avatar>
                             </div>
-                            <div >
+                            <div layout-align="center center">
                                 <span class="detail">{{$ctrl.data.name}}</span>
                                     <br>
                                     <span flex-offset="10" class="age">({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span><br><br>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div layout="column">
-                        <div layout="row" id="section1" flex hide-xs hide-md hide-sm>
+                        <div layout="row" id="section1" flex hide-xs hide-sm>
                             <div flex id="section1" align="left" layout="column">
                                 <div flex>
                                     <span>
@@ -61,9 +61,6 @@
                                         {{$ctrl.data.dob}} ({{$ctrl.data.age}} yrs)
                                     </span>
                                 </div>
-                                <!-- <div flex>
-                             <p>{{$ctrl.data.gender}}</p>
-                         </div> -->
                          <div flex layout="column" flex-offset="5">
                             {{$ctrl.data.maritalstatus}}
                             ,
@@ -79,27 +76,19 @@
                         </span>
 
                     </div>
-                            <!-- <div flex id="section2" align="center">
-                          (graph)
-                      </div> -->
-                            <!-- <div flex id="section3" align="center">
-                          <md-icon class="material-icons">star rate</md-icon>
-                          <md-icon class="material-icons">star rate</md-icon>
-                          <md-icon class="material-icons">star rate</md-icon>
-                      </div> -->
                   </div>
-                  <div id="blankarea" hide-sm hide-xs hide-md>
+                  <div id="blankarea" hide-sm hide-xs>
                     <br>
                 </div>
-                <md-divider id="divider1" hide-xs hide-sm hide-md></md-divider>
+                <md-divider id="divider1" hide-xs hide-sm ></md-divider>
                         <!--  <div id="section2" flex hide-xs hide-sm>
                        <p align="center">DOB:{{$ctrl.data.DOB}} ({{$ctrl.data.age}} years)</p>
                        <hr>
                    </div> -->
-                   <div id="blankarea" hide-sm hide-xs hide-md>
+                   <div id="blankarea" hide-sm hide-xs>
                     <br>
                 </div>
-                <div id="section3" layout="row" layout-xs="column" layout-sm="column" layout-md="column" flex>
+                <div id="section3" layout="row" layout-xs="column" layout-sm="column" flex>
                             <!-- <div hide-sm hide-xs hide-md hide-lg>
                           <br>
                       </div> -->
@@ -129,7 +118,7 @@
                     </div>
                 </div>
                 <md-divider id="divider2" hide-xs></md-divider>
-                <div id="section4" flex layout="row" layout-align-sm="center" layout-align-xs="center">
+                <div id="section4" flex layout="row" layout-align-sm="center center" layout-align-xs="center center" layout-wrap>
                     <md-chips ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills">
                         <md-chip-template md-colors="{color: 'primary-700'}">
 
