@@ -19,8 +19,8 @@
         </div>
         <!--  </div> -->
     </md-card-header>
-    <md-card-content >
-        <div layout="row" id="coverpagecontainer">
+    <md-card-content  >
+        <div layout="row" id="coverpagecontainer" layout-align="center center">
             <div flex="25" hide-sm hide-xs>
                 <div layout="column" layout-align="center center">
                     <div>
@@ -29,7 +29,7 @@
                         </md-card-avatar>
                     </div>
                     <div class="md-headline">
-                            <span class="md-headline">{{$ctrl.data.name}}<br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
+                            <span>{{$ctrl.data.name}}<br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
                             <span class="md-subhead">{{$ctrl.data.designation}}</span> -->
                         </div>
                     </div>
@@ -42,11 +42,12 @@
                                     <img class="circle" src="samarth-webcomponents/skillcard/images/mir.jpg">
                                 </md-card-avatar>
                             </div>
-                            <div class="md-headline">
-                                <span class="md-headline">{{$ctrl.data.name}}
-                                    <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span><br>
-                                    <span>{{$ctrl.data.designation}}</span>
-                                </span>
+                            <div >
+                                <span class="detail">{{$ctrl.data.name}}</span>
+                                    <br>
+                                    <span flex-offset="10" class="age">({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span><br><br>
+                                    <span flex-offset="5" class="detail">{{$ctrl.data.designation}}</span>
+                                <!-- </span> -->
                                 
                             </div>
                         </div>
@@ -74,7 +75,7 @@
 
                         <!-- <img id="professionimage" src="samarth-webcomponents/skillcard/images/mir.jpg">  -->
                         <span>
-                            <md-icon class="material-icons md-20">work</md-icon>  {{$ctrl.data.designation}}
+                            <md-icon class="material-icons md-20">work</md-icon>{{$ctrl.data.designation}}
                         </span>
 
                     </div>
@@ -104,12 +105,13 @@
                       </div> -->
                       <div flex layout="column" layout-align-xs="center center" layout-align-sm="center center">
                         <p>
-                            <md-icon class="material-icons">phone</md-icon>
-                            <span>{{$ctrl.data.contact}}</span>
+                            
+                             <md-icon class="material-icons">room</md-icon>
+                            <span>{{$ctrl.data.location}}</span>
                         </p>
                         <p>
-                            <md-icon class="material-icons">room</md-icon>
-                            <span>{{$ctrl.data.location}}</span>
+                           <md-icon class="material-icons">phone</md-icon>
+                            <span>{{$ctrl.data.contact}}</span>
                         </p>
                     </div>
                             <!--  <div flex>
@@ -129,7 +131,8 @@
                 <md-divider id="divider2" hide-xs></md-divider>
                 <div id="section4" flex layout="row" layout-align-sm="center" layout-align-xs="center">
                     <md-chips ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills">
-                        <md-chip-template md-colors="::{color: 'primary-700'}">
+                        <md-chip-template md-colors="{color: 'primary-700'}">
+
                             <strong>
                                {{$chip.skillname}}
                            </strong>
