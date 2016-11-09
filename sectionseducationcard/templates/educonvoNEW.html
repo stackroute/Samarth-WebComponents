@@ -17,12 +17,6 @@
                         <label>Course</label>
                         <input id="input1" ng-model="title">                     
                     </md-input-container>
-                    
-                    <!-- <md-input-container>
-                        <label>LeveL of Course</label>
-                        <input id="input1" ng-model="academicType">
-                    </md-input-container> -->
-
                     (
                     <md-input-container id="datepicker">
                         <label>Course Level</label>
@@ -37,17 +31,6 @@
                             <md-option ng-repeat="year in years" ng-value="{{year}}">{{year}}</md-option>
                         </md-select>
                     </md-input-container>
-                    <!-- ( from
-           <md-input-container>
-           <md-datepicker ng-model="from" md-placeholder="start date"
-           md-open-on-focus></md-datepicker>
-           </md-input-container>
-           to
-           <md-input-container>
-           <md-datepicker ng-model="to" md-placeholder="end date"
-           md-open-on-focus></md-datepicker>
-           </md-input-container>
-         ) -->
                     with final score of
                     <md-input-container>
                         <label>Score</label>
@@ -63,14 +46,10 @@
                         <input id="input1" ng-model="name">
                     </md-input-container>
                     (
-                    <!-- <md-input-container>
-                        <label>Institute Type</label>
-                        <input id="input1" ng-model="type">
-                    </md-input-container> -->
                     <md-input-container id="datepicker">
                         <label>Type</label>
                         <md-select ng-model="type">
-                            <md-option ng-repeat="itype in ['school','college','work','other']" ng-value="itype">{{itype}}</md-option>
+                            <md-option ng-repeat="itype in ['school','college','work']" ng-value="itype">{{itype}}</md-option>
                         </md-select>
                     </md-input-container>
                     ) which is affiliated to
@@ -90,9 +69,7 @@
                 <md-button class="md-raised" id="addbutton" contenteditable="false">
                     Save Details
                 </md-button>
-
             </div>
         </md-dialog-content>
-        
     </form>
 </md-dialog>
