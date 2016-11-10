@@ -52,8 +52,8 @@
 
             //     ctrl.loadLangData(data.language);
             // });
-            ctrl.limitval = 6;
-            ctrl.limitval2 = 6;
+            ctrl.limitval = 12;
+            // ctrl.limitval2 = 6;
             ctrl.value = 40;
             ctrl.skill = {};
             ctrl.primary = [];
@@ -62,39 +62,46 @@
             ctrl.secondary = [];
             ctrl.total = 0;
             ctrl.increaseLimit = function() {
-                ctrl.limitval = ctrl.limitval + 6;
+                ctrl.limitval = ctrl.limitval + 60;
             };
 
             ctrl.decreaseLimit = function() {
-                ctrl.limitval = ctrl.limitval - 6;
+                ctrl.limitval = ctrl.limitval - 60;
             };
-            ctrl.increaseLimit2 = function() {
-                ctrl.limitval2 = ctrl.limitval2 + 6;
-            };
+            // ctrl.increaseLimit2 = function() {
+            //     ctrl.limitval2 = ctrl.limitval2 + 6;
+            // };
 
-            ctrl.decreaseLimit2 = function() {
-                ctrl.limitval2 = ctrl.limitval2 - 6;
-            };
+            // ctrl.decreaseLimit2 = function() {
+            //     ctrl.limitval2 = ctrl.limitval2 - 6;
+            // };
 
             sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
                 ctrl.skill = result;
-                // console.log("skill object", ctrl.skill);
 
+                // console.log("skill object", ctrl.skill);
+                      
                 for (let prop in ctrl.skill) {
-                    for (let key in ctrl.skill[prop]) {
+                   /* for (let key in ctrl.skill[prop]) {*/
+                       
+                        ctrl.primary=ctrl.skill[prop];
+                         //ctrl.primary.push(ctrl.skill[prop]);
                         // console.log(ctrl.skill[prop][key])
-                        for (let k in ctrl.skill[prop][key]) {
-                            if (ctrl.skill[prop][key][k] == 'Primary') // extracting all skill object containing primary type
-                            {
-                                ctrl.primary.push(ctrl.skill[prop][key]); // making array of object containing skill of  type primary
-                            }
-                            if (ctrl.skill[prop][key][k] == 'Secondary') // extracting all skill object containing primary type
-                            {
-                                ctrl.secondary.push(ctrl.skill[prop][key]); // making array of object containing skill type secondary
-                            }
+                        //for (let k in ctrl.skill[prop]) {
+                           // if (ctrl.skill[prop]) // extracting all skill object containing primary type
+                           // {
+                            
+                                //ctrl.primary.push(ctrl.skill[prop]); 
+                                // making array of object containing skill of  type primary
+                               //console.log("skills",ctrl.primary);
+                           // }
+                            // if (ctrl.skill[prop][key][k] == 'Secondary') // extracting all skill object containing primary type
+                            // {
+                            //     ctrl.secondary.push(ctrl.skill[prop][key]); // making array of object containing skill type secondary
+                            // }
                         }
-                    }
-                }
+                   // }
+                
                 ctrl.total = ctrl.primary.length + ctrl.secondary.length;
                 ctrl.plen = ctrl.primary.length;
                 ctrl.slen = ctrl.secondary.length;
@@ -103,7 +110,7 @@
             $rootScope.$on('skilldatachanged', function() {
                 sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
                     ctrl.skill = result;
-                    // console.log("skill object", ctrl.skill);
+                   // console.log("skill object", ctrl.skill);
                     ctrl.primary = [];
                     ctrl.secondary = [];
                     ctrl.total = 0;
@@ -113,17 +120,18 @@
                         for (let key in ctrl.skill[prop]) {
                             // console.log(ctrl.skill[prop][key])
                             for (let k in ctrl.skill[prop][key]) {
-                                if (ctrl.skill[prop][key][k] == 'Primary') // extracting all skill object containing primary type
+                                if (ctrl.skill[prop][key][k] == 'Primary'||ctrl.skill[prop][key][k] == 'Secondary') // extracting all skill object containing primary type
                                 {
                                     ctrl.primary.push(ctrl.skill[prop][key]); // making array of object containing skill of  type primary
                                 }
-                                if (ctrl.skill[prop][key][k] == 'Secondary') // extracting all skill object containing primary type
-                                {
-                                    ctrl.secondary.push(ctrl.skill[prop][key]); // making array of object containing skill type secondary
-                                }
+                                // if (ctrl.skill[prop][key][k] == 'Secondary') // extracting all skill object containing primary type
+                                // {
+                                //     ctrl.secondary.push(ctrl.skill[prop][key]); // making array of object containing skill type secondary
+                                // }
                             }
                         }
                     }
+                    // ctrl.total = ctrl.primary.length ;
                     ctrl.total = ctrl.primary.length + ctrl.secondary.length;
                     ctrl.plen = ctrl.primary.length;
                     ctrl.slen = ctrl.secondary.length;
