@@ -5,8 +5,8 @@
         </md-card-header-text>
     </md-card-header>
     <md-card-content layout="row" layout-xs="column" layout-wrap>
-       <div flex flex-xs="100" layout-padding> 
-        <div flex flex-xs="100" ng-repeat="school in $ctrl.schools|limitTo: $ctrl.limitval" class="md-whiteframe-2dp" layout-margin>
+       <!-- <div flex flex-xs="100" layout-padding>  -->
+        <div flex flex-xs="100" ng-repeat="school in $ctrl.schools|limitTo: $ctrl.limitval" class="md-whiteframe-1dp" layout-margin>
             <div align="center">
                 <span class="md-title"> 
                     <md-icon>{{school.institute.type}}</md-icon> 
@@ -38,9 +38,9 @@
                 
             </div>
         </div>
-       </div>
-       <div flex layout-padding> 
-        <div flex flex-xs="100" ng-repeat="college in $ctrl.colleges|limitTo: $ctrl.limitval" class="md-whiteframe-2dp" layout-margin>
+       <!-- </div> -->
+       <!-- <div flex layout-padding>  -->
+        <div flex flex-xs="100" ng-repeat="college in $ctrl.colleges|limitTo: $ctrl.limitval" class="md-whiteframe-1dp" layout-margin>
             <div align="center">
                 <span><md-icon>{{college.institute.type}}</md-icon>  {{college.title}}</span>
             </div>
@@ -71,7 +71,7 @@
                 
             </div>
         </div>
-        </div>
+        <!-- </div> -->
     </md-card-content>
     <div layout="row" flex-offset="90" flex-offset-xs="75" layout-align="center center">
         <a ng-model="$ctrl.collapsed" ng-hide="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed ;$ctrl.increaseLimit()" class="pointCursor">

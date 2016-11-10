@@ -3,10 +3,9 @@
     <md-card md-theme='default' md-theme-watch>
         <md-card-header id="headersection" ng-show="$ctrl.showheader" hide-gt-sm>
             <md-card-header-text>
-                <span class="md-headline">{{$ctrl.data.name}}<br><!-- <span id="headerage" hide-lg>({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
-                <span class="md-subhead">{{$ctrl.data.designation}}</span> -->
+                <span class="md-headline">{{$ctrl.data.name}}<br>
             </md-card-header-text>
-            <!-- <div layout=column> -->
+
             <div layout="row">
                 <md-card-avatar id="avatar">
                     <img class="circle" src="samarth-webcomponents/skillcard/images/mir.jpg">
@@ -47,8 +46,6 @@
                                     <br>
                                     <span flex-offset="10" class="age">({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span><br><br>
                                     <span flex-offset="5" class="detail">{{$ctrl.data.designation}}</span>
-                                <!-- </span> -->
-                                
                             </div>
                         </div>
                     </div>
@@ -56,23 +53,26 @@
                         <div layout="row" id="section1" flex hide-xs hide-sm>
                             <div flex id="section1" align="left" layout="column">
                                 <div flex>
-                                    <span>
+                                    <p>
                                         <md-icon class="material-icons">cake</md-icon>
+                                        <span>
                                         {{$ctrl.data.dob}} ({{$ctrl.data.age}} yrs)
-                                    </span>
+                                        </span>
+                                    </p>
                                 </div>
-                         <div flex layout="column" flex-offset="5">
-                            {{$ctrl.data.maritalstatus}}
+                         <div flex layout="column" >
+                           <p>
+                           <md-icon></md-icon> 
+                           {{$ctrl.data.maritalstatus}}
                             ,
                             {{$ctrl.data.gender}}
+                            </p>
                         </div>
                     </div>
                     <md-divider></md-divider>
                     <div flex id="section2" layout="column">
-
-                        <!-- <img id="professionimage" src="samarth-webcomponents/skillcard/images/mir.jpg">  -->
                         <span>
-                            <md-icon class="material-icons md-20">work</md-icon>{{$ctrl.data.designation}}
+                            <md-icon class="material-icons md-20">work</md-icon> {{$ctrl.data.designation}}
                         </span>
 
                     </div>
@@ -122,9 +122,9 @@
                     <md-chips ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills">
                         <md-chip-template md-colors="{color: 'primary-700'}">
 
-                            <strong>
+                            <!-- <strong> -->
                                {{$chip.skillname}}
-                           </strong>
+                           <!-- </strong> -->
                                     <!--                      </md-chip-template>
                                 </md-chips>
                                 <!-<span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}}  </span> -->
