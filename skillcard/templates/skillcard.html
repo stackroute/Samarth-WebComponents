@@ -13,59 +13,63 @@
                 <!-- <span layout-align="end"><md-icon class="material-icons" style="color:green">verified_user</md-icon></span> -->
                 <!--  <div ng-transclude="verified">
             </div> -->
-            <div ng-transclude="badges">
+                <div ng-transclude="badges">
+                </div>
+</div>
+<!--  </div> -->
+</md-card-header>
+<md-card-content>
+    <div layout="row" id="coverpagecontainer" layout-align="center center">
+        <div flex="25" hide-sm hide-xs>
+            <div layout="column" layout-align="center center">
+                <div layout-align="center center">
+                    <a href="#">
+                        <md-card-avatar id="avatar">
+                            <img class="profile_pic_circle" src="{{$ctrl.data.profilepic}}">
+                        </md-card-avatar>
+                    </a>
+                </div>
+                <div class="md-headline">
+                    <span>{{$ctrl.data.name}}<br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
+                    <span class="md-subhead">{{$ctrl.data.designation}}</span> -->
+                </div>
             </div>
         </div>
-        <!--  </div> -->
-    </md-card-header>
-    <md-card-content  >
-        <div layout="row" id="coverpagecontainer" layout-align="center center">
-            <div flex="25" hide-sm hide-xs>
+        <div flex="75" flex-xs="100" id="coverpagecontent" layout-align="center center">
+            <div flex="100" hide-gt-sm>
                 <div layout="column" layout-align="center center">
-                    <div layout-align="center center">
-                        <md-card-avatar id="avatar">
-                            <img class="circle" src="samarth-webcomponents/skillcard/images/mir.jpg">
-                        </md-card-avatar>
+                    <div>
+                        <a href="">
+                            <md-card-avatar id="avatar">
+                                <img class="profile_pic_circle" src="{{$ctrl.data.profilepic}}">
+                            </md-card-avatar>
+                        </a>
                     </div>
-                    <div class="md-headline">
-                            <span>{{$ctrl.data.name}}<br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
-                            <span class="md-subhead">{{$ctrl.data.designation}}</span> -->
-                        </div>
+                    <div layout-align="center center">
+                        <span class="detail">{{$ctrl.data.name}}</span>
+                        <br>
+                        <span flex-offset="10" class="age">({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span>
+                        <br>
+                        <br>
+                        <span flex-offset="5" class="detail">{{$ctrl.data.designation}}</span>
                     </div>
                 </div>
-                <div flex="75" flex-xs="100" id="coverpagecontent" layout-align="center center">
-                    <div flex="100" hide-gt-sm>
-                        <div layout="column" layout-align="center center">
-                            <div>
-                                <md-card-avatar id="avatar">
-                                    <img class="circle" src="samarth-webcomponents/skillcard/images/mir.jpg">
-                                </md-card-avatar>
-                            </div>
-                            <div layout-align="center center">
-                                <span class="detail">{{$ctrl.data.name}}</span>
-                                    <br>
-                                    <span flex-offset="10" class="age">({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span><br><br>
-                                    <span flex-offset="5" class="detail">{{$ctrl.data.designation}}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div layout="column">
-                        <div layout="row" id="section1" flex hide-xs hide-sm>
-                            <div flex id="section1" align="left" layout="column">
-                                <div flex>
-                                    <p>
-                                        <md-icon class="material-icons">cake</md-icon>
-                                        <span>
+            </div>
+            <div layout="column">
+                <div layout="row" id="section1" flex hide-xs hide-sm>
+                    <div flex id="section1" align="left" layout="column">
+                        <div flex>
+                            <p>
+                                <md-icon class="material-icons">cake</md-icon>
+                                <span>
                                         {{$ctrl.data.dob}} ({{$ctrl.data.age}} yrs)
                                         </span>
-                                    </p>
-                                </div>
-                         <div flex layout="column" >
-                           <p>
-                           <md-icon></md-icon> 
-                           {{$ctrl.data.maritalstatus}}
-                            ,
-                            {{$ctrl.data.gender}}
+                            </p>
+                        </div>
+                        <div flex layout="column">
+                            <p>
+                                <md-icon></md-icon>
+                                {{$ctrl.data.maritalstatus}} , {{$ctrl.data.gender}}
                             </p>
                         </div>
                     </div>
@@ -74,44 +78,42 @@
                         <span>
                             <md-icon class="material-icons md-20">work</md-icon> {{$ctrl.data.designation}}
                         </span>
-
                     </div>
-                  </div>
-                  <div id="blankarea" hide-sm hide-xs>
+                </div>
+                <div id="blankarea" hide-sm hide-xs>
                     <br>
                 </div>
-                <md-divider id="divider1" hide-xs hide-sm ></md-divider>
-                        <!--  <div id="section2" flex hide-xs hide-sm>
+                <md-divider id="divider1" hide-xs hide-sm></md-divider>
+                <!--  <div id="section2" flex hide-xs hide-sm>
                        <p align="center">DOB:{{$ctrl.data.DOB}} ({{$ctrl.data.age}} years)</p>
                        <hr>
                    </div> -->
-                   <div id="blankarea" hide-sm hide-xs>
+                <div id="blankarea" hide-sm hide-xs>
                     <br>
                 </div>
                 <div id="section3" layout="row" layout-xs="column" layout-sm="column" flex>
-                            <!-- <div hide-sm hide-xs hide-md hide-lg>
+                    <!-- <div hide-sm hide-xs hide-md hide-lg>
                           <br>
                       </div> -->
-                      <div flex layout="column" layout-align-xs="center center" layout-align-sm="center center">
+                    <div flex layout="column" layout-align-xs="center center" layout-align-sm="center center">
                         <p>
-                            
-                             <md-icon class="material-icons">room</md-icon>
+                            <md-icon class="material-icons">room</md-icon>
                             <span>{{$ctrl.data.location}}</span>
                         </p>
                         <p>
-                           <md-icon class="material-icons">phone</md-icon>
+                            <md-icon class="material-icons">phone</md-icon>
                             <span>{{$ctrl.data.contact}}</span>
                         </p>
                     </div>
-                            <!--  <div flex>
+                    <!--  <div flex>
                           <p>
                             <md-icon class="material-icons">room</md-icon>
                             <span>{{$ctrl.data.location}}</span>
                           </p>
                             
                       </div> -->
-                      <div flex layout="row" layout-align-sm="center center" layout-align-xs="center center">
-                        <p >
+                    <div flex layout="row" layout-align-sm="center center" layout-align-xs="center center">
+                        <p>
                             <md-icon class="material-icons">mail outline</md-icon>
                             <span>{{$ctrl.data.email}}</span>
                         </p>
@@ -121,14 +123,13 @@
                 <div id="section4" flex layout="row" layout-align-sm="center center" layout-align-xs="center center" layout-wrap>
                     <md-chips ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills">
                         <md-chip-template md-colors="{color: 'primary-700'}">
-
                             <!-- <strong> -->
-                               {{$chip.skillname}}
-                           <!-- </strong> -->
-                                    <!--                      </md-chip-template>
+                            {{$chip.skillname}}
+                            <!-- </strong> -->
+                            <!--                      </md-chip-template>
                                 </md-chips>
                                 <!-<span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}}  </span> -->
-                                    <!--  </div>
+                            <!--  </div>
                                 </div>
                                 </md-card-content>
                                 <md-card-actions id="skillcardtoolbar" layout="row" layout-align="end center" ng-transclude="cardactions">
