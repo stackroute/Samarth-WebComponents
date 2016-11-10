@@ -8,7 +8,7 @@
 
             <div layout="row">
                 <md-card-avatar id="avatar">
-                    <img class="circle" src="samarth-webcomponents/skillcard/images/mir.jpg">
+                    <img class="circle" src="{{$ctrl.data.profilepic}}">
                 </md-card-avatar>
                 <!-- <span layout-align="end"><md-icon class="material-icons" style="color:green">verified_user</md-icon></span> -->
                 <!--  <div ng-transclude="verified">
@@ -30,7 +30,7 @@
                     </a>
                 </div>
                 <div>
-                    <span id="headline">{{$ctrl.data.name}}<br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
+                    <span id="md-headline">{{$ctrl.data.name}}<br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
                     <span class="md-subhead">{{$ctrl.data.designation}}</span> -->
                 </div>
             </div>
@@ -48,7 +48,7 @@
                     <div layout-align="center center">
                         <span class="detail">{{$ctrl.data.name}}
                         
-                        ({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span>
+                        ({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span>{{$ctrl.data.profession}}
                         <br>
                         <br>
                         <span class="detail"><md-icon class="material-icons">work</md-icon> {{$ctrl.data.designation}}</span>
@@ -63,16 +63,16 @@
 
 <div layout="row" id="section1" flex hide-xs hide-sm>
 <div flex align="left" layout="column" layout-padding>
-<span>
-    <md-icon class="material-icons md-20">work</md-icon> PROFESSION ( {{$ctrl.data.designation}} )
+<span flex flex-offset="5">
+    <md-icon class="material-icons md-20">work</md-icon> {{$ctrl.data.profession}} ( {{$ctrl.data.designation}} )
 
     </div>
     </div>
 
-                <div layout="row" id="section1" flex hide-xs hide-sm>
-                    <div flex id="section1" align="left" layout="column">
+                <div layout="row" id="section1" flex flex-offset="5" hide-xs hide-sm>
+                    <div flex="30" id="section1" layout="column">
                         <div flex>
-                            <span>
+                            <span flex-offset="5">
                                 <md-icon class="material-icons">cake</md-icon>
                                 </span>
                                 <span>
@@ -89,7 +89,7 @@
                     </div>
                     <!-- <md-divider></md-divider> -->
 
-                    <div flex layout="column" layout-align-xs="center center" layout-align-sm="center center">
+                    <div flex="20" layout="column" layout-align-xs="center center" layout-align-sm="center center">
                         <p>
                             <md-icon class="material-icons">room</md-icon>
                             <span>{{$ctrl.data.location}}</span>
@@ -102,7 +102,7 @@
 
                    <!--  <md-divider></md-divider> -->
 
-                    <div id="section2" layout="column">
+                    <div flex="20" id="section2" layout="column">
                         <span>
                         <md-icon class="material-icons">mail outline</md-icon>
                             <span>{{$ctrl.data.email}}</span>
@@ -113,7 +113,7 @@
                 <!-- <div id="blankarea" hide-sm hide-xs>
                     <br>
                 </div> -->
-                <md-divider id="divider1" hide-xs hide-sm></md-divider>
+                <!-- <md-divider id="divider1" hide-xs hide-sm></md-divider> -->
                 <!--  <div id="section2" flex hide-xs hide-sm>
                        <p align="center">DOB:{{$ctrl.data.DOB}} ({{$ctrl.data.age}} years)</p>
                        <hr>
@@ -121,7 +121,7 @@
                 <!-- <div id="blankarea" hide-sm hide-xs>
                     <br>
                 </div> -->
-                <div id="section3" layout="row" layout-xs="column" layout-sm="column" flex>
+                <!-- <div id="section3" layout="row" layout-xs="column" layout-sm="column" flex>
                     
                     
                     <div flex layout="row" layout-align-sm="center center" layout-align-xs="center center">
@@ -130,7 +130,7 @@
                             <span>{{$ctrl.data.email}}</span>
                         </p>
                     </div>
-                </div>
+                </div> -->
                 
                 <div id="section4" flex layout="row" layout-align-sm="center center" layout-align-xs="center center" layout-wrap>
                     <md-chips ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills">
