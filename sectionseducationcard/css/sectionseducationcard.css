@@ -26,16 +26,16 @@
 }
 
 #conversationDialogcontent {
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     font-size: 1.25em;
     color: grey;
     line-height: 1.5;
     word-break: normal;
 }
 
-#conversationDialogcontent md-input-container {
+/*#conversationDialogcontent md-input-container {
     margin-top: 30px;
-}
+}*/
 
 /*#headingtext {
     color: white;
@@ -138,9 +138,9 @@
     cursor: pointer;
 }
 
-#savebtn {
+/*#savebtn {
     margin-top: 130px;
-}
+}*/
 
 md-dialog {
     max-width: 100%;
@@ -157,3 +157,6 @@ md-dialog {
 #datepicker {
     margin-bottom: 35px;
 }
+/*.cardsContent>.layout-margin>.flex-gt-lg{
+margin-left: 25px;
+}*/

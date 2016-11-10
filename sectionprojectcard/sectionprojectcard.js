@@ -43,17 +43,17 @@
         ctrl.profile = [];
         ctrl.profile1 = [];
         ctrl.totalProjects = 0;
-        ctrl.limitval = 2;
+        ctrl.limitval = 3;
         ctrl.increaseLimit = function() {
             /* if((ctrl.limitval+3)<=ctrl.totalProjects){
               ctrl.limitval = ctrl.limitval+4;
             }
             else*/
-            ctrl.limitval = ctrl.limitval+2;
+            ctrl.limitval = ctrl.limitval+60;
         };
 
         ctrl.decreaseLimit = function() {
-            ctrl.limitval = ctrl.limitval-2;
+            ctrl.limitval = ctrl.limitval-60;
         };
 
         $http({

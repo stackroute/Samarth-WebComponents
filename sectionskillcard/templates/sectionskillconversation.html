@@ -9,7 +9,7 @@
                 </md-button>
             </div>
         </md-toolbar>
-        <md-dialog-content>
+        <md-dialog-content layout="column">
             <div id="conversationDialogcontent" layout-padding layout-wrap>
                 <p layout-wrap>
                     I am skilled at
@@ -34,22 +34,13 @@
                             </md-option>
                         </md-select>
                     </md-input-container>
-                   <!--  in category
-                    <md-input-container id="datepicker">
-                        <md-select ng-model="skillObject.category">
-                            <md-option ng-repeat="category in ['Primary','Secondary']" ng-value="category">
-                                {{category}}
-                            </md-option>
-                        </md-select>
-                    </md-input-container> -->
                 </p>
             </div>
-            <div flex layout="row" layout-align="center center" ng-click="save(skillObject,header)">
-                <md-button class="md-raised" id="savebutton" contenteditable="false">
-                    Save
-                </md-button>
-            </div>
         </md-dialog-content>
-        
+        <md-dialog-actions  layout="row" layout-align="center center">
+            <md-button class="md-raised" id="savebutton" contenteditable="false" ng-click="save(skillObject,header)">
+                Save
+            </md-button>
+        </md-dialog-actions>
     </form>
 </md-dialog>
