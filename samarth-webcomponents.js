@@ -1,1 +1,1 @@
-angular.module('samarth-webcomponents', ['ngMaterial']);
+angular.module('samarth-webcomponents', ['ngMaterial','ngMessages']);
