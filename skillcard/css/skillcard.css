@@ -65,6 +65,9 @@
     height: 30px;
     width: 30px;
 }
+#section4{
+    padding-left: 10px;
+}
 
 #skillcardtoolbar {
     /*background-color:#d9d9d9 ;*/
@@ -74,7 +77,11 @@
 }
 
 .detail {
-    font-size: 18px;
+    font-size: 25px;
+}
+.detail1{
+    font-size: 20px;
+    align: center;
 }
 
 #headerage {
