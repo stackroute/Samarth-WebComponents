@@ -47,16 +47,14 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
     ctrl.eduDetails = [];
     ctrl.schools = [];
     ctrl.colleges = [];
-
-    
-    ctrl.limitval = 1;
+    ctrl.limitval = 3;
     ctrl.increaseLimit = function() {
 
-        ctrl.limitval = ctrl.limitval+2;
+        ctrl.limitval = ctrl.limitval+60;
     }
 
     ctrl.decreaseLimit = function() {
-        ctrl.limitval = ctrl.limitval-2;
+        ctrl.limitval = ctrl.limitval-60;
     }
 
     $http.get('/education/' + ctrl.candidateid).then(function(
