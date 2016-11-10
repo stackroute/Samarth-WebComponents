@@ -1,5 +1,5 @@
 <md-dialog>
-    <form ng-cloak>
+    <form name="personalForm" ng-cloak required>
         <md-toolbar id="conversationDialogtoolbar">
             <div class="md-toolbar-tools">
                 <h1 id="headingtext">{{header}}</h1>
@@ -11,11 +11,16 @@
         </md-toolbar>
         <md-dialog-content layout="column">
             <div id="conversationDialogcontent" layout-padding layout-wrap>
-                <p layout-wrap>
+                <!-- <p layout-wrap> -->
                     I am
                     <md-input-container>
                         <label>Name</label>
-                        <input ng-model="personalObject.name" id='input1'>
+                        <input ng-model="personalObject.name" id='input1' name="name" required>
+
+                        <div ng-messages="personalForm.name.$error" role="alert">
+                        <div ng-message="required">Please Enter Your Name</div>
+                        </div>
+
                     </md-input-container>
                     and I live in
                     <md-input-container>
@@ -44,7 +49,7 @@
                     and you can drop me a mail at
                     <md-input-container>
                         <label>Email-id</label>
-                        <input ng-model="personalObject.email" id='input1'>
+                        <input ng-model="personalObject.email" id='input1' required type="email">
                     </md-input-container>
                     . My permanent address is
                     <md-input-container>
@@ -55,10 +60,10 @@
                         <label>Pincode</label>
                         <input ng-model="personalObject.pincode" id='input1'>
                     </md-input-container>
-                </p>
+                <!-- </p> -->
             </div>
-            <div flex layout="row" layout-align="center center" ng-click="save(personalObject,header)">
-                <md-button class="md-raised" id="savebutton" contenteditable="false">
+            <div flex layout="row" layout-align="center center">
+                <md-button class="md-raised" id="savebutton" ng-disabled="personalForm.$invalid" ng-click="save(personalObject,header)" contenteditable="false">
                     Save
                 </md-button>
                 

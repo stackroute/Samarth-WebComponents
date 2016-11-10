@@ -1,5 +1,5 @@
 <md-dialog aria-label="Education">
-    <form ng-cloak>
+    <form name="projectForm" required ng-cloak>
         <md-toolbar id="conversationDialogtoolbar">
             <div class="md-toolbar-tools">
                 <h2 id="headingtext">{{header}}</h2>
@@ -11,17 +11,27 @@
         </md-toolbar>
         <md-dialog-content layout="column">
             <div id="conversationDialogcontent" layout-padding layout-wrap>
-                <p layout-wrap>
+                <!-- <p layout-wrap> -->
                     I have done
                     <md-input-container>
                         <label>Projectname</label>
-                        <input id="input1" type="text" ng-model="Project">
+                        <input id="input1" type="text" ng-model="Project" name="project" required>
+
+                        <div ng-messages="projectForm.project.$error" role="alert">
+                        <div ng-message="required">Please Enter Your Project</div>
+                        </div>
+
                     </md-input-container> Project with duration
                     <md-input-container>
                         <label>Duration</label>
-                        <input type="text" ng-model="Duration" id="input1">
+                        <input type="text" ng-model="Duration" name="duration" id="input1">
+
+                        <div ng-messages="projectForm.duration.$error" role="alert">
+                        <div ng-message="required">Enter duration You Have Worked</div>
+                        </div>
+
                     </md-input-container>
-                    in
+                    
                     <md-input-container>
                         <label>Location</label>
                         <input type="text" ng-model="Location" id="input1">
@@ -41,14 +51,15 @@
                         <label>Salary</label>
                         <input type="text" ng-model="Salary" id="input1">
                     </md-input-container>
-                </p>
+                <!-- </p> -->
             </div>
+
             
         </md-dialog-content>
 
         <md-dialog-actions class="conversationDialog" layout="row" layout-align="center center" id="savebtn">
         <div>
-                <md-button class="md-raised" id="addbutton" contenteditable="false" ng-click="save(header);cancel()">
+                <md-button class="md-raised" id="addbutton" contenteditable="false" ng-disabled="projectForm.$invalid" ng-click="save(header);cancel()">
                     Save 
                 </md-button>
             </div>
