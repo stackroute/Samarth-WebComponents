@@ -42,10 +42,13 @@ angular.module('samarth-webcomponents')
                     if (object.skill[0].skills.length > 0) {
                         skillcarddata.skills = object.skill[0].skills;
                     }
+                    if (object.personalinfo[0].profilepic.length > 0) {
+                        skillcarddata.profilepic = object.personalinfo[0].profilepic;
+                    }
 
                     // skillcarddata['name']=object.personalinfo[0].name;
                     console.log(skillcarddata.skills, 'skills in sc');
-                    console.log('SKILL CARD SERVICE', skillcarddata);
+                    console.log('SKILL CARD SERVICE --------------------->', skillcarddata);
                     return skillcarddata;
                 }, function myError(response) {
                     console.log('error in getting skillcard details');

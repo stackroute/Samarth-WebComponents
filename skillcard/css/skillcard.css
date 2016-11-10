@@ -1,112 +1,113 @@
-#coverpagecontainer{
+#coverpagecontainer {
     margin-top: 10px;
 }
 
-#coverpagecontent{
+#coverpagecontent {
     margin-top: 10px;
 }
+
 
 /*#avatar .md-user-avatar-content{
     width: 150px;
 }*/
 
-#content
-{
-    margin-top:30px;
+#content {
+    margin-top: 30px;
     /*background-color: white;*/
     /*margin-top:30px;*/
     width: 100%;
-    margin:auto;
+    margin: auto;
     line-height: 1;
 }
-#totalcardarea md-card{
-    
+
+#totalcardarea md-card {
     background-color: transparent;
 }
-#totalcardarea md-card-content
-{
+
+#totalcardarea md-card-content {
     padding: 0px;
 }
-#totalcardarea md-card-content div
-{
-    padding:2px;
-}
-#totalcardarea md-card-content p
-{
-    margin:0px;
+
+#totalcardarea md-card-content div {
+    padding: 2px;
 }
 
-#totalcardarea
-{
-    padding:0px;
+#totalcardarea md-card-content p {
+    margin: 0px;
 }
 
-#headersection
-{
+#totalcardarea {
+    padding: 0px;
+}
+
+#headersection {
     /*background-color: #D9D9D9 ;*/
     /*background-color:#f9f9f9 ;*/
     /*background-color:#D9D9D9 ;*/
 }
-#blankarea
-{
-    height:2px;
+
+#blankarea {
+    height: 2px;
 }
 
-#avatar
-{
-    height:60px;
-    width:56px;
+#avatar {
+    height: 60px;
+    width: 56px;
 }
 
-#professionimage
-{
+#professionimage {
     padding-top: 10px;
     height: 30px;
     width: 30px;
 }
 
-#skillcardtoolbar
-{
+#skillcardtoolbar {
     /*background-color:#d9d9d9 ;*/
     /*background-color:#f9f9f9 ;*/
     /*background-color:#D9D9D9 ;*/
-    margin:0px;
+    margin: 0px;
 }
-.detail
-{
+
+.detail {
     font-size: 18px;
 }
-#headerage
-{
+
+#headerage {
     font-size: 16px;
 }
-.age
-{
+
+.age {
     font-size: 14px;
 }
-#header1
-{
-    margin-bottom:5px;
+
+#header1 {
+    margin-bottom: 5px;
 }
 
-.circle {
-    
+.profilePicWrapper {
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* msie */
+}
+
+.profile_pic_circle {
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    /* background: #E1E1BB; */  
-            /*background:#E0C8F7;*/
-            background:#A1BAB7;
-            /*background: #72E9FF;*/
-    text-align:center;
-
+    width: 200px;
+    height: 200px;
+    /* background: #E1E1BB; */
+    /*background:#E0C8F7;*/
+    background: #A1BAB7;
+    /*background: #72E9FF;*/
+    text-align: center;
 }
+
 .material-icons.md-18 {
     font-size: 20px;
 }
+
 .material-icons.md-24 {
     font-size: 24px;
 }
-.space{
+
+.space {
     padding-left: 10px;
 }
