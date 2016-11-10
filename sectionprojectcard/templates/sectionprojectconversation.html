@@ -53,13 +53,16 @@
                     </md-input-container>
                 <!-- </p> -->
             </div>
-            <div id="savebtn" flex layout="row" layout-align="center center">
-                <md-button class="md-raised" id="addbutton" ng-disabled="projectForm.$invalid" contenteditable="false" ng-click="save(header)">
+
+            
+        </md-dialog-content>
+
+        <md-dialog-actions class="conversationDialog" layout="row" layout-align="center center" id="savebtn">
+        <div>
+                <md-button class="md-raised" id="addbutton" contenteditable="false" ng-disabled="projectForm.$invalid" ng-click="save(header);cancel()">
                     Save 
                 </md-button>
             </div>
-        </md-dialog-content>
-        <md-dialog-actions class="conversationDialog" layout="row" layout-align="center center">
         </md-dialog-actions>
     </form>
 </md-dialog>

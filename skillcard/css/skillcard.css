@@ -27,6 +27,11 @@
 #totalcardarea md-card-content {
     padding: 0px;
 }
+#headline{
+
+    font-size: 25;
+}
+}
 
 #totalcardarea md-card-content div {
     padding: 2px;

@@ -6,9 +6,9 @@
         </md-card-header-text>
     </md-card-header>
     <!-- <div layout="row" layout-xs = "column" layout-wrap layout-margin> -->
-    <md-card-content layout="row" layout-xs="column" layout-wrap>
-        <div flex class="md-whiteframe-2dp" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout-margin>
-            <div layout="row" layout-align="start center">
+    <md-card-content layout="row" layout-xs="column" layout-wrap class="cardsContent" layout-fill>
+        <div flex="30" class="md-whiteframe-1dp" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout-margin>
+            <div layout="row" layout-align="center center">
                 <span class="designation">
                     <md-icon class="material-icons md-18">work</md-icon>
                     {{value.designation}}

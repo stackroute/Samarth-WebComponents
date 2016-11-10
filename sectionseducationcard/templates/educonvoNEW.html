@@ -1,4 +1,5 @@
 <md-dialog aria-label="Education">
+
     <form name="eduForm" required ng-cloak>
         <md-toolbar id="conversationDialogtoolbar">
             <div class="md-toolbar-tools">
@@ -89,11 +90,13 @@
                     </md-input-container>
                 <!-- </p> -->
             </div>
-            <div flex layout="row" layout-align="center center">
-                <md-button class="md-raised" id="addbutton" ng-disabled="eduForm.$invalid" ng-click="save(header)" contenteditable="false">
-                    Save Details
-                </md-button>
-            </div>
         </md-dialog-content>
+        <md-dialog-actions layout="row" layout-align="center center">
+            <!-- <div flex  > -->
+                <md-button class="md-raised" id="addbutton" contenteditable="false" ng-disabled="eduForm.$invalid" ng-click="save(header)">
+                    SAVE
+                </md-button>
+            <!-- </div> -->
+        </md-dialog-actions>
     </form>
 </md-dialog>

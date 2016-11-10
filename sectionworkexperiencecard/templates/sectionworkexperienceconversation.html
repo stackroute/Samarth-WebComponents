@@ -63,14 +63,14 @@
                     </md-input-container>
                <!--  </p> -->
             </div>
-            <div id="savebtn" flex layout="row" layout-align="center center">
-                <md-button id="savebutton" class="md-raised" ng-disabled="skillForm.$invalid" contenteditable="false" ng-click="save(header)">
-                    Save
-                </md-button>
-                
-            </div>
         </md-dialog-content>
         <md-dialog-actions class="conversationDialog" layout="row" layout-align="center center">
+        <!-- <div id="savebtn" flex layout="row" layout-align="center center" ng-click="cancel()"> -->
+                <md-button id="savebutton" class="md-raised" contenteditable="false" ng-disabled="workForm.$invalid" ng-click="save(header);cancel()">
+
+                    Save
+                </md-button>
+            <!-- </div> -->
         </md-dialog-actions>
     </form>
 </md-dialog>

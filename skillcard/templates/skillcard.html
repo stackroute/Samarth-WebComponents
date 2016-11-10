@@ -29,8 +29,8 @@
                         </md-card-avatar>
                     </a>
                 </div>
-                <div class="md-headline">
-                    <span>{{$ctrl.data.name}}<br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
+                <div>
+                    <span id="headline">{{$ctrl.data.name}}<br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
                     <span class="md-subhead">{{$ctrl.data.designation}}</span> -->
                 </div>
             </div>
@@ -62,10 +62,10 @@
             <div layout="column">
 
 <div layout="row" id="section1" flex hide-xs hide-sm>
-<div flex align="left" layout="column">
+<div flex align="left" layout="column" layout-padding>
 <span>
-    <md-icon class="material-icons md-20">work</md-icon> PROFESSION( {{$ctrl.data.designation}} )
-    
+    <md-icon class="material-icons md-20">work</md-icon> PROFESSION ( {{$ctrl.data.designation}} )
+
     </div>
     </div>
 
@@ -87,7 +87,7 @@
                             </p>
                         </div>
                     </div>
-                    <md-divider></md-divider>
+                    <!-- <md-divider></md-divider> -->
 
                     <div flex layout="column" layout-align-xs="center center" layout-align-sm="center center">
                         <p>
@@ -100,7 +100,7 @@
                         </p>
                     </div>
 
-                    <md-divider></md-divider>
+                   <!--  <md-divider></md-divider> -->
 
                     <div id="section2" layout="column">
                         <span>
