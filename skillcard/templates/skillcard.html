@@ -112,7 +112,7 @@
                     </div>
 
                    
-                    <div flex="20" id="section2" layout="column">
+                    <div flex="40" id="section2" layout="column">
                         <span>
                         <md-icon class="material-icons">mail outline</md-icon>
                             <span>{{$ctrl.data.email}}</span>
@@ -125,7 +125,7 @@
                 <div layout="row">
                 <br>
                 <br>
-                    <md-chips flex-offset="5" flex-offset-xs="20" flex="50" id="section4" ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills" layout-align-xs="center center">
+                    <md-chips flex-offset="5" flex-offset-xs="10" flex-offset-sm="30" id="section4" ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills" layout-align-xs="center center">
                         <md-chip-template md-colors="{color: 'primary-700'}">
                             
                             {{$chip.skillname}}
