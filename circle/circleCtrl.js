@@ -1,3 +1,4 @@
+(function(){
 let scripts = document.getElementsByTagName('script');
 let currentScriptPath = scripts[scripts.length - 1].src;
 
@@ -21,7 +22,7 @@ function circleCrtl($http, $log, $scope, $mdColorPalette) {
         return colors[a.length];
     };
 }
-
+}());
 
 // angular.module('samarth-webcomponents')
 //     .controller('dialogController', function() {

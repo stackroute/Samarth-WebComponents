@@ -1,3 +1,4 @@
+(function(){
 let scripts = document.getElementsByTagName('script');
 let currentScriptPath = scripts[scripts.length - 1].src;
 
@@ -44,3 +45,4 @@ function badgeCtrl(verificationbadgeService) {
 
             });
 }
+})();
