@@ -5,7 +5,6 @@
             <md-card-header-text>
                 <span class="details2">{{$ctrl.data.name}}<br>
             </md-card-header-text>
-
             <div layout="row">
                 <md-card-avatar id="avatar">
                     <img class="circle" src="{{$ctrl.data.profilepic}}">
@@ -45,41 +44,38 @@
                             </md-card-avatar>
                         </a>
                     </div>
-                    <div layout-align="center center">
-                        <span flex-offset="10" layout-padding class="detail">{{$ctrl.data.name}}</span>
-                        
+                    <div>
+                        <span flex-offset="15" layout-align="center center" class="detail">{{$ctrl.data.name}}</span>
                         <br>
-                        <span flex-offset="20" layout-padding>{{$ctrl.data.age}} yrs , {{$ctrl.data.gender}}</span>
+                        <span flex-offset="20" layout-align="center center">{{$ctrl.data.age}} yrs , {{$ctrl.data.gender}}</span>
                         <br>
                         <br>
-                        <span class="detail1" layout-padding><md-icon class="material-icons">work</md-icon> {{$ctrl.data.profession}} </span>
+                        <span flex-offset="20" class="detail1" layout-align="center center"><md-icon class="material-icons">work</md-icon> {{$ctrl.data.profession}} </span>
                         <br>
-                        <span>
+                        <span flex-offset="25">
                         ( {{$ctrl.data.designation}} )
                         </span>
                         <br>
                         <br>
-                        <span>
+                        <span flex-offset="20"><md-icon class="material-icons">phone</md-icon> {{$ctrl.data.contact}}</span>
+                        <br>
+                        <span flex-offset="5" layout-align="center center">
                         <md-icon class="material-icons">mail outline</md-icon>
                             <span>{{$ctrl.data.email}}</span>
-                            
                         </span>
                         <br>
                         <br>
-                            <span><md-icon class="material-icons">phone</md-icon> {{$ctrl.data.contact}}</span>
+                            
                     </div>
                 </div>
             </div>
             <div layout="column">
-
 <div layout="row" id="section1" flex hide-xs hide-sm>
 <div flex align="left" layout="column" layout-padding>
 <span flex flex-offset="5">
     <span class="details2"><md-icon class="material-icons md-20">work</md-icon> {{$ctrl.data.profession}}<span class="detail1"> ( {{$ctrl.data.designation}} )</span>
-
     </div>
     </div>
-
                 <div layout="row" id="section1" flex flex-offset="5" hide-xs hide-sm>
                     <div flex="30" id="section1" layout="column">
                         <div flex>
@@ -99,7 +95,6 @@
                         </div>
                     </div>
                     <!-- <md-divider></md-divider> -->
-
                     <div flex="20" layout="column" layout-align-xs="center center" layout-align-sm="center center">
                         <p>
                             <md-icon class="material-icons">room</md-icon>
@@ -110,7 +105,6 @@
                             <span>{{$ctrl.data.contact}}</span>
                         </p>
                     </div>
-
                    
                     <div flex="40" id="section2" layout="column">
                         <span>
