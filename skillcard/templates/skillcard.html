@@ -46,7 +46,7 @@
                         </a>
                     </div>
                     <div layout-align="center center">
-                        <span flex-offset="15" layout-padding class="detail">{{$ctrl.data.name}}</span>
+                        <span flex-offset="10" layout-padding class="detail">{{$ctrl.data.name}}</span>
                         
                         <br>
                         <span flex-offset="20" layout-padding>{{$ctrl.data.age}} yrs , {{$ctrl.data.gender}}</span>
@@ -125,7 +125,7 @@
                 <div layout="row">
                 <br>
                 <br>
-                    <md-chips flex-offset="5" flex="50" id="section4" ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills" layout-align-xs="center center">
+                    <md-chips flex-offset="5" flex-offset-xs="20" flex="50" id="section4" ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills" layout-align-xs="center center">
                         <md-chip-template md-colors="{color: 'primary-700'}">
                             
                             {{$chip.skillname}}
