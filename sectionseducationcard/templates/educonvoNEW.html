@@ -26,7 +26,7 @@
                     (
                     <md-input-container id="datepicker">
                         <label Layout-align="center center">Course Level</label>
-                        <md-select ng-model="academicType" required>
+                        <md-select ng-model="academicType">
                             <md-option ng-repeat="itype in ['Primary','Metric','Senior Secondary','Diploma','Graduation','Post-Graduation','Docterate','Others']" ng-value="itype">{{itype}}</md-option>
                         </md-select>
 
@@ -38,8 +38,8 @@
                     ) in the year
                     <md-input-container id="datepicker">
                         <label>Batch</label>
-                        <md-select ng-model="batch">
-                            <md-option ng-repeat="year in years" ng-value="{{year}}" required>{{year}}</md-option>
+                        <md-select ng-model="batch"  required>
+                            <md-option ng-repeat="year in years" ng-value="{{year}}">{{year}}</md-option>
                         </md-select>
                     </md-input-container>
                     with final score of
@@ -63,7 +63,7 @@
                     (
                     <md-input-container id="datepicker">
                         <label>Type</label>
-                        <md-select ng-model="type" required>
+                        <md-select ng-model="type">
                             <md-option ng-repeat="itype in ['school','college','work']" ng-value="itype">{{itype}}</md-option>
                         </md-select>
                     </md-input-container>
