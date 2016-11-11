@@ -3,7 +3,7 @@
     <md-card md-theme='default' md-theme-watch>
         <md-card-header id="headersection" ng-show="$ctrl.showheader" hide-gt-sm>
             <md-card-header-text>
-                <span class="md-headline">{{$ctrl.data.name}}<br>
+                <span class="details2">{{$ctrl.data.name}}<br>
             </md-card-header-text>
 
             <div layout="row">
@@ -19,7 +19,7 @@
 <!--  </div> -->
 </md-card-header>
 <md-card-content>
-    <div layout="row" id="coverpagecontainer" layout-align="center center">
+    <div layout="row" layout-align="center center">
         <div flex="25" hide-sm hide-xs>
             <div layout="column" layout-align="center center">
                 <div layout-align="center center">
@@ -30,12 +30,12 @@
                     </a>
                 </div>
                 <div>
-                    <span id="md-headline">{{$ctrl.data.name}}<br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
+                    <span class="details2">{{$ctrl.data.name}}</span><br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
                     <span class="md-subhead">{{$ctrl.data.designation}}</span> -->
                 </div>
             </div>
         </div>
-        <div flex="75" flex-xs="100" id="coverpagecontent" layout-align="center center">
+        <div flex="75" flex-xs="100">
             <div flex="100" hide-gt-sm>
                 <div layout="column" layout-align="center center">
                     <div>
@@ -46,15 +46,26 @@
                         </a>
                     </div>
                     <div layout-align="center center">
-                        <span class="detail">{{$ctrl.data.name}}
+                        <span flex-offset="10" layout-padding class="detail">{{$ctrl.data.name}}</span>
                         
-                        ({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span>{{$ctrl.data.profession}}
+                        <br>
+                        <span flex-offset="20" layout-padding>{{$ctrl.data.age}} yrs , {{$ctrl.data.gender}}</span>
                         <br>
                         <br>
-                        <span class="detail"><md-icon class="material-icons">work</md-icon> {{$ctrl.data.designation}}</span>
+                        <span class="detail1" layout-padding><md-icon class="material-icons">work</md-icon> {{$ctrl.data.profession}} </span>
+                        <br>
+                        <span>
+                        ( {{$ctrl.data.designation}} )
+                        </span>
                         <br>
                         <br>
-                        
+                        <span>
+                        <md-icon class="material-icons">mail outline</md-icon>
+                            <span>{{$ctrl.data.email}}</span>
+                            
+                        </span>
+                        <br>
+                        <br>
                             <span><md-icon class="material-icons">phone</md-icon> {{$ctrl.data.contact}}</span>
                     </div>
                 </div>
@@ -64,7 +75,7 @@
 <div layout="row" id="section1" flex hide-xs hide-sm>
 <div flex align="left" layout="column" layout-padding>
 <span flex flex-offset="5">
-    <md-icon class="material-icons md-20">work</md-icon> {{$ctrl.data.profession}} ( {{$ctrl.data.designation}} )
+    <span class="details2"><md-icon class="material-icons md-20">work</md-icon> {{$ctrl.data.profession}}<span class="detail1"> ( {{$ctrl.data.designation}} )</span>
 
     </div>
     </div>
@@ -80,7 +91,7 @@
                                         
                             </span>
                         </div>
-                        <div flex layout="column">
+                        <div flex flex-offset="5" layout="column">
                             <p>
                                 <md-icon></md-icon>
                                 {{$ctrl.data.maritalstatus}} , {{$ctrl.data.gender}}
@@ -100,64 +111,28 @@
                         </p>
                     </div>
 
-                   <!--  <md-divider></md-divider> -->
-
-                    <div flex="20" id="section2" layout="column">
+                   
+                    <div flex="40" id="section2" layout="column">
                         <span>
                         <md-icon class="material-icons">mail outline</md-icon>
                             <span>{{$ctrl.data.email}}</span>
-                            <!-- <md-icon class="material-icons md-20">work</md-icon> {{$ctrl.data.designation}} -->
+                            
                         </span>
                     </div>
                 </div>
-                <!-- <div id="blankarea" hide-sm hide-xs>
-                    <br>
-                </div> -->
-                <!-- <md-divider id="divider1" hide-xs hide-sm></md-divider> -->
-                <!--  <div id="section2" flex hide-xs hide-sm>
-                       <p align="center">DOB:{{$ctrl.data.DOB}} ({{$ctrl.data.age}} years)</p>
-                       <hr>
-                   </div> -->
-                <!-- <div id="blankarea" hide-sm hide-xs>
-                    <br>
-                </div> -->
-                <!-- <div id="section3" layout="row" layout-xs="column" layout-sm="column" flex>
-                    
-                    
-                    <div flex layout="row" layout-align-sm="center center" layout-align-xs="center center">
-                        <p>
-                            <md-icon class="material-icons">mail outline</md-icon>
-                            <span>{{$ctrl.data.email}}</span>
-                        </p>
-                    </div>
-                </div> -->
                 
-                <div id="section4" flex layout="row" layout-align-sm="center center" layout-align-xs="center center" layout-wrap>
-                    <md-chips ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills">
+                
+                <div layout="row">
+                <br>
+                <br>
+                    <md-chips flex-offset="5" flex-offset-xs="10" flex-offset-sm="30" id="section4" ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills" layout-align-xs="center center">
                         <md-chip-template md-colors="{color: 'primary-700'}">
-                            <!-- <strong> -->
+                            
                             {{$chip.skillname}}
-                            <!-- </strong> -->
-                            <!--                      </md-chip-template>
-                                </md-chips>
-                                <!-<span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}}  </span> -->
-                            <!--  </div>
-                                </div>
-                                </md-card-content>
-                                <md-card-actions id="skillcardtoolbar" layout="row" layout-align="end center" ng-transclude="cardactions">
-                                <a ng-href="{{ $ctrl.fileUrl }}" download="Scard.json">
-                                    <md-icon class="material-icons">share</md-icon>
-                                </a>
-                                <a id="download">
-                                    <md-button ng-click="$ctrl.render($event)">
-                                        <md-icon class="material-icons">file_download</md-icon>
-                                    </md-button>
-                                </a>
-                                </md-card-actions>
-                            </md-card>  -->
+                            
                         </md-chip-template>
                     </md-chips>
-                    <!-- <span ng-repeat="val in $ctrl.data.skills[0]">{{val.skillname}}  </span> -->
+                    
                 </div>
             </div>
         </div>
