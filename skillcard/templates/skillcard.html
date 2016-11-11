@@ -3,7 +3,7 @@
     <md-card md-theme='default' md-theme-watch>
         <md-card-header id="headersection" ng-show="$ctrl.showheader" hide-gt-sm>
             <md-card-header-text>
-                <span class="md-title">{{$ctrl.data.name}}<br>
+                <span class="details2">{{$ctrl.data.name}}<br>
             </md-card-header-text>
 
             <div layout="row">
@@ -19,7 +19,7 @@
 <!--  </div> -->
 </md-card-header>
 <md-card-content>
-    <div layout="row" id="coverpagecontainer" layout-align="center center">
+    <div layout="row" layout-align="center center">
         <div flex="25" hide-sm hide-xs>
             <div layout="column" layout-align="center center">
                 <div layout-align="center center">
@@ -30,12 +30,12 @@
                     </a>
                 </div>
                 <div>
-                    <span id="md-headline">{{$ctrl.data.name}}<br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
+                    <span class="details2">{{$ctrl.data.name}}</span><br><!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
                     <span class="md-subhead">{{$ctrl.data.designation}}</span> -->
                 </div>
             </div>
         </div>
-        <div flex="75" flex-xs="100" id="coverpagecontent" layout-align="center center">
+        <div flex="75" flex-xs="100">
             <div flex="100" hide-gt-sm>
                 <div layout="column" layout-align="center center">
                     <div>
@@ -75,7 +75,7 @@
 <div layout="row" id="section1" flex hide-xs hide-sm>
 <div flex align="left" layout="column" layout-padding>
 <span flex flex-offset="5">
-    <md-icon class="material-icons md-20">work</md-icon> {{$ctrl.data.profession}} ( {{$ctrl.data.designation}} )
+    <span class="details2"><md-icon class="material-icons md-20">work</md-icon> {{$ctrl.data.profession}}<span class="detail1"> ( {{$ctrl.data.designation}} )</span>
 
     </div>
     </div>
@@ -124,7 +124,8 @@
                 
                 <div layout="row">
                 <br>
-                    <md-chips id="section4" ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills">
+                <br>
+                    <md-chips flex-offset="5" flex="50" id="section4" ng-model="$ctrl.data.skills" ng-if="$ctrl.data.skills != undefined" readonly="true" md-removable="false" name="skills" layout-align-xs="center center">
                         <md-chip-template md-colors="{color: 'primary-700'}">
                             
                             {{$chip.skillname}}

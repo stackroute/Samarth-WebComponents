@@ -3,7 +3,7 @@
 }
 
 #coverpagecontent {
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 
@@ -80,8 +80,8 @@
     font-size: 25px;
 }
 .detail1{
-    font-size: 20px;
-    align: center;
+    font-size: 18px;
+    
 }
 
 #headerage {
@@ -122,4 +122,7 @@
 
 .space {
     padding-left: 10px;
+}
+.details2{
+    font-size: 22px;
 }
