@@ -217,7 +217,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
                 }]
             }
 
-            if (header == ("Edit Education")) {
+            if (header == ("Add Education")) {
                 $http({
                         method: 'POST',
                         url: '/education/' + ctrl.candidateid,
