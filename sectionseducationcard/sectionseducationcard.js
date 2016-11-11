@@ -230,7 +230,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
                             console.log('error in adding education');
                         });
             }
-            if (header == "Edit School" || header == "Edit College") {
+            if (header == "Edit Education") {
                 $http({
                         method: 'PATCH',
                         url: '/education/' + ctrl.candidateid + "/" +
