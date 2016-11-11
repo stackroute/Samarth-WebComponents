@@ -15,7 +15,7 @@
                     I am skilled at
                     <md-input-container>
                         <label>Skill Name</label>
-                        <input ng-model="skill.skillname" id="input1" name="skill" required>
+                        <input ng-model="skillObject.skillname" id="input1" name="skill" required>
 
                         <div ng-messages="skillForm.skill.$error" role="alert">
                         <div ng-message="required">Please Enter Your Skills</div>
@@ -24,7 +24,7 @@
                     </md-input-container>
                     having Experience of
                     <md-input-container id="datepicker">
-                        <md-select ng-model="skillObject.experience" required>
+                        <md-select ng-model="skillObject.experience">
                             <md-option ng-repeat="year in exp" ng-value="year">
                                 {{year}}
                             </md-option>
@@ -33,7 +33,7 @@
                     years with Expertise level
                     <md-input-container id="datepicker">
                         <!-- <input ng-model="skillObject.expertise"> -->
-                        <md-select ng-model="skillObject.expertise" required>
+                        <md-select ng-model="skillObject.expertise">
                             <md-option ng-repeat="expertise in ['Begginner','Skilled','Proficient','Expert']" ng-value="expertise">
                                 {{expertise}}
                             </md-option>
