@@ -117,7 +117,7 @@
                     ctrl.plen = 0;
                     ctrl.slen = 0;
                     for (let prop in ctrl.skill) {
-                        for (let key in ctrl.skill[prop]) {
+                        /*for (let key in ctrl.skill[prop]) {
                             // console.log(ctrl.skill[prop][key])
                             for (let k in ctrl.skill[prop][key]) {
                                 if (ctrl.skill[prop][key][k] == 'Primary'||ctrl.skill[prop][key][k] == 'Secondary') // extracting all skill object containing primary type
@@ -129,7 +129,8 @@
                                 //     ctrl.secondary.push(ctrl.skill[prop][key]); // making array of object containing skill type secondary
                                 // }
                             }
-                        }
+                        }*/
+                        ctrl.primary=ctrl.skill[prop];
                     }
                     // ctrl.total = ctrl.primary.length ;
                     ctrl.total = ctrl.primary.length + ctrl.secondary.length;

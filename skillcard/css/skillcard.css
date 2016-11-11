@@ -3,7 +3,7 @@
 }
 
 #coverpagecontent {
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 
@@ -26,6 +26,11 @@
 
 #totalcardarea md-card-content {
     padding: 0px;
+}
+#headline{
+
+    font-size: 25;
+}
 }
 
 #totalcardarea md-card-content div {
@@ -60,6 +65,9 @@
     height: 30px;
     width: 30px;
 }
+#section4{
+    padding-left: 10px;
+}
 
 #skillcardtoolbar {
     /*background-color:#d9d9d9 ;*/
@@ -69,7 +77,11 @@
 }
 
 .detail {
+    font-size: 25px;
+}
+.detail1{
     font-size: 18px;
+    
 }
 
 #headerage {
@@ -110,4 +122,7 @@
 
 .space {
     padding-left: 10px;
+}
+.details2{
+    font-size: 22px;
 }

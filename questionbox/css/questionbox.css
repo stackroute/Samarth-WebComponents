@@ -23,12 +23,18 @@ input:focus,.forward:focus{
     /*borders:0;*/
     width:100%;
 }
+.view{
+   padding-top: 20px;
+  float: right;
+  font-size: 15px;
+}
 .view_module
 {
-  font-size: 50px;
-  padding-top: 20px;
+  font-size: 30px;
+ 
   /*background-color: red;*/
 }
+
 .removeIcon{
   color: white;
 }

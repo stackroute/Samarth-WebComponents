@@ -45,7 +45,9 @@ angular.module('samarth-webcomponents')
                     if (object.personalinfo[0].profilepic.length > 0) {
                         skillcarddata.profilepic = object.personalinfo[0].profilepic;
                     }
-
+                    if (object.profile[0].profession.length > 0) {
+                        skillcarddata.profession = object.profile[0].profession;
+                    }
                     // skillcarddata['name']=object.personalinfo[0].name;
                     console.log(skillcarddata.skills, 'skills in sc');
                     console.log('SKILL CARD SERVICE --------------------->', skillcarddata);
