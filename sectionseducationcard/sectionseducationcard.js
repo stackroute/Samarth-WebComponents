@@ -118,7 +118,8 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
 
 
 
-    ctrl.showAdvanced = function(ev, header, object) {
+    ctrl.showAdvanced = function(ev, header,object) {
+        
         $mdDialog.show({
                 controller: dialogCtrl,
                 templateUrl: path2,
@@ -126,7 +127,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 locals: {
-                    header: header,
+                    header:header,
                     object: object
                 }
             })
@@ -136,10 +137,12 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
             );
     };
 
-    function dialogCtrl($scope, $mdDialog, $http, header, object, $rootScope) {
+    function dialogCtrl($scope, $mdDialog, $http,header, object, $rootScope) {
+        
+         $scope.header=header;
+       
         // var candidateid = UserAuthService.getUser().uname;
-        $scope.header = header;
-        console.log("-----------",header);
+       
         // $scope.yearval="";
 
         $scope.years = [];
@@ -192,6 +195,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
 
 
         $scope.save = function(header) {
+            
             var education = {
                 "qualification": [{
                     "title": $scope.title,
@@ -213,7 +217,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
                 }]
             }
 
-            if (header == ("Add Education")) {
+            if (header == ("Edit Education")) {
                 $http({
                         method: 'POST',
                         url: '/education/' + ctrl.candidateid,
@@ -230,7 +234,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
                             console.log('error in adding education');
                         });
             }
-            if (header == "Edit School" || header == "Edit College") {
+            if (header == "Edit Education") {
                 $http({
                         method: 'PATCH',
                         url: '/education/' + ctrl.candidateid + "/" +

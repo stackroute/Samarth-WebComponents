@@ -54,9 +54,9 @@
                     . I did it from
                     <md-input-container>
                         <label>Institute Name</label>
-                        <input id="input1" ng-model="academicType" name="academicType" required>
+                        <input id="input1" ng-model="name" required>
 
-                        <div ng-messages="eduForm.academicType.$error" role="alert">
+                        <div ng-messages="eduForm.name.$error" role="alert">
                         <div ng-message="required">Please enter Institute Name</div>
                         </div>
                     </md-input-container>
@@ -70,10 +70,10 @@
                     ) which is affiliated to
                     <md-input-container>
                         <label>Affiliation</label>
-                        <input id="input1" ng-model="affiliation" name="affiliation" required>
+                        <input id="input1" ng-model="affiliation" name="affiliation">
 
                         <div ng-messages="eduForm.affiliation.$error" role="alert">
-                        <div ng-message="required">Please enter Board/University</div>
+                        <!-- <div ng-message="required">Please enter Board/University</div> -->
                         </div>
 
                         <br>
@@ -81,10 +81,10 @@
                     and is located in
                     <md-input-container>
                         <label>Location</label>
-                        <input id="input1" ng-model="location" name="location" required>
+                        <input id="input1" ng-model="location" name="location">
 
                         <div ng-messages="eduForm.location.$error" role="alert">
-                        <div ng-message="required">Enter Your Location</div>
+                        <!-- <div ng-message="required">Enter Your Location</div> -->
                         </div>
 
                     </md-input-container>
