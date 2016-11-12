@@ -2,25 +2,23 @@
         let scripts = document.getElementsByTagName('script');
         let currentScriptPath = scripts[scripts.length - 1].src;
 
-        angular.module('samarth-webcomponents')        .component('mySkillcard',          {
-            templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                '/')) + '/templates/skillcard.html',
-                        controller: skillcardCtrl,
-            bindings: {
-                candidateid: '<',
-                showheader: '<'
-                    // data: "="
-            },
-            transclude: {
-                cardactions: 'cardactions',
-                badges: 'badges'
-
-
-                // verified: "verified"
-            }
+        angular.module('samarth-webcomponents')        
+            .component('mySkillcard',   {
+                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+                    '/')) + '/templates/skillcard.html',
+                            controller: skillcardCtrl,
+                bindings: {
+                    candidateid: '<',
+                    showheader: '<'
+                        // data: "="
+                },
+                transclude: {
+                    cardactions: 'cardactions',
+                    badges: 'badges'
+                }
         });
 
-        function skillcardCtrl($window, $timeout, $mdDialog, skillcardService)            {
+        function skillcardCtrl($window, $timeout, $mdDialog, skillcardService) {
             let ctrl = this;
             let name;
             // console.log("Inside skill card ctrl....");
@@ -57,8 +55,6 @@
                 let imgageData = getCanvas.toDataURL('image/png');
                 let newData = imgageData.replace(/^data:image\/png/,
                     'data:application/octet-stream');
-                // window.location.href = newData;
-                // window.open(newData,name)
                 let dwld = angular.element(document.querySelector('#download'));
                 dwld.attr('download', name).attr('href', newData);
             };

@@ -24,37 +24,13 @@
                 <md-icon class="material-icons">keyboard_arrow_down</md-icon>
             </a>
         </div>
-    <!-- </div> -->
-    <!-- <md-divider></md-divider> -->
-  <!--   <div layout="row" layout-align="center center" class="items" layout-wrap>
-        <div ng-repeat="value in $ctrl.secondary| limitTo: $ctrl.limitval2">
-            <md-chips>
-                <md-chip ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" title="{{value.experience}} yrs" md-colors="::{background: 'grey-300'}">
-              
-                {{value.skillname | capitalize}}
-               
-                </md-chip>
-            </md-chips>
-            <div layout="row" flex="80"></div>
-            <div layout="column" flex="20" layout-align="end end">
-                <md-button class="md-icon-button" ng-click="$ctrl.decreaseLimit2()" ng-hide="$ctrl.limitval2<=6" ng-disabled="$ctrl.limitval2<=6">
-                
-                    <md-icon class="material-icons">keyboard_arrow_up</md-icon>
-                 
-                </md-button>
-                <md-button class="md-icon-button" ng-click="$ctrl.increaseLimit2()" ng-disabled="$ctrl.limitval2>=$ctrl.secondary.length" ng-hide="$ctrl.limitval2>=$ctrl.secondary.length">
-                 
-                    <md-icon class="material-icons">keyboard_arrow_down</md-icon>
-                </md-button>
-
-            </div>
-        </div>
-    </div>
- -->    <md-card-actions layout="row" layout-align="end end">
+   
+    <md-card-actions layout="row" layout-align="end end">
         <div ng-transclude="verify">
         </div>
         <md-button class="md-raised" id="addbutton" ng-click="$ctrl.showAdvanced($event,'','Add Skill')">
             {{$ctrl.languagedata.addskill}}
         </md-button>
     </md-card-actions>
+     <!-- <div> <p> {{$ctrl.status}}</p></div> -->
 </md-card>

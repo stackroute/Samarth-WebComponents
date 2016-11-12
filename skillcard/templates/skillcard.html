@@ -6,12 +6,13 @@
                 <span class="details2">{{$ctrl.data.name}}<br>
             </md-card-header-text>
             <div layout="row">
+                <div ng-transclude="badges">
+                </div>
                 <md-card-avatar id="avatar">
                     <img class="circle" src="{{$ctrl.data.profilepic}}">
                 </md-card-avatar>
-                <!-- <span layout-align="end"><md-icon class="material-icons" style="color:green">verified_user</md-icon></span> -->
-                <!--  <div ng-transclude="verified">
-            </div> -->
+                
+            <!-- </div> --> 
                 <div ng-transclude="badges">
                 </div>
 </div>
@@ -67,7 +68,7 @@
                         <br>
                             
                     </div>
-                </div>
+                </div> 
             </div>
             <div layout="column">
 <div layout="row" id="section1" flex hide-xs hide-sm>
@@ -87,11 +88,30 @@
                                         
                             </span>
                         </div>
+
                         <div flex flex-offset="5" layout="column">
                             <p>
                                 <md-icon></md-icon>
                                 {{$ctrl.data.maritalstatus}} , {{$ctrl.data.gender}}
                             </p>
+
+            <!-- Wave 9 -->
+                        <!--<div flex layout>
+                            <p>{{$ctrl.data.maritalstatus}}</p> ,
+                            <p>{{$ctrl.data.gender}}</p>
+                        </div>
+                    </div>
+                    <md-divider></md-divider>
+                    <div flex id="section2" align="center" layout="column">
+                        <div flex>
+                            <img id="professionimage" src="Samarth-WebComponents/skillcard/images/profession.png">
+                        </div>
+                        <div flex>
+                            <p>{{$ctrl.data.designation}}</p> -->
+
+            <!--  -->
+
+
                         </div>
                     </div>
                     <!-- <md-divider></md-divider> -->

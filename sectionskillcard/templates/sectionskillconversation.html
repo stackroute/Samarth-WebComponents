@@ -16,7 +16,6 @@
                     <md-input-container>
                         <label>Skill Name</label>
                         <input ng-model="skillObject.skillname" id="input1" name="skill" required>
-
                         <div ng-messages="skillForm.skill.$error" role="alert">
                         <div ng-message="required">Please Enter Your Skills</div>
                         </div>
@@ -34,14 +33,15 @@
                     <md-input-container id="datepicker">
                         <!-- <input ng-model="skillObject.expertise"> -->
                         <md-select ng-model="skillObject.expertise">
-                            <md-option ng-repeat="expertise in ['Begginner','Skilled','Proficient','Expert']" ng-value="expertise">
+                            <md-option ng-repeat="expertise in ['Beginner','Skilled','Proficient','Expert']" ng-value="expertise">
                                 {{expertise}}
                             </md-option>
                         </md-select>
 
                     </md-input-container>
 
-                        <!--  <md-input-container>
+                        <!--  For displaing this was used, seemed not so relevent after reviews hence remvoed 
+                        <md-input-container>
                         <md-select ng-model="skillObject.category" required>
                             <md-option ng-repeat="category in ['Primary','Secondary']" ng-value="category">
                                 {{category}}

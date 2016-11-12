@@ -5,7 +5,7 @@
          <div flex="5">({{$ctrl.profile.length}})</div>
      </md-card-header-text>
  </md-card-header>
- 
+
  <md-card-content layout="row" layout-xs="column" layout-wrap class="cardsContent" layout-fill>
      <div  flex="30" class="md-whiteframe-1dp" flex-xs="100" ng-repeat="project in $ctrl.profile | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" class="decreasemdIconFont" layout-margin>
          <div layout="row" layout-align="center center">
@@ -21,7 +21,8 @@
                  <md-icon class="material-icons md-18">schedule</md-icon>
                  {{project.duration.durationInMonths}}
              </span>
-             <span >&#8377;
+             <!-- Rupee icon -->
+             <span>&#8377;
                  {{project.income}}</span>
              </div>
 
