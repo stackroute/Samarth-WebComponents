@@ -11,6 +11,7 @@
                 data: '<'
             }
         });
+
     // Ctrl for circle component
     function circleCrtl($http, $log, $scope, $mdColorPalette) {
         console.log('data : ' + this.data);
@@ -20,6 +21,6 @@
         $scope.gerColler = function(a) {
             console.log(a.length);
             return colors[a.length];
-        }
+        };
     }
 })();

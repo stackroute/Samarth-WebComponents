@@ -2,6 +2,7 @@
     let scripts = document.getElementsByTagName('script');
     let currentScriptPath = scripts[scripts.length - 1].src;
 
+
     angular.module('samarth-webcomponents')
         .component('verificationBadge', {
             // templateUrl: '/templates/badge.html',
@@ -30,12 +31,11 @@
                     // ctrl.verification_ratings = res.data[0].verification_ratings;
                     console.log(ctrl.average);
 
-                    let i = parseInt(ctrl.average);
 
-                    for (let a = 0; a < i; a++) {
-                        ctrl.arr.push(a);
-                   
-                    }
+                    let i = parseInt(ctrl.average);
+                for (let a = 0; a < i; a++) {
+                    ctrl.arr.push(a);
+                }
 
                     ctrl.updated_on = res.data[0].updated_on;
                     ctrl.a = new
