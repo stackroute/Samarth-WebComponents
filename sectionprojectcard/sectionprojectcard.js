@@ -25,6 +25,7 @@
                 ctrl.items = result;
             }); // end datagenerate
         };
+
         function getItem(key) {
             // return localStorageService.get(key);
         }
@@ -37,19 +38,19 @@
         ctrl.totalProjects = 0;
         ctrl.limitval = 3;
         ctrl.increaseLimit = function() {
-            ctrl.limitval = ctrl.limitval+60;
-         };
+            ctrl.limitval = ctrl.limitval + 60;
+        };
 
         ctrl.decreaseLimit = function() {
-           
-            ctrl.limitval = ctrl.limitval-60;
-         };
 
-    $http({
-        method: 'GET',
-        url: '/project/' + ctrl.candidateid
+            ctrl.limitval = ctrl.limitval - 60;
+        };
 
-    }).then(function successCallback(response) {
+        $http({
+            method: 'GET',
+            url: '/project/' + ctrl.candidateid
+
+        }).then(function successCallback(response) {
             for (let noOfObjects = 0; noOfObjects < response.data.length; noOfObjects++) {
                 for (let record = 0; record < response.data[noOfObjects].projects.length; record++) {
                     ctrl.profile.push(response.data[noOfObjects].projects[record]);
@@ -80,51 +81,51 @@
             });
         });
 
-    ctrl.showAdvanced = function(ev, header, object) {
-        $mdDialog.show({
-                controller: DialogController,
-                templateUrl: projectconversationpath,
-                parent: angular.element(document.body),
-                targetEvent: ev,
-                clickOutsideToClose: true,
-                locals: {
-                    header: header,
-                    object: object,
-                    candidateid: this.candidateid
-                }
-            })
-            .then(
-                function(answer) {},
-                function() {}
-            );
-    };
-
-    function DialogController($scope, $mdDialog, $http, header, object, candidateid) {
-       
-        $scope.candidateid = candidateid;
-        $scope.header = header;
-        $scope.projectObj = object;
-        $scope.skills = $scope.projectObj.skills;
-        console.log("skills", $scope.skills)
-
-        $scope.submit = function() {
-            $scope.Skills.push('');
+        ctrl.showAdvanced = function(ev, header, object) {
+            $mdDialog.show({
+                    controller: DialogController,
+                    templateUrl: projectconversationpath,
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    locals: {
+                        header: header,
+                        object: object,
+                        candidateid: this.candidateid
+                    }
+                })
+                .then(
+                    function(answer) {},
+                    function() {}
+                );
         };
-        if (object != '') {
-            $scope.Project = object.name;
-            $scope.Duration = object.duration.durationInMonths;
-            $scope.Client = object.workplace;
-            $scope.Location = object.location;
-            $scope.Salary = object.income;
 
-        } else {
-            $scope.Project = "";
-            $scope.Duration = "";
-            $scope.Client = "";
-            $scope.Location = "";
-            $scope.Salary = "";
-            $scope.Skills = ["skillname"];
-        }
+        function DialogController($scope, $mdDialog, $http, header, object, candidateid) {
+
+            $scope.candidateid = candidateid;
+            $scope.header = header;
+            $scope.projectObj = object;
+            $scope.skills = $scope.projectObj.skills;
+            console.log("skills", $scope.skills)
+
+            $scope.submit = function() {
+                $scope.Skills.push('');
+            };
+            if (object != '') {
+                $scope.Project = object.name;
+                $scope.Duration = object.duration.durationInMonths;
+                $scope.Client = object.workplace;
+                $scope.Location = object.location;
+                $scope.Salary = object.income;
+
+            } else {
+                $scope.Project = "";
+                $scope.Duration = "";
+                $scope.Client = "";
+                $scope.Location = "";
+                $scope.Salary = "";
+                $scope.Skills = ["skillname"];
+            }
 
             $scope.submit = function() {
                 $scope.Skills.push('');
@@ -155,26 +156,26 @@
             };
 
 
-        $scope.save = function(header) {
-            var skill = $scope.skills.toString().split(",");
-            console.log("Header" + header)
+            $scope.save = function(header) {
+                var skill = $scope.skills.toString().split(",");
+                console.log("Header" + header)
 
-            var projectData = {
+                var projectData = {
 
-                "projects": [{
-                    "name": $scope.Project,
-                    "workplace": $scope.Client,
-                    "location": $scope.Location,
-                    "income": $scope.Salary,
-                    "duration": {
-                        "from": "09/08/2016",
-                        "to": "09/11/2016",
-                        "durationInMonths": $scope.Duration
-                    },
-                    "skills": skill,
-                    "meta": []
-                }]
-            }                 
+                    "projects": [{
+                        "name": $scope.Project,
+                        "workplace": $scope.Client,
+                        "location": $scope.Location,
+                        "income": $scope.Salary,
+                        "duration": {
+                            "from": "09/08/2016",
+                            "to": "09/11/2016",
+                            "durationInMonths": $scope.Duration
+                        },
+                        "skills": skill,
+                        "meta": []
+                    }]
+                } 
 
                 if (header == 'Add Project') {
                     console.log('before adding project', projectData);

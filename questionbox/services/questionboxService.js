@@ -1,6 +1,6 @@
 angular.module('samarth-webcomponents')
     .service('quesnboxService', function($http, $rootScope,
-         $auth) {
+        $auth) {
         var candidateid = $auth.getPayload().uname;
 
         return {
@@ -11,22 +11,22 @@ angular.module('samarth-webcomponents')
                     'skills',
                     'qualification'
                 ];
-                
+
                 var randomNumber = Math.floor(Math.random() * sectionArray.length);
-                
+
                 return $http({
                     method: 'GET',
                     url: 'http://localhost:8081/candidates/' + candidateid +
                         '/qboxquestions?sections=' + "skills" +
-                        '&limit=2&skip=0&lang=English'         
-                        }).then(function successCallback(response) {
-                            var questionObj = response.data;
-                            console.log("About to save questionObj", questionObj);
-                            return questionObj;
-                        }, function errorCallback(response) {
-                            console.log('Error accord during Project Section')
-                            return;
-                        });  
+                        '&limit=2&skip=0&lang=English'
+                }).then(function successCallback(response) {
+                    var questionObj = response.data;
+                    console.log("About to save questionObj", questionObj);
+                    return questionObj;
+                }, function errorCallback(response) {
+                    console.log('Error accord during Project Section')
+                    return;
+                });  
             },
             updatequestion: function(questiondata, answer) {
                 return $http({

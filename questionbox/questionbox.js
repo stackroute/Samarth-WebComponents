@@ -8,7 +8,7 @@ angular.module('samarth-webcomponents')
         controller: questionBoxCtrl          
     });
 
-function questionBoxCtrl($timeout, $auth , quesnboxService, $rootScope) {
+function questionBoxCtrl($timeout, $auth, quesnboxService, $rootScope) {
     var candidateid = $auth.getPayload().uname;
     console.log("data from user", candidateid);
     var ctrl = this;
@@ -91,7 +91,6 @@ function questionBoxCtrl($timeout, $auth , quesnboxService, $rootScope) {
         ctrl.displayInputBox = true;
         ctrl.showMaxBtn = true;
         // $timeout(ctrl.showQuestionBox, 0);
-
     }
     ctrl.showQuestionBox = function() {
         ctrl.loadquestionarray(ctrl.tempLang);
