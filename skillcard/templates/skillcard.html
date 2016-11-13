@@ -157,10 +157,11 @@
                             </md-card-avatar>
                         </a>
                     </div>
-                    <div ng-show="$ctrl.showEditForm" layout-align="center center">
+                    <div ng-show="$ctrl.showEditForm">
                         <md-input-container>
                         <label>Paste your new Pic Url</label>
                         <input type="text" ng-model="$ctrl.picUrl">
+
                         <md-button class="md-primary" ng-click="$ctrl.edit($ctrl.picUrl)">
                         <md-icon class="material-icons md-18">file_upload</i></md-icon>
                         </md-button>
