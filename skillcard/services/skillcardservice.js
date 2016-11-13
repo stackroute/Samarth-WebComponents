@@ -31,14 +31,19 @@ angular.module('samarth-webcomponents')
                     if (object.personalinfo[0].email != undefined) {
                         skillcarddata.email = object.personalinfo[0].email;
                     }
+
                     if (object.workexp[0].workexperience.length > 0) {
                         skillcarddata.location = object.workexp[0].workexperience[
                             0].Location;
+                    }
+                    if (object.personalinfo[0].location != undefined) {
+                        skillcarddata['location'] = object.personalinfo[0].location;
                     }
                     if (object.workexp[0].workexperience.length > 0) {
                         skillcarddata.designation = object.workexp[0].workexperience[
                             0].designation;
                     }
+
                     if (object.skill[0].skills.length > 0) {
                         skillcarddata.skills = object.skill[0].skills;
                     }
@@ -49,8 +54,6 @@ angular.module('samarth-webcomponents')
                         skillcarddata.profession = object.profile[0].profession;
                     }
                     // skillcarddata['name']=object.personalinfo[0].name;
-                    console.log(skillcarddata.skills, 'skills in sc');
-                    console.log('SKILL CARD SERVICE --------------------->', skillcarddata);
                     return skillcarddata;
                 }, function myError(response) {
                     console.log('error in getting skillcard details');
