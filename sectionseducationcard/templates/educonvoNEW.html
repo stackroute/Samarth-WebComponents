@@ -12,7 +12,7 @@
         </md-toolbar>
         <md-dialog-content layout="column">
             <div id="conversationDialogcontent" layout-padding layout-wrap>
-                <!-- <p layout-wrap> -->
+                
                     I have done my
                     <md-input-container>
                         <label>Course</label>
@@ -29,10 +29,6 @@
                         <md-select ng-model="academicType">
                             <md-option ng-repeat="itype in ['Primary','Metric','Senior Secondary','Diploma','Graduation','Post-Graduation','Docterate','Others']" ng-value="itype">{{itype}}</md-option>
                         </md-select>
-
-                        <!-- <div ng-messages="conversationDialogcontent.academicType.$error" role="alert">
-                        <div ng-message="required">This is required.</div>
-                        </div> -->
 
                     </md-input-container>
                     ) in the year
@@ -84,19 +80,15 @@
                         <input id="input1" ng-model="location" name="location">
 
                         <div ng-messages="eduForm.location.$error" role="alert">
-                        <!-- <div ng-message="required">Enter Your Location</div> -->
                         </div>
 
                     </md-input-container>
-                <!-- </p> -->
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row" layout-align="center center">
-            <!-- <div flex  > -->
                 <md-button class="md-raised" id="addbutton" contenteditable="false" ng-disabled="eduForm.$invalid" ng-click="save(header)">
                     SAVE
                 </md-button>
-            <!-- </div> -->
         </md-dialog-actions>
     </form>
 </md-dialog>

@@ -1,4 +1,3 @@
-//<<<<<<< HEAD
 (function() {
         let scripts = document.getElementsByTagName('script');
         let currentScriptPath = scripts[scripts.length - 1].src;
@@ -48,7 +47,6 @@
 function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
     var ctrl = this;
     ctrl.personalInfo = {};
-    // var candidateid = UserAuthService.getUser().uname;
 
     ctrl.loadLangData = function(lang) {
             datagenerate.getjson("section", lang).then(function(result) {

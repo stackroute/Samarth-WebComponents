@@ -37,13 +37,11 @@
         ctrl.totalProjects = 0;
         ctrl.limitval = 3;
         ctrl.increaseLimit = function() {
-
-            // ctrl.limitval = ctrl.totalProjects;
             ctrl.limitval = ctrl.limitval+60;
          };
 
         ctrl.decreaseLimit = function() {
-            // ctrl.limitval = 4;
+           
             ctrl.limitval = ctrl.limitval-60;
          };
 
@@ -102,7 +100,7 @@
     };
 
     function DialogController($scope, $mdDialog, $http, header, object, candidateid) {
-        // var candidateid = UserAuthService.getUser().uname;
+       
         $scope.candidateid = candidateid;
         $scope.header = header;
         $scope.projectObj = object;

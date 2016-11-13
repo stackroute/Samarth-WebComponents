@@ -2,10 +2,7 @@ input:focus,.forward:focus{
     outline: none;
 }.ques1{
     width: 100%;
-     /*background-color:#f1eded;*/
-     background-color: rgb(255,255,255);
-
-     /*color: white;*/
+    background-color: rgb(255,255,255);
     font-size: 42px;
     height: 100px;
     border:0;   
@@ -17,10 +14,6 @@ input:focus,.forward:focus{
  font-size: 42px;
   border:0;   
    padding-right: 5px;
-    /*padding-left: 10px;*/
-    /*color: white;*/
-    /*background-color:#d9d9d9;*/
-    /*borders:0;*/
     width:100%;
 }
 .view{
@@ -31,8 +24,6 @@ input:focus,.forward:focus{
 .view_module
 {
   font-size: 30px;
- 
-  /*background-color: red;*/
 }
 
 .removeIcon{
@@ -40,18 +31,10 @@ input:focus,.forward:focus{
 }
  
 .questionArea{
-   /*color:#868686;*/
-   /*color: rgba(255,255,255,0.87);*/
    font-size: 20px;  
-   /*background-color: rgb(0,152,180);*/
-   /*background-color:#e6e6e6;*/
-   /*background-color: transparent;*/
-   /*padding:10px;*/
 }
 .forwardIcon{
     font-size: 30px;
-
-     /*padding-left: 10px;*/
 }
 .thankuBox{
     text-align: center;
@@ -59,16 +42,9 @@ input:focus,.forward:focus{
     font-size: 26px;
 }
 
-
 .pointCursor{
   cursor: pointer;
   border:0;
-  
-  /*padding-left: 80px;*/
-  /*font-size: 40px;*/
-  /*color: red;*/
-  /*margin-left: 20px;*/
-  /*width: 200px;*/
 }
 .displayAlertMessage{
     text-align: center;
