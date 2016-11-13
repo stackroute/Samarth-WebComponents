@@ -10,7 +10,7 @@
      <div  flex="30" class="md-whiteframe-1dp" flex-xs="100" ng-repeat="project in $ctrl.profile | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" class="decreasemdIconFont" layout-margin>
          <div layout="row" layout-align="center center">
              <span class="md-title">
-                 <!-- <md-icon class="material-icons md-18">fiber_manual_record</md-icon> -->
+               
                  {{project.name}}
              </span>
 
@@ -40,12 +40,11 @@
 
                  <div flex="90">
                      <span ng-repeat="(skillname,skill) in project.skills">
-                         <!-- <md-icon>build</md-icon> -->
+                         
                             <md-chips>
                                 <md-chip md-colors="::{background: 'grey-300'}">
-                                <!-- <md-chip-template > -->
+                                
                                  {{skill}}
-                                <!-- </md-chip-template> -->
                                 </md-chip>
                             </md-chips>
                      </span>
