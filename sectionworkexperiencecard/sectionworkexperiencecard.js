@@ -98,7 +98,7 @@ function workexperiencecardCtrl($http, $mdDialog,
             }
             //console.log("total",totalworkexperience);
         }, function error(response) {
-            console.log("error occored");
+            console.log("error occurred");
         });
     $rootScope.$on("workexpdata", function() {
         ctrl.workexperiences = [];
@@ -117,7 +117,7 @@ function workexperiencecardCtrl($http, $mdDialog,
                 }
                 //console.log("total",totalworkexperience);
             }, function error(response) {
-                console.log("error occored");
+                console.log("error occurred");
             });
 
     })
@@ -242,7 +242,7 @@ function workexperiencecardCtrl($http, $mdDialog,
                     console.log("After updating ", response.data)
 
                 }, function errorCallback(response) {
-                    console.log('Error accord during updating experience Section')
+                    console.log('Error accord during updating experience Section');
                 });  
 
             }

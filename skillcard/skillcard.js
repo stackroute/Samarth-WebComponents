@@ -2,7 +2,8 @@
         let scripts = document.getElementsByTagName('script');
         let currentScriptPath = scripts[scripts.length - 1].src;
 
-        angular.module('samarth-webcomponents')        .component('mySkillcard',          {
+        angular.module('samarth-webcomponents')
+        .component('mySkillcard',{
             templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
                 '/')) + '/templates/skillcard.html',
                         controller: skillcardCtrl,
@@ -20,7 +21,7 @@
             }
         });
 
-        function skillcardCtrl($window, $timeout, $mdDialog, skillcardService)            {
+        function skillcardCtrl($window, $timeout, $mdDialog, skillcardService) {
             let ctrl = this;
             let name;
             // console.log("Inside skill card ctrl....");

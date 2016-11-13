@@ -26,10 +26,7 @@ function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
     ctrl.loadLangData = function(lang) {
             datagenerate.getjson("section", lang).then(function(result) {
                 ctrl.items = result;
-                
-
-
-
+    
             }); //end datagenerate
         }
         // ctrl.loadLangData(getItem("lang"));
