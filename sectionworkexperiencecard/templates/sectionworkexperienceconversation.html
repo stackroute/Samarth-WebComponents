@@ -11,69 +11,58 @@
         </md-toolbar>
         <md-dialog-content layout="column">
             <div id="conversationDialogcontent" layout-padding layout-wrap>
-                <!-- <p layout-wrap> -->
-                    I worked in
-                    <md-input-container>
-                        <label>place were you worked</label>
-                        <input id="input1" type="text" ng-model="workplace" required>
-
-                        <div ng-messages="workForm.workplace.$error" role="alert">
+                I worked in
+                <md-input-container>
+                    <label>place were you worked</label>
+                    <input id="input1" type="text" ng-model="workplace" required>
+                    <div ng-messages="workForm.workplace.$error" role="alert">
                         <div ng-message="required">Please Enter Your Skills</div>
-                        </div>
-
-                    </md-input-container> with designation
-                    <md-input-container>
-                        <label>designation</label>
-                        <input type="text" ng-model="designation" id="input1" name="designation" required>
-
-                        <div ng-messages="workForm.designation.$error" role="alert">
+                    </div>
+                </md-input-container> with designation
+                <md-input-container>
+                    <label>designation</label>
+                    <input type="text" ng-model="designation" id="input1" name="designation" required>
+                    <div ng-messages="workForm.designation.$error" role="alert">
                         <div ng-message="required">Please Enter Your designation</div>
-                        </div>
-
-                    </md-input-container>
-                    during
-                    <md-input-container>
-                        <label>From mm-dd-yyyy</label>
-                        <input type="text" class="datepicker" ng-model="from" id="input1" formatted-date1 format="medium" />
-                    </md-input-container>
-                    -
-                    <md-input-container>
-                        <label>To mm-dd-yyyy</label>
-                        <input type="text" ng-model="to" id="input1" formatted-date format="medium" />
-                    </md-input-container>
-                    duration
-                    <md-input-container>
-                        <label>year/month/days</label>
-                        <input type="text" ng-model="year" id="input1">
-                    </md-input-container>
-                    at
-                    <md-input-container>
-                        <label>location</label>
-                        <input type="text" ng-model="Location" id='input1' name="location" required>
-
-                        <div ng-messages="workForm.location.$error" role="alert">
+                    </div>
+                </md-input-container>
+                during
+                <md-input-container>
+                    <label>From mm-dd-yyyy</label>
+                    <input type="text" class="datepicker" ng-model="from" id="input1" formatted-date1 format="medium" />
+                </md-input-container>
+                -
+                <md-input-container>
+                    <label>To mm-dd-yyyy</label>
+                    <input type="text" ng-model="to" id="input1" formatted-date format="medium" />
+                </md-input-container>
+                duration
+                <md-input-container>
+                    <label>year/month/days</label>
+                    <input type="text" ng-model="year" id="input1">
+                </md-input-container>
+                at
+                <md-input-container>
+                    <label>location</label>
+                    <input type="text" ng-model="Location" id='input1' name="location" required>
+                    <div ng-messages="workForm.location.$error" role="alert">
                         <div ng-message="required">Please Enter Your Location</div>
                     </div>
-
-                    </md-input-container>
-                    with
-                    <md-input-container>
-                        <label>Skills</label>
-                        <input type="text" ng-model="skills" id="input1"  required>
-                        <div ng-messages="workForm.skills.$error" role="alert">
+                </md-input-container>
+                with
+                <md-input-container>
+                    <label>Skills</label>
+                    <input type="text" ng-model="skills" id="input1" required>
+                    <div ng-messages="workForm.skills.$error" role="alert">
                         <div ng-message="required">Please Enter Your Skills</div>
                     </div>
-                    </md-input-container>
-               <!--  </p> -->
+                </md-input-container>
             </div>
         </md-dialog-content>
         <md-dialog-actions class="conversationDialog" layout="row" layout-align="center center">
-        <!-- <div id="savebtn" flex layout="row" layout-align="center center" ng-click="cancel()"> -->
-                <md-button id="savebutton" class="md-raised" contenteditable="false" ng-disabled="workForm.$invalid" ng-click="save(header);cancel()">
-
-                    Save
-                </md-button>
-            <!-- </div> -->
+            <md-button id="savebutton" class="md-raised" contenteditable="false" ng-disabled="workForm.$invalid" ng-click="save(header);cancel()">
+                Save
+            </md-button>
         </md-dialog-actions>
     </form>
 </md-dialog>

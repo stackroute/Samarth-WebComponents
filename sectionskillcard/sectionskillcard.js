@@ -1,34 +1,30 @@
-
 (function() {
-        let scripts = document.getElementsByTagName('script');
-        let currentScriptPath = scripts[scripts.length - 1].src;
-        let path1 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-            '/')) + '/templates/sectionskillconversation.html';
+    let scripts = document.getElementsByTagName('script');
+    let currentScriptPath = scripts[scripts.length - 1].src;
+    let path1 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+        '/')) + '/templates/sectionskillconversation.html';
 
-        // var skillconvopath = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-        //     '/')) + '/templates/sectionskillconversation.html';
+    angular.module('samarth-webcomponents')
+        .component('mysectionSkillCard', {
+            templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+                '/')) + '/templates/sectionskillcard.html',
+            controller: sectionskillcardCtrl,
+            bindings: {
+                candidateid: '<',
+                showheader: '<',
+                languagedata: '='
+            },
+            transclude: {
+                verify: 'verify'
 
-        angular.module('samarth-webcomponents')
-            .component('mysectionSkillCard', {
-                templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                    '/')) + '/templates/sectionskillcard.html',
-                controller: sectionskillcardCtrl,
-                bindings: {
-                    candidateid: '<',
-                    showheader: '<',
-                    languagedata: '='
-                },
-                transclude: {
-                    verify: 'verify'
-
-                    }
-                })
-                .filter('capitalize', function() {
-                    return function(input) {
-                        return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() :
-                            '';
-                    }
-             });
+            }
+        })
+        .filter('capitalize', function() {
+            return function(input) {
+                return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() :
+                    '';
+            }
+        });
 
 
     function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
@@ -39,214 +35,135 @@
             datagenerate.getjson("section", lang).then(function(result) {
                 ctrl.items = result;
 
-            }); //end datagenerate
+            });
+            //end datagenerate
         }
 
         function getItem(key) {
             // return localStorageService.get(key);
         }
         ctrl.loadLangData("English");
-        
-        // ctrl.limitval = 3;
-        // ctrl.limitval2 = 3;
-        // ctrl.value = 40;
-        // ctrl.skill = {};
-        // ctrl.primary = [];
-        // ctrl.plen = 0;
-        // ctrl.slen = 0;
-        // ctrl.secondary = [];
-        // ctrl.total = 0; 
-        // ctrl.increaseLimit = function() {
-        //     ctrl.limitval = ctrl.limitval + 3;
-        // }
+        ctrl.limitval = 12;
+        ctrl.value = 40;
+        ctrl.skill = {};
 
-        // ctrl.decreaseLimit = function() {
-        //     ctrl.limitval = ctrl.limitval - 3;
-        // }
-        // ctrl.increaseLimit2 = function() {
-        //     ctrl.limitval2 = ctrl.limitval2 + 3;
-        // }
+        ctrl.primary = [];
+        ctrl.plen = 0;
+        ctrl.slen = 0;
+        ctrl.secondary = [];
+        ctrl.total = 0;
+        ctrl.increaseLimit = function() {
+            ctrl.limitval = ctrl.limitval + 60;
+        };
 
-        // ctrl.decreaseLimit2 = function() {
-        //     ctrl.limitval2 = ctrl.limitval2 - 3;
-        // }
+        ctrl.decreaseLimit = function() {
+            ctrl.limitval = ctrl.limitval - 60;
+        };
 
-    // sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
-    //     ctrl.skill = result;
-        //console.log("skill object", ctrl.skill);
+        sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
+            ctrl.skill = result;
 
-       // for (var prop in ctrl.skill) {
-            // for (var key in ctrl.skill[prop]) {
-            //     //console.log(ctrl.skill[prop][key])
-            //     for (var k in ctrl.skill[prop][key]) {
-
-            //         if (ctrl.skill[prop][key][k] == "Primary") //extracting all skill object containing primary type
-            //         {
-
-            //             ctrl.primary.push(ctrl.skill[prop][key]); //making array of object containing skill of  type primary   
-            //         }
-            //         if (ctrl.skill[prop][key][k] == "Secondary") //extracting all skill object containing primary type
-            //         {
-            //             ctrl.secondary.push(ctrl.skill[prop][key]); //making array of object containing skill type secondary
-            //         }
-
-            //     }
-            // })
-            // .filter('capitalize', function() {
-            //     return function(input) {
-            //         return !!input ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() :
-            //             '';
-            //     };
-            // });
-
-
-        // function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
-        //     $rootScope) {
-            ctrl.limitval = 12;
-            // ctrl.limitval2 = 6;
-            ctrl.value = 40;
-            ctrl.skill = {};
-
-    //     }
-    //     ctrl.total = ctrl.primary.length + ctrl.secondary.length;
-    //     ctrl.plen = ctrl.primary.length;
-    //     ctrl.slen = ctrl.secondary.length;
-
-    // });
-    // $rootScope.$on("skilldatachanged", function() {
-    //     sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
-    //         ctrl.skill = result;
-            
-            ctrl.primary = [];
-            ctrl.plen = 0;
-            ctrl.slen = 0;
-            ctrl.secondary = [];
-            ctrl.total = 0;
-            ctrl.increaseLimit = function() {
-                ctrl.limitval = ctrl.limitval + 60;
-            };
-
-            ctrl.decreaseLimit = function() {
-                ctrl.limitval = ctrl.limitval - 60;
-            };
-
-            sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
-                ctrl.skill = result;
-
-                for (let prop in ctrl.skill) {
-                       
-                        ctrl.primary=ctrl.skill[prop];
-                        }
-                   // }
-                
-                ctrl.total = ctrl.primary.length + ctrl.secondary.length;
-                ctrl.plen = ctrl.primary.length;
-                ctrl.slen = ctrl.secondary.length;
-                // console.log(ctrl.primary);
-            });
-            $rootScope.$on('skilldatachanged', function() {
-                sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
-                    ctrl.skill = result;
-                    ctrl.primary = [];
-                    ctrl.secondary = [];
-                    ctrl.total = 0;
-                    ctrl.plen = 0;
-                    ctrl.slen = 0;
-                    for (let prop in ctrl.skill) {
-                        ctrl.primary=ctrl.skill[prop];
-                    }
+            for (let prop in ctrl.skill) {
+                ctrl.primary = ctrl.skill[prop];
+            }
 
             ctrl.total = ctrl.primary.length + ctrl.secondary.length;
             ctrl.plen = ctrl.primary.length;
             ctrl.slen = ctrl.secondary.length;
-            // console.log(ctrl.primary);
-
         });
-    });
-
-            ctrl.status = '  ';
-            ctrl.customFullscreen = false;
-            ctrl.showAdvanced = function(ev, value, title) {
-                $mdDialog.show({
-                        controller: DialogController,
-                        templateUrl: path1,      //  skillconvopath
-                        parent: angular.element(document.body),
-                        targetEvent: ev,
-                        clickOutsideToClose: true,
-                        locals: {
-                            val: value,
-                            header: title,
-                            candidateid: ctrl.candidateid
-                        },
-                        fullscreen: ctrl.customFullscreen // Only for -xs, -sm breakpoints.
-                    })
-                    .then(function(answer) {
-                        ctrl.status = 'You said the information was "' + answer + '".';
-                    }, function() {
-                        ctrl.status = 'You cancelled the dialog.';
-                    });
-            };
-
-            function DialogController($scope, $mdDialog, val, header) {
-                $scope.exp = [];
-                for (i = 0; i <= 40; i++) {
-                    $scope.exp.push(i);
+        $rootScope.$on('skilldatachanged', function() {
+            sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
+                ctrl.skill = result;
+                ctrl.primary = [];
+                ctrl.secondary = [];
+                ctrl.total = 0;
+                ctrl.plen = 0;
+                ctrl.slen = 0;
+                for (let prop in ctrl.skill) {
+                    ctrl.primary = ctrl.skill[prop];
                 }
-                // var candidateid = UserAuthService.getUser().uname;
-                $scope.skillObject = val;
-                let skill = val.skillname;
-                // console.log("coming", skill);
-                $scope.header = header;
-                $scope.hide = function() {
-                    $mdDialog.hide();
-                };
-                $scope.cancel = function() {
-                    $mdDialog.cancel();
-                };
-                $scope.save = function(skillobj, header) {
-                    // console.log("after save", $scope.skillObj);
-                    let skillObj = {
-                        skills: [{
-                            skillname: skillobj.skillname,
-                            category: skillobj.category,
-                            expertise: skillobj.expertise,
-                            experience: skillobj.experience,
-                            metadata: {}
-                        }]
-                    };
 
-                    if (header === 'Add Skill') {
-                        $http({
-                            method: 'post',
-                            url: '/skill/' + ctrl.candidateid,  //url: "http://localhost:8081/skill/" + ctrl.candidateid,
-                            data: skillObj
-                        }).then(function mySucces(response)  {
-                            console.log('res', response.data[0]);
-                            $rootScope.$emit('skilldatachanged', {});
-                           // $mdDialog.hide("success inserted skill");// alert(response);
-                            // alert(response);
-                        }, function myError(response) {
-                            console.log('error in adding skill section');
-                            // var message  = "error in adding skill section";
-                            // $mdDialog.hide(" Profession and Skill not matched");
-                        });
-                    }
-                    if (header === 'Edit Skill') {
-                        $http({
-                            method: 'patch',
-                            url: '/skill/' + ctrl.candidateid + '/' + skill,   
-                                            //url: "http://localhost:8081/skill/" + ctrl.candidateid + "/" + skill,
-                            data: skillObj
-                        }).then(function mySucces(response)  {
-                            console.log('res', response);
-                            $rootScope.$emit('skilldatachanged', {});
-                            // alert(response);
-                        }, function myError(response) {
-                            console.log('error in updating skill section');
-                        });
-                    }
-                    $mdDialog.hide();
-                };
+                ctrl.total = ctrl.primary.length + ctrl.secondary.length;
+                ctrl.plen = ctrl.primary.length;
+                ctrl.slen = ctrl.secondary.length;
+            });
+        });
+
+        ctrl.status = '  ';
+        ctrl.customFullscreen = false;
+        ctrl.showAdvanced = function(ev, value, title) {
+            $mdDialog.show({
+                    controller: DialogController,
+                    templateUrl: path1, //  skillconvopath
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    locals: {
+                        val: value,
+                        header: title,
+                        candidateid: ctrl.candidateid
+                    },
+                    fullscreen: ctrl.customFullscreen // Only for -xs, -sm breakpoints.
+                })
+                .then(function(answer) {
+                    ctrl.status = 'You said the information was "' + answer + '".';
+                }, function() {
+                    ctrl.status = 'You cancelled the dialog.';
+                });
+        };
+
+        function DialogController($scope, $mdDialog, val, header) {
+            $scope.exp = [];
+            for (i = 0; i <= 40; i++) {
+                $scope.exp.push(i);
             }
+            $scope.skillObject = val;
+            let skill = val.skillname;
+            $scope.header = header;
+            $scope.hide = function() {
+                $mdDialog.hide();
+            };
+            $scope.cancel = function() {
+                $mdDialog.cancel();
+            };
+            $scope.save = function(skillobj, header) {
+                let skillObj = {
+                    skills: [{
+                        skillname: skillobj.skillname,
+                        category: skillobj.category,
+                        expertise: skillobj.expertise,
+                        experience: skillobj.experience,
+                        metadata: {}
+                    }]
+                };
+
+                if (header === 'Add Skill') {
+                    $http({
+                        method: 'post',
+                        url: '/skill/' + ctrl.candidateid, //url: "http://localhost:8081/skill/" + ctrl.candidateid,
+                        data: skillObj
+                    }).then(function mySucces(response)  {
+                        console.log('res', response.data[0]);
+                        $rootScope.$emit('skilldatachanged', {});
+                    }, function myError(response) {
+                        console.log('error in adding skill section');
+                    });
+                }
+                if (header === 'Edit Skill') {
+                    $http({
+                        method: 'patch',
+                        url: '/skill/' + ctrl.candidateid + '/' + skill,
+                        //url: "http://localhost:8081/skill/" + ctrl.candidateid + "/" + skill,
+                        data: skillObj
+                    }).then(function mySucces(response)  {
+                        console.log('res', response);
+                        $rootScope.$emit('skilldatachanged', {});
+                    }, function myError(response) {
+                        console.log('error in updating skill section');
+                    });
+                }
+                $mdDialog.hide();
+            };
         }
+    }
 })();

@@ -5,7 +5,6 @@
             <div flex="10">({{$ctrl.totalworkexperience}})</div>
         </md-card-header-text>
     </md-card-header>
-    <!-- <div layout="row" layout-xs = "column" layout-wrap layout-margin> -->
     <md-card-content layout="row" layout-xs="column" layout-wrap class="cardsContent" layout-fill>
         <div flex="30" class="md-whiteframe-1dp" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout-margin>
             <div layout="row" layout-align="center center">
@@ -30,18 +29,15 @@
                     <span><md-icon class="material-icons md-24">trending_flat</md-icon></span>
                 </div>
                 <div layout-gt-xs="column" layout-xs="row">
-                    <span class="padding duration"><!-- <md-icon class="material-icons md-14">date_range</md-icon> -->{{value.duration.to|date:'dd-MM-yyyy'}}</span>
+                    <span class="padding duration">{{value.duration.to|date:'dd-MM-yyyy'}}</span>
                 </div>
             </div>
             <div layout="row" ng-repeat="skill in value.skills" flex-xs="100" layout-align="start center" flex>
                 <div flex="90">
                     <span ng-repeat="skill in value.skills">
-                      <!-- <md-icon class="material-icons md-18">build</md-icon> -->
                     <md-chips>
                      <md-chip md-colors="::{background: 'grey-300'}">
-                      <!-- <md-chip-template > -->
                        {{skill}}
-                      <!-- </md-chip-template> -->
                     </md-chip>
                   </md-chips>
                 </span>
@@ -65,7 +61,6 @@
     <md-card-actions layout="row " layout-align="end end">
         <div ng-transclude="verify"></div>
         <md-button class="md-raised" id="addbutton" ng-click="$ctrl.showAdvanced($event, 'Add Workexperience', '') ">{{$ctrl.languagedata.addworkexp}}
-            <!-- <md-icon>mode</md-icon> -->
         </md-button>
     </md-card-actions>
 </md-card>

@@ -1,4 +1,4 @@
-(function(){
+(function() {
     let scripts = document.getElementsByTagName('script');
     let currentScriptPath = scripts[scripts.length - 1].src;
 
@@ -17,9 +17,7 @@
         console.log('data : ' + this.data);
         $scope.prof = this.data;
         let colors = Object.keys($mdColorPalette);
-
         $scope.gerColler = function(a) {
-            console.log(a.length);
             return colors[a.length];
         };
     }

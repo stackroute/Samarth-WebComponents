@@ -3,7 +3,7 @@
     var currentScriptPath = scripts[scripts.length - 1].src;
 
     var educationconvopath = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                '/')) + '/templates/educonvoNEW.html';
+        '/')) + '/templates/educonvoNEW.html';
 
     var app = angular
         .module('samarth-webcomponents')
@@ -13,8 +13,8 @@
             controller: educationcardCtrl,
             bindings: {
                 candidateid: '<',
-                showheader:'<',
-                languagedata:'='
+                showheader: '<',
+                languagedata: '='
             },
             transclude: {
                 verify: "verify"
@@ -26,10 +26,10 @@
         var ctrl = this;
 
         ctrl.loadLangData = function(lang) {
-                datagenerate.getjson("section", lang).then(function(result) {
-                    ctrl.items = result;
-                }); //end datagenerate
-            }
+            datagenerate.getjson("section", lang).then(function(result) {
+                ctrl.items = result;
+            }); //end datagenerate
+        }
 
         function getItem(key) {
             // return localStorageService.get(key);
@@ -43,24 +43,21 @@
 
         ctrl.limitval = 3;
         ctrl.increaseLimit = function() {
-            ctrl.limitval = ctrl.limitval+60;
+            ctrl.limitval = ctrl.limitval + 60;
         }
 
         ctrl.decreaseLimit = function() {
-            ctrl.limitval = ctrl.limitval-60;
+            ctrl.limitval = ctrl.limitval - 60;
         }
 
         $http.get('/education/' + ctrl.candidateid).then(function(
-
             response) {
-
             for (var noOfObjects = 0; noOfObjects < response.data[0].qualification.length; noOfObjects++) {
                 for (var record = 0; record < 1; record++) {
 
                     ctrl.eduDetails.push(response.data[0].qualification[noOfObjects]);
                 }
             }
-
             for (var i = 0; i < ctrl.eduDetails.length; i++) {
                 if (ctrl.eduDetails[i].institute.type == "school") {
                     ctrl.schools.push(ctrl.eduDetails[i]);
@@ -82,7 +79,6 @@
 
             $http.get('/education/' + ctrl.candidateid).then(
                 function(response) {
-
                     for (var noOfObjects = 0; noOfObjects < response.data[0].qualification
                         .length; noOfObjects++) {
                         for (var record = 0; record < 1; record++) {
@@ -91,7 +87,6 @@
                                 noOfObjects]);
                         }
                     }
-
                     for (var i = 0; i < ctrl.eduDetails.length; i++) {
                         if (ctrl.eduDetails[i].institute.type == "school") {
                             ctrl.schools.push(ctrl.eduDetails[i]);
@@ -104,9 +99,8 @@
                         }
                     }
                 });
-       })
-
-        ctrl.showAdvanced = function(ev, header,object) {
+        })
+        ctrl.showAdvanced = function(ev, header, object) {
             $mdDialog.show({
                     controller: dialogCtrl,
                     templateUrl: educationconvopath,
@@ -114,7 +108,7 @@
                     targetEvent: ev,
                     clickOutsideToClose: true,
                     locals: {
-                        header:header,
+                        header: header,
                         object: object,
                         candidateid: ctrl.candidateid
                     }
@@ -126,9 +120,7 @@
         };
 
         function dialogCtrl($scope, $mdDialog, $http, header, object, $rootScope, candidateid) {
-
-            $scope.header=header;
-
+            $scope.header = header;
             $scope.years = [];
             for (var i = (new Date()).getFullYear(); i >= 1900; i--) {
                 $scope.years.push(i);
@@ -137,15 +129,12 @@
             if (object != '') {
                 $scope.title = object.title;
                 $scope.batch = object.batch;
-               if(object.outcome=="")
-               {
-                $scope.result = object.outcome.result;
-                $scope.unit = object.outcome.unit;
-                }
-                else
-                {
-                    $scope.result="";
-                    $scope.unit="";
+                if (object.outcome != "") {
+                    $scope.result = object.outcome.result;
+                    $scope.unit = object.outcome.unit;
+                } else {
+                    $scope.result = "";
+                    $scope.unit = "";
                 }
 
                 $scope.name = object.institute.name;
@@ -182,7 +171,6 @@
             };
 
             $scope.save = function(header) {
-
                 var education = {
                     "qualification": [{
                         "title": $scope.title,

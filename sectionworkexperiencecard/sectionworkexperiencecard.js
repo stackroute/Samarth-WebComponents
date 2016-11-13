@@ -3,10 +3,7 @@
     var currentScriptPath = scripts[scripts.length - 1].src;
 
     var workpath = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                '/')) + '/templates/sectionworkexperienceconversation.html';
-
-    // var workpath = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-    //     '/')) + '/templates/sectionworkexperienceconversation.html';
+        '/')) + '/templates/sectionworkexperienceconversation.html';
 
     var app = angular
         .module('samarth-webcomponents')
@@ -16,8 +13,8 @@
             controller: workexperiencecardCtrl,
             bindings: {
                 candidateid: '<',
-                showheader:'<',
-                languagedata:'='
+                showheader: '<',
+                languagedata: '='
             },
             transclude: {
                 verify: "verify"
@@ -51,24 +48,24 @@
             datagenerate.getjson("section", lang).then(function(result) {
                 ctrl.items = result;
 
-            }); //end datagenerate
+            });
+            //end datagenerate
         }
 
         function getItem(key) {
             // return localStorageService.get(key);
         }
         ctrl.loadLangData("English");
-
         ctrl.workexperiences = [];
         ctrl.workexperience1 = [];
         ctrl.totalworkexperience = 0;
         ctrl.limitval = 3;
         ctrl.increaseLimit = function() {
-            ctrl.limitval = ctrl.limitval+60;
+            ctrl.limitval = ctrl.limitval + 60;
         }
 
         ctrl.decreaseLimit = function() {
-            ctrl.limitval = ctrl.limitval-60;
+            ctrl.limitval = ctrl.limitval - 60;
         }
 
         $http.get('/work/' + ctrl.candidateid)
@@ -152,6 +149,7 @@
 
 
             }
+
             $scope.hide = function() {
                 $mdDialog.hide();
             };
@@ -172,7 +170,7 @@
                         "designation": $scope.designation,
                         "workplace": $scope.workplace,
                         "Location": $scope.Location,
-                        "salary" : $scope.salary,
+                        "salary": $scope.salary,
                         "duration": {
                             "duration": $scope.year,
                             "from": $scope.from,
@@ -188,13 +186,9 @@
                         data: workdata,
                         crossDomain: true
                     }).then(function successCallback(response) {
-                        // console.log("After adding workexperience", response.data)
                         $rootScope.$emit("workexpdata", {});
-                    }, function errorCallback(response) {
-                        // console.log('Error accord during at post Section')
-                    });  
+                    }, function errorCallback(response) {});  
                 } else {
-                    // console.log("data after saving", workdata);
                     $http({
                         method: 'PATCH',
                         url: '/work/' + candidateid + '/' + object.workplace,
@@ -202,7 +196,6 @@
                         crossDomain: true
                     }).then(function successCallback(response) {
                         $rootScope.$emit("workexpdata", {});
-                        // console.log("After updating ", response.data);
 
                     }, function errorCallback(response) {
                         console.log('Error accord during updating experience Section');
