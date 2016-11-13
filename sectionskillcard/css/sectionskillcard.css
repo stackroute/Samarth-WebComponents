@@ -13,9 +13,11 @@
     font-weight: bold;
     cursor: pointer;
 }
-#savebutton{
-     color: #0098b4;
+
+#savebutton {
+    color: #0098b4;
 }
+
 .numbers {
     font-size: medium;
 }
@@ -23,33 +25,18 @@
 .card > .md-title {
     margin: 10px 10px;
 }
-md-chips.md-default-theme .md-chips, md-chips .md-chips {
+
+md-chips.md-default-theme .md-chips,
+md-chips .md-chips {
     box-shadow: none;
 }
+
 .md-dialog-content>md-input-container>input {
     margin-top: 20px;
 }
-.pointCursor{
+
+.pointCursor {
     cursor: pointer;
-}
-#secondary {
-    background-color: #ECF2F6;
-}
-
-#Proficient {
-    background: linear-gradient(to top, #63EB6C 12%, white 0%);
-}
-
-#Begginner {
-    background: linear-gradient(to top, #EC4C39 12%, white 0%);
-}
-
-#Expert {
-    background: linear-gradient(to top, #587DE6 12%, white 0%);
-}
-
-#Skilled {
-    background: linear-gradient(to top, #E5EA5C 12%, white 0%);
 }
 
 md-divider {

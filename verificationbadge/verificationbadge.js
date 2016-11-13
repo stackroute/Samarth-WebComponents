@@ -1,4 +1,4 @@
-(function(){
+(function() {
     let scripts = document.getElementsByTagName('script');
     let currentScriptPath = scripts[scripts.length - 1].src;
 
@@ -29,18 +29,15 @@
 
                     ctrl.average = (ctrl.pval + ctrl.sval + ctrl.qval + ctrl.prval + ctrl.wval) / 5;
                     // ctrl.verification_ratings = res.data[0].verification_ratings;
-                    console.log(ctrl.average);
-
 
                     let i = parseInt(ctrl.average);
-                for (let a = 0; a < i; a++) {
-                    ctrl.arr.push(a);
-                }
+                    for (let a = 0; a < i; a++) {
+                        ctrl.arr.push(a);
+                    }
 
                     ctrl.updated_on = res.data[0].updated_on;
                     ctrl.a = new
                     Date(ctrl.updated_on);
-                    // console.log(ctrl.a);
                 },
                 function(err) {
 
