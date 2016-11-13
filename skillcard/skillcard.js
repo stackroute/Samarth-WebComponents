@@ -9,7 +9,9 @@
                             controller: skillcardCtrl,
                 bindings: {
                     candidateid: '<',
-                    showheader: '<'
+                    showheader: '<',
+                    picsize: '@?',
+                    contentsize : '@?'
                         // data: "="
                 },
                 transclude: {
@@ -21,7 +23,30 @@
         function skillcardCtrl($window, $timeout, $mdDialog, skillcardService) {
             let ctrl = this;
             let name;
-            // console.log("Inside skill card ctrl....");
+            
+            let showEditForm = false ;
+
+            this.edit = function(newUrl){
+                console.log("newURl ---->",newUrl);
+                if(this.showEditForm){
+                    skillcardService.uploadPicUrl(newUrl,this.candidateid);
+                    ctrl.data.profilepic = newUrl;
+                    console.log("uploaded");
+
+                    this.showEditForm =false;
+                }else{
+                    this.showEditForm = true;
+                    console.log(this.showEditForm);
+                }
+            }
+
+            if(!this.picsize) {
+                this.picsize = 'default';
+            }
+            if(!this.contentsize) {
+                this.content = 'default';
+            }
+
             skillcardService.getskillcarddata(this.candidateid).then(function(result) {
                 ctrl.data = result;
             });

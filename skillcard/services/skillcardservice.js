@@ -58,6 +58,20 @@ angular.module('samarth-webcomponents')
                 }, function myError(response) {
                     console.log('error in getting skillcard details');
                 });
+            },
+            uploadPicUrl: function(newUrl,candidateid){
+                console.log("inside service");
+                return $http({
+                    method: 'POST',
+                    url: 'personalinfo/' + candidateid + '/' +"profilepic/",
+                    data: {profilepicUrl:newUrl}
+                }).then(function successCallback(response) {
+                    console.log("About to update Url");
+                    return response;
+                }, function errorCallback(err) {
+                    console.log('Error accord during Project Section')
+                    return err;
+                });  
             }
 
         };

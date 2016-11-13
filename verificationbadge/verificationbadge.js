@@ -19,7 +19,6 @@
         ctrl.arr = [];
         verificationbadgeService.getbadgedata(ctrl.candidateid)
             .then(function(res) {
-                    console.log('inside bad', res.data);
                     ctrl.verification_status = 'grade';
                     ctrl.pval = res.data[0].Personal_Information.value;
                     ctrl.sval = res.data[0].Skills.value;
@@ -29,7 +28,7 @@
 
                     ctrl.average = (ctrl.pval + ctrl.sval + ctrl.qval + ctrl.prval + ctrl.wval) / 5;
                     // ctrl.verification_ratings = res.data[0].verification_ratings;
-                    console.log(ctrl.average);
+                    // console.log(ctrl.average);
 
 
                     let i = parseInt(ctrl.average);

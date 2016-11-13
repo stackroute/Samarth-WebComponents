@@ -8,7 +8,7 @@
     <md-card-content layout="row" layout-align="center center" class="items" layout-wrap>
         <div ng-repeat="value in $ctrl.primary | limitTo: $ctrl.limitval">
             <md-chips>
-                <md-chip ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" title="{{value.experience}} yrs" md-colors="::{background: 'grey-300'}">
+                <md-chip ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" title="{{value.experience}} yrs" md-colors="::{background: 'grey-300'}" style="cursor:pointer;">
                 {{value.skillname | capitalize}}
                 </md-chip>
             </md-chips>
