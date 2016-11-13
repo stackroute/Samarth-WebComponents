@@ -137,7 +137,7 @@
             if (object != '') {
                 $scope.title = object.title;
                 $scope.batch = object.batch;
-               if(object.outcome=="")
+               if(object.outcome !="")
                {
                 $scope.result = object.outcome.result;
                 $scope.unit = object.outcome.unit;
