@@ -19,7 +19,7 @@ angular.module('samarth-webcomponents')
                 return $http({
                     method: 'GET',
                     // url: 'http://localhost:8081/candidates/' 
-                    url: 'http://localhost:8081/candidates/' + candidateid +
+                    url: '/candidates/' + candidateid +
                         '/qboxquestions?sections=' + sectionArray[randomNumber] +
                         '&limit=2&skip=0&lang=English'
                         // url: 'http://localhost:8081/candidates/' + candidateid +
