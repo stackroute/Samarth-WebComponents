@@ -1,7 +1,11 @@
 (function() {
     'use strict';
+
     let scripts = document.getElementsByTagName('script');
     let currentScriptPath = scripts[scripts.length - 1].src;
+
+ //   var path = currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/')) + '/template/notification.html';  //wave 9
+
     angular.module('samarth-webcomponents')
         .component('smVerificationRubric', {
             bindings: {
@@ -15,7 +19,8 @@
             controller: rubricCtrl
         });
 
-    function rubricCtrl(rubricservice) {
+
+    function rubricCtrl(rubricservice, $scope) {
         let ctrl = this;
 
         ctrl.description = [];
@@ -31,6 +36,8 @@
                 ctrl.desc = ctrl.description[0];
 
                 ctrl.desc1 = ctrl.desc[0];
+                ctrl.name = ctrl.desc1.type.name[0];   //wave 9
+
                 // console.log(ctrl.desc1);
                 // console.log(ctrl.desc1.scale);
             }, function(err) {
@@ -44,6 +51,8 @@
             angular.forEach(desc, function(value, key) {
                 ctrl.outcome = parseInt(value.model);
             });
+
+            ctrl.message = "Ratings Saved Successfully!";
             console.log(ctrl.outcome);
             console.log(ctrl.remarks);
         };

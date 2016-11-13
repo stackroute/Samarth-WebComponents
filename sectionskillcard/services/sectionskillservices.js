@@ -3,8 +3,6 @@ angular.module('samarth-webcomponents')
         return {
             getjson: function(candidateid) {
                 let skill = {};
-                // var candidateid = UserAuthService.getUser().uname;
-
                 return $http({
                     method: 'get',
                     url: '/skill/' + candidateid
@@ -16,8 +14,6 @@ angular.module('samarth-webcomponents')
                             skill[prop] = response.data[0][prop];
                         }
                     }
-                    // console.log("skill",skill);
-
                     return skill;
                 }, function myError(response) {
                     console.log('error in getting sectionskill');

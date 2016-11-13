@@ -28,7 +28,6 @@ function jobcardCtrl($scope, jobCardService, $window, $timeout) {
                 console.log('Connected successfully' + response.data);
                 let job = response.data;
                 $scope.job = job[0];
-                // console.log("ID" + $scope.job.jobID);
             },
             function errorCallback(response) {
                 console.log('some error occured');

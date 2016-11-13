@@ -19,6 +19,5 @@ angular.module('samarth-webcomponents')
                     return (response.error.message);
                 });
             }
-
         };
     });

@@ -1,8 +1,12 @@
+
 (function() {
         let scripts = document.getElementsByTagName('script');
         let currentScriptPath = scripts[scripts.length - 1].src;
         let path1 = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/sectionskillconversation.html';
+
+        // var skillconvopath = currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+        //     '/')) + '/templates/sectionskillconversation.html';
 
         angular.module('samarth-webcomponents')
             .component('mysectionSkillCard', {
@@ -17,45 +21,102 @@
                 transclude: {
                     verify: 'verify'
 
-                }
-            })
-            .filter('capitalize', function() {
-                return function(input) {
-                    return !!input ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() :
-                        '';
-                };
-            });
+                    }
+                })
+                .filter('capitalize', function() {
+                    return function(input) {
+                        return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() :
+                            '';
+                    }
+             });
 
 
-        function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
-            $rootScope) {
-            let ctrl = this;
+    function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
+        $rootScope) {
+        var ctrl = this;
+        console.log("Inside skill section", ctrl.candidateid);
+        ctrl.loadLangData = function(lang) {
+            datagenerate.getjson("section", lang).then(function(result) {
+                ctrl.items = result;
 
+            }); //end datagenerate
+        }
 
-            // var candidateid = UserAuthService.getUser().uname;
-            console.log('Inside skill section', ctrl.candidateid);
-            ctrl.loadLangData = function(lang) {
-                datagenerate.getjson('section', lang).then(function(result) {
-                    ctrl.items = result;
-                }); // end datagenerate
-            };
+        function getItem(key) {
+            // return localStorageService.get(key);
+        }
+        ctrl.loadLangData("English");
+        
+        // ctrl.limitval = 3;
+        // ctrl.limitval2 = 3;
+        // ctrl.value = 40;
+        // ctrl.skill = {};
+        // ctrl.primary = [];
+        // ctrl.plen = 0;
+        // ctrl.slen = 0;
+        // ctrl.secondary = [];
+        // ctrl.total = 0; 
+        // ctrl.increaseLimit = function() {
+        //     ctrl.limitval = ctrl.limitval + 3;
+        // }
 
+        // ctrl.decreaseLimit = function() {
+        //     ctrl.limitval = ctrl.limitval - 3;
+        // }
+        // ctrl.increaseLimit2 = function() {
+        //     ctrl.limitval2 = ctrl.limitval2 + 3;
+        // }
 
-            // ctrl.loadLangData(getItem("lang"));
+        // ctrl.decreaseLimit2 = function() {
+        //     ctrl.limitval2 = ctrl.limitval2 - 3;
+        // }
 
-            function getItem(key) {
-                // return localStorageService.get(key);
-            }
-            // $scope.loadLangData("Hindi");
-            ctrl.loadLangData('English');
-            // $rootScope.$on("lang_changed", function(event, data) {
+    // sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
+    //     ctrl.skill = result;
+        //console.log("skill object", ctrl.skill);
 
-            //     ctrl.loadLangData(data.language);
+       // for (var prop in ctrl.skill) {
+            // for (var key in ctrl.skill[prop]) {
+            //     //console.log(ctrl.skill[prop][key])
+            //     for (var k in ctrl.skill[prop][key]) {
+
+            //         if (ctrl.skill[prop][key][k] == "Primary") //extracting all skill object containing primary type
+            //         {
+
+            //             ctrl.primary.push(ctrl.skill[prop][key]); //making array of object containing skill of  type primary   
+            //         }
+            //         if (ctrl.skill[prop][key][k] == "Secondary") //extracting all skill object containing primary type
+            //         {
+            //             ctrl.secondary.push(ctrl.skill[prop][key]); //making array of object containing skill type secondary
+            //         }
+
+            //     }
+            // })
+            // .filter('capitalize', function() {
+            //     return function(input) {
+            //         return !!input ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() :
+            //             '';
+            //     };
             // });
+
+
+        // function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
+        //     $rootScope) {
             ctrl.limitval = 12;
             // ctrl.limitval2 = 6;
             ctrl.value = 40;
             ctrl.skill = {};
+
+    //     }
+    //     ctrl.total = ctrl.primary.length + ctrl.secondary.length;
+    //     ctrl.plen = ctrl.primary.length;
+    //     ctrl.slen = ctrl.secondary.length;
+
+    // });
+    // $rootScope.$on("skilldatachanged", function() {
+    //     sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
+    //         ctrl.skill = result;
+            
             ctrl.primary = [];
             ctrl.plen = 0;
             ctrl.slen = 0;
@@ -68,37 +129,13 @@
             ctrl.decreaseLimit = function() {
                 ctrl.limitval = ctrl.limitval - 60;
             };
-            // ctrl.increaseLimit2 = function() {
-            //     ctrl.limitval2 = ctrl.limitval2 + 6;
-            // };
-
-            // ctrl.decreaseLimit2 = function() {
-            //     ctrl.limitval2 = ctrl.limitval2 - 6;
-            // };
 
             sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
                 ctrl.skill = result;
 
-                // console.log("skill object", ctrl.skill);
-                      
                 for (let prop in ctrl.skill) {
-                   /* for (let key in ctrl.skill[prop]) {*/
                        
                         ctrl.primary=ctrl.skill[prop];
-                         //ctrl.primary.push(ctrl.skill[prop]);
-                        // console.log(ctrl.skill[prop][key])
-                        //for (let k in ctrl.skill[prop]) {
-                           // if (ctrl.skill[prop]) // extracting all skill object containing primary type
-                           // {
-                            
-                                //ctrl.primary.push(ctrl.skill[prop]); 
-                                // making array of object containing skill of  type primary
-                               //console.log("skills",ctrl.primary);
-                           // }
-                            // if (ctrl.skill[prop][key][k] == 'Secondary') // extracting all skill object containing primary type
-                            // {
-                            //     ctrl.secondary.push(ctrl.skill[prop][key]); // making array of object containing skill type secondary
-                            // }
                         }
                    // }
                 
@@ -110,49 +147,36 @@
             $rootScope.$on('skilldatachanged', function() {
                 sectionskillcard.getjson(ctrl.candidateid).then(function(result) {
                     ctrl.skill = result;
-                   // console.log("skill object", ctrl.skill);
                     ctrl.primary = [];
                     ctrl.secondary = [];
                     ctrl.total = 0;
                     ctrl.plen = 0;
                     ctrl.slen = 0;
                     for (let prop in ctrl.skill) {
-                        /*for (let key in ctrl.skill[prop]) {
-                            // console.log(ctrl.skill[prop][key])
-                            for (let k in ctrl.skill[prop][key]) {
-                                if (ctrl.skill[prop][key][k] == 'Primary'||ctrl.skill[prop][key][k] == 'Secondary') // extracting all skill object containing primary type
-                                {
-                                    ctrl.primary.push(ctrl.skill[prop][key]); // making array of object containing skill of  type primary
-                                }
-                                // if (ctrl.skill[prop][key][k] == 'Secondary') // extracting all skill object containing primary type
-                                // {
-                                //     ctrl.secondary.push(ctrl.skill[prop][key]); // making array of object containing skill type secondary
-                                // }
-                            }
-                        }*/
                         ctrl.primary=ctrl.skill[prop];
                     }
-                    // ctrl.total = ctrl.primary.length ;
-                    ctrl.total = ctrl.primary.length + ctrl.secondary.length;
-                    ctrl.plen = ctrl.primary.length;
-                    ctrl.slen = ctrl.secondary.length;
-                    // console.log(ctrl.primary);
-                });
-            });
 
+            ctrl.total = ctrl.primary.length + ctrl.secondary.length;
+            ctrl.plen = ctrl.primary.length;
+            ctrl.slen = ctrl.secondary.length;
+            // console.log(ctrl.primary);
+
+        });
+    });
 
             ctrl.status = '  ';
             ctrl.customFullscreen = false;
             ctrl.showAdvanced = function(ev, value, title) {
                 $mdDialog.show({
                         controller: DialogController,
-                        templateUrl: path1,
+                        templateUrl: path1,      //  skillconvopath
                         parent: angular.element(document.body),
                         targetEvent: ev,
                         clickOutsideToClose: true,
                         locals: {
                             val: value,
-                            header: title
+                            header: title,
+                            candidateid: ctrl.candidateid
                         },
                         fullscreen: ctrl.customFullscreen // Only for -xs, -sm breakpoints.
                     })
@@ -194,20 +218,24 @@
                     if (header === 'Add Skill') {
                         $http({
                             method: 'post',
-                            url: '/skill/' + ctrl.candidateid,
+                            url: '/skill/' + ctrl.candidateid,  //url: "http://localhost:8081/skill/" + ctrl.candidateid,
                             data: skillObj
                         }).then(function mySucces(response)  {
                             console.log('res', response.data[0]);
                             $rootScope.$emit('skilldatachanged', {});
+                           // $mdDialog.hide("success inserted skill");// alert(response);
                             // alert(response);
                         }, function myError(response) {
                             console.log('error in adding skill section');
+                            // var message  = "error in adding skill section";
+                            // $mdDialog.hide(" Profession and Skill not matched");
                         });
                     }
                     if (header === 'Edit Skill') {
                         $http({
                             method: 'patch',
-                            url: '/skill/' + ctrl.candidateid + '/' + skill,
+                            url: '/skill/' + ctrl.candidateid + '/' + skill,   
+                                            //url: "http://localhost:8081/skill/" + ctrl.candidateid + "/" + skill,
                             data: skillObj
                         }).then(function mySucces(response)  {
                             console.log('res', response);
