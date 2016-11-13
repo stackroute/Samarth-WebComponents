@@ -9,16 +9,23 @@ angular.module('samarth-webcomponents')
                 var sectionArray = [
                     'project',
                     'skills',
-                    'qualification'
+                    'qualification',
+                    'personalinfo',
+                    'workexperience'
                 ];
 
                 var randomNumber = Math.floor(Math.random() * sectionArray.length);
-
+                console.log("Section array....", sectionArray[randomNumber])
                 return $http({
                     method: 'GET',
+                    // url: 'http://localhost:8081/candidates/' 
                     url: 'http://localhost:8081/candidates/' + candidateid +
-                        '/qboxquestions?sections=' + "skills" +
+                        '/qboxquestions?sections=' + sectionArray[randomNumber] +
                         '&limit=2&skip=0&lang=English'
+                        // url: 'http://localhost:8081/candidates/' + candidateid +
+                        //       '/qboxquestions?sections=' + "personalinfo" +
+                        //       '&limit=2&skip=0&lang=English'         
+
                 }).then(function successCallback(response) {
                     var questionObj = response.data;
                     console.log("About to save questionObj", questionObj);
