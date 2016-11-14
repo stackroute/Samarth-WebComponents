@@ -25,13 +25,12 @@
         <div flex="25" hide-sm hide-xs>
             <div layout="column" layout-align="center center">
                 <div layout-align="center center">
-                    <a href="#">
                         <md-card-avatar id="avatar">
                             <!-- <img class="profile_pic_circle" ng-src="{{$ctrl.data.profilepic}}"> -->
                             <img ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
                     <img ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
                         </md-card-avatar>
-                    </a>
+                        
                 </div>
                 <div>
                     <span class="details2">{{$ctrl.data.name}}</span>
@@ -81,26 +80,7 @@
     <span class="details3"><md-icon class="material-icons md-10">work</md-icon> {{$ctrl.data.profession}}<span class="detail1"> ( {{$ctrl.data.designation}} )</span>
             </div>
         </div>
-        <!--  <div layout="row"  flex flex-offset="5" hide-xs hide-sm> -->
-        <!-- <div flex="30" id="section1" layout="column">
-                        <div flex>
-                            <span flex-offset="5">
-                                <md-icon class="material-icons">cake</md-icon>
-                                </span>
-                                <span>
-                                        {{$ctrl.data.dob}} ({{$ctrl.data.age}} yrs)
-                                        
-                            </span>
-                        </div>
-
-                        <div flex flex-offset="5" layout="column">
-                            <p>
-                                <md-icon></md-icon>
-                                {{$ctrl.data.maritalstatus}} , {{$ctrl.data.gender}}
-                            </p>
-                        </div>
-                    </div> -->
-        <!-- <md-divider></md-divider> -->
+        
         <div flex-offset="5" flex="20" layout="column" layout-align-xs="center center" layout-align-sm="center center">
             <p>
                 <md-icon class="material-icons">room</md-icon>
@@ -149,7 +129,10 @@
             <div layout="column" layout-align="center center">
                 <div layout-align="center center">
                     <div ng-hide="$ctrl.showEditForm">
-                        <a href="#" ng-click="$ctrl.edit()">
+                        <a href="#" ng-click="$ctrl.edit()" class="md-icon-button" aria-label="edit">
+                        <md-tooltip md-direction="right">
+                         click here to upload New Pic
+                            </md-tooltip>
                             <md-card-avatar id="avatar">
                                 <!-- <img class="profile_pic_circle" ng-src="{{$ctrl.data.profilepic}}"> -->
                                 <img ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
@@ -171,21 +154,34 @@
                 <div>
                     <span class="details2">{{$ctrl.data.name}}</span>
                     <br>
-                    <!-- <span id="headerage" >({{$ctrl.data.age}} yrs , {{$ctrl.data.gender}})</span></span>
-                    <span class="md-subhead">{{$ctrl.data.designation}}</span> -->
+                    
                 </div>
             </div>
         </div>
         <div flex="75" flex-xs="100">
             <div flex="100" hide-gt-sm>
                 <div layout="column" layout-align="center center">
-                    <div>
-                        <a href="">
+                   <div ng-hide="$ctrl.showEditForm">
+                        <a href="#" ng-click="$ctrl.edit()" class="md-icon-button" aria-label="edit">
+                        <md-tooltip md-direction="right">
+                         click here to upload New Pic
+                            </md-tooltip>
                             <md-card-avatar id="avatar">
+                                <!-- <img class="profile_pic_circle" ng-src="{{$ctrl.data.profilepic}}"> -->
                                 <img ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
                                 <img ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
                             </md-card-avatar>
                         </a>
+                    </div>
+                    <div ng-show="$ctrl.showEditForm">
+                        <md-input-container>
+                        <label>Paste your new Pic Url</label>
+                        <input type="text" ng-model="$ctrl.picUrl">
+
+                        <md-button class="md-primary" ng-click="$ctrl.edit($ctrl.picUrl)">
+                        <md-icon class="material-icons md-18">file_upload</i></md-icon>
+                        </md-button>
+                        </md-input-container>
                     </div>
                     <div>
                         <span flex-offset="15" layout-align="center center" class="detail">{{$ctrl.data.name}}</span>
