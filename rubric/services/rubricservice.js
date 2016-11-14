@@ -5,7 +5,7 @@ angular.module('samarth-webcomponents')
             let data = {};
             return $http({
                 method: 'GET',
-                url: 'http://localhost:8081/rubric/' + name
+                url: '/rubric/' + name
 
 
             }).then(function(response) {

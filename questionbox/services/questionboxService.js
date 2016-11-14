@@ -18,13 +18,9 @@ angular.module('samarth-webcomponents')
                 console.log("Section array....", sectionArray[randomNumber])
                 return $http({
                     method: 'GET',
-                    // url: 'http://localhost:8081/candidates/' 
-                    url: '/candidates/' + candidateid +
-                        '/qboxquestions?sections=' + sectionArray[randomNumber] +
-                        '&limit=2&skip=0&lang=English'
-                        // url: 'http://localhost:8081/candidates/' + candidateid +
-                        //       '/qboxquestions?sections=' + "personalinfo" +
-                        //       '&limit=2&skip=0&lang=English'         
+                        url: '/candidates/' + candidateid +
+                              '/qboxquestions?sections=' + "skills" +
+                              '&limit=2&skip=0&lang=English'         
 
                 }).then(function successCallback(response) {
                     var questionObj = response.data;
@@ -38,7 +34,7 @@ angular.module('samarth-webcomponents')
             updatequestion: function(questiondata, answer) {
                 return $http({
                     method: 'PATCH',
-                    url: 'http://localhost:8081/candidates/' + candidateid + '/' +
+                    url: '/candidates/' + candidateid + '/' +
                         answer,
                     data: questiondata
                 }).then(function successCallback(response) {
