@@ -2,10 +2,16 @@
  <md-card>
     <div layout="row">
 	   <input type="text" name="searchBox" md-focus ng-model="searchString" placeholder="Search Jobs" class="md-block">
-	   
-	   <span><md-button class="md-button" aria-label="search" ng-click="s(searchString)" ui-sref="index.home.jobSearch">
+	    
+	    <span>
+	    <md-button class="md-raised md-primary" aria-label="search" ng-click="s(searchString)" ui-sref="index.home.jobSearch">
+	    <md-icon>search</md-icon>
+	    </md-button>
+	    </span>
+
+	   <!-- <span><md-button class="md-button" aria-label="search" ng-click="s(searchString)" ui-sref="index.home.jobSearch">
 			<md-icon>search</md-icon>
-	   </md-button></span>
+	   </md-button></span> -->
 	  </div> 
 
 	</md-card>
