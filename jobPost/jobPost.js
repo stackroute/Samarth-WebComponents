@@ -1,7 +1,7 @@
 (function(){
   'use strict';
     angular
-        .module("samarth-webcomponents",[])
+        .module("samarth-webcomponents")
         .config(jobPostconfig);
         function jobPostconfig($stateProvider, $urlRouterProvider){
         $urlRouterProvider.otherwise('/');
