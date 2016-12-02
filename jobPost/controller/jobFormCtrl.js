@@ -5,6 +5,7 @@
       .controller('dialogController', dialogController);
       function dialogController ($scope,$mdDialog) 
                {  $scope.skills=[{}];
+                  $scope.qualifications=[{}];
                   $scope.showJobDesc = function(event,jobCtrl) {
                   $mdDialog.show({
                   clickOutsideToClose: true,
