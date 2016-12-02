@@ -3,7 +3,7 @@
    angular
     .module("samarth-webcomponents")
     .component("criteria",{
-        templateUrl: 'jobPost/template/criteria.html',
+        templateUrl: './samarth-webcomponents/jobPost/template/criteria.html',
         bindings: { name: '=',
                      txt: '@'      
                   },
@@ -14,7 +14,6 @@
               function criteriaCtrl(){
               var vm = this;
               vm.criteria = {};
-              vm.x="123";
               vm.criteria.qualifications={};
       }
 })();

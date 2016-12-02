@@ -11,7 +11,7 @@
                   scope: $scope,
                   fullscreen: true,        
                   preserveScope: true,           
-                  templateUrl: 'jobPost/template/jobDescForm.html',
+                  templateUrl: './samarth-webcomponents/jobPost/template/jobDescForm.html',
                   controller: function dialogController($scope, $mdDialog) {
                        $scope.expertise = [
                                               "Beginner",
@@ -53,7 +53,7 @@
                   scope: $scope,
                   fullscreen: true,        
                   preserveScope: true,           
-                  templateUrl: 'jobPost/template/criteriaForm.html',
+                  templateUrl: './samarth-webcomponents/jobPost/template/criteriaForm.html',
                   controller: function dialogController($scope, $mdDialog) {
                      $scope.priority = [
                                               "Mandatory",

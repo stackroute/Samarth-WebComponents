@@ -10,7 +10,7 @@
             url:'/jobPost',
             views: {
                 'content@': {
-                    templateUrl: 'jobPost/template/jobPost.html',
+                    templateUrl: './samarth-webcomponents/jobPost/template/jobPost.html',
                 }
             }
      
