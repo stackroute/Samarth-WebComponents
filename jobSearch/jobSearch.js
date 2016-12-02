@@ -1,7 +1,7 @@
 (function(){
   'use strict'
 angular
-  .module("samarth-webcomponents",[])
+  .module("samarth-webcomponents")
   .config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider
@@ -9,7 +9,7 @@ angular
       url:'/jobsearch',
       views:{
         'content@': {
-          templateUrl: 'jobSearch/template/jobSearchIndex.html'
+          templateUrl: './samarth-webcomponents/jobSearch/template/jobSearchIndex.html'
         }
       }
     })
