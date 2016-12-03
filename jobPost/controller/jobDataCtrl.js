@@ -12,7 +12,7 @@
 
                 function submitJob(){
                  alert("works "+$scope.jobData.desc.role);
-                 console.log($scope.jobData.criteria.name);
+                 console.log($scope.jobData.criteria.renumeration);
                 }
         }
 })();
