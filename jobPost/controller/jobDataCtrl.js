@@ -3,15 +3,15 @@
   angular
     .module("samarth-webcomponents")
     .controller('jobDataCtrl',jobDataCtrl);
-    function jobDataCtrl(){
-                var vm = this;
-                vm.jobData={};
-                vm.jobData.desc={};
-                vm.jobData.criteria={};
+    function jobDataCtrl($scope){
+                // var vm = this;
+                $scope.jobData={};
+                $scope.jobData.desc={};
+                $scope.jobData.criteria={};
                 // vm.jobData.employer={};
 
-                vm.submitJob=function(){
-                  alert("working  "+ vm.jobData);
+                $scope.submitJob=function(){
+                  console.log(jobData);
                 }
         }
 })();
