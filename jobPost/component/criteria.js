@@ -15,6 +15,6 @@
               var vm = this;
               vm.criteria = {};
               vm.criteria.qualifications={};
-              data.criteria=vm.criteria;
+              vm.data.criteria=vm.criteria;
       }
 })();
