@@ -33,8 +33,8 @@
                       };
                     
                       function submitDescData()
-                     {  jobCtrl.job=$scope.job;
-                        jobCtrl.job.skills=$scope.skills;
+                     {  jobCtrl.data=$scope.job;
+                        // jobCtrl.job.skills=$scope.skills;
                         $mdDialog.hide();
                       }
                         $scope.closeDialog = function() {
