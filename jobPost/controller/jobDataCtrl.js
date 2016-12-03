@@ -11,7 +11,7 @@
                 // vm.jobData.employer={};
 
                 $scope.submitJob=function(){
-                  console.log(jobData);
+                  console.log($scope.jobData);
                 }
         }
 })();
