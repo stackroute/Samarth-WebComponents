@@ -4,7 +4,7 @@
     .module("samarth-webcomponents")
     .component("criteria",{
         templateUrl: './samarth-webcomponents/jobPost/template/criteria.html',
-        bindings: { name: '=',
+        bindings: { data: '<',
                      txt: '@'      
                   },
                   controller: 'criteriaCtrl',
@@ -15,5 +15,6 @@
               var vm = this;
               vm.criteria = {};
               vm.criteria.qualifications={};
+              data.criteria=vm.criteria;
       }
 })();

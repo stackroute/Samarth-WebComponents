@@ -4,7 +4,7 @@
       .module('samarth-webcomponents')
       .component('jobDesc',{
       templateUrl: './samarth-webcomponents/jobPost/template/jobDesc.html',
-      bindings: { name: '=',
+      bindings: { data: '<',
                    txt: '@'      
                 },
        controller:'jobDescCtrl',
@@ -18,7 +18,7 @@
             vm.job={};
             vm.job.skills={};
             vm.newSkill=newSkill;
-
+            data.desc=vm.job;
             function newSkill(chip) {
             return {
                 name: chip,

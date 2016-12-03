@@ -11,6 +11,7 @@
             views: {
                 'content@': {
                     templateUrl: './samarth-webcomponents/jobPost/template/jobPost.html',
+                    controller: 'jobDataCtrl',
                 }
             }
      
