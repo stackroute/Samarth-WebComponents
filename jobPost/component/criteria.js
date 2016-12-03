@@ -13,7 +13,7 @@
               .controller('criteriaCtrl',criteriaCtrl);
               function criteriaCtrl(){
               var vm = this;
-              vm.data.criteria={};
-              vm.data.criteria.qualifications={};
+              vm.criteria={};
+              vm.criteria.qualifications={};
       }
 })();

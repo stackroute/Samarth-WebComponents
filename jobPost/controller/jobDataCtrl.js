@@ -6,13 +6,13 @@
     function jobDataCtrl($scope){
                 // var vm = this;
                 $scope.jobData={};
-                // $scope.jobData.desc={};
-                // $scope.jobData.criteria={};
+                $scope.jobData.desc={};
+                $scope.jobData.criteria={};
                 // vm.jobData.employer={};
 
                 $scope.submitJob=function(){
-                    alert("works "+$scope.jobData.role);
-                    console.log($scope.jobData);
+                    alert("works "+$scope.jobData.desc.role);
+                    console.log($scope.jobData.criteria);
                 }
         }
 })();

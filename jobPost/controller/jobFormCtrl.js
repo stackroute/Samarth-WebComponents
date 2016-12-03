@@ -33,8 +33,9 @@
                       };
                     
                       function submitDescData()
-                     {  jobCtrl.data=$scope.job;
-                        jobCtrl.data.skills=$scope.skills;
+                     {  jobCtrl.job=$scope.job;
+                        jobCtrl.job.skills=$scope.skills;
+                        jobCtrl.data.desc=jobCtrl.job;
                         $mdDialog.hide();
                       }
                         $scope.closeDialog = function() {
@@ -67,8 +68,9 @@
 
                       function submitCriteriaData()
                      {
-                        criteriaCtrl.data.criteria=$scope.criteria;
-                        criteriaCtrl.data.criteria.qualifications=$scope.qualifications;
+                        criteriaCtrl.criteria=$scope.criteria;
+                        criteriaCtrl.criteria.qualifications=$scope.qualifications;
+                        criteriaCtrl.data.criteria=criteriaCtrl.criteria;
                         $mdDialog.hide();
                       }
                         $scope.closeDialog = function() {
