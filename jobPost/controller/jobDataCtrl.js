@@ -11,7 +11,8 @@
                 // vm.jobData.employer={};
 
                 $scope.submitJob=function(){
-                  console.log($scope.jobData);
+                    alert("works");
+                  console.log($scope.jobData.desc.role);
                 }
         }
 })();
