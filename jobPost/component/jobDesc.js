@@ -18,7 +18,6 @@
             vm.job={};
             vm.job.skills={};
             vm.newSkill=newSkill;
-            // vm.data.desc=vm.job;
             function newSkill(chip) {
             return {
                 name: chip,

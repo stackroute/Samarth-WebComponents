@@ -8,11 +8,11 @@
                 $scope.jobData={};
                 $scope.jobData.desc={};
                 $scope.jobData.criteria={};
-                // vm.jobData.employer={};
+                $scope.submitJob=submitJob;
 
-                $scope.submitJob=function(){
-                    alert("works "+$scope.jobData.desc.role);
-                    console.log($scope.jobData.criteria);
+                function submitJob(){
+                 alert("works "+$scope.jobData.desc.role);
+                 console.log($scope.jobData.criteria.name);
                 }
         }
 })();
