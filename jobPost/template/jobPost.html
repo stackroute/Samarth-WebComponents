@@ -1,15 +1,15 @@
 <!doctype html>
 <html ng-cloak>
 <head>
-	<title>Job Post</title>
+	<title>Job</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
 </head>
 <body ng-controller="jobDataCtrl"> 
-  <div layout="column" layout-align="center center" class="wrapper" >
+  <div layout="column" layout-align="center center" class="wrapper">
     <h3 class="md-display-2">Job Profile</h3>
-    <!-- <div layout="row" layout-align="center center">
+    <div layout="row" layout-align="center center">
       <md-autocomplete
           ng-disabled="ctrl.isDisabled"
           md-no-cache="ctrl.noCache"
@@ -29,15 +29,15 @@
           <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
         </md-not-found>
       </md-autocomplete>
-    </div><br> -->
-    <div layout="row" layout-align="center center" flex layout-fill>
-      <job-desc data='jobData' flex-gt-xs="50"></job-desc>
     </div>
     <div layout="row" layout-align="center center" flex layout-fill>
-      <criteria data='jobData' flex-gt-xs="50"></criteria>
+      <job-desc data="jobData" flex-gt-xs="50"></job-desc>
     </div>
-    <div layout="row" layout-align="center center" flex>
-      <md-button class="md-primary md-raised" ng-click="submitJob()">
+    <div layout="row" layout-align="center center" flex layout-fill>
+      <criteria data="jobData" flex-gt-xs="50"></criteria>
+    </div>
+    <div layout="row" layout-align="center center" >
+      <md-button class="md-primary md-raised" ng-click="submitJob()" flex-gt-md="auto">
         Post your job !
       </md-button>
     </div>
