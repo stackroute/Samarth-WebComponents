@@ -34,7 +34,7 @@
                     
                       function submitDescData()
                      {  jobCtrl.data=$scope.job;
-                        // jobCtrl.job.skills=$scope.skills;
+                        jobCtrl.data.skills=$scope.skills;
                         $mdDialog.hide();
                       }
                         $scope.closeDialog = function() {
@@ -67,8 +67,8 @@
 
                       function submitCriteriaData()
                      {
-                        criteriaCtrl.criteria=$scope.criteria;
-                        criteriaCtrl.criteria.qualifications=$scope.qualifications;
+                        criteriaCtrl.data.criteria=$scope.criteria;
+                        criteriaCtrl.data.criteria.qualifications=$scope.qualifications;
                         $mdDialog.hide();
                       }
                         $scope.closeDialog = function() {

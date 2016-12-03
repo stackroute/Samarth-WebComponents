@@ -15,8 +15,7 @@
       .controller('jobDescCtrl',jobDescCtrl);
       function jobDescCtrl(){
             var vm=this;
-            vm.job={};
-            vm.job.skills={};
+            vm.data.skills={};
             vm.newSkill=newSkill;
             // vm.data.desc=vm.job;
             function newSkill(chip) {
