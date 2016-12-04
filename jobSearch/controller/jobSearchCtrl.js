@@ -1,7 +1,7 @@
 (function(){
   'use strict'
 	angular
-	   .module('samarth-webcomponents')
+	   .module('samarth.jobSearch')
 		 .controller('jobSearchCtrl', function($rootScope,jobSearchFactory, $scope, $http) {
 		  	var vm = this;
 		  	vm.arrayLength=0;
@@ -21,9 +21,9 @@
 	      	//console.log("for");
 			 	vm.title=vm.result[i].Title;
 				if(vm.title==$scope.searchString)
-				{	console.log("b4 push");
+				{	/*console.log("b4 push");*/
 		     vm.arrayspace.push(vm.result[i]);
-		     console.log("after push");
+		     //console.log("after push");
 				 $rootScope.$broadcast('san',vm.arrayspace);
 				}
 				else {
@@ -33,8 +33,7 @@
 				})
 			}
 	});
-})();		 
-
+})();
 	 //bckp
 // angular
 //    .module('samarth.jobSearch')

@@ -12,16 +12,16 @@
           <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Language</strong></span>
           {{item.language}}
           </p>
-       <div layout="row" layout-xs="column" layout-md="row">
-         <p flex="20"><span><ng-md-icon icon="location_on" size="20"><md-tooltip>Location</md-tooltip></ng-md-icon>
-            </span><span>{{item.location}}</span> 
+       <div layout-gt-md="row" layout-xs="column" layout-md="row" layout-sm="column"  flex-gt-md="90"  flex-xs="10">
+         <p ><span><ng-md-icon icon="location_on" size="20"><md-tooltip>Location</md-tooltip></ng-md-icon>
+            <span>{{item.location}}</span></span> 
          </p>
-         <p flex="20"><span><ng-md-icon icon="event_busy" size="20"><md-tooltip>Closing Date For the Job</md-tooltip>
+         <p ><span><ng-md-icon icon="event_busy" size="20"><md-tooltip>Closing Date For the Job</md-tooltip>
                             </ng-md-icon>
                             {{item.closeDate|date:'DD-MM-YYYY'}}
          </span></p>
-         <p flex="20"><span><ng-md-icon icon="person_add" size="20"><md-tooltip>
-            Job openings
+         <p ><span><ng-md-icon icon="person_add" size="20"><md-tooltip>
+            Job op3nings
           </md-tooltip></ng-md-icon></span>&nbsp;
                 {{item.jobOpennings}}
          </p>  
