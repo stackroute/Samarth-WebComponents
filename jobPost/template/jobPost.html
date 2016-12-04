@@ -1,11 +1,11 @@
 <!doctype html>
-<html ng-cloak>
+<!-- <html ng-cloak>
 <head>
 	<title>Job</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-</head>
+</head> -->
 <!-- <body ng-controller="jobDataCtrl"> 
   <div layout="column" layout-align="center center" class="wrapper">
     <h3 class="md-display-2">Job Profile</h3>
@@ -43,6 +43,15 @@
     </div>
   </div> -->
 <!-- </body> -->
+<!-- </html> -->
+<html ng-cloak>
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css">
+</head>
 <body ng-controller="jobDataCtrl"> 
   <div layout="column" layout-align="center center" class="wrapper" >
     <h3 class="md-display-2">Job Profile</h3>
@@ -79,7 +88,23 @@
       <md-button class="md-primary md-raised" ng-click="submitJ()" flex-gt-md="auto">
         Post your job !
       </md-button>
+      {{jobData || json}}
     </div>
   </div>
- </body> 
+   <!-- <script src="../bower_components/angular/angular.js"></script>
+  // <script src="../bower_components/angular-animate/angular-animate.js"></script>
+  // <script src="../bower_components/angular-aria/angular-aria.js"></script>
+  // <script src="../bower_components/angular-messages/angular-messages.js"></script>
+  // <script src="../bower_components/angular-material-icons/angular-material-icons.js"></script>
+  // <script src="../bower_components/svg-assets-cache.js/svg-assets-cache.js"></script>
+  // <script src="../bower_components/angular-material/angular-material.js"></script>
+  // <script src="../jobPost.js"></script>
+  // <script src="../controller/jobDataCtrl.js"></script>
+  // <script src="../component/jobDesc.js"></script>
+  // <script src="../component/criteria.js"></script>
+  // <script src="../controller/jobFormCtrl.js"></script>
+  // <script src="../factory/jobDataFactory.js"></script> -->
+  
+
+</body>
 </html>
