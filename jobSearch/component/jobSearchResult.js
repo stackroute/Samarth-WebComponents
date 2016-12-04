@@ -1,9 +1,9 @@
 (function(){
   'use strict'
 angular
-  .module('samarth-webcomponents')
+  .module('samarth.jobSearch')
   .component("jobSearchResult",{
-    templateUrl:'./samarth-webcomponents/jobSearch/template/jobSearchResult.html',
+    templateUrl:'jobSearch/template/jobSearchResult.html',
     bindings:{
        value:'='
       },
@@ -21,3 +21,4 @@ angular
     }
   })
 })(); 
+

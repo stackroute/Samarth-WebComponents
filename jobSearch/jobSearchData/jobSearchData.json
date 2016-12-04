@@ -6,63 +6,70 @@
       "duties":"has to work for ui for websites project",
       "skills":[{
           "name":"angular",
-          "experise":"expert"
+          "expertise":"expert"
                 },
                 {
            "name":"react",
-           "experise":"beginner"
+           "expertise":"beginner"
               }],
+      "location":"Gurugram gdsfsjffjf",
       "language":"english",
       "jobOpennings":"6",
-      "closeDate": "mm/dd/yyyy",
-      "qualification": ".....",
+      "closeDate": "23/03/2017",
+      "qualification": "A Graduate With Knowledge of Web Front-End-Developer ",
       "Experience": "3years",
       "Gender": "Male",
-      "salary":"200000 l.p",
+      "salary":"200000 L.P.A.",
       "Company Name": "Wipro Digital",
       "Company Website": "http://careers.wipro.com/",
       "Employer's Email": "wipromanager@wipro.com"
     },
     {
+      
       "Title": "need",
       "role": "Front-End-Developer",
       "duties":"has to work for ui for websites project",
       "skills":[{
           "name":"angular",
-          "experise":"expert"
+          "expertise":"expert"
                 },
                 {
            "name":"react",
-           "experise":"beginner"
+           "expertise":"beginner"
               }],
+      "location":"Gurugram",
       "language":"english",
       "jobOpennings":"6",
-      "closeDate": "mm/dd/yyyy",
-      "qualification": ".....",
-      "Experience": "7years",
+      "closeDate": "23/03/2017",
+      "qualification": "A Graduate With Knowledge of Web Front-End-Developer ",
+      "Experience": "3years",
       "Gender": "Male",
+      "salary":"200000 L.P.A.",
       "Company Name": "Wipro Digital",
       "Company Website": "http://careers.wipro.com/",
       "Employer's Email": "wipromanager@wipro.com"
     },
     {
+      
       "Title": "need",
       "role": "Front-End-Developer",
       "duties":"has to work for ui for websites project",
       "skills":[{
           "name":"angular",
-          "experise":"expert"
+          "expertise":"expert"
                 },
                 {
            "name":"react",
-           "experise":"beginner"
+           "expertise":"beginner"
               }],
+      "location":"Gurugram",
       "language":"english",
       "jobOpennings":"6",
-      "closeDate": "mm/dd/yyyy",
-      "qualification": ".....",
-      "Experience": "2years",
+      "closeDate": "23/03/2017",
+      "qualification": "A Graduate With Knowledge of Web Front-End-Developer ",
+      "Experience": "3years",
       "Gender": "Male",
+      "salary":"200000 L.P.A.",
       "Company Name": "Wipro Digital",
       "Company Website": "http://careers.wipro.com/",
       "Employer's Email": "wipromanager@wipro.com"
