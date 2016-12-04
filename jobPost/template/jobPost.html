@@ -1,13 +1,13 @@
 <!doctype html>
 <html ng-cloak>
 <head>
-  <title></title>
+  <title>Job Profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
 </head>
 <body> 
-  <div layout="column" layout-align="center center" class="wrapper" >
+  <div layout="column" layout-align="center center" class="wrapper" ng-controller="jobDataCtrl">
     <h3 class="md-display-2">Job Profile</h3>
     <div layout="row" layout-align="center center">
       <md-autocomplete
@@ -34,7 +34,7 @@
       <job-desc flex-gt-xs="50"></job-desc>
     </div><br>
     <div layout="row" layout-align="center center" flex layout-fill>
-      <criteria flex-gt-xs="50" flex="300"></criteria>
+      <criteria flex-gt-xs="50"></criteria>
     </div>
   </div>
 </body>
