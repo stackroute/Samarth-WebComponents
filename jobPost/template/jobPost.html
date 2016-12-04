@@ -29,22 +29,18 @@
           <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
         </md-not-found>
       </md-autocomplete>
-    </div><br>
-    <div layout="row" layout-align="center center" layout-fill>
+    </div>
+    <div layout="row" layout-align="center center">
       <job-desc flex-gt-xs="50"></job-desc>
-    </div><br>
-    <div layout="row" layout-align="center center" layout-fill>
+    </div>
+    <div layout="row" layout-align="center center">
       <criteria flex-gt-xs="50"></criteria>
     </div>
-    <section>
       <div layout="row" layout-align="center center" >
       <md-button class="md-primary md-raised" ng-click="submitJob()" flex-gt-md="auto">
         Post your job !
       </md-button>
-      {{jobData || json}}
     </div>
-    </section>
-    
   </div>
 </body>
 </html>
