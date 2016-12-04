@@ -29,15 +29,13 @@
                         
                         function addInput() {
                         $scope.skill={};
-                        $scope.skill.name = $scope.skill.name;
-                        $scope.skill.expertise = $scope.skill.expertise;
-                        $scope.skill.priority = $scope.skill.priority;
                         $scope.skills.push($scope.skill);
                       };
                     
                       function submitDescData()
                      {  jobCtrl.job=$scope.job;
                         jobCtrl.job.skills=$scope.skills;
+                        jobCtrl.data.desc=jobCtrl.job;
                         $mdDialog.hide();
                       }
                         $scope.closeDialog = function() {
@@ -59,11 +57,20 @@
                      $scope.priority = [
                                               "Mandatory",
                                               "Optional",
-                                          ];                   
+                                          ];               
+                     $scope.addQual=addQual;                          
                      $scope.submitCriteriaData=submitCriteriaData;
+
+                      function addQual(){
+                        $scope.qualification={};
+                        $scope.qualifications.push($scope.qualification);
+                      }
+
                       function submitCriteriaData()
                      {
                         criteriaCtrl.criteria=$scope.criteria;
+                        criteriaCtrl.criteria.qualifications=$scope.qualifications;
+                        criteriaCtrl.data.criteria=criteriaCtrl.criteria;
                         $mdDialog.hide();
                       }
                         $scope.closeDialog = function() {
