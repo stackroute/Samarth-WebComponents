@@ -6,7 +6,7 @@
         function jobPostconfig($stateProvider, $urlRouterProvider){
         $urlRouterProvider.otherwise('/');
          $stateProvider
-         .state('index.home.jobPost', {
+         .state('index.jobPost', {
             url:'/jobPost',
             views: {
                 'content@': {
