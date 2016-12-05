@@ -5,7 +5,7 @@ angular
   .config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider
-    .state('index.home.jobSearch', {
+    .state('index.jobSearch', {
       url:'/jobsearch',
       views:{
         'content@': {
