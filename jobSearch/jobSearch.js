@@ -6,7 +6,7 @@ angular
     $urlRouterProvider.otherwise('/');
     $stateProvider
     .state('index.jobSearch', {
-      url:'/jobsearch',
+      url:'jobsearch',
       views:{
         'content@': {
           templateUrl: './samarth-webcomponents/jobSearch/template/jobSearchIndex.html'
