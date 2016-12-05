@@ -9,8 +9,7 @@
         jobPost :  jobPost
       };
       return service;
-    }
-
+   
     function jobPost(job){
      return $http({
         method : 'post',
@@ -20,4 +19,5 @@
       return response;
      });
    }
+ }
 })();
