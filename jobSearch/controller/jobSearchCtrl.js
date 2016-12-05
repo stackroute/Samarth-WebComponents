@@ -1,7 +1,7 @@
 (function(){
   'use strict'
 	angular
-	   .module('samarth.jobSearch')
+	   .module('samarth-webcomponents')
 		 .controller('jobSearchCtrl', function($rootScope,jobSearchFactory, $scope, $http) {
 		  	var vm = this;
 		  	vm.arrayLength=0;
