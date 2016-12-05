@@ -3,7 +3,7 @@
   angular
     .module("samarth-webcomponents")
     .controller('jobDataCtrl',jobDataCtrl);
-    function jobDataCtrl($scope){
+    function jobDataCtrl($scope,jobProfileFactory){
                 // var vm = this;
                 $scope.jobData={};
                 $scope.jobData.desc={};
