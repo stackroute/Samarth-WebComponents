@@ -1,4 +1,4 @@
-angular.module("samarth-webcomponents",[])
+angular.module("samarth-webcomponents")
     .config(function($stateProvider, $urlRouterProvider){
 
     $urlRouterProvider.otherwise('/');
