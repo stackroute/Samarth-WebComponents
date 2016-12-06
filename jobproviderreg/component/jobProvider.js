@@ -3,7 +3,7 @@
    angular
     .module("samarth-webcomponents")
     .component("jobprovider",{
-        templateUrl: 'jobproviderreg/template/jobproviderreg.html',
+        templateUrl: './samarth-webcomponents/jobproviderreg/template/jobproviderreg.html',
         bindings: { name: '=',
                      txt: '@'
                   },

@@ -3,12 +3,12 @@ angular.module("samarth-webcomponents")
 
     $urlRouterProvider.otherwise('/');
      $stateProvider
-     .state('index.home.empreg', {
-        url:'/employerregistration',
+     .state('index.empreg', {
+        url:'employerregistration',
         views: {
             'content@': {
-                templateUrl: 'jobproviderreg/template/jobproviderregistration.html',
-                controller:'jobProviderCtrl'
+                templateUrl: './samarth-webcomponents/jobproviderreg/template/jobproviderregistration.html',
+                controller:'jobproviderctrl'
 
             }
         }
