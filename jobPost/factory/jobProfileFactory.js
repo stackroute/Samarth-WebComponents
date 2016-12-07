@@ -9,15 +9,14 @@
         jobPost :  jobPost
       };
       return service;
-    }
-
+   
     function jobPost(job){
      return $http({
         method : 'post',
-        url : '/jobpost',
+        url : '/jobProfile/jobpost',
         data : job
-     }).then(function success(response){
-      return response;
-     });
+     })
+    
    }
+ }
 })();
