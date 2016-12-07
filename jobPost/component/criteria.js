@@ -12,7 +12,7 @@
               })
               .controller('criteriaCtrl',criteriaCtrl);
               function criteriaCtrl(){
-              var vm = this;
+              let vm = this;
               vm.criteria={};
               vm.criteria.qualifications={};
       }

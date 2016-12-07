@@ -10,20 +10,21 @@
        controller:'jobDescCtrl',
        controllerAs:'vm',
        scope:true,
-       transclude:true,
+       transclude:true
       })
-      .controller('jobDescCtrl',jobDescCtrl);
+      .controller('jobDescCtrl', jobDescCtrl);
       function jobDescCtrl(){
-            var vm=this;
+            let vm=this;
             vm.job={};
             vm.job.skills={};
-            vm.newSkill=newSkill;
+            vm.newSkill=function(){};
+
             function newSkill(chip) {
             return {
                 name: chip,
                 expertise: 'unknown',
-                priority:'unknown',
+                priority:'unknown'
             };
-          };
+          }
       }
       }());
