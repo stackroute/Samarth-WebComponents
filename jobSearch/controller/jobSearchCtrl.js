@@ -1,15 +1,16 @@
 (function(){
   'use strict'
-	angular
-	   .module('samarth-webcomponents')
-		 .controller('jobSearchCtrl', function($rootScope,jobSearchFactory, $scope, $http) {
+angular
+	  .module('samarth-webcomponents')
+		.controller('jobSearchCtrl', function($rootScope,jobSearchFactory, $scope, $http) {
 		  	var vm = this;
-		  	vm.arrayLength=0;
-		  	vm.arrayspace=[];
 		  	vm.result = [{}];
-		  	// vm.i=0;
-		  	vm.title="";
+		    vm.title="";
+
 		  	$scope.s=function(key){
+		  	vm.arrayspace=[];
+		  	vm.arrayLength=0;
+
 		  	jobSearchFactory.searchJobDetails().then(function(response){
 				//console.log(searchString);
 				vm.result = response.data.Search;
