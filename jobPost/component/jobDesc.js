@@ -1,4 +1,4 @@
-(function(){
+(function (){
   'use strict';
    angular
       .module('samarth-webcomponents')
@@ -26,4 +26,4 @@
             };
           };
       }
-      })();
+      }());
