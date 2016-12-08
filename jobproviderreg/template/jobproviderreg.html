@@ -20,8 +20,8 @@
 
           <md-input-container class="md-block">
             <md-icon></md-icon>
-            <input ng-model="vm.jobprovider.jbCode" name="number" type="text"  md-maxlength="5" md-minlength="5" placeholder="Job-Provider Code" ng-required="true">
-            <div ng-messages="myForm.number.$error" ng-show="myForm.number.$dirty || myForm.Name.$touched">
+            <input ng-model="vm.jobprovider.jpCode" md-minlength="5" name="jpCode" type="Number" placeholder="Job-Provider Code" ng-required="true">
+            <div ng-messages="myForm.jpCode.$error" ng-show="myForm.jpCode.$dirty || myForm.jpCode.$touched">
               <div ng-message="pattern">5 digit number is allowed only </div>
             </div>
           </md-input-container>
