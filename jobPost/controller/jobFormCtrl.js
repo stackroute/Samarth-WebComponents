@@ -1,4 +1,4 @@
-(function(){
+(function (){
    'use strict'
     angular
       .module('samarth-webcomponents')
@@ -22,7 +22,7 @@
                                           ];
                         $scope.priority = [
                                               "Mandatory",
-                                              "Optional",
+                                              "Optional"
                                           ];  
                         $scope.addInput=addInput;                                    
                         $scope.submitDescData=submitDescData;
@@ -56,7 +56,7 @@
                   controller: function dialogController($scope, $mdDialog) {
                      $scope.priority = [
                                               "Mandatory",
-                                              "Optional",
+                                              "Optional"
                                           ];               
                      $scope.addQual=addQual;                          
                      $scope.submitCriteriaData=submitCriteriaData;
@@ -78,6 +78,6 @@
                      }
                   }
                });
-            };
+            }
 }
-})();
+}());
