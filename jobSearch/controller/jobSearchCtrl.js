@@ -7,7 +7,7 @@ angular
 		  	vm.result = [{}];
 		    vm.title="";
 
-		  	$scope.s=function(key){
+		  	$scope.searchfun=function(key){
 		  	vm.arrayspace=[];
 		  	vm.arrayLength=0;
 
@@ -20,7 +20,7 @@ angular
 				//var arrayspace=[];
 	      for(var i=0;i<vm.arrayLength;i++){
 	      	//console.log("for");
-			 	vm.title=vm.result[i].Title;
+			 	vm.title=vm.result[i].title;
 				if(vm.title==$scope.searchString)
 				{	/*console.log("b4 push");*/
 		     vm.arrayspace.push(vm.result[i]);
