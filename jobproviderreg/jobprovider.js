@@ -7,8 +7,7 @@ angular.module("samarth-webcomponents")
         url:'employerregistration',
         views: {
             'content@': {
-                templateUrl: './samarth-webcomponents/jobproviderreg/template/jobproviderregistration.html',
-                controller:'jobproviderctrl'
+                templateUrl: './samarth-webcomponents/jobproviderreg/template/jobproviderregistration.html'
 
             }
         }
