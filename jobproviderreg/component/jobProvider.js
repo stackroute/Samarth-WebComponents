@@ -19,8 +19,8 @@
       					function subjobprovider(){
       						alert("subjobprovider works");
       						console.log(vm.jobprovider);
-                  vm.jobprovider.ID= vm.jobprovider.phone
-                    console.log(vm.jobprovider.ID);
+                  // vm.jobprovider.ID= vm.jobprovider.phone
+                    // console.log(vm.jobprovider.ID);
       						jobproviderfactory.jobproviderdata(vm.jobprovider).then(function(response){
       							 console.log("Data post success");
       						}),function(err){
