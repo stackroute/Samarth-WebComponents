@@ -12,6 +12,8 @@
 
                 jobProviderList.getJobProvider().then(function(response){
                     //succes data get
+                    // console.log(response.data);
+                    $scope.querySearch=response.data;
                  }),function(err){
                     console.log('Error in job provider data');
                  }
