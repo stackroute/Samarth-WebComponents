@@ -6,9 +6,19 @@
 
     function jobproviderfactory($http){
       var service = {
-        jobproviderdata :  jobproviderdata
+        jobproviderdata :  jobproviderdata,
+        jpCodeCheck : jpCodeCheck
       };
       return service;
+
+    function jpCodeCheck(jpCode){
+      console.log(jpCode);
+      return $http({
+        method : 'GET',
+        url : '/employer/codeCheck/'+jpCode
+      })
+
+    }
 
     function jobproviderdata(data){
      return $http({

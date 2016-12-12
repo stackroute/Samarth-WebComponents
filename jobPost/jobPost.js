@@ -16,5 +16,14 @@
             }
      
         })
-     }
+     //     .state('index.jobPost.ui', {
+     //        url:'qwe',
+     //        views: {
+     //            'content@': {
+     //                template: "<h1>'./samarth-webcomponents/jobPost/template/jobPost.html'</h1>"
+                   
+     //            }
+            
+          }
+     // });
  }());   
