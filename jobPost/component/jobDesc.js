@@ -4,7 +4,7 @@
       .module('samarth-webcomponents')
       .component('jobDesc',{
       templateUrl: './samarth-webcomponents/jobPost/template/jobDesc.html',
-      bindings: { data: '=',
+      bindings: { data: '<',
                    txt: '@'      
                 },
        controller:'jobDescCtrl',
