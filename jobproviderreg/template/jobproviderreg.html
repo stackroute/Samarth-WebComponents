@@ -20,9 +20,9 @@
 
           <md-input-container class="md-block">
             <md-icon></md-icon>
-            <input ng-model="vm.jobprovider.code" name="number" type="text"  md-maxlength="5" md-minlength="5" placeholder="Job-Provider Code" ng-required="true">
-            <div ng-messages="myForm.number.$error" ng-show="myForm.number.$dirty || myForm.Name.$touched">
-              <div ng-message="pattern">5 digit number is allowed only </div>
+            <input ng-model="vm.jobprovider.jpCode" ng-minlength="5" ng-maxlength="5" name="jpCode" type="text" placeholder="Job-Provider Code" ng-required="true">
+            <div ng-messages="myForm.jpCode.$error" ng-show="myForm.jpCode.$dirty || myForm.jpCode.$touched">
+              <div ng-message="pattern">Enter unique code</div>
             </div>
           </md-input-container>
 
@@ -61,6 +61,10 @@
 
           <section layout="row" layout-padding="" layout-align="center">
             <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
+          </section>
+
+          <section>
+              <h4>{{vm.msg}}</h4>
           </section>
         </form>
       </md-content>
