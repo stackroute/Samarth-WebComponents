@@ -14,7 +14,7 @@
 
     // Ctrl for circle component
     function circleCrtl($http, $log, $scope, $mdColorPalette) {
-        console.log('data : ' + this.data);
+        console.log('data : ');
         $scope.prof = this.data;
         let colors = Object.keys($mdColorPalette);
         $scope.gerColler = function(a) {
