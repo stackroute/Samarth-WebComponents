@@ -19,11 +19,12 @@
           </md-input-container>
 
           <md-input-container class="md-block">
-            <md-icon></md-icon>
+           <span>{{vm.availability}}
             <input ng-model="vm.jobprovider.jpCode" ng-minlength="5" ng-maxlength="5" name="jpCode" type="text" placeholder="Job-Provider Code" ng-required="true">
             <div ng-messages="myForm.jpCode.$error" ng-show="myForm.jpCode.$dirty || myForm.jpCode.$touched">
-              <div ng-message="pattern">Enter unique code</div>
+              <div ng-message="ng-minlength">Only 5 characters are allowed</div>
             </div>
+          </span>
           </md-input-container>
 
           <!-- radio -->
