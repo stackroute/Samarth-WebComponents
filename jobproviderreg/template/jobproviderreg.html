@@ -19,12 +19,12 @@
           </md-input-container>
 
           <md-input-container class="md-block">
-           <span>{{vm.availability}}
-            <input ng-model="vm.jobprovider.jpCode" ng-minlength="5" ng-maxlength="5" name="jpCode" type="text" placeholder="Job-Provider Code" ng-required="true">
+           <md-icon ng-show="vm.availability=='disabled'" style="color:black">do_not_disturb</md-icon>
+           <md-icon ng-show="vm.availability=='Available'" style="color:green">done</md-icon>
+           <md-icon ng-show="vm.availability=='Not available'" style="color:red">clear</md-icon>
+            <input ng-model="vm.jobprovider.jpCode" md-minlength="5" md-maxlength="5" name="jpCode" type="text" placeholder="Job-Provider Code" ng-required="true">
             <div ng-messages="myForm.jpCode.$error" ng-show="myForm.jpCode.$dirty || myForm.jpCode.$touched">
-              <div ng-message="ng-minlength">Only 5 characters are allowed</div>
             </div>
-          </span>
           </md-input-container>
 
           <!-- radio -->
@@ -64,8 +64,8 @@
             <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
           </section>
 
-          <section>
-              <h4>{{vm.msg}}</h4>
+          <section layout="row" layout-padding="" layout-align="center">
+              <span class="md-subhead">{{vm.msg}}</span>
           </section>
         </form>
       </md-content>
