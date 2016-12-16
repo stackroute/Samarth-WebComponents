@@ -1,0 +1,34 @@
+
+<md-card class="card transparent" md-colors="{background: 'grey-A100'}" >
+    <md-card-header>
+        <md-card-avatar>
+            <md-icon>business</md-icon>
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-headline">{{$ctrl.data.name}}</span>
+            <span class="md-subhead">{{$ctrl.data.jpCode}}</span>
+        </md-card-header-text>
+    </md-card-header>
+
+    <md-card-content layout="column">
+        <div layout="row">
+            <div layout="column" flex="30" flex-offset="25">
+                <p><span><ng-md-icon icon="group"><md-tooltip>Type</md-tooltip></ng-md-icon>{{$ctrl.data.type}}</span></p>
+                <p><span><ng-md-icon icon="phone"><md-tooltip>Contact</md-tooltip></ng-md-icon>{{$ctrl.data.phone}}</span></p>
+            </div>
+            <div layout="column">
+                <p><span><ng-md-icon icon="email"><md-tooltip>Email</md-tooltip></ng-md-icon>{{$ctrl.data.email}}</span></p>
+                <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.location}}</span></p>
+            </div>
+        </div>
+        <div layout="column" layout-margin>
+            <p><span class="md-title">About Us</span></p>
+            <p><span class="md-body-1">{{$ctrl.data.about}}</span></p>
+        </div>
+    </md-card-content>
+    <span ng-transclude="jobactions">
+        </span>
+    </md-card-actions>
+</md-card>
+
+<!-- </div> -->
