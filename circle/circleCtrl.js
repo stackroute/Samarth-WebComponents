@@ -2,7 +2,7 @@
 
 
     angular.module('samarth-webcomponents')
-        .component('dashboardCircle', {
+        .component('circle', {
             templateUrl:  './samarth-webcomponents/circle/templates/circles.html',
             controller: circleCtrl,
             bindings: {
