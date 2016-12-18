@@ -35,15 +35,25 @@
                  }
                });
                 function subjobprovider(){
-                  if(vm.availability=="Available"){
-                    jobproviderfactory.jobproviderdata(vm.jobprovider).then(function(response){
-                  vm.msg="Registered successfully";
+                  // if(vm.availability=="Available"){
+                  jobproviderfactory.jobproviderdata(vm.jobprovider).then(function(response){
+                  vm.msg=response.data.msg;
+                  jobproviderfactory.jpCodeCheck(vm.jobprovider.jpCode).then(function(response){
+                    if(response.data.count>=1){
+                    vm.availability="Not available";
+                    }if(response.data.count==0){
+                    // console.log(response.data.count+" =0");
+                    vm.availability="Available";
+                  }
+                  }),function(err){
+                    vm.msg="Some error occured!!";
+                  }
                   }),function(err){
                      vm.msg='Some error occurred';
                   }
-                }else{
-                  vm.msg="Please try with some other jobprovider code!!";
-                }
+                // }else{
+                //   vm.msg="Please try with some other jobprovider code!!";
+                // }
                   }
             
               }
