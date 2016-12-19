@@ -1,8 +1,8 @@
 
-<md-card class="card transparent" md-colors="{background: 'grey-A100'}" >
+<md-card class="card transparent" >
     <md-card-header>
         <md-card-avatar>
-            <md-icon>business</md-icon>
+          <img ng-src="{{$ctrl.data.url}}" class="md-user-avatar"/>
         </md-card-avatar>
         <md-card-header-text>
             <span class="md-headline">{{$ctrl.data.name}}</span>
@@ -10,24 +10,44 @@
         </md-card-header-text>
     </md-card-header>
 
-    <md-card-content layout="column">
-        <div layout="row">
-            <div layout="column" flex="30" flex-offset="25">
+    <md-card-content layout="column" >
+        <div layout="row" class="gutter">
+            <div layout="column" layout-padding >
                 <p><span><ng-md-icon icon="group"><md-tooltip>Type</md-tooltip></ng-md-icon>{{$ctrl.data.type}}</span></p>
-                <p><span><ng-md-icon icon="phone"><md-tooltip>Contact</md-tooltip></ng-md-icon>{{$ctrl.data.phone}}</span></p>
+                <!-- <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.location}}</span></p> -->
             </div>
-            <div layout="column">
-                <p><span><ng-md-icon icon="email"><md-tooltip>Email</md-tooltip></ng-md-icon>{{$ctrl.data.email}}</span></p>
+            <div layout="column" layout-padding>
+                <!-- <p><span><ng-md-icon icon="group"><md-tooltip>Type</md-tooltip></ng-md-icon>{{$ctrl.data.type}}</span></p> -->
                 <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.location}}</span></p>
             </div>
-        </div>
+          </div>
+            <!-- <div layout="column">
+
+
+            </div> -->
+            <div layout="row">
+                <div layout="column" layout-padding>
+                    <!-- <p><span><ng-md-icon icon="group"><md-tooltip>Type</md-tooltip></ng-md-icon>{{$ctrl.data.type}}</span></p> -->
+                    <!-- <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.location}}</span></p> -->
+                    <p><span><ng-md-icon icon="phone"><md-tooltip>Contact</md-tooltip></ng-md-icon>{{$ctrl.data.phone}}</span></p>
+                </div>
+                <div layout="column" layout-padding>
+                    <!-- <p><span><ng-md-icon icon="group"><md-tooltip>Type</md-tooltip></ng-md-icon>{{$ctrl.data.type}}</span></p> -->
+                    <!-- <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.location}}</span></p> -->
+                    <p><span><ng-md-icon icon="email"><md-tooltip>Email</md-tooltip></ng-md-icon>{{$ctrl.data.email}}</span></p>
+                </div>
+              </div>
+
+
+
         <div layout="column" layout-margin>
             <p><span class="md-title">About Us</span></p>
             <p><span class="md-body-1">{{$ctrl.data.about}}</span></p>
         </div>
+        <div layout="row"  layout-align="end center">
+              <p><span><ng-md-icon icon="delete" onclick="deletejp()"><md-tooltip>Delete</md-tooltip></ng-md-icon></span><span><ng-md-icon icon="create"  ui-sref="index.empreg({'key':1,'key1':'{{$ctrl.data.jpCode}}'})" ><md-tooltip>Edit</md-tooltip></ng-md-icon>
+        </div>
     </md-card-content>
-    <span ng-transclude="jobactions">
-        </span>
     </md-card-actions>
 </md-card>
 
