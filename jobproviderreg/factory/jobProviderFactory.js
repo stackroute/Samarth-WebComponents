@@ -7,7 +7,8 @@
     function jobproviderfactory($http){
       var service = {
         jobproviderdata :  jobproviderdata,
-        jpCodeCheck : jpCodeCheck
+        jpCodeCheck : jpCodeCheck,
+        getJobProviderbyid: getJobProviderbyid
       };
       return service;
 
