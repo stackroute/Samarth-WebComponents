@@ -16,10 +16,11 @@
     function jobproviderreg($scope, jobproviderfactory, $state) {
         var vm = this;
         vm.availability = "disabled";
-        vm.checked=false;
+        vm.checked = false;
         vm.jobprovider = {};
         vm.jobprovider.jpCode = "";
         vm.subjobprovider = subjobprovider;
+        vm.savechanges = savechanges;
         vm.foo = $state.params.key;
         console.log(vm.foo);
         vm.bar = $state.params.key1;
@@ -31,12 +32,29 @@
                 $scope.profiling = response.data;
                 console.log($scope.profiling);
                 vm.jobprovider = $scope.profiling[0];
-                vm.checked=true;
-
-
-
+                vm.checked = true;
             });
         }
+
+
+        function savechanges() {
+            // if(vm.availability=="Available"){
+            jobproviderfactory.updatejobprovider(vm.jobprovider).then(function(response) {
+                    vm.msg = "Updated Successfully !!!";
+                    console.log(vm.msg);
+
+                }),
+                function(err) {
+                    vm.msg = 'Some error occurred';
+                }
+                // }else{
+                //   vm.msg="Please try with some other jobprovider code!!";
+                // }
+        }
+
+
+
+
         $scope.$watch('vm.jobprovider.jpCode', function(newValue, oldValue) {
             if (newValue.length === 5) {
                 jobproviderfactory.jpCodeCheck(vm.jobprovider.jpCode).then(function(response) {
