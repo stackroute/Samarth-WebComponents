@@ -16,6 +16,7 @@
     function jobproviderreg($scope, jobproviderfactory, $state) {
         var vm = this;
         vm.availability = "disabled";
+        vm.checked=false;
         vm.jobprovider = {};
         vm.jobprovider.jpCode = "";
         vm.subjobprovider = subjobprovider;
@@ -30,6 +31,7 @@
                 $scope.profiling = response.data;
                 console.log($scope.profiling);
                 vm.jobprovider = $scope.profiling[0];
+                vm.checked=true;
 
 
 

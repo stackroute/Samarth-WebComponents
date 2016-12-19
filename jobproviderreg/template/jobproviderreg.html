@@ -5,13 +5,15 @@
   <div layout=row flex>
     <div class="md-no-momentum" layout="column" layout-padding="" layout-align="center center" flex>
       <md-content class="md-no-momentum" md-whiteframe="6" layout-margin="" layout-align="center center">
-        <h1>Job-Provider Registration</h1><br>
+        <h1>Job-Provider Registration </h1><br>
+
         <form name="myForm" ng-submit="vm.subjobprovider()">
           <md-input-container class="md-block" >
             <!-- Use floating label instead of placeholder -->
             <label>Name</label>
+
             <md-icon>person</md-icon>
-            <input ng-model="vm.jobprovider.name" name="Name" type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true">
+            <input ng-model="vm.jobprovider.name"  name=Name type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true">
             <div ng-messages="myForm.Name.$error" ng-show="myForm.Name.$dirty || myForm.Name.$touched">
               <div ng-message="pattern">only character and spaces allowed</div>
               <div ng-message="md-maxlength">Length should not be more than 30 characters</div>
@@ -22,7 +24,7 @@
            <md-icon ng-show="vm.availability=='disabled'" style="color:black">do_not_disturb</md-icon>
            <md-icon ng-show="vm.availability=='Available'" style="color:green">done</md-icon>
            <md-icon ng-show="vm.availability=='Not available'" style="color:red">clear</md-icon>
-            <input ng-model="vm.jobprovider.jpCode" md-minlength="5" md-maxlength="5" name="jpCode" type="text" placeholder="Job-Provider Code" ng-required="true">
+            <input ng-model="vm.jobprovider.jpCode" ng-disabled="vm.checked" md-minlength="5" md-maxlength="5" name="jpCode" type="text" placeholder="Job-Provider Code" ng-required="true">
             <div ng-messages="myForm.jpCode.$error" ng-show="myForm.jpCode.$dirty || myForm.jpCode.$touched">
             </div>
           </md-input-container>
@@ -58,6 +60,11 @@
             <!-- Use floating placeholder instead of label -->
             <md-icon>people</md-icon>
             <input ng-model="vm.jobprovider.about" type="text" placeholder="Description " >
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <!-- Use floating placeholder instead of label -->
+            <input ng-model="vm.jobprovider.url" type="url" placeholder="Url " ng-required="true">
           </md-input-container>
 
           <section layout="row" layout-padding="" layout-align="center">
