@@ -20,6 +20,17 @@
 
     }
 
+    function getJobProviderbyid(job) {
+                return $http({
+                    method: 'GET',
+                    url: '/employer/getJobProviderbyid/'+job,
+                    data: job
+
+                })
+
+            }
+
+
     function jobproviderdata(data){
      return $http({
         method : 'POST',

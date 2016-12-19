@@ -10,7 +10,11 @@ angular.module("samarth-webcomponents")
                 templateUrl: './samarth-webcomponents/jobproviderreg/template/jobproviderregistration.html'
 
             }
-        }
+        },
+        params:{
+          'key':'vty',
+          'key1':'abc'
+      }
 
     })
  });
