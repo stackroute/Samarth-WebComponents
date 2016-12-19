@@ -3,7 +3,7 @@
   angular
     .module("samarth-webcomponents")
     .controller('jobDataCtrl',jobDataCtrl);
-    function jobDataCtrl($scope,jobProfileFactory,jobProviderList){
+    function jobDataCtrl($scope,jobProfileFactory,$state,jobProviderList){
                 // var vm = this;
                 $scope.msg="";
                 $scope.jobData={};
@@ -11,6 +11,11 @@
                 $scope.joprovider="";
                 $scope.jobData.criteria={};
                 $scope.submitJob=submitJob;
+
+                $scope.val1= $state.params.key;
+                console.log("param value 1 " + $scope.val1);
+                $scope.val2 = $state.params.key1;
+                console.log("param value 2 " + $scope.val2);
 
                 jobProviderList.getJobProvider().then(function(response){
                 $scope.querySearch=response.data;
