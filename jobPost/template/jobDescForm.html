@@ -11,6 +11,16 @@
   </span>
   </div>
   <div layout="row" layout-padding>
+    <span><p>Profession</p>
+    <md-input-container layout="column">
+      <label>Profession</label>
+        <md-select ng-model="job.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
+        <md-option ng-value="item" ng-repeat="item in items | filter:searchTerm">{{item}}</md-option>
+        </md-select>
+    </md-input-container>
+    </span>
+  </div>  
+  <div layout="row" layout-padding>
   <p class="md-title">Role</p>
    <span>
     <md-input-container class="md-icon-float md-block" >

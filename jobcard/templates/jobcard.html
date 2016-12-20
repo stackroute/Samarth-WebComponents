@@ -34,8 +34,10 @@
         </div>
     </md-card-content>
     <md-card-action layout="row" layout align="center end">
+
      <md-button class="md-raised md-primary" aria-label="view Details" ui-sref="index.jobPost({searchText:searchText})">View Details </md-button>
       <span><md-button class="md-raised md-primary" aria-label="view Details">{{name}}</md-button></span>
+
       <!-- <span ng-transclude="jobactions">
       </span> -->
      <a id="jsonDownload" ng-click="downloadedData()">
@@ -43,14 +45,13 @@
             </a>
             <a id="download">
                 <md-button ng-click="render($event)">
-                    <md-icon class="material-icons">file_download</md-icon>
+                  <md-icon class="material-icons">file_download</md-icon>
                 </md-button>
             </a>
             <div class="action" ng-transclude>
             </div>
     </md-card-actions>
 </md-card>
-
 
 <!-- <div id="totalcardarea">
     <md-card layout="column" class="bodyContent" flex>
