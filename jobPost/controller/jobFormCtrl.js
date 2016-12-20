@@ -3,7 +3,7 @@
     angular
       .module('samarth-webcomponents')
       .controller('dialogController', dialogController);
-      function dialogController ($scope,$mdDialog) 
+      function dialogController ($scope,$mdDialog,professionFac) 
                {  $scope.skills=[{}];
                   $scope.qualifications=[{}];
                   $scope.showJobDesc = function(event,jobCtrl) {
@@ -13,7 +13,7 @@
                   fullscreen: true,        
                   preserveScope: true,           
                   templateUrl: './samarth-webcomponents/jobPost/template/jobDescForm.html',
-                  controller: function dialogController($scope, $mdDialog) {
+                  controller: function dialogController($scope, $mdDialog,professionFac) {
                        $scope.expertise = [
                                               "Beginner",
                                               "Skilled",
@@ -27,6 +27,18 @@
                         $scope.addInput=addInput;                                    
                         $scope.submitDescData=submitDescData;
                         
+                          professionFac.profReq().then(function(data)
+                          {
+                            let temp = [];
+                            for(let i = 0; i < data.data.length; i = i + 1)
+                            {
+                              temp[i] = data.data[i].professions;
+                            }
+                            $scope.items = temp;
+                            // console.log($scope.items);
+                          });
+                      
+                                        
                         function addInput() {
                         $scope.skill={};
                         $scope.skills.push($scope.skill);
@@ -35,6 +47,8 @@
                       function submitDescData()
                      {  jobCtrl.job=$scope.job;
                         jobCtrl.job.skills=$scope.skills;
+                        // jobCtrl.job.profession=$scope.items;
+                        console.log(jobCtrl.job.profession);
                         jobCtrl.data.desc=jobCtrl.job;
                         $mdDialog.hide();
                       }
@@ -53,7 +67,7 @@
                   fullscreen: true,        
                   preserveScope: true,           
                   templateUrl: './samarth-webcomponents/jobPost/template/criteriaForm.html',
-                  controller: function dialogController($scope, $mdDialog) {
+                  controller: function dialogController($scope, $mdDialog,professionFac) {
                      $scope.priority = [
                                               "Mandatory",
                                               "Optional"
