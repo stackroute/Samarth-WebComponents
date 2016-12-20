@@ -13,7 +13,11 @@
                     templateUrl: './samarth-webcomponents/jobPost/template/jobPost.html',
                     controller: 'jobDataCtrl',
                 }
-            }
+            },
+            params: {
+                    'key': 'value1',
+                    'key1': 'value2'
+                }
      
         })
      //     .state('index.jobPost.ui', {

@@ -1,9 +1,62 @@
-<div id="totalcardarea">
+  <md-card class="card transparent" md-colors="{background: 'grey-A100'}" flex>
+    <md-card-header>
+       <md-card-header-text flex="70">
+            <span class="md-headline"><ng-md-icon icon="perm_identity"></ng-md-icon><md-tooltip md-direction="left">Title</md-tooltip>{{$ctrl.data.title}}</span>
+            <span class="md-subhead"><ng-md-icon icon="work"></ng-md-icon><md-tooltip md-direction="left">Role</md-tooltip>{{$ctrl.data.role}}</span>
+        </md-card-header-text>
+        <md-card-avatar layout="column" flex="30" class="avatar" hide-xs>
+            <!-- <md-icon>business</md-icon> -->
+            <img class="md-user-avatar avatar" ng-src="{{data.employerLogo}}" alt="Logo">
+        </md-card-avatar>
+   </md-card-header>
+    <md-card-content layout="column">
+        <div layout-sm="column"  >
+           <div layout="column" layout-gt-sm="row">
+                <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.location}}</span></p>
+                <p><span><ng-md-icon icon="person_add"><md-tooltip>Job opennings</md-tooltip></ng-md-icon>{{$ctrl.data.openings}}</span></p>
+            </div>
+           <div layout="column" layout-gt-sm="row">
+                <p><span><ng-md-icon icon="history"><md-tooltip>Experience</md-tooltip></ng-md-icon>{{$ctrl.data.experience}}</span></p>
+                <p><span><ng-md-icon icon="event_busy"><md-tooltip>Closing Date For the Job</md-tooltip></ng-md-icon>{{item.closedate|date:'yyyy-MM-dd'}}</span></p>
+          </div>
+        </div>
+        <div layout="column" layout-margin>
+            <p><span class="md-title">Salary <md-tooltip>Salary</md-tooltip>{{$ctrl.data.salary}}</span></p>
+            <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span>
+            <md-chips class="custom-chips" ng-model="$ctrl.data.skills" md-transform-chip="data.Skills($chip)" md-removable="false">
+            <md-chip-template>
+            <span>
+            <strong>{{$chip.name}}</strong> Expertise: <em>({{$chip.expertise}})</em> Priority: <em>({{$chip.priority}})</em>
+            </span>
+            </md-chip-template>
+            </md-chips>
+            </p>
+        </div>
+    </md-card-content>
+    <md-card-action layout="row" layout align="center end">
+     <md-button class="md-raised md-primary" aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':$ctrl.data.jobcode})">View Details </md-button>
+      <span><md-button class="md-raised md-primary" aria-label="applyJobs">Apply</md-button></span>
+      <!-- <span ng-transclude="jobactions">
+      </span> -->
+     <a id="jsonDownload" ng-click="downloadedData()">
+                <md-icon class="material-icons">share</md-icon>
+            </a>
+            <a id="download">
+                <md-button ng-click="render($event)">
+                  <md-icon class="material-icons">file_download</md-icon>
+                </md-button>
+            </a>
+            <div class="action" ng-transclude>
+            </div>
+    </md-card-actions>
+</md-card>
+
+<!-- <div id="totalcardarea">
     <md-card layout="column" class="bodyContent" flex>
         <md-card-header layout-gt-sm="row" layout-sm="column" layout-xs="column" flex layout-padding class="headerSection">
             <md-card-header-text layout="column" ng-show="$ctrl.showheader" layout flex>
                 <div layout="row" layout-align="start center">
-                    <!-- Job role and job Department fields-->
+                    
                     <div flex="80" layout="column">
                         <div class="md-block md-padding">
                             <i class="material-icons md-display-1">school</i>
@@ -18,7 +71,7 @@
                             <span class="md-title" layout="row">{{job.departmentName}}</span>
                         </div>
                     </div>
-                    <!-- Logo -->
+                    
                     <div flex="20" layout="column" hide-xs>
                         <md-card-avatar class="avatar">
                             <img class="md-user-avatar avatar" ng-src="{{job.employer.employerLogo}}" alt="Logo">
@@ -26,7 +79,7 @@
                         <div></div>
                     </div>
                 </div>
-                <!-- Company name and location -->
+                
                 <div layout-xs="column" layout-gt-xs="row" flex>
                     <span class="md-title" flex-xs flex-gt-xs="60"><i class="material-icons md-padding">business</i>&nbsp;{{job.employer.employerName}}</span>
                     <span class="md-title" flex-xs flex-gt-xs="40"><i class="material-icons md-padding">location_on</i>&nbsp;{{job.jobLocation}}</span>
@@ -35,7 +88,7 @@
         </md-card-header>
         <md-card-content flex layout="column" class="md-padding">
             <div layout="column" class="md-padding">
-                <!-- Skills required -->
+               
                 <label class="md-title md-padding"><i class="material-icons">pets</i><span>Skills Required</span></label>
                 <md-chips ng-model="job.skillsRequired" class="md-padding" md-max-chips="3" readonly="true">
                     <md-chip-template>
@@ -56,7 +109,7 @@
                 <span class="md-title" flex-xs flex-gt-xs="40"><i class="material-icons">date_range</i>Last date: {{job.jobLastDate | date:'yyyy-MM-dd'}}.</span>
             </div>
         </md-card-content>
-        <!-- The action bar for card, can include anything inside this while using the webcomponents -->
+        
         <md-card-actions layout="row" layout-align="end center">
             <a id="jsonDownload" ng-click="downloadedData()">
                 <md-icon class="material-icons">share</md-icon>
@@ -70,4 +123,4 @@
             </div>
         </md-card-actions>
     </md-card>
-</div>
+</div> -->
