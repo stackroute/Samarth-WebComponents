@@ -16,7 +16,15 @@ angular.module('samarth-webcomponents')
     });
 
 /* Controller for job Card*/
-function jobcardCtrl($scope, jobCardService, $window, $timeout) {
+function jobcardCtrl($scope, jobCardService,$rootElement, $window, $timeout) {
+    if($rootElement.attr('ng-app')=="samarth")
+    {
+        $scope.name = "Suggest";
+    }
+    else
+    {
+        $scope.name = "apply";
+    }
     // $scope.job = this.job;
      //let data = this.data;
     // let jobID = data.jobID;
