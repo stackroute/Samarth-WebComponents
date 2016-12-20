@@ -1,39 +1,39 @@
-  <md-card class="card transparent" md-colors="{background: 'grey-100'}" flex>
+<md-card class="card transparent" md-colors="{background: 'grey-100'}" flex>
     <md-card-header>
-       <md-card-header-text >
-             <span class="md-headline" md-colors="{color: 'indigo-700'}"><ng-md-icon icon="perm_identity"></ng-md-icon><md-tooltip md-direction="left">Title</md-tooltip>{{$ctrl.data.title}}</span>
+        <md-card-header-text>
+            <span class="md-headline" md-colors="{color: 'indigo-700'}"><ng-md-icon icon="perm_identity"></ng-md-icon><md-tooltip md-direction="left">Title</md-tooltip>{{$ctrl.data.title}}</span>
             <span class="md-subhead"><ng-md-icon icon="work"></ng-md-icon><md-tooltip md-direction="left">Role</md-tooltip>{{$ctrl.data.role}}</span>
         </md-card-header-text>
         <md-card-avatar layout="column" flex="30" class="avatar" hide-xs>
             <!-- <md-icon>business</md-icon> -->
             <img class="md-user-avatar avatar" ng-src="{{data.employerLogo}}" alt="Logo">
         </md-card-avatar>
-   </md-card-header>
+    </md-card-header>
     <md-card-content layout="column">
-        <div layout-sm="row" layout="row" >
-           <div layout="column" flex="50" >
+        <div layout-sm="row" layout="row">
+            <div layout="column" flex="50">
                 <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.location}}</span></p>
             </div>
-           <div layout="column" flex="50">
-             <p><span ><ng-md-icon icon="attach_money"><md-tooltip>Salary</md-tooltip></ng-md-icon>{{$ctrl.data.salary}}</span></p>
+            <div layout="column" flex="50">
+                <p><span><ng-md-icon icon="attach_money"><md-tooltip>Salary</md-tooltip></ng-md-icon>{{$ctrl.data.salary}}</span></p>
             </div>
         </div>
-            <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span>
+        <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span>
             <md-chips class="custom-chips" ng-model="$ctrl.data.skills" md-transform-chip="data.Skills($chip)" md-removable="false">
-            <md-chip-template>
-            <span>
+                <md-chip-template>
+                    <span>
             <strong>{{$chip.name}}</strong>
             </span>
-            </md-chip-template>
+                </md-chip-template>
             </md-chips>
-            </p>
+        </p>
     </md-card-content>
     <md-card-action layout="row" layout align="end end">
-     <md-button class="md-raised md-primary" aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':$ctrl.data.jobcode})">View Details </md-button>
-      <span><md-button class="md-raised md-primary" aria-label="applyJobs">Apply</md-button></span>
-      <!-- <span ng-transclude="jobactions">
+        <md-button class="md-raised md-primary" aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':$ctrl.data.jobcode})">View Details </md-button>
+        <span><md-button class="md-raised md-primary" aria-label="applyJobs">Apply</md-button></span>
+        <!-- <span ng-transclude="jobactions">
       </span> -->
-     <!-- <a id="jsonDownload" ng-click="downloadedData()">
+        <!-- <a id="jsonDownload" ng-click="downloadedData()">
                 <md-icon class="material-icons">share</md-icon>
             </a>
             <a id="download">
@@ -41,9 +41,9 @@
                   <md-icon class="material-icons">file_download</md-icon>
                 </md-button>
             </a> -->
-            <div class="action" ng-transclude>
-            </div>
-    </md-card-actions>
+        <div class="action" ng-transclude>
+        </div>
+        </md-card-actions>
 </md-card>
 
 <!-- <div id="totalcardarea">

@@ -2,12 +2,13 @@
 
 <head>
 </head>
+
 <body>
-  <center>
-  <div layout="column" flex-gt-md="35">
-     <h1 calss=".md-subhead" align="center"  md-colors="{background: 'indigo-100'}">Candidate Registration</h1>
-    <div  md-whiteframe="6"  layout="column" >
-                <form name="myForm" ng-submit="vm.subjobprovider()"  >
+    <center>
+        <div layout="column" flex-gt-md="35">
+            <h1 calss=".md-subhead" align="center" md-colors="{background: 'indigo-100'}">Candidate Registration</h1>
+            <div md-whiteframe="6" layout="column">
+                <form name="myForm" ng-submit="vm.subjobprovider()">
                     <md-input-container class="md-block">
                         <!-- Use floating label instead of placeholder -->
                         <label>Name</label>
@@ -66,12 +67,12 @@
 
                     <md-input-container class="md-block">
                         <!-- Use floating placeholder instead of label -->
-                      <md-icon>link</md-icon>
-                        <input ng-model="vm.jobprovider.url" type="url" placeholder="Url " >
+                        <md-icon>link</md-icon>
+                        <input ng-model="vm.jobprovider.url" type="url" placeholder="Url ">
                     </md-input-container>
 
                     <section layout="row" layout-padding="" layout-align="center">
-                        <md-button type="submit" class="md-raised md-primary" ng-disabled="false" >&nbspRegister&nbsp</md-button>
+                        <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
                         <md-button type="button" class="md-raised md-primary" ng-disabled="false" ng-click="vm.savechanges(); showAlert($event)">&nbspSave&nbsp</md-button>
                     </section>
 
@@ -79,7 +80,7 @@
                         <span class="md-subhead">{{vm.msg}}</span>
                     </section>
                 </form>
+            </div>
         </div>
-    </div>
-  </center>
+    </center>
 </body>
