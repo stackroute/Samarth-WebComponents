@@ -1,17 +1,20 @@
-<md-card class="md-default-theme" md-colors="{background: 'green-A100'}" flex-gt-md="80">
+<md-card class="md-default-theme"  class="card transparent" >
     <md-card-header>
+      <ng-md-icon icon="star"  md-colors="{color: 'yellow-A400'}"></ng-md-icon>
         <md-card-header-text>
-            <span class="md-title ">{{$ctrl.data.name | uppercase}}</span>
+
+            <span class="md-headline">{{$ctrl.data.name | uppercase}}</span>
         </md-card-header-text>
     </md-card-header>
     <md-card-content>
-        <span class="md-subhead " md-colors="{color: 'blue-A400'}">{{$ctrl.data.rCount}}
+        <span class="md-headline" md-colors="{color: 'green-A400'}">{{$ctrl.data.rCount}}
         </span>
-        <span class="md-subhead " md-colors="{color: 'blue-A400'}">{{$ctrl.data.domain}}</span>
+        <span class="md-subhead " md-colors="{color: 'green-A400'}">{{$ctrl.data.domain}}</span>
     </md-card-content>
     <md-divider></md-divider>
-    <md-card-actions layout="row" layout-sm="column">
-        <md-button ui-sref="index.jobSearch.results({circleName:'{{ctrl.data.name}}',circleDomain:'{{ctrl.data.domain}}'})">Jobs</md-button>
-        <md-button ui-sref="index.candidatesearch({circleName:'{{ctrl.data.name}}',circleDomain:'{{ctrl.data.domain}}'})">Candidates</md-button>
+    <md-divider></md-divider>
+    <md-card-actions layout="row" layout-align="start end">
+  <md-button md-colors="{background: 'grey-100'}"><ng-md-icon icon="layers"  md-colors="{color: 'blue-A400'}" ui-sref="index.jobSearch.results({circleName:'{{ctrl.data.name}}',circleDomain:'{{ctrl.data.domain}}'})">  </ng-md-icon>JOBS</md-button>
+    <md-button md-colors="{background: 'grey-100'}"><ng-md-icon icon="people"  md-colors="{color: 'blue-A400'}"  ui-sref="index.candidatesearch({circleName:'{{ctrl.data.name}}',circleDomain:'{{ctrl.data.domain}}'})"> </ng-md-icon>CANDIDATES<md-button>
     </md-card-actions>
 </md-card>
