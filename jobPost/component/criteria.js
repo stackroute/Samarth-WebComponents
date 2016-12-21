@@ -5,7 +5,7 @@
     .component("criteria",{
         templateUrl: './samarth-webcomponents/jobPost/template/criteria.html',
         bindings: { data: '<',
-                     txt: '@'      
+                     txt: '@'
                   },
                   controller: 'criteriaCtrl',
                   controllerAs : 'vm'
@@ -15,7 +15,16 @@
               let vm = this;
                 // console.log("dddddddddddddddddddd");
                 // console.log(vm.data);
-              vm.criteria=vm.data;
-              vm.criteria.qualifications=vm.data.qualifications;
+                if(vm.data=== "value2")
+                {
+                  vm.criteria={};
+                  vm.criteria.qualifications={};
+                }
+                else
+                {
+                  vm.criteria=vm.data;
+                  vm.criteria.qualifications=vm.data.qualifications;
+                }
+
       }
 }());

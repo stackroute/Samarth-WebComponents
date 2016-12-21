@@ -5,7 +5,7 @@
       .component('jobDesc',{
       templateUrl: './samarth-webcomponents/jobPost/template/jobDesc.html',
       bindings: { data: '<',
-                   txt: '@'      
+                   txt: '@'
                 },
        controller:'jobDescCtrl',
        controllerAs:'vm',
@@ -17,8 +17,17 @@
             let vm=this;
         // console.log("ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
         // console.log(vm.data);
-            vm.job=vm.data;
-            vm.job.skills=vm.data.skills;
+            if(vm.data=== "value2")
+            {
+              vm.job={};
+              vm.job.skills={};
+            }
+            else
+            {
+              vm.job=vm.data;
+              vm.job.skills=vm.data.skills;
+            }
+
             vm.newSkill=function(){};
 
             function newSkill(chip) {
