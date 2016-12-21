@@ -4,16 +4,14 @@
 </head>
 
 <body>
-    <div layout=row flex>
-        <div class="md-no-momentum" layout="column" layout-padding="" layout-align="center center" flex>
-            <md-content class="md-no-momentum" md-whiteframe="6" layout-margin="" layout-align="center center">
-                <h1>Job-Provider Registration </h1><br>
-
+    <center>
+      <div layout="column" layout-align="center center" >
+         <p calss=".md-subhead" align="center">Register Job-provider</p>
+        <div class="md-no-momentum" md-whiteframe="6" layout-margin >
                 <form name="myForm" ng-submit="vm.subjobprovider()">
                     <md-input-container class="md-block">
                         <!-- Use floating label instead of placeholder -->
                         <label>Name</label>
-
                         <md-icon>person</md-icon>
                         <input ng-model="vm.jobprovider.name" name=Name type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true">
                         <div ng-messages="myForm.Name.$error" ng-show="myForm.Name.$dirty || myForm.Name.$touched">
@@ -32,11 +30,14 @@
                     </md-input-container>
 
                     <!-- radio -->
+
                     <md-radio-group ng-model="vm.jobprovider.type" layout="row" ng-required="true" layout-padding="">
                         <label>Job-Provider:</label>
                         <md-radio-button value="Organization">Organization</md-radio-button>
                         <md-radio-button value="Client">Client</md-radio-button>
                     </md-radio-group>
+
+
 
                     <md-input-container class="md-block">
                         <!-- Use floating placeholder instead of label -->
@@ -66,19 +67,20 @@
 
                     <md-input-container class="md-block">
                         <!-- Use floating placeholder instead of label -->
-                        <input ng-model="vm.jobprovider.url" type="url" placeholder="Url " ng-required="true">
+                        <md-icon>link</md-icon>
+                        <input ng-model="vm.jobprovider.url" type="url" placeholder="Url ">
                     </md-input-container>
 
                     <section layout="row" layout-padding="" layout-align="center">
                         <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
-                        <md-button type="button" class="md-raised md-primary" ng-disabled="false" ng-click="vm.savechanges()">&nbspSaveChanges&nbsp</md-button>
+                        <md-button type="button" class="md-raised md-primary" ng-disabled="false" ng-click="vm.savechanges(); showAlert($event)">&nbspSave&nbsp</md-button>
                     </section>
 
                     <section layout="row" layout-padding="" layout-align="center">
                         <span class="md-subhead">{{vm.msg}}</span>
                     </section>
                 </form>
-            </md-content>
+            </div>
         </div>
-    </div>
+    </center>
 </body>

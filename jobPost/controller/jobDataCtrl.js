@@ -23,12 +23,28 @@
                     $scope.msg='Could not load job providers data!';
                  }
                 function submitJob(){
-                 $scope.jobData.jpCode= $scope.selectedItem.jpCode;  
+                 $scope.jobData.jpCode= $scope.selectedItem.jpCode;
                  jobProfileFactory.jobPost($scope.jobData).then(function(response){
                    $scope.msg=response.data.msg;
                  }),function(err){
                     $scope.msg='Some error occurred! Please try again..';
                  }
                 }
+
+                $scope.showAlert = function(ev) {
+                // Appending dialog to document.body to cover sidenav in docs app
+                // Modal dialogs should fully cover application
+                // to prevent interaction outside of dialog
+                $mdDialog.show(
+                $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Updated Successfully')
+                .textContent('Details of job-provider has been updated.')
+                .ariaLabel('Alert Dialog Demo')
+                .ok('Got it!')
+                .targetEvent(ev)
+                );
+                };
         }
 }());
