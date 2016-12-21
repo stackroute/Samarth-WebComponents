@@ -6,6 +6,7 @@
       function dialogController ($scope,$mdDialog,professionFac) 
                {  $scope.skills=[{}];
                   $scope.qualifications=[{}];
+
                   $scope.showJobDesc = function(event,jobCtrl) {
                   $mdDialog.show({
                   clickOutsideToClose: true,
@@ -23,7 +24,10 @@
                         $scope.priority = [
                                               "Mandatory",
                                               "Optional"
-                                          ];  
+                                          ];
+                        $scope.job=jobCtrl.job;
+                        $scope.skills=jobCtrl.job.skills;
+                        console.log(jobCtrl);
                         $scope.addInput=addInput;                                    
                         $scope.submitDescData=submitDescData;
                         
@@ -68,6 +72,9 @@
                   preserveScope: true,           
                   templateUrl: './samarth-webcomponents/jobPost/template/criteriaForm.html',
                   controller: function dialogController($scope, $mdDialog,professionFac) {
+                    // console.log(criteriaCtrl);
+                    $scope.qualifications = criteriaCtrl.criteria.qualifications;
+                    $scope.criteria = criteriaCtrl.criteria;
                      $scope.priority = [
                                               "Mandatory",
                                               "Optional"

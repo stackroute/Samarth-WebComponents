@@ -4,8 +4,8 @@
       .module('samarth-webcomponents')
       .component('jobDesc',{
       templateUrl: './samarth-webcomponents/jobPost/template/jobDesc.html',
-      bindings: { data: '<',
-                   txt: '@'
+      bindings: { data: '=',
+                   txt: '@'      
                 },
        controller:'jobDescCtrl',
        controllerAs:'vm',
@@ -17,17 +17,8 @@
             let vm=this;
         // console.log("ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
         // console.log(vm.data);
-            if(vm.data=== "value2")
-            {
-              vm.job={};
-              vm.job.skills={};
-            }
-            else
-            {
-              vm.job=vm.data;
-              vm.job.skills=vm.data.skills;
-            }
-
+            vm.job=vm.data;
+            vm.job.skills=vm.data.skills;
             vm.newSkill=function(){};
 
             function newSkill(chip) {
