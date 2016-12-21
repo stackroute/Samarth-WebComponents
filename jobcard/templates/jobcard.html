@@ -11,12 +11,15 @@
         </md-card-avatar>
     </md-card-header>
     <md-card-content layout="column">
-        <div layout-sm="row" layout="row">
+        <div layout-gt-xs="row" layout-xs="column">
             <div layout="column" flex="50">
                 <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{data.location}}</span></p>
             </div>
             <div layout="column" flex="50">
                 <p><span><ng-md-icon icon="attach_money"><md-tooltip>Salary</md-tooltip></ng-md-icon>{{data.salary}}</span></p>
+            </div>
+            <div layout="column" flex="50">
+                <p><span><ng-md-icon icon="history"><md-tooltip>Experience</md-tooltip></ng-md-icon>{{data.experience}}</span></p>
             </div>
         </div>
         <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span>
@@ -29,22 +32,41 @@
             </md-chips>
         </p>
     </md-card-content>
-    <md-card-action layout="row" layout align="end end">
+   <!--  <md-card-content layout="column">
+        <div layout-sm="column"  >
+           <div layout="column" layout-gt-sm="row">
+                <div flex="50">
+                <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{data.location}}</span></p>
+                </div>
+                <div flex="50">
+                <p><span><ng-md-icon icon="person_add"><md-tooltip>Job opennings</md-tooltip></ng-md-icon>{{data.openings}}</span></p>
+                </div>
+            </div>
+           <div layout="column" layout-gt-sm="row">
+                <div flex="50">
+                <p><span><ng-md-icon icon="history"><md-tooltip>Experience</md-tooltip></ng-md-icon>{{data.experience}}</span></p>
+                </div>
+                <div flex="50">
+                <p><span><ng-md-icon icon="event_busy"><md-tooltip>Closing Date For the Job</md-tooltip></ng-md-icon>{{data.closedate|date:'yyyy-MM-dd'}}</span></p>
+                </div>
+          </div>
+    </md-card-content> -->
+    <md-card-action layout="row" layout align="center end">
         <md-button class="md-raised md-primary" aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':data.jobcode})">View Details </md-button>
         <span><md-button class="md-raised md-primary" aria-label="applyJobs">{{name}}</md-button></span>
         <!-- <span ng-transclude="jobactions">
       </span> -->
         <a id="jsonDownload" ng-click="downloadedData()">
-                <md-icon class="material-icons">share</md-icon>
-            </a>
-            <a id="download">
-                <md-button ng-click="render($event)">
-                  <md-icon class="material-icons">file_download</md-icon>
-                </md-button>
-            </a>
-        <div class="action" ng-transclude>
-        </div>
-        </md-card-actions>
+            <md-icon class="material-icons">share</md-icon>
+        </a>
+        <a id="download">
+            <md-button ng-click="render($event)">
+              <md-icon class="material-icons">file_download</md-icon>
+            </md-button>
+        </a>
+        <!-- <div class="action" ng-transclude>
+        </div> -->
+    </md-card-actions>
 </md-card>
 
 <!-- <div id="totalcardarea">
