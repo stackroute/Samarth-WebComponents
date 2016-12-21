@@ -8,7 +8,7 @@
       <div layout="column" layout-align="center center" >
          <p calss=".md-subhead" align="center">Register Job-provider</p>
         <div class="md-no-momentum" md-whiteframe="6" layout-margin >
-                <form name="myForm" ng-submit="vm.subjobprovider()">
+                <form name="myForm" ng-submit="vm.subjobprovider(); showAlert($event)">
                     <md-input-container class="md-block">
                         <!-- Use floating label instead of placeholder -->
                         <label>Name</label>
@@ -72,8 +72,8 @@
                     </md-input-container>
 
                     <section layout="row" layout-padding="" layout-align="center">
-                        <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
-                        <md-button type="button" class="md-raised md-primary" ng-disabled="false" ng-click="vm.savechanges(); showAlert($event)">&nbspSave&nbsp</md-button>
+                        <md-button type="submit" class="md-raised md-primary" ng-disabled="false" ng-hide="vm.register">&nbspRegister&nbsp</md-button>
+                        <md-button type="button" class="md-raised md-primary" ng-disabled="false"  ng-hide="vm.save" ng-click="vm.savechanges(); showAlert($event)">&nbspSave&nbsp</md-button>
                     </section>
 
                     <section layout="row" layout-padding="" layout-align="center">
