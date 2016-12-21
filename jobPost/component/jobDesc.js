@@ -15,8 +15,8 @@
       .controller('jobDescCtrl', jobDescCtrl);
       function jobDescCtrl(){
             let vm=this;
-        console.log("ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
-        console.log(vm.data);
+        // console.log("ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
+        // console.log(vm.data);
             vm.job=vm.data;
             vm.job.skills=vm.data.skills;
             vm.newSkill=function(){};
