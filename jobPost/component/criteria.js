@@ -13,7 +13,9 @@
               .controller('criteriaCtrl',criteriaCtrl);
               function criteriaCtrl(){
               let vm = this;
-              vm.criteria={};
-              vm.criteria.qualifications={};
+                // console.log("dddddddddddddddddddd");
+                // console.log(vm.data);
+              vm.criteria=vm.data;
+              vm.criteria.qualifications=vm.data.qualifications;
       }
 }());
