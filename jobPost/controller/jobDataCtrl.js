@@ -3,7 +3,7 @@
   angular
     .module("samarth-webcomponents")
     .controller('jobDataCtrl',jobDataCtrl);
-    function jobDataCtrl($scope,jobProfileFactory,$state,jobProviderList){
+    function jobDataCtrl($scope,jobProfileFactory,$state,jobProviderList,$mdDialog){
                 // var vm = this;
                 $scope.msg="";
                 $scope.jobData={};
@@ -39,8 +39,8 @@
                 $mdDialog.alert()
                 .parent(angular.element(document.querySelector('#popupContainer')))
                 .clickOutsideToClose(true)
-                .title('Updated Successfully')
-                .textContent('Details of job-provider has been updated.')
+                .title('Posted Successfully')
+                .textContent('Details of job has been posted.')
                 .ariaLabel('Alert Dialog Demo')
                 .ok('Got it!')
                 .targetEvent(ev)
