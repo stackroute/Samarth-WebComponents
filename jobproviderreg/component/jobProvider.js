@@ -15,6 +15,7 @@
 
     function jobproviderreg($scope, jobproviderfactory, $state,$mdDialog) {
         var vm = this;
+        vm.msg="";
         vm.availability = "disabled";
         vm.checked = false;
         vm.jobprovider = {};
@@ -25,14 +26,19 @@
         console.log(vm.foo);
         vm.bar = $state.params.key1;
         console.log("y" + vm.bar);
+        vm.save=true;
+        vm.register=false;
 
         if (vm.foo == "1") {
 
             jobproviderfactory.getJobProviderbyid(vm.bar).then(function(response) {
+                vm.save=false;
+                vm.register=true;
                 $scope.profiling = response.data;
                 console.log($scope.profiling);
                 vm.jobprovider = $scope.profiling[0];
                 vm.checked = true;
+
             });
         }
 
@@ -40,7 +46,8 @@
         function savechanges() {
             // if(vm.availability=="Available"){
             jobproviderfactory.updatejobprovider(vm.jobprovider).then(function(response) {
-                    console.log(vm.msg);
+              vm.msg="Updated Successfully"
+                    console.log("hey"+ vm.msg);
 
                 }),
                 function(err) {
@@ -49,24 +56,27 @@
                 // }else{
                 //   vm.msg="Please try with some other jobprovider code!!";
                 // }
+
+                $scope.showAlert = function(ev) {
+                // Appending dialog to document.body to cover sidenav in docs app
+                // Modal dialogs should fully cover application
+                // to prevent interaction outside of dialog
+                $mdDialog.show(
+                $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title("Message")
+                .textContent("Job-Provider Details Updated Successfully")
+                .ariaLabel('Alert Dialog Demo')
+                .ok('Got it!')
+                .targetEvent(ev)
+                );
+                };
+
         }
 
 
-        $scope.showAlert = function(ev) {
-        // Appending dialog to document.body to cover sidenav in docs app
-        // Modal dialogs should fully cover application
-        // to prevent interaction outside of dialog
-        $mdDialog.show(
-        $mdDialog.alert()
-        .parent(angular.element(document.querySelector('#popupContainer')))
-        .clickOutsideToClose(true)
-        .title('Updated Successfully')
-        .textContent('Details of job-provider has been updated.')
-        .ariaLabel('Alert Dialog Demo')
-        .ok('Got it!')
-        .targetEvent(ev)
-        );
-        };
+
 
 
         $scope.$watch('vm.jobprovider.jpCode', function(newValue, oldValue) {
@@ -111,6 +121,24 @@
                 // }else{
                 //   vm.msg="Please try with some other jobprovider code!!";
                 // }
+
+                $scope.showAlert = function(ev) {
+                // Appending dialog to document.body to cover sidenav in docs app
+                // Modal dialogs should fully cover application
+                // to prevent interaction outside of dialog
+                $mdDialog.show(
+                $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title("Message")
+                .textContent("Job-Provider Registered Successfully")
+                .ariaLabel('Alert Dialog Demo')
+                .ok('Got it!')
+                .targetEvent(ev)
+                );
+                };
+
+
         }
 
     }
