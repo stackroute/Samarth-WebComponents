@@ -20,10 +20,34 @@
                 }
         });
 
-        function skillcardCtrl($window, $timeout, $mdDialog, skillcardService) {
+        function skillcardCtrl($window, $timeout, $mdDialog, skillcardService,$rootScope,$state) {
             let ctrl = this;
             let name;
+
+            if($rootScope.pre=="dashboard")
+            {
+                ctrl.view="View Detail";
+                ctrl.action="Suggest";
+            }
+            if($rootScope.pre=="jobsearch")
+            {
+                ctrl.view="View Detail";
+                ctrl.action="Apply";
+            }
+            if($rootScope.pre=="jobprofile")
+            {
+                ctrl.view="approve";
+                ctrl.action="Reject";
+            }
+
             
+            
+            $rootScope.$on('$stateChangeStart', function(event, toState,previousState, toParams, fromState) {
+                console.log("pre"+$rootScope.pre);
+                console.log(fromState.name);
+                console.log(toState.name);
+                });
+
             let showEditForm = false ;
 
             this.edit = function(newUrl){
