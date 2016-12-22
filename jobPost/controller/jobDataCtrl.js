@@ -15,6 +15,23 @@
     $scope.jobData.criteria={};
     $scope.submitJob=submitJob;
 
+    $scope.showAlert = function(ev) 
+    {
+      // Appending dialog to document.body to cover sidenav in docs app
+      // Modal dialogs should fully cover application
+      // to prevent interaction outside of dialog
+      $mdDialog.show(
+        $mdDialog.alert()
+        .parent(angular.element(document.querySelector('#popupContainer')))
+        .clickOutsideToClose(true)
+        .title('Message')
+        .textContent(vm.msg);
+        .ariaLabel('Alert Dialog Demo')
+        .ok('Got it!')
+        .targetEvent(ev)
+      );
+    };
+
     console.log("param value 1 " + $state.params.key);
     // $scope.val2 = $state.params.key1;
     console.log($state.params.key1);
@@ -39,7 +56,7 @@
       });
     }
     else
-    {
+    {$scope.jobShow = true;
       jobProviderList.getJobProvider().then(function(response)
       {
         console.log(response.data);
@@ -59,6 +76,7 @@
       jobProfileFactory.jobPost($scope.jobData).then(function(response)
       {
        $scope.msg=response.data.msg;
+       $scope.showAlert();
        // $scope.showAlert();
       },
       function(err)
@@ -67,21 +85,5 @@
       });
     }
 
-    // $scope.showAlert = function(ev) 
-    // {
-    //   // Appending dialog to document.body to cover sidenav in docs app
-    //   // Modal dialogs should fully cover application
-    //   // to prevent interaction outside of dialog
-    //   $mdDialog.show(
-    //     $mdDialog.alert()
-    //     .parent(angular.element(document.querySelector('#popupContainer')))
-    //     .clickOutsideToClose(true)
-    //     .title('Message')
-    //     .textContent('Job Posted Successfully')
-    //     .ariaLabel('Alert Dialog Demo')
-    //     .ok('Got it!')
-    //     .targetEvent(ev)
-    //   );
-    // };
   } //end of controller
 }());
