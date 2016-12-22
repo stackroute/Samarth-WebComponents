@@ -21,13 +21,28 @@
     if(1 === $state.params.key) 
     {   
       $scope.jobData = $state.params.key1;
-        // $scope.jobData.desc.role=tmp.role;
-        // $scope.jobData.desc.location=tmp.location;
+      jobProviderList.getJobProvider().then(function(response)
+      {
+        for(let i = 0; i < response.data.length; i = i + 1)
+        {
+          if(response.data[i].jpCode === $state.params.key1.jobprovider)
+          {
+            $scope.selectedItem = response.data[i];
+            break;
+          }
+          $scope.jobShow = false;
+        } // End of for loop
+      },
+      function(err)
+      {
+        $scope.msg='Could not load job providers data!';
+      });
     }
     else
     {
       jobProviderList.getJobProvider().then(function(response)
       {
+        console.log(response.data);
         $scope.querySearch=response.data;
       },
       function(err)
