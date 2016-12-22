@@ -25,7 +25,7 @@
         .parent(angular.element(document.querySelector('#popupContainer')))
         .clickOutsideToClose(true)
         .title('Message')
-        .textContent(vm.msg);
+        .textContent(vm.msg)
         .ariaLabel('Alert Dialog Demo')
         .ok('Got it!')
         .targetEvent(ev)
