@@ -7,18 +7,18 @@
         </md-card-header-text>
         <md-card-avatar layout="column" flex="30" class="avatar" hide-xs>
             <!-- <md-icon>business</md-icon> -->
-            <img class="md-user-avatar avatar" ng-src="{{data.jobprovider}}" alt="Logo">
+            <img class="md-user-avatar avatar" ng-src="{{data.jobprovider}}" alt="Image not available">
         </md-card-avatar>
     </md-card-header>
     <md-card-content layout="column">
         <div layout-gt-xs="row" layout-xs="column">
-            <div layout="column" flex="50">
+            <div layout="column" flex-gt-xs="30">
                 <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{data.location}}</span></p>
             </div>
-            <div layout="column" flex="50">
+            <div layout="column" flex-gt-xs="30">
                 <p><span><ng-md-icon icon="attach_money"><md-tooltip>Salary</md-tooltip></ng-md-icon>{{data.salary}}</span></p>
             </div>
-            <div layout="column" flex="50">
+            <div layout="column" flex-gt-xs="30">
                 <p><span><ng-md-icon icon="history"><md-tooltip>Experience</md-tooltip></ng-md-icon>{{data.experience}}</span></p>
             </div>
         </div>
@@ -52,7 +52,7 @@
           </div>
     </md-card-content> -->
     <md-card-action layout="row" layout align="center end">
-        <md-button class="md-raised md-primary" aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':data.jobcode})">View Details </md-button>
+        <md-button class="md-raised md-primary" aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':data})">View Details </md-button>
         <span><md-button class="md-raised md-primary" aria-label="applyJobs">{{name}}</md-button></span>
         <!-- <span ng-transclude="jobactions">
       </span> -->
