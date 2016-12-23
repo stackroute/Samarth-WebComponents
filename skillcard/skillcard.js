@@ -78,7 +78,7 @@
             });
 
             function createDownloadUrl() {
-                name = ctrl.data.name + '.png';
+                name = ctrl.data.name+'.png';
                 ctrl.data1 = ctrl.data;
                 ctrl.downloaddata = JSON.stringify(ctrl.data1);
 
