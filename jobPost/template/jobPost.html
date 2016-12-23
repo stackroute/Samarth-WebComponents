@@ -3,7 +3,7 @@
     <div class="md-headline">Job Profile</div>
   </div>
 
-  <div layout="row" layout-align="center center" ng-show="jobShow">
+  <div layout="row" layout-align="center center">
     <!-- <h4>This is auto complete </h4> -->
     <md-autocomplete
     md-selected-item="selectedItem"
@@ -69,7 +69,7 @@
     <criteria data="jobData" flex-gt-xs="50"></criteria>
   </div>
   <div layout="row" layout-align="center center" >
-    <md-button class="md-primary md-raised" ng-click="submitJob()">
+    <md-button class="md-primary md-raised" ng-click="submitJob(); showAlert($event)">
     Post Job
     </md-button>
   </div>
