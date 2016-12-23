@@ -23,6 +23,8 @@
         function skillcardCtrl($window, $timeout, $mdDialog, skillcardService,$rootScope,$state) {
             let ctrl = this;
             let name;
+            ctrl.view="View Detail";
+            ctrl.action="Suggest";
 
             if($rootScope.pre=="dashboard")
             {
