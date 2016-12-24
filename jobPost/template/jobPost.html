@@ -68,13 +68,15 @@
     <!-- <h4>This is job criteria component </h4> -->
     <criteria data="jobData" flex-gt-xs="50"></criteria>
   </div>
-  <div layout="row" layout-align="center center" >
-    <md-button class="md-primary md-raised" ng-click="submitJob(); showAlert($event)">
+  <div layout="row" layout-align="center center" ng-show="jobShow">
+    <md-button class="md-primary md-raised" ng-click="submitJob()">
     Post Job
     </md-button>
   </div>
 
-   <div layout="row" layout-align="center center" >
-    <span class="md-subhead">{{msg}}</span>
+  <div layout="row" layout-align="center center" ng-show="!jobShow">
+    <md-button class="md-primary md-raised" ng-click="updateJob()">
+      Update Job
+    </md-button>
   </div>
 </div>

@@ -1,52 +1,48 @@
- <md-dialog>
-  <md-dialog-content>
- <form ng-submit="submitCriteriaData()">
- <div layout="column" layout-align="center center">
-  <div layout="row" layout-padding>
-  <p class="md-title">Qualification</p>
-   <span>
-    <div layout="row" data-ng-repeat="qualification in qualifications">
-      <md-input-container class="md-icon-float md-block" >
-        <input ng-model="qualification.name" type="text" placeholder="Course Name" ng-required="true">
-      </md-input-container>
-      <md-input-container>
-          <input ng-model="qualification.score" type="text" placeholder="Score" ng-required="true">
-      </md-input-container>
-       <md-input-container>
-         <md-select ng-model="qualification.priority" placeholder="Priority">
-              <md-option ng-repeat="value in priority" value="{{value}}">
-                {{value}}
-              </md-option>
-            </md-select>
-      </md-input-container>
-    </div>
-    <md-button class="md-primary md-raised" ng-click="addQual()"  flex=""  flex-gt-md="auto">
-         ADD
-    </md-button>
-  </span>
-  </div>
-  <div layout="row" layout-padding>
-  <p class="md-title">Salary</p>
-   <span>
-    <md-input-container class="md-icon-float md-block" >
-    <input ng-model="criteria.salary" type="text" placeholder="Salary" ng-required="true">
-    </md-input-container>
-  </span>
-  </div>
-  <div layout="row" layout-padding>
-  <p class="md-title">Allowance</p>
-   <span>
-    <md-input-container class="md-icon-float md-block" >
-    <input ng-model="criteria.allowance" type="text" placeholder="Allowance & Renumeration" ng-required="true">
-    </md-input-container>
-  </span>
-  </div>
-  <div>
-   <md-button class="md-primary md-raised" type="submit">
-    Save
-  </md-button>
-  </div>
- </div>
- </form>
-  </md-dialog-content>
- </md-dialog>   
+<md-dialog >
+    <form ng-submit="submitCriteriaData()" ng-cloak required>
+        <md-toolbar id="conversationDialogtoolbar">
+            <div class="md-toolbar-tools">
+                <h2 id="headingtext">ADD CRITERIA</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="closeDialog()">
+                    <md-icon id="headingtext">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content layout="column">
+            <div id="conversationDialogcontent" layout-padding layout-wrap>
+                I am Looking for
+                <div layout="row" data-ng-repeat="qualification in qualifications">
+                  <md-input-container  >
+                    <input ng-model="qualification.name" type="text" placeholder="Course Name" ng-required="true">
+                  </md-input-container>
+                  <md-input-container>
+                      <input ng-model="qualification.score" type="text" placeholder="Score" ng-required="true">
+                  </md-input-container>
+                   <md-input-container>
+                     <md-select ng-model="qualification.priority" placeholder="Priority">
+                          <md-option ng-repeat="value in priority" value="{{value}}">
+                            {{value}}
+                          </md-option>
+                        </md-select>
+                         <md-icon ng-click="addQual()" >add</md-icon>
+                  </md-input-container>
+                </div>
+                <div layout="row">
+                Salary
+                  <md-input-container >
+                  <input ng-model="criteria.salary" type="text" placeholder="Salary" ng-required="true">
+                  </md-input-container>
+                Allowance
+                  <md-input-container  >
+                  <input ng-model="criteria.allowance" type="text" placeholder="Allowance & Renumeration" ng-required="true">
+                  </md-input-container>
+                </div>
+              </md-dialog-content>
+              <md-dialog-actions class="conversationDialog" layout="row" layout-align="center center">
+                <md-button class="md-primary md-raised" type="submit">
+                 Save
+               </md-button>
+              </md-dialog-actions>
+              </form>
+              </md-dialog>
