@@ -50,8 +50,8 @@
 
         ctrl.loadLangData = function(lang) {
             datagenerate.getjson("section", lang).then(function(result) {
+                ctrl.languagedata = result;
                 ctrl.items = result;
-
             });
             //end datagenerate
         }

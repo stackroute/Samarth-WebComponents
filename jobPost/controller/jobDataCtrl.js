@@ -14,6 +14,24 @@
     $scope.joprovider="";
     $scope.jobData.criteria={};
     $scope.submitJob=submitJob;
+    $scope.updateJob=updateJob;
+
+    $scope.showAlert = function(ev) 
+    {
+      // Appending dialog to document.body to cover sidenav in docs app
+      // Modal dialogs should fully cover application
+      // to prevent interaction outside of dialog
+      $mdDialog.show(
+        $mdDialog.alert()
+        .parent(angular.element(document.querySelector('#popupContainer')))
+        .clickOutsideToClose(true)
+        .title('Message')
+        .textContent($scope.msg)
+        .ariaLabel('Alert Dialog Demo')
+        .ok('Got it!')
+        .targetEvent(ev)
+      );
+    };
 
     $scope.showAlert = function(ev) 
     {
@@ -71,7 +89,7 @@
     function submitJob()
     {
       $scope.jobData.jpCode= $scope.selectedItem.jpCode;
-      console.log("dsssssssssssssssssssssssssssssssssssssssssssssssss");
+      console.log("In final submit button");
       console.log($scope.jobData);
       jobProfileFactory.jobPost($scope.jobData).then(function(response)
       {
@@ -84,6 +102,34 @@
       $scope.msg='Some error occurred! Please try again..';
       });
     }
+    console.log("controller");
+    console.log($scope.jobData);
 
-  } //end of controller
+
+    function updateJob()
+    {
+      console.log("update");
+      console.log($scope.jobData);
+      // alert($scope.jobData.jobcode+" "+"in update ");
+      console.log($scope.jobData.criteria.jobcode+" "+"in update ");
+      // console.log("hey")
+      // console.log($scope.jobData);
+      // $scope.jobData.desc = '';
+      console.log('Job data before update: ', $scope.jobData);
+      jobProfileFactory.updateJob($scope.jobData).then(function(response)  
+      {
+        // alert('in factory update');e 
+        // console.log("inside function");
+       $scope.msg = response.data.msg;
+       // console.log($scope.msg);
+       $scope.showAlert();
+      }, function(err) {
+        console.log("Error in updating job: ", err);
+        alert("in error fac ", err);
+        $scope.msg='Some error occurred! Please try again..';
+        $scope.msg=err;
+      });
+    }
+  } 
+  //end of controller
 }());

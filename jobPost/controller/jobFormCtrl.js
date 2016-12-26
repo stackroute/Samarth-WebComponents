@@ -54,10 +54,16 @@
                       };
                     
                       function submitDescData()
-                     {  jobCtrl.job=$scope.job;
+                     {  
+                        console.log("ppppppppppppppppppppppppp");
+                        console.log(jobCtrl);
+                        jobCtrl.job={};
+                        jobCtrl.data={};
+                        jobCtrl.job=$scope.job;
                         jobCtrl.job.skills=$scope.skills;
                         // jobCtrl.job.profession=$scope.items;
-                        console.log(jobCtrl.job.profession);
+                        console.log("in submitdesc");
+                        console.log(jobCtrl);
                         jobCtrl.data.desc=jobCtrl.job;
                         $mdDialog.hide();
                       }
@@ -73,13 +79,19 @@
                $mdDialog.show({
                   clickOutsideToClose: true,
                   scope: $scope,
-                  fullscreen: true,        
+                  fullscreen: true,
+                  // locals: {
+                  // }        
                   preserveScope: true,           
                   templateUrl: './samarth-webcomponents/jobPost/template/criteriaForm.html',
                   controller: function dialogController($scope, $mdDialog,professionFac) {
+                    // console.log("Parameters to dialog: ", keyAnkit, ' and ', ritesh);
+                    console.log("jkdkjdjdssdldsldsldslkdsldsldlkds");
                     console.log(criteriaCtrl);
-                    if(criteriaCtrl.data.qualifications != undefined)
+                    if(criteriaCtrl.criteria.qualifications != undefined)
                     {
+                      // console.log("entering");
+                      // console.log(criteriaCtrl.criteria);
                     $scope.qualifications = criteriaCtrl.criteria.qualifications;
                     $scope.criteria = criteriaCtrl.criteria;
                     }
@@ -100,13 +112,21 @@
                         criteriaCtrl.criteria=$scope.criteria;
                         criteriaCtrl.criteria.qualifications=$scope.qualifications;
                         criteriaCtrl.data.criteria=criteriaCtrl.criteria;
+                        console.log("dsdddddsadadasssasssssdsdsds");
+                        console.log(criteriaCtrl);
                         $mdDialog.hide();
+                        // $mdDialog.hide({data:'i love you from dialog'});
                       }
                         $scope.closeDialog = function() {
                         $mdDialog.hide();
                      }
                   }
-               });
-            }
+               })
+               // .then(function(result), {
+               //    console.log('data from dialog: ', result);
+               // }, function(cancel){
+               //    console.log('Dialog was cancelled ');
+               // });
+            };
 }
 }());

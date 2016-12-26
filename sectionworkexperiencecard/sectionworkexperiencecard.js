@@ -47,7 +47,7 @@
         ctrl.loadLangData = function(lang) {
             datagenerate.getjson("section", lang).then(function(result) {
                 ctrl.items = result;
-
+                ctrl.languagedata = result;
             });
             //end datagenerate
         }

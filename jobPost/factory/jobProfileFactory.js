@@ -6,7 +6,8 @@
 
     function jobProfileFactory($http){
       var service = {
-        jobPost :  jobPost
+        jobPost : jobPost,
+        updateJob: updateJob
       };
       return service;
    
@@ -16,7 +17,10 @@
         url : '/jobProfile/jobpost',
         data : job
      })
-    
+   }
+
+    function updateJob(job) {
+      return $http.patch('/jobProfile/updateJob', job);
    }
  }
 }());

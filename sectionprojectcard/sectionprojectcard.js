@@ -11,7 +11,7 @@
             bindings: {
                 candidateid: '<',
                 showheader: '<',
-                languagedata: '='
+                languagedata: '=',
             },
             transclude: {
                 verify: 'verify'
@@ -20,9 +20,17 @@
 
     function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $scope) {
         let ctrl = this;
+
+        if(!ctrl.languagedata) {
+            ctrl.languagedata = 'English';
+        }
+
+        console.log("hjjjjjjjjjjjjjjjjggggggggggggggggggggggggggggggggggg");
+        console.log(ctrl.candidateid);
         ctrl.loadLangData = function(lang) {
             datagenerate.getjson('section', lang).then(function(result) {
                 ctrl.items = result;
+                ctrl.languagedata = result;
             }); // end datagenerate
         };
 
