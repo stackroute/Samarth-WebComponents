@@ -23,7 +23,7 @@
             </div>
         </div>
         <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span>
-            <md-chips class="custom-chips" ng-model="$ctrl.data.jb.skills" md-transform-chip="data.Skills($chip)" md-removable="false">
+            <md-chips class="custom-chips" ng-model="$ctrl.data.jb.skills" md-transform-chip="data.Skills($chip)" md-removable="false" readonly="true">
                 <md-chip-template>
                     <span>
             <strong>{{$chip.name}}</strong>
