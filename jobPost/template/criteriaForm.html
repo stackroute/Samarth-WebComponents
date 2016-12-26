@@ -1,6 +1,6 @@
 <md-dialog >
     <form ng-submit="submitCriteriaData()" ng-cloak required>
-        <md-toolbar id="conversationDialogtoolbar">
+        <md-toolbar >
             <div class="md-toolbar-tools">
                 <h2 id="headingtext">ADD CRITERIA</h2>
                 <span flex></span>
@@ -10,7 +10,7 @@
             </div>
         </md-toolbar>
         <md-dialog-content layout="column">
-            <div id="conversationDialogcontent" layout-padding layout-wrap>
+            <div  layout-padding layout-wrap>
                 I am Looking for
                 <div layout="row" data-ng-repeat="qualification in qualifications">
                   <md-input-container  >
