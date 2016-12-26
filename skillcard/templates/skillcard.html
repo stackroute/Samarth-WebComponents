@@ -118,12 +118,10 @@
             <md-icon class="material-icons">file_download</md-icon>
         </md-button>
     </a>
-    <md-button class="md-raised md-primary">
-            {{$ctrl.view}}
-    </md-button>
-    <md-button class="md-raised md-primary" ui-sref="index.jobSearch">
-            {{$ctrl.action}}
-    </md-button>
+
+    <span ng-transclude="buttons">
+    </span>
+
     <span ng-transclude="cardactions">
     </span>
 </md-card-actions>
