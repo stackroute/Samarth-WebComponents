@@ -134,8 +134,8 @@
                 console.log("save");
                 console.log("kumariiii");
                 console.log($scope.looking_jobs);
-                if($scope.looking_jobs=="Yes")
-                {
+                /*if($scope.looking_jobs=="Yes")
+                {*/
                 var preferenceData = {
 
                     "preferences":{
@@ -149,9 +149,9 @@
                         
                     }
                 };
-            }
+           /* }*/
 
-            if($scope.looking_jobs=="No")
+           /* if($scope.looking_jobs=="No")
                 {
                 var preferenceData = {
 
@@ -166,7 +166,7 @@
                         
                     }
                 };
-            }
+            }*/
 
                 if (header == 'Edit Job Preferences') {
                     console.log('before adding preferences', preferenceData);
