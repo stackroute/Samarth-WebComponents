@@ -1,6 +1,6 @@
 <div layout="column">
   <div layout="row" layout-align="center center">
-    <div class="md-headline">Job Profile</div>
+    <div class="md-headline">Create Job Profile</div>
   </div>
 
   <div layout="row" layout-align="center center" ng-show="jobShow">
@@ -11,7 +11,7 @@
     md-items="item in querySearch | filter: searchText"
     md-item-text="item.name"
     md-min-length="0"
-    placeholder="Job Provider?">
+    placeholder="Select Job Provider " flex-gt-xs="50">
     <md-item-template>
     <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
     </md-item-template>
