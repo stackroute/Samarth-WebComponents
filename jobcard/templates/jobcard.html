@@ -51,12 +51,9 @@
                 </div>
           </div>
     </md-card-content> -->
-    <div ng-transclude="buttons">
-                </div>
     <md-card-action layout="row" layout align="center end">
-        
-        <!-- <span ng-transclude="jobactions">
-      </span> -->
+      <div ng-transclude="buttons">
+      </div>
         <a id="jsonDownload" ng-click="downloadedData()">
             <md-icon class="material-icons">share</md-icon>
         </a>
@@ -65,8 +62,6 @@
               <md-icon class="material-icons">file_download</md-icon>
             </md-button>
         </a>
-        <!-- <div class="action" ng-transclude>
-        </div> -->
     </md-card-actions>
 </md-card>
 
