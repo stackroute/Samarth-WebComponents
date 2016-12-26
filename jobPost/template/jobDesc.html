@@ -13,7 +13,7 @@
   {{vm.job.role}} 
 </p>
 <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Language</strong></span>
-  {{vm.job.language}}
+  {{vm.job.languages}}
 </p>
 <div layout="row" layout-align="center" layout-xs="column" layout-md="column">
  <p flex="20"><span><ng-md-icon icon="location_on" size="20"><md-tooltip>
@@ -24,7 +24,7 @@
 <p flex="20"><span><ng-md-icon icon="event_busy" size="20"><md-tooltip>
             Close date
           </md-tooltip></ng-md-icon></span>
-  {{vm.job.closeDate | date:'yyyy-MM-dd'}}
+  {{vm.job.closedate | date:'yyyy-MM-dd'}}
 </p>
 <p flex="15"><span><ng-md-icon icon="history" size="20"><md-tooltip>
             Experience

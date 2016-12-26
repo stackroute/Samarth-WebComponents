@@ -1,5 +1,5 @@
 <md-dialog >
-    <form ng-submit="submitCriteriaData()" >
+    <form ng-submit="submitCriteriaData()" ng-cloak required>
         <md-toolbar id="conversationDialogtoolbar">
             <div class="md-toolbar-tools">
                 <h2 id="headingtext">ADD CRITERIA</h2>
@@ -9,18 +9,16 @@
                 </md-button>
             </div>
         </md-toolbar>
-        <md-dialog-content>
-            <div id="conversationDialogcontent"  layout-wrap>
+        <md-dialog-content layout="column">
+            <div id="conversationDialogcontent" layout-padding layout-wrap>
+                I am Looking for
                 <div layout="row" data-ng-repeat="qualification in qualifications">
-                    Course Name
                   <md-input-container  >
                     <input ng-model="qualification.name" type="text" placeholder="Course Name" ng-required="true">
                   </md-input-container>
-                  Score
                   <md-input-container>
                       <input ng-model="qualification.score" type="text" placeholder="Score" ng-required="true">
                   </md-input-container>
-                  Priority
                    <md-input-container>
                      <md-select ng-model="qualification.priority" placeholder="Priority">
                           <md-option ng-repeat="value in priority" value="{{value}}">
@@ -30,12 +28,12 @@
                          <md-icon ng-click="addQual()" >add</md-icon>
                   </md-input-container>
                 </div>
-                <div layout="row" >
+                <div layout="row">
                 Salary
-                  <md-input-container layout-padding >
+                  <md-input-container >
                   <input ng-model="criteria.salary" type="text" placeholder="Salary" ng-required="true">
                   </md-input-container>
-                and Allowance
+                Allowance
                   <md-input-container  >
                   <input ng-model="criteria.allowance" type="text" placeholder="Allowance & Renumeration" ng-required="true">
                   </md-input-container>
