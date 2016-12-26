@@ -12,7 +12,7 @@ angular.module('samarth-webcomponents')
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/jobcard.html',
         controller: jobcardCtrl,
-        transclude: true
+        transclude: {buttons:'buttons'}
     });
 
 /* Controller for job Card*/
