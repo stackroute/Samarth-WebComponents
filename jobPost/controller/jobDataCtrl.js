@@ -9,6 +9,7 @@
   {
     // var vm = this;
     $scope.msg="";
+    $scope.flag="false";
     $scope.jobData={};
     $scope.jobData.desc={};
     $scope.joprovider="";

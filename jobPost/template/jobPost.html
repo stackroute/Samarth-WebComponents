@@ -20,23 +20,22 @@
     <a ng-click="">Create a new one!</a>
     </md-not-found>
     </md-autocomplete>
-
   </div>
 
   <div layout="row" layout-align="center center" ng-show="selectedItem && selectedItem.length!= 0">
-      <job-provider data="selectedItem" flex-gt-xs="50"></job-provider>
+      <job-provider data="selectedItem" flex-gt-xs="50" flex-xs></job-provider>
   </div>
 
-  <div layout="row" layout-align="center center">
+  <div layout="row" layout-align="center center" ng-show="selectedItem && selectedItem.length!= 0">
     <!-- <h4>This is job description component </h4> -->
-    <job-desc data="jobData" flex-gt-xs="50"></job-desc>
+    <job-desc data="jobData" flex-gt-xs="50" flex-xs></job-desc>
   </div>
 
-  <div layout="row" layout-align="center center">
+  <div layout="row" layout-align="center center" ng-show="selectedItem && selectedItem.length!= 0">
     <!-- <h4>This is job criteria component </h4> -->
-    <criteria data="jobData" flex-gt-xs="50"></criteria>
+    <criteria data="jobData" flex-gt-xs="50" flex-xs></criteria>
   </div>
-  <div layout="row" layout-align="center center" ng-show="jobShow">
+  <div layout="row" layout-align="center center" ng-show="(selectedItem && selectedItem.length!= 0)&&jobShow">
     <md-button class="md-primary md-raised" ng-click="submitJob()">
     Post Job
     </md-button>
