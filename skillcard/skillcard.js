@@ -16,7 +16,8 @@
                 },
                 transclude: {
                     cardactions: 'cardactions',
-                    badges: 'badges'
+                    badges: 'badges',
+                    buttons: 'buttons'
                 }
         });
 

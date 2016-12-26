@@ -1,0 +1,100 @@
+<md-card flex>
+    <md-card-header ng-show="$ctrl.showheader" hide-gt-sm md-colors="::{background: 'primary-700'}">
+        <md-card-header-text layout="row">
+            <div class="md-headline">{{$ctrl.languagedata.jobpreferencesheader}}</div>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+        <div layout-gt-xs="column" layout-xs="column" class="top-padding">
+            <div layout="row" class="email">
+                <div>
+                    <md-icon class="icons">assignment_turned_in</md-icon>
+                </div>Looking for a job : &nbsp;&nbsp;
+                <div>{{$ctrl.preferences.looking_jobs}}</div>
+            </div>
+            <div layout-xs="column" layout-gt-xs="row" layout-padding flex flex-xs="100">
+                <div layout="row" flex-gt-xs="100" flex-xs="100" layout-xs="column">
+                    <div layout-xs="column" layout="column" flex-xs="100" flex-gt-xs="30">
+                         <div layout="row" class="comp-padding" ng-repeat="role in $ctrl.preferences.roles" layout-wrap>
+
+                            <md-chip>
+                               <md-icon >layers</md-icon>
+                               <span class="md-inline-list-icon-label">  {{role}}</span>
+
+                           </md-chip>
+                           
+                       </div>
+                    </div>
+                    <md-divider id="horizontal-divider" hide-gt-xs show-xs></md-divider>
+                    <md-divider hide-xs show-gt-xs class="vertical-divider"></md-divider>
+                    <div layout="column" flex-xs="100" flex-gt-xs="25">
+                        <div layout="row" class="comp-padding" ng-repeat="location in $ctrl.preferences.locations" layout-wrap>
+
+                            <md-chip>
+                               <md-icon >place</md-icon>
+                               <span class="md-inline-list-icon-label">  {{location}}</span>
+
+                           </md-chip>
+                           
+                       </div>
+                       <div layout="row" flex class="comp-padding">
+                        <div>
+                            <md-icon class="icons">shop</md-icon>
+                        </div>
+                        <div layout="column">
+                            <div layout-align="start start">
+                                {{$ctrl.preferences.joining_date}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <md-divider hide-xs show-gt-xs class="vertical-divider"></md-divider>
+                <md-divider hide-gt-xs show-xs id="horizontal-divider"></md-divider>
+                <div layout="column" flex-xs="100" flex-gt-xs="25">
+                    <div layout="column" flex>
+                        <div class="md-subhead" hide-xs>
+                            <div layout="row">
+                                <div>
+                                    <md-icon class="icons">camera_enhance</md-icon>
+                                </div>
+                                <div>
+                                    {{$ctrl.preferences.engagement_type}}
+                                </div>
+                            </div>
+                            <div layout="row">
+                                <div>
+                                    <md-icon class="icons">attach_money</md-icon>
+                                </div>
+                                <div>
+                                    {{$ctrl.preferences.expected_salary}}
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                
+                <md-divider id="horizontal-divider" hide-gt-xs show-xs></md-divider>
+                <md-divider hide-xs show-gt-xs class="vertical-divider"></md-divider>
+                <div layout="column" flex-xs="100" flex-gt-xs="15" ng-repeat="skill in $ctrl.preferences.skills">
+                    <md-chip>
+                        <md-icon >explore</md-icon>
+                        <span class="md-inline-list-icon-label"> {{skill}}</span>
+                    </md-chip>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</md-card-content>
+<md-card-actions layout="row " layout-align="end center ">
+    <div ng-transclude="verify">
+    </div>
+    <a class="pointCursor" id="addbutton " ng-click="$ctrl.showAdvanced($event, 'Edit Job Preferences', $ctrl.preferences) ">
+        <md-icon class="">mode_edit</md-icon>
+    </a>
+</md-button>
+</md-card-actions>
+</md-card>
+</div>
