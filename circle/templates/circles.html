@@ -1,27 +1,38 @@
-<md-card class="card transparent" md-colors="{background: '{{gerColler(prof.name)}}'}">
-    <!-- <img ng-src="{{prof.profilePic}} " class="md-card-image " />
- -->
-    <md-card-header>
-        <!-- <md-icon class="material-icons md-36">account circle</md-icon>
- -->
-        <md-card-header-text>
-            <span class="md-title ">{{prof.name | uppercase}}</span>
-        </md-card-header-text>
-        <!-- <md-card-avatar>
-    <img class="md-user-avatar" src="{{prof.profilePic}}" />
-</md-card-avatar>
- -->
-    </md-card-header>
-    <!-- <md-divider></md-divider> -->
-    <md-card-content>
-        <span class="md-subhead ">{{prof.rCount}}</span>
-        <span class="md-subhead ">{{prof.domain}}'s</span>
-    </md-card-content>
+<div>
+    <md-card class="md-default-theme" class="card transparent" class="md-whiteframe-5dp" md-colors="{ background: 'grey-300'}">
+        <md-card-header>
+
+            <md-card-header-text layout-align="center center">
+                <b>  <span class="md-headline" md-colors="{color: 'indigo'}">{{$ctrl.data.name | uppercase}}</span></b>
+            </md-card-header-text>
+        </md-card-header>
+        <md-divider></md-divider>
+        <md-card-content>
+            <div layout="row" >
+                <span class="md-subhead " md-colors="{color: 'grey-A700'}">Total Candidates:</span>
+                <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{$ctrl.data.rCount}}
+              </div>
+        <div layout="row"  >
+          <span class="md-subhead " md-colors="{color: 'grey-A700'}" >Candidates looking for jobs:</span>
+                <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{$ctrl.data.rCount}}
+          </span>
+            </div>
+            <div layout="row" >
+                <span class="md-subhead " md-colors="{color: 'grey-A700'}">Candidates looking for jobs:</span>
+                <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{$ctrl.data.rCount}}
+          </span>
+            </div>
+        </md-card-content>
+        <!--
     <md-divider></md-divider>
-    <md-card-actions layout="row" layout-sm="column">
-        <md-button ui-sref="index.searchjob">Jobs</md-button>
-        <md-button ui-sref="index.candidatessearch">Candidates</md-button>
-        <!-- <md-button>Employer</md-button>
- -->
-    </md-card-actions>
-</md-card>
+    <md-divider></md-divider> -->
+        <md-card-actions>
+            <md-button ui-sref="index.job({profession:'{{$ctrl.data.name}}'})">
+                <ng-md-icon icon="layers" md-colors="{color: 'blue-A700'}"> </ng-md-icon>JOBS</md-button>
+            <md-button ui-sref="index.candidate({profession:'{{$ctrl.data.name}}'})">
+                <ng-md-icon icon="people" md-colors="{color: 'blue-A700'}"> </ng-md-icon>CANDIDATES
+                <md-button>
+
+
+        </md-card-actions>
+    </md-card>
