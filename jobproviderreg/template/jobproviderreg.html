@@ -1,25 +1,20 @@
-<html>
 
-<head>
-</head>
+      <div layout="row" layout-align="center center"  layout-margin layout-padding >
+                <form name="myForm" ng-submit="vm.subjobprovider(); showAlert($event)" style="{height:"800px";}" flex flex-sm="66" flex-md="66" flex-gt-md="50" class="md-whiteframe-4dp">
+                  <div layout="row" layout-align="center center">
+                              <h3 md-title md-colors="{color: 'blue-A700'}">JOB PROVIDER</h3>
+                          </div>
 
-<body>
-    <center>
-      <div layout="column" layout-align="center center" >
-         <p calss=".md-subhead" align="center">Register Job-provider</p>
-        <div class="md-no-momentum" md-whiteframe="6" layout-margin >
-                <form name="myForm" ng-submit="vm.subjobprovider(); showAlert($event)">
-                    <md-input-container class="md-block">
+                    <md-input-container class="md-block" >
                         <!-- Use floating label instead of placeholder -->
                         <label>Name</label>
                         <md-icon>person</md-icon>
-                        <input ng-model="vm.jobprovider.name" name=Name type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true">
+                        <input ng-model="vm.jobprovider.name" name=Name type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true" >
                         <div ng-messages="myForm.Name.$error" ng-show="myForm.Name.$dirty || myForm.Name.$touched">
                             <div ng-message="pattern">only character and spaces allowed</div>
                             <div ng-message="md-maxlength">Length should not be more than 30 characters</div>
                         </div>
                     </md-input-container>
-
                     <md-input-container class="md-block">
                         <md-icon ng-show="vm.availability=='disabled'" style="color:black">do_not_disturb</md-icon>
                         <md-icon ng-show="vm.availability=='Available'" style="color:green">done</md-icon>
@@ -52,8 +47,6 @@
                             <div ng-message="pattern">10 digit number is allowed only </div>
                         </div>
                     </md-input-container>
-
-
                     <md-input-container class="md-block">
                         <!-- Use floating placeholder instead of label -->
                         <md-icon>email</md-icon>
@@ -64,23 +57,14 @@
                         <md-icon>people</md-icon>
                         <input ng-model="vm.jobprovider.about" type="text" placeholder="Description ">
                     </md-input-container>
-
                     <md-input-container class="md-block">
                         <!-- Use floating placeholder instead of label -->
                         <md-icon>link</md-icon>
                         <input ng-model="vm.jobprovider.url" type="url" placeholder="Url ">
                     </md-input-container>
-
-                    <section layout="row" layout-padding="" layout-align="center">
+                    <section layout="row"  layout-align="center">
                         <md-button type="submit" class="md-raised md-primary" ng-disabled="false" ng-hide="vm.register">&nbspRegister&nbsp</md-button>
                         <md-button type="button" class="md-raised md-primary" ng-disabled="false" ui-sref="index.emp"  ng-hide="vm.save" ng-click="vm.savechanges(); showAlert($event)">&nbspSave&nbsp</md-button>
                     </section>
-
-                    <section layout="row" layout-padding="" layout-align="center">
-                        <span class="md-subhead">{{vm.msg}}</span>
-                    </section>
                 </form>
             </div>
-        </div>
-    </center>
-</body>

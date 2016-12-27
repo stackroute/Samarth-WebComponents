@@ -1,6 +1,6 @@
 <md-dialog>
     <form ng-submit="submitDescData()" ng-cloak required>
-        <md-toolbar id="conversationDialogtoolbar">
+        <md-toolbar >
             <div class="md-toolbar-tools">
                 <h2 id="headingtext">ADD JOB-DETAILS</h2>
                 <span flex></span>
@@ -10,7 +10,7 @@
             </div>
         </md-toolbar>
         <md-dialog-content layout="column">
-            <div id="conversationDialogcontent" layout-padding layout-wrap>
+            <div  layout-padding layout-wrap>
                 I am looking for
                 <md-input-container>
                     <label>Job Title</label>
@@ -28,37 +28,37 @@
                 for the role
                 <md-input-container>
                     <label>Role</label>
-                    <input ng-model="job.role" type="text" placeholder="Role" ng-required="true">
+                    <input ng-model="job.role" type="text" placeholder="Role" ng-required="true" id="input1">
                 </md-input-container>
                 at
                 <md-input-container>
                     <label>Place</label>
-                    <input ng-model="job.location" type="text" placeholder="Location" ng-required="true">
+                    <input ng-model="job.location" type="text" placeholder="Location" ng-required="true" id="input1">
                 </md-input-container>
                 having Duties
                 <md-input-container>
                     <label>Duties</label>
-                    <input ng-model="job.duties" type="text" placeholder="Duties" ng-required="true">
+                    <input ng-model="job.duties" type="text" placeholder="Duties" ng-required="true" id="input1">
                 </md-input-container>
                 with Experience
                 <md-input-container>
                     <label>Experience</label>
-                    <input ng-model="job.experience" type="text" placeholder="Experience" ng-required="true">
+                    <input ng-model="job.experience" type="text" placeholder="Experience" ng-required="true" id="input1">
                 </md-input-container>
                 and required Language
                 <md-input-container>
                     <label>Language</label>
-                    <input ng-model="job.language" type="text" placeholder="Language" ng-required="true">
+                    <input ng-model="job.language" type="text" placeholder="Language" ng-required="true" id="input1">
                 </md-input-container>
                 avaible for Job-Openings
                 <md-input-container>
-                    <input ng-model="job.openings" type="text" placeholder="Job openings" ng-required="true">
+                    <input ng-model="job.openings" type="text" placeholder="Job openings" ng-required="true" id="input1">
                 </md-input-container>
                 till
                 <md-input-container>
                     <md-datepicker ng-model="job.closeDate" md-min-date="minDate" md-max-date="maxDate" placeholder="Close Date"></md-datepicker>
                 </md-input-container>
-                Listing the Skills required for the job with expertise and priorities
+                List the Skills required for the job
                 <div layout="row" id="skills" data-ng-repeat="skill in skills">
                     <md-input-container>
                         <input ng-model="skill.name" type="text" placeholder="Skills" ng-required="true">
@@ -72,11 +72,12 @@
                     </md-input-container>
                     <md-input-container>
                         <md-select ng-model="skill.priority">
-                            <md-option ng-repeat="value in priority" value="{{value}}" placeholder="Priority">
+                            <md-option ng-repeat="value in priority" value="{{value}}" placeholder="Priority" id="input1">
                                 {{value}}
                             </md-option>
                         </md-select>
-                        <md-icon ng-click="addInput()">add</md-icon>
+                          <md-button  md-colors="{background: 'blue-A400'}" class="md-fab md-mini" ng-click="addInput()">  <md-icon  >add</md-icon></md-button>
+                        <md-button    md-colors="{background: 'blue-A400'}" class="md-fab md-mini" class="md-fab md-mini" ><md-icon  >remove</md-icon></md-button>
                     </md-input-container>
                 </div>
 

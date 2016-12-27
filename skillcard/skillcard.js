@@ -24,9 +24,8 @@
         function skillcardCtrl($window, $timeout, $mdDialog, skillcardService,$rootScope,$state) {
             let ctrl = this;
             let name;
-            ctrl.view="View Detail";
-            ctrl.action="Suggest";
-
+            console.log("entered in to controller of skillcard");
+            console.log($rootScope);
             if($rootScope.pre=="dashboard")
             {
                 ctrl.view="View Detail";
@@ -79,7 +78,7 @@
             });
 
             function createDownloadUrl() {
-                name = ctrl.data.name+'.png';
+                name = ctrl.data.name + '.png';
                 ctrl.data1 = ctrl.data;
                 ctrl.downloaddata = JSON.stringify(ctrl.data1);
 

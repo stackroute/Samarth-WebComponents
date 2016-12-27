@@ -1,10 +1,12 @@
 <md-card>
   <md-card-title>
     <md-card-title-text>
-      <span class="md-headline"><p><span><md-tooltip>Title</md-tooltip><ng-md-icon icon="perm_identity" size="20"></span>
-  {{vm.job.title}} 
-</p></span>
-      <!-- <span class="md-subhead">Large</span> -->
+      <span class="md-headline">Job Description</span>
+      <span class="md-subhead"><p><span><md-tooltip>Title</md-tooltip><ng-md-icon icon="perm_identity" size="20"></span>
+      {{vm.job.title}} 
+      </p></span>
+    </md-card-title-text>
+  </md-card-title>  
     </md-card-title-text>
   </md-card-title>
 
@@ -13,7 +15,7 @@
   {{vm.job.role}} 
 </p>
 <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Language</strong></span>
-  {{vm.job.language}}
+  {{vm.job.languages}}
 </p>
 <div layout="row" layout-align="center" layout-xs="column" layout-md="column">
  <p flex="20"><span><ng-md-icon icon="location_on" size="20"><md-tooltip>
@@ -24,7 +26,7 @@
 <p flex="20"><span><ng-md-icon icon="event_busy" size="20"><md-tooltip>
             Close date
           </md-tooltip></ng-md-icon></span>
-  {{vm.job.closeDate | date:'yyyy-MM-dd'}}
+  {{vm.job.closedate | date:'yyyy-MM-dd'}}
 </p>
 <p flex="15"><span><ng-md-icon icon="history" size="20"><md-tooltip>
             Experience

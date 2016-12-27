@@ -23,7 +23,7 @@
             </div>
         </div>
         <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span>
-            <md-chips class="custom-chips" ng-model="$ctrl.data.jb.skills" md-transform-chip="data.Skills($chip)" md-removable="false">
+            <md-chips class="custom-chips" ng-model="$ctrl.data.jb.skills" md-transform-chip="data.Skills($chip)" md-removable="false" readonly="true">
                 <md-chip-template>
                     <span>
             <strong>{{$chip.name}}</strong>
@@ -51,12 +51,9 @@
                 </div>
           </div>
     </md-card-content> -->
-    <div ng-transclude="buttons">
-                </div>
     <md-card-action layout="row" layout align="center end">
-        
-        <!-- <span ng-transclude="jobactions">
-      </span> -->
+      <div ng-transclude="buttons">
+      </div>
         <a id="jsonDownload" ng-click="downloadedData()">
             <md-icon class="material-icons">share</md-icon>
         </a>
@@ -65,8 +62,6 @@
               <md-icon class="material-icons">file_download</md-icon>
             </md-button>
         </a>
-        <!-- <div class="action" ng-transclude>
-        </div> -->
     </md-card-actions>
 </md-card>
 
