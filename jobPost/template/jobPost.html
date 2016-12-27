@@ -1,8 +1,3 @@
-<!-- <div layout="column">
-  <div layout="row" layout-align="center center">
-    <div class="md-headline">Create Job Profile</div>
-  </div> -->
-
     <div layout="row" layout-align="center center" layout-xs="column" layout-padding md-colors="{background: 'indigo-100'}">
       <span class="md-headline" >{{header}}</span>
     </div>
@@ -21,7 +16,7 @@
     </md-item-template>
     <md-not-found>
     No names matching "{{searchText}}" were found.
-    <a ng-click="">Create a new one!</a>
+    <a ui-sref='index.empreg'>New Jobprovider?</a>
     </md-not-found>
     </md-autocomplete>
   </div>
