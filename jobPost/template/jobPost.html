@@ -10,13 +10,13 @@
     md-items="item in querySearch | filter: searchText"
     md-item-text="item.name"
     md-min-length="0"
-    placeholder="Select Job Provider " flex-gt-xs="50" md-colors="{background: 'grey-200'}">
+    placeholder="Select Job Provider to post a Job" flex-gt-xs="50" md-colors="{background: 'grey-200'}">
     <md-item-template>
     <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
     </md-item-template>
     <md-not-found>
     No names matching "{{searchText}}" were found.
-    <a ui-sref='index.empreg'>New Jobprovider?</a>
+    <a ui-sref='index.empreg'>Add new ?</a>
     </md-not-found>
     </md-autocomplete>
   </div>
