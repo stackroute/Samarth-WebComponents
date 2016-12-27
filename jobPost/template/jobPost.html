@@ -1,7 +1,11 @@
-<div layout="column">
+<!-- <div layout="column">
   <div layout="row" layout-align="center center">
     <div class="md-headline">Create Job Profile</div>
-  </div>
+  </div> -->
+
+    <div layout="row" layout-align="center center" layout-xs="column" layout-padding md-colors="{background: 'indigo-100'}">
+      <span class="md-headline" >{{header}}</span>
+    </div>
 
   <div layout="row" layout-align="center center" ng-show="jobShow">
     <!-- <h4>This is auto complete </h4> -->
@@ -11,7 +15,7 @@
     md-items="item in querySearch | filter: searchText"
     md-item-text="item.name"
     md-min-length="0"
-    placeholder="Select Job Provider " flex-gt-xs="50">
+    placeholder="Select Job Provider " flex-gt-xs="50" md-colors="{background: 'grey-200'}">
     <md-item-template>
     <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
     </md-item-template>
