@@ -43,7 +43,7 @@
                         </div>
                         <div layout="column">
                             <div layout-align="start start">
-                                {{$ctrl.preferences.joining_date}}
+                                {{$ctrl.preferences.joining_date | date : "dd.MM.y"}}
                             </div>
                         </div>
                     </div>

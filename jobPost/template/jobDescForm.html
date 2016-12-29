@@ -21,7 +21,7 @@
                 </md-input-container>in profession
                 <md-input-container>
                     <label>Profession</label>
-                    <md-select ng-model="job.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
+                    <md-select ng-model="job.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader">
                         <md-option ng-value="item" ng-repeat="item in items | filter:searchTerm">{{item}}</md-option>
                     </md-select>
                 </md-input-container>
@@ -46,10 +46,50 @@
                     <input ng-model="job.experience" type="text" placeholder="Experience" ng-required="true" id="input1">
                 </md-input-container>
                 and required Language
-                <md-input-container>
-                    <label>Language</label>
-                    <input ng-model="job.language" type="text" placeholder="Language" ng-required="true" id="input1">
-                </md-input-container>
+                
+                 <div layout data-ng-repeat="iteration in selectedLanguage">
+                <!--<md-icon>language</md-icon> -->
+                    <md-autocomplete
+                        ng-model="lang[iteration]"
+                        md-selected-item="lang[iteration]"
+                        md-search-text-change=""
+                        md-search-text="languageInputText"
+                        md-selected-item-change=""
+                        md-items="item in language | filter: languageInputText"
+                        md-item-text="item"
+                        md-min-length="0"
+                        md-menu-class="autocomplete-custom-template"
+                        md-floating-label="Languages"
+                        ng-required=true>
+                        <md-item-template>
+                        <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
+                        </md-item-template>
+                    </md-autocomplete >
+                    <div>
+                      <p>
+                        <md-checkbox ng-model="tempLanguage[iteration].speak">Speak</md-checkbox>
+                        <md-checkbox ng-model="tempLanguage[iteration].read">Read</md-checkbox>
+                        <md-checkbox ng-model="tempLanguage[iteration].write">Write</md-checkbox>
+                      </p>
+                    </div>
+                </div>
+                <div layout>
+                  <span flex></span>
+                  <md-button  class="md-fab md-mini" ng-click="insertLang()">
+                    <md-tooltip>
+                      Add a new language
+                    </md-tooltip>
+                    <md-icon>add</md-icon>
+                  </md-button>
+                  <md-button  class="md-fab md-mini" ng-click="removeLang()">
+                    <md-tooltip>
+                      Remove a language
+                    </md-tooltip>
+                    <md-icon>remove</md-icon>
+                  </md-button>
+                </div>
+
+
                 avaible for Job-Openings
                 <md-input-container>
                     <input ng-model="job.openings" type="text" placeholder="Job openings" ng-required="true" id="input1">

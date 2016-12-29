@@ -9,7 +9,7 @@
   {
     // var vm = this;
     $scope.msg="";
-    $scope.flag="false";
+    $scope.header="";
     $scope.jobData={};
     $scope.jobData.desc={};
     $scope.joprovider="";
@@ -38,7 +38,7 @@
     // $scope.val2 = $state.params.key1;
     console.log($state.params.key1);
     if(1 === $state.params.key) 
-    {   
+    {  $scope.header="Job Profile View";
       $scope.jobData = $state.params.key1;
       jobProviderList.getJobProvider().then(function(response)
       {
@@ -59,6 +59,7 @@
     }
     else
     {$scope.jobShow = true;
+      $scope.header="Build Your Job Profile";
       jobProviderList.getJobProvider().then(function(response)
       {
         console.log(response.data);

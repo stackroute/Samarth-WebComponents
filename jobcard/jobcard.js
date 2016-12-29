@@ -13,8 +13,18 @@ angular.module('samarth-webcomponents')
             '/')) + '/templates/jobcard.html',
         controller: jobcardCtrl,
         transclude: {buttons:'buttons'}
+    })
+    .directive('fallbackSrc', function () {
+    var fallbackSrc = {
+    link: function postLink(scope, iElement, iAttrs) {
+      iElement.bind('error', function() {
+        angular.element(this).attr("src", iAttrs.fallbackSrc);
+      });
+     }
+    }
+   return fallbackSrc;
     });
-
+    
 /* Controller for job Card*/
 function jobcardCtrl($scope, jobCardService,$rootElement, $window, $timeout) {
     if($rootElement.attr('ng-app')=="samarth")

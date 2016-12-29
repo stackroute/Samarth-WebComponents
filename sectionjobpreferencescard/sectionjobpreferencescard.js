@@ -72,7 +72,7 @@
                     locals: {
                         header: header,
                         object: object,
-                        candidateid: this.candidateid
+                        candidateid: ctrl.candidateid
                     }
                 }).
                 then(
@@ -98,11 +98,11 @@
              console.log(object);
             if (object != '') {
                 $scope.looking_jobs=object.looking_jobs;
-                $scope.expected_salary = object.expected_salary;
+                $scope.expected_salary = "";
                 $scope.roles = object.roles;
                 $scope.skills = object.skills;
-                $scope.engagement_type=object.engagement_type;
-                $scope.joining_date=object.joining_date;
+                $scope.engagement_type="";
+                $scope.joining_date="";
                 $scope.locations = object.locations;
             } else {
                 $scope.looking_jobs="",
@@ -172,7 +172,7 @@
                     console.log('before adding preferences', preferenceData);
                     $http({
                         method: 'POST',
-                        url: '/jobpreferences/' + ctrl.candidateid,
+                        url: '/jobpreferences/' + $scope.candidateid,
                         data: preferenceData,
                         crossDomain: true
                     }).then(function successCallback(response) {

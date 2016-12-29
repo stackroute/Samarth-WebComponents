@@ -18,7 +18,7 @@
             }
         });
 
-    function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $scope) {
+    function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $scope,$rootElement) {
         let ctrl = this;
 
         if(!ctrl.languagedata) {
@@ -27,10 +27,21 @@
 
         console.log("hjjjjjjjjjjjjjjjjggggggggggggggggggggggggggggggggggg");
         console.log(ctrl.candidateid);
+       // ctrl.lang = "English";
         ctrl.loadLangData = function(lang) {
-            datagenerate.getjson('section', lang).then(function(result) {
+            // ctrl.lang = lang;
+            // Setting language default to English for Samarth-Placement, as it is not multilingual as of now
+         // if($rootElement.attr('ng-app')=="samarth")
+         //    {
+         //        ctrl.lang = "English";
+         //    }
+   
+            datagenerate.getjson("section",lang).then(function(result) {
                 ctrl.items = result;
+                 if($rootElement.attr('ng-app')=="samarth")
+            {
                 ctrl.languagedata = result;
+            }
             }); // end datagenerate
         };
 

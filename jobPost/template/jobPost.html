@@ -1,7 +1,6 @@
-<div layout="column">
-  <div layout="row" layout-align="center center">
-    <div class="md-headline">Create Job Profile</div>
-  </div>
+    <div layout="row" layout-align="center center" layout-xs="column" layout-padding md-colors="{background: 'grey-100'}">
+      <span class="md-headline" id="heading">{{header}}</span>
+    </div>
 
   <div layout="row" layout-align="center center" ng-show="jobShow">
     <!-- <h4>This is auto complete </h4> -->
@@ -11,13 +10,13 @@
     md-items="item in querySearch | filter: searchText"
     md-item-text="item.name"
     md-min-length="0"
-    placeholder="Select Job Provider " flex-gt-xs="50">
+    placeholder="Select Job Provider to post a Job" flex-gt-xs="50" md-colors="{background: 'grey-200'}">
     <md-item-template>
     <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
     </md-item-template>
     <md-not-found>
     No names matching "{{searchText}}" were found.
-    <a ng-click="">Create a new one!</a>
+    <a ui-sref='index.empreg'>Add new ?</a>
     </md-not-found>
     </md-autocomplete>
   </div>
