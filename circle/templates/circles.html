@@ -1,38 +1,24 @@
 <div>
     <md-card class="md-default-theme" class="card transparent" class="md-whiteframe-5dp" md-colors="{ background: 'grey-300'}">
         <md-card-header>
-
-            <md-card-header-text layout-align="center center">
+            <md-card-header-text >
                 <b>  <span class="md-headline" md-colors="{color: 'indigo'}">{{$ctrl.data.name | uppercase}}</span></b>
             </md-card-header-text>
         </md-card-header>
         <md-divider></md-divider>
-        <md-card-content layout-align="center center">
-            <div layout="row" layout-align="center center">
-                <span class="md-subhead " md-colors="{color: 'grey-A700'}">Total Candidates:</span>
-                <span class="md-headline" md-colors="{color: 'grey-A700'}">{{$ctrl.data.rCount}}
-              </div>
-        <div layout="row" layout-align="center center" >
-          <span class="md-subhead " md-colors="{color: 'grey-A700'}" >Candidates looking for jobs:</span>
-                <span class="md-headline" md-colors="{color: 'grey-A700'}">{{$ctrl.data.rCount}}
-          </span>
-            </div>
-            <div layout="row" layout-align="center center">
-                <span class="md-subhead " md-colors="{color: 'grey-A700'}">Candidates looking for jobs:</span>
-                <span class="md-headline" md-colors="{color: 'grey-A700'}">{{$ctrl.data.rCount}}
-          </span>
-            </div>
-        </md-card-content>
+        <div ng-transclude="circleStats">
+        </div>
         <!--
     <md-divider></md-divider>
     <md-divider></md-divider> -->
-        <md-card-actions>
+        <md-card-actions layout="row">
             <md-button ui-sref="index.job({profession:'{{$ctrl.data.name}}'})">
-                <ng-md-icon icon="layers" md-colors="{color: 'blue-A700'}"> </ng-md-icon>JOBS</md-button>
+                <ng-md-icon icon="layers" md-colors="{color: 'blue-A700'}"> </ng-md-icon>JOBS
+                </md-button>
+                <span flex></span>
             <md-button ui-sref="index.candidate({profession:'{{$ctrl.data.name}}'})">
                 <ng-md-icon icon="people" md-colors="{color: 'blue-A700'}"> </ng-md-icon>CANDIDATES
-                <md-button>
-
-
+            </md-button>
         </md-card-actions>
     </md-card>
+    </div>
