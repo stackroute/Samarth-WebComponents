@@ -15,7 +15,7 @@
   {{vm.job.role}} 
 </p>
 <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Language</strong></span>
-  {{vm.job.languages}}
+  <span ng-repeat="lang in vm.job.languages">{{lang.name}}{{$last ? '' : ($index==vm.job.languages.length-2) ? ' and ' : ', '}}</span>
 </p>
 <div layout="row" layout-align="center" layout-xs="column" layout-md="column">
  <p flex="20"><span><ng-md-icon icon="location_on" size="20"><md-tooltip>

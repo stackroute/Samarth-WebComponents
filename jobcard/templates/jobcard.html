@@ -1,5 +1,5 @@
 <!-- <div ng-repeat="data in $ctrl.data"> -->
-<md-card class="card transparent" md-colors="{background: 'grey-100'}" flex>
+<md-card class="card transparent" md-colors="{background: 'white-100'}" flex>
     <md-card-header>
         <md-card-header-text>
             <span class="md-headline" md-colors="{color: 'indigo-700'}"><ng-md-icon icon="perm_identity"></ng-md-icon><md-tooltip md-direction="left">Title</md-tooltip>{{$ctrl.data.jb.title}}</span>
@@ -11,7 +11,7 @@
         </md-card-avatar>
     </md-card-header>
     <md-card-content layout="column">
-        <div layout-gt-xs="row" layout-xs="column">
+        <div layout="column" layout-gt-xs="row" layout-xs="column" >
             <div layout="column" flex-gt-xs="30">
                 <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.jb.location}}</span></p>
             </div>
@@ -24,11 +24,11 @@
         </div>
         <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span>
             <md-chips class="custom-chips" ng-model="$ctrl.data.jb.skills" md-transform-chip="data.Skills($chip)" md-removable="false" readonly="true">
-                <md-chip-template>
-                    <span>
+            <md-chip-template>
+            <span>
             <strong>{{$chip.name}}</strong>
             </span>
-                </md-chip-template>
+            </md-chip-template>
             </md-chips>
         </p>
     </md-card-content>
@@ -52,16 +52,16 @@
           </div>
     </md-card-content> -->
     <md-card-action layout="row" layout align="center end">
-      <div ng-transclude="buttons">
-      </div>
-        <a id="jsonDownload" ng-click="downloadedData()">
-            <md-icon class="material-icons">share</md-icon>
-        </a>
+       <a id="jsonDownload" ng-click="downloadedData()">
+        <md-icon class="md-primary" class="material-icons">share</md-icon><md-tooltip>Share Card</md-tooltip>
+       </a>
         <a id="download">
-            <md-button ng-click="render($event)">
+            <md-button class="md-primary" aria-label="Download" ng-click="render($event)">
+            <md-tooltip>Download Card</md-tooltip>
               <md-icon class="material-icons">file_download</md-icon>
             </md-button>
         </a>
+      <div ng-transclude="buttons"></div>
     </md-card-actions>
 </md-card>
 
