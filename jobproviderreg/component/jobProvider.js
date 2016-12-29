@@ -28,21 +28,7 @@
         console.log("y" + vm.bar);
         vm.save = true;
         vm.register = false;
-        function showAlert(ev) {
-           // Appending dialog to document.body to cover sidenav in docs app
-           // Modal dialogs should fully cover application
-           // to prevent interaction outside of dialog
-           $mdDialog.show(
-               $mdDialog.alert()
-               .parent(angular.element(document.querySelector('#popupContainer')))
-               .clickOutsideToClose(true)
-               .title("Message")
-               .textContent(vm.msg)
-               .ariaLabel('Alert Dialog Demo')
-               .ok('Got it!')
-               .targetEvent(ev)
-           );
-       };
+
         // vm.showAlert = showAlert;
         if (vm.foo == "1") {
 
@@ -65,7 +51,21 @@
               vm.msg = "Updated Successfully";
               showAlert();
                     console.log("hey" + vm.msg);
-
+                    function showAlert(ev) {
+                       // Appending dialog to document.body to cover sidenav in docs app
+                       // Modal dialogs should fully cover application
+                       // to prevent interaction outside of dialog
+                       $mdDialog.show(
+                           $mdDialog.alert()
+                           .parent(angular.element(document.querySelector('#popupContainer')))
+                           .clickOutsideToClose(true)
+                           .title("Message")
+                           .textContent("User "+ vm.jobprovider.jpCode+"! "+" "+"is"+vm.msg)
+                           .ariaLabel('Alert Dialog Demo')
+                           .ok('Got it!')
+                           .targetEvent(ev)
+                       );
+                    };
 
                 }),
                 function(err) {
@@ -122,6 +122,21 @@
             jobproviderfactory.jobproviderdata(vm.jobprovider).then(function(response) {
                     vm.msg = response.data.msg;
                     showAlert();
+                    function showAlert(ev) {
+                       // Appending dialog to document.body to cover sidenav in docs app
+                       // Modal dialogs should fully cover application
+                       // to prevent interaction outside of dialog
+                       $mdDialog.show(
+                           $mdDialog.alert()
+                           .parent(angular.element(document.querySelector('#popupContainer')))
+                           .clickOutsideToClose(true)
+                           .title("Message")
+                           .textContent("User "+ vm.jobprovider.jpCode+"!"+"is"+vm.msg)
+                           .ariaLabel('Alert Dialog Demo')
+                           .ok('Got it!')
+                           .targetEvent(ev)
+                       );
+                    };
                     jobproviderfactory.jpCodeCheck(vm.jobprovider.jpCode).then(function(response) {
                             if (response.data.count >= 1) {
                                 vm.availability = "Not available";
