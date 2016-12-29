@@ -1,3 +1,4 @@
+
 (function() {
 
 
@@ -7,10 +8,6 @@
             controller: circleCtrl,
             bindings: {
                 data: '<'
-            },
-            transclude:
-            {
-                circleStats:"circleStats"
             }
         });
 
@@ -25,3 +22,4 @@
         };
     }
 })();
+
