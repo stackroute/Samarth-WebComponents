@@ -21,7 +21,7 @@
                 </md-input-container>in profession
                 <md-input-container>
                     <label>Profession</label>
-                    <md-select ng-model="job.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
+                    <md-select ng-model="job.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader">
                         <md-option ng-value="item" ng-repeat="item in items | filter:searchTerm">{{item}}</md-option>
                     </md-select>
                 </md-input-container>
