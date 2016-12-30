@@ -21,7 +21,7 @@
                 }
         });
 
-        function skillcardCtrl($window, $timeout, $mdDialog, skillcardService,$rootScope,$state) {
+        function skillcardCtrl($window, $timeout, $mdDialog, skillcardService, $rootScope, $state, $http) {
             let ctrl = this;
             let name;
             console.log("entered in to controller of skillcard");
@@ -75,6 +75,21 @@
 
             skillcardService.getskillcarddata(this.candidateid).then(function(result) {
                 ctrl.data = result;
+                $http({
+                    method: 'GET',
+                    url: '/jobpreferences/' + ctrl.candidateid
+                }).then(function successCallback(response) {
+                    console.log('entered into  response of factory of skill card', response)
+                    if(response.data[0].preferences.looking_jobs === Undefined)
+                    {
+                        ctrl.data.looking_jobs = "No"   
+                    }
+                    else{
+                        ctrl.data.looking_jobs = response.data[0].preferences.looking_jobs;
+                    }
+                    }, function errorCallback(response) {
+                        console.log('Error occurred during preferences');
+                    });
             });
 
             function createDownloadUrl() {
