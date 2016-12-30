@@ -75,13 +75,16 @@
 
             skillcardService.getskillcarddata(this.candidateid).then(function(result) {
                 ctrl.data = result;
+                console.log("canduidate id =" , ctrl.candidateid);
                 $http({
                     method: 'GET',
                     url: '/jobpreferences/' + ctrl.candidateid
                 }).then(function successCallback(response) {
                     console.log('entered into  response of factory of skill card', response)
-                    if(response.data[0].preferences.looking_jobs === Undefined)
+                    // console.log(response.data[0].preferences.looking_jobs);
+                    if(response.data[0] === undefined)
                     {
+                        console.log("entered into if loop");
                         ctrl.data.looking_jobs = "No"   
                     }
                     else{
