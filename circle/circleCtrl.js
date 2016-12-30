@@ -8,7 +8,11 @@
             controller: circleCtrl,
             bindings: {
                 data: '<'
-            }
+            },
+            transclude: {
+                    circleStats: 'circleStats'
+                   
+                }
         });
 
     // Ctrl for circle component
