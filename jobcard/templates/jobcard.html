@@ -1,5 +1,5 @@
 <!-- <div ng-repeat="data in $ctrl.data"> -->
-<md-card class="card transparent" md-colors="{background: 'white-100'}" flex>
+<md-card class="card transparent" md-colors="{background: 'white-100'}" flex >
     <md-card-header>
         <md-card-header-text>
             <span class="md-headline" md-colors="{color: 'indigo-700'}"><ng-md-icon icon="perm_identity"></ng-md-icon><md-tooltip md-direction="left">Title</md-tooltip>{{$ctrl.data.jb.title}}</span>
@@ -7,20 +7,24 @@
         </md-card-header-text>
         <md-card-avatar layout="column" flex="30" class="avatar" hide-xs>
             <!-- <md-icon>business</md-icon> -->
-            <img class="md-user-avatar avatar" fallback-src="samarth-webcomponents/jobcard/default.jpg" ng-src="{{$ctrl.data.logo}}" alt="Image not available">
+            <img class="md-user-avatar avatar" fallback-src="samarth-webcomponents/jobcard/default.png" ng-src="{{$ctrl.data.logo}}" alt="Image not available">
         </md-card-avatar>
     </md-card-header>
     <md-card-content layout="column">
+      <div layout="row" layout-padding >
+          <p><span><ng-md-icon icon="layers" md-colors="{color: 'indigos-700'}"><md-tooltip>Profession:</md-tooltip></ng-md-icon>{{$ctrl.data.jb.profession[0]}}</span></p>
+      </div>
         <div layout="column" layout-gt-xs="row" layout-xs="column" >
-            <div layout="column" flex-gt-xs="30">
-                <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.jb.location}}</span></p>
+            <div layout="column" flex-gt-xs="30" flex-gt-md="40" flex-md="40" class=" md-subhead">
+                <span><ng-md-icon icon="location_on" ><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.jb.location}}</span>
             </div>
-            <div layout="column" flex-gt-xs="30">
-                <p><span><ng-md-icon icon="attach_money"><md-tooltip>Salary</md-tooltip></ng-md-icon>{{$ctrl.data.jb.salary}}</span></p>
+            <div layout="column" flex-gt-xs="30" flex-gt-md="35" flex-md="35" class=" md-subhead">
+                <span><ng-md-icon icon="attach_money" ><md-tooltip>Salary</md-tooltip></ng-md-icon>{{$ctrl.data.jb.salary}}</span>
             </div>
-            <div layout="column" flex-gt-xs="30">
-                <p><span><ng-md-icon icon="history"><md-tooltip>Experience</md-tooltip></ng-md-icon>{{$ctrl.data.jb.experience}}</span></p>
+            <div layout="column" flex-gt-xs="30" flex-gt-md="30" flex-md="30" class=" md-subhead">
+                <span><ng-md-icon icon="history"><md-tooltip>Experience</md-tooltip></ng-md-icon>{{$ctrl.data.jb.experience}}</span>
             </div>
+
         </div>
         <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span>
             <md-chips class="custom-chips" ng-model="$ctrl.data.jb.skills" md-transform-chip="data.Skills($chip)" md-removable="false" readonly="true">
@@ -51,16 +55,15 @@
                 </div>
           </div>
     </md-card-content> -->
-    <md-card-action layout="row" layout align="center end">
+    <md-card-action layout="row" >
        <a id="jsonDownload" ng-click="downloadedData()">
-        <md-icon class="md-primary" class="material-icons">share</md-icon><md-tooltip>Share Card</md-tooltip>
        </a>
-        <a id="download">
-            <md-button class="md-primary" aria-label="Download" ng-click="render($event)">
+  <md-tooltip>Share</md-tooltip>
+       <md-icon class="md-primary" class="material-icons"  md-colors="{color: 'indigo-600'}" layout-padding>share</md-icon><md-tooltip>Share Card</md-tooltip>
             <md-tooltip>Download Card</md-tooltip>
-              <md-icon class="material-icons">file_download</md-icon>
-            </md-button>
-        </a>
+              <md-icon class="material-icons" md-colors="{color: 'indigo-600'}">file_download</md-icon>
+
+
       <div ng-transclude="buttons"></div>
     </md-card-actions>
 </md-card>
