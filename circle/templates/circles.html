@@ -1,14 +1,5 @@
 <div>
-    <md-card class="md-default-theme" class="card transparent" class="md-whiteframe-5dp" md-colors="{ background: 'grey-300'}">
-        <md-card-header>
-            <md-card-header-text >
-                <b>  <span class="md-headline" md-colors="{color: 'indigo'}">{{$ctrl.data.name | uppercase}}</span></b>
-            </md-card-header-text>
-        </md-card-header>
-        <md-divider></md-divider>
-        <md-card-content ng-transclude="circleStats">
-        </md-card-content>
-    
+    <md-card class="md-default-theme" class="card transparent" class="md-whiteframe-5dp" md-colors="{ background: 'grey-300'}" ng-transclude="circleStats">
         <md-card-actions layout="row">
             <md-button ui-sref="index.job({profession:'{{$ctrl.data.name}}'})">
                 <ng-md-icon icon="layers" md-colors="{color: 'blue-A700'}"> </ng-md-icon>JOBS

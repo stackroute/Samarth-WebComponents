@@ -252,11 +252,16 @@
                             <span>{{$ctrl.data.contact}}</span>
                         </p>
                     </div>
-                    <div flex="40" id="section2" layout="column">
+                    <div flex="40" id="section2" layout="column" layout-padding>
                         <span>
                         <md-icon class="material-icons">mail outline</md-icon>
                             <span>{{$ctrl.data.email}}</span>
                         </span>
+                        <p>
+                            <md-icon class="material-icons">remove_red_eye</md-icon>
+                            Looking for job :
+                            <span>{{$ctrl.data.looking_jobs}}</span>
+                        </p>
                     </div>
                 </div>
                 <div layout="row">

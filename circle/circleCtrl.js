@@ -10,9 +10,16 @@
                 data: '<'
             },
             transclude: {
+
                     circleStats: 'circleStats'
                    
                 }
+
+                circleStats: 'circleStats'
+
+            
+            }
+
         });
 
     // Ctrl for circle component
@@ -26,4 +33,3 @@
         };
     }
 })();
-
