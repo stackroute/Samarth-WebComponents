@@ -39,13 +39,14 @@
     Post Job
     </md-button>
   </div>
-
+<div ng-show="value">
   <div layout="row" layout-align="center center" ng-show="!jobShow">
     <md-button class="md-primary md-raised" ng-click="updateJob()">
-      Update Job
+      Update job
     </md-button>
     <md-button class="md-primary md-raised" ng-click="" ui-sref="index.appliedCandidate({jobcode:jobData.jobcode})">
-      Applied candidate
+      Applied Candidate
     </md-button>
   </div>
+</div>
 </div>
