@@ -11,10 +11,16 @@
                   controllerAs : 'vm'
               })
               .controller('criteriaCtrl',criteriaCtrl);
-              function criteriaCtrl(){
+              function criteriaCtrl($rootElement){
               let vm = this;
-                // console.log("dddddddddddddddddddd");
-                // console.log(vm.data);
+            if($rootElement.attr('ng-app')=="samarth")
+           {  
+             vm.value1=true;
+           }
+           else
+           {
+              vm.value1=false;
+           }
               vm.criteria=vm.data;
               vm.criteria.qualifications=vm.data.qualifications;
       }

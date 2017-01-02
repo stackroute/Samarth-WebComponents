@@ -13,10 +13,16 @@
        transclude:true
       })
       .controller('jobDescCtrl', jobDescCtrl);
-      function jobDescCtrl(){
+      function jobDescCtrl($rootElement){
             let vm=this;
-        // console.log("ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
-        // console.log(vm.data);
+           if($rootElement.attr('ng-app')=="samarth")
+           {  
+             vm.value1=true;
+           }
+           else
+           {
+              vm.value1=false;
+           }
             vm.job=vm.data;
             vm.job.skills=vm.data.skills;
             vm.newSkill=function(){};

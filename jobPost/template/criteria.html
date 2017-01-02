@@ -31,11 +31,9 @@
 
   <md-card-actions layout="row" layout-align="end center">
    <div id="dialogContainer" ng-controller="dialogController as ctrl" ng-cloak>
-    <md-button class="md-primary md-raised" ng-click="showQualification($event,vm)">
+    <md-button class="md-primary md-raised" ng-click="showQualification($event,vm)" ng-show="vm.value1">
     Edit
     </md-button>
   </div>  
-  <span ng-transclude="jobactions">
-  </span>
   </md-card-actions>
 </md-card>
