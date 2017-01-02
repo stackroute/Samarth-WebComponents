@@ -20,13 +20,17 @@
             }
         });
 
-    function jobpreferencessectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $scope) {
+    function jobpreferencessectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $scope, $rootElement) {
         console.log("jobpreferencessectioncardCtrl");
         let ctrl = this;
         ctrl.preferences = {};
         ctrl.loadLangData = function(lang) {
             datagenerate.getjson('section', lang).then(function(result) {
                 ctrl.items = result;
+                if($rootElement.attr('ng-app')=="samarth")
+                {
+                    ctrl.languagedata = result;
+                }
             }); // end datagenerate
         };
 
