@@ -12,7 +12,7 @@
                     showheader: '<',
                     picsize: '@?',
                     contentsize : '@?'
-                        // data: "="
+                    data: "=?"
                 },
                 transclude: {
                     cardactions: 'cardactions',
