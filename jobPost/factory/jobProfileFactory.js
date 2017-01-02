@@ -7,7 +7,8 @@
     function jobProfileFactory($http){
       var service = {
         jobPost : jobPost,
-        updateJob: updateJob
+        updateJob: updateJob,
+        languageReq: languageReq
       };
       return service;
    
@@ -21,6 +22,13 @@
 
     function updateJob(job) {
       return $http.patch('/jobProfile/updateJob', job);
-   }
+    }
+
+    function languageReq() {
+      let req = {};
+      req.url = '/coordinatorreg/language';
+      req.method = 'GET';
+      return $http(req);
+    }
  }
 }());
