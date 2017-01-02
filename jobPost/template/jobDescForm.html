@@ -75,13 +75,13 @@
                 </div>
                 <div layout>
                   <span flex></span>
-                  <md-button  class="md-fab md-mini" ng-click="insertLang()">
+                  <md-button md-colors="{background: 'grey-400'}" class="md-fab md-mini" ng-click="insertLang()">
                     <md-tooltip>
                       Add a new language
                     </md-tooltip>
                     <md-icon>add</md-icon>
                   </md-button>
-                  <md-button  class="md-fab md-mini" ng-click="removeLang()">
+                  <md-button md-colors="{background: 'grey-400'}" class="md-fab md-mini" ng-click="removeLang()">
                     <md-tooltip>
                       Remove a language
                     </md-tooltip>
@@ -96,7 +96,7 @@
                 </md-input-container>
                 till
                 <md-input-container>
-                    <md-datepicker ng-model="job.closeDate" md-min-date="minDate" md-max-date="maxDate" placeholder="Close Date"></md-datepicker>
+                    <md-datepicker ng-model="job.closedate" md-min-date="minDate" md-max-date="maxDate" placeholder="Close Date"></md-datepicker>
                 </md-input-container>
                 List the Skills required for the job
                 <div layout="row" id="skills" data-ng-repeat="skill in skills">
@@ -116,8 +116,8 @@
                                 {{value}}
                             </md-option>
                         </md-select>
-                          <md-button  md-colors="{background: 'blue-A400'}" class="md-fab md-mini" ng-click="addInput()">  <md-icon  >add</md-icon></md-button>
-                        <md-button    md-colors="{background: 'blue-A400'}" class="md-fab md-mini" class="md-fab md-mini" ><md-icon  >remove</md-icon></md-button>
+                          <md-button  md-colors="{background: 'grey-400'}" class="md-fab md-mini" ng-click="addInput()">  <md-icon  >add</md-icon></md-button>
+                        <md-button    md-colors="{background: 'grey-400'}" class="md-fab md-mini" class="md-fab md-mini" ><md-icon  >remove</md-icon></md-button>
                     </md-input-container>
                 </div>
 

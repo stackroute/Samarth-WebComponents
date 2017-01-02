@@ -36,7 +36,7 @@
 <p flex="20"><span><ng-md-icon icon="person_add" size="20"><md-tooltip>
             Job openings
           </md-tooltip></ng-md-icon></span>
-  {{vm.job.openingsNo}}
+  {{vm.job.openings}}
 </p>
 </div>
 <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span>
@@ -58,11 +58,9 @@
 
   <md-card-actions layout="row" layout-align="end center">
     <div  ng-controller="dialogController" ng-cloak>
-    <md-button class="md-primary md-raised" ng-click="showJobDesc($event,vm)">
+    <md-button class="md-primary md-raised" ng-click="showJobDesc($event,vm)" ng-show="vm.value1">
     Edit
     </md-button>
 </div>
-    <!-- <span ng-transclude="jobactions">
-    </span> -->
   </md-card-actions>
 </md-card>  

@@ -80,20 +80,35 @@
     } //end of if else
 
     function submitJob()
-    {
-      $scope.jobData.jpCode= $scope.selectedItem.jpCode;
-      console.log("In final submit button");
-      console.log($scope.jobData);
-      jobProfileFactory.jobPost($scope.jobData).then(function(response)
+    { 
+      try
       {
-       $scope.msg=response.data.msg;
-       $scope.showAlert();
-       // $scope.showAlert();
-      },
-      function(err)
-      {
-      $scope.msg='Some error occurred! Please try again..';
-      });
+        $scope.jobData.jpCode= $scope.selectedItem.jpCode;
+        console.log("In final submit button");
+        console.log(Object.keys($scope.jobData.criteria).length);
+        if(Object.keys($scope.jobData.criteria).length === 0 || Object.keys($scope.jobData.desc).length === 0)
+        {
+          $scope.msg=("Please fill all the details");
+          $scope.showAlert();
+        }
+        else
+        {
+          jobProfileFactory.jobPost($scope.jobData).then(function(response)
+          {
+           $scope.msg=response.data.msg;
+           $scope.showAlert();
+           // $scope.showAlert();
+          },
+          function(err)
+          {
+          $scope.msg='Some error occurred! Please try again..';
+          });
+        }
+      }
+      catch (e) {
+        $scope.msg=("Please fill all the details");
+        $scope.showAlert();
+      }
     }
     console.log("controller");
     console.log($scope.jobData);
@@ -101,29 +116,42 @@
 
     function updateJob()
     {
-      console.log("update");
-      console.log($scope.jobData);
-      // alert($scope.jobData.jobcode+" "+"in update ");
-      console.log($scope.jobData.criteria.jobcode+" "+"in update ");
-      // console.log("hey")
-      // console.log($scope.jobData);
-      // $scope.jobData.desc = '';
-      console.log('Job data before update: ', $scope.jobData);
-      jobProfileFactory.updateJob($scope.jobData).then(function(response)  
-      {
-        // alert('in factory update');e 
-        // console.log("inside function");
-       $scope.msg = response.data.msg;
-       // console.log($scope.msg);
-       $scope.showAlert();
-      }, function(err) {
-        console.log("Error in updating job: ", err);
-        alert("in error fac ", err);
-        $scope.msg='Some error occurred! Please try again..';
-        $scope.msg=err;
-      });
-    }
-
+      try {
+        console.log("update");
+        console.log($scope.jobData);
+        // alert($scope.jobData.jobcode+" "+"in update ");
+        console.log($scope.jobData.criteria.jobcode+" "+"in update ");
+        // console.log("hey")
+        // console.log($scope.jobData);
+        // $scope.jobData.desc = '';
+        console.log('Job data before update: ', $scope.jobData);
+        if(Object.keys($scope.jobData.criteria).length === 0 || Object.keys($scope.jobData.desc).length === 0)
+        {
+          $scope.msg=("Please update the details"); 
+          $scope.showAlert();
+        }
+        else
+        {
+          jobProfileFactory.updateJob($scope.jobData).then(function(response)  
+          {
+            // alert('in factory update');e 
+            // console.log("inside function");
+           $scope.msg = response.data.msg;
+           // console.log($scope.msg);
+           $scope.showAlert();
+          }, function(err) {
+            console.log("Error in updating job: ", err);
+            alert("in error fac ", err);
+            $scope.msg='Some error occurred! Please try again..';
+            $scope.msg=err;
+          });
+        }
+      }
+      catch(err) {
+        $scope.msg=("Please update the details"); 
+        $scope.showAlert();
+      }
+    };
   } 
   //end of controller
 }());

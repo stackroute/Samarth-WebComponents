@@ -18,7 +18,15 @@
    return fallbackSrc;
     });
     // Ctrl for circle component
-    function jobProviderCtrl($http, $log, $scope, $mdColorPalette) {
+    function jobProviderCtrl($http, $log, $scope, $mdColorPalette,$rootElement) {
+        if($rootElement.attr('ng-app')=="samarth")
+           {  
+             $scope.value1=true;
+           }
+           else
+           {
+              $scope.value1=false;
+           }
         $scope.prof = this.data;
         let colors = Object.keys($mdColorPalette);
         $scope.gerColler = function(a) {
