@@ -12,7 +12,10 @@ angular.module('samarth-webcomponents')
         templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
             '/')) + '/templates/jobcard.html',
         controller: jobcardCtrl,
-        transclude: {buttons:'buttons'}
+        transclude: {
+            buttons:'buttons',
+            message: "?message"
+        }
     })
     .directive('fallbackSrc', function () {
     var fallbackSrc = {
