@@ -11,6 +11,7 @@
         </md-card-avatar>
     </md-card-header>
     <md-card-content layout="column">
+        <div ng-transclude="message" layout="column"></div>
       <div layout="row" layout-padding >
           <p><span><ng-md-icon icon="layers" md-colors="{color: 'indigos-700'}"><md-tooltip>Profession:</md-tooltip></ng-md-icon>{{$ctrl.data.jb.profession[0]}}</span></p>
       </div>
@@ -65,8 +66,8 @@
 
 
       <div ng-transclude="buttons"></div>
-      <div ng-transclude="message"></div>
     </md-card-actions>
+
 </md-card>
 
 <!-- <div id="totalcardarea">
