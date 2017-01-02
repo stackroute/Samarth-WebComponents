@@ -11,8 +11,8 @@
                     candidateid: '<',
                     showheader: '<',
                     picsize: '@?',
-                    contentsize : '@?'
-                        // data: "="
+                    contentsize : '@?',
+                    data: "=?"
                 },
                 transclude: {
                     cardactions: 'cardactions',

@@ -27,7 +27,7 @@
                     <p class="md-body-1"><span><ng-md-icon icon="email" ><md-tooltip>Email</md-tooltip></ng-md-icon>{{$ctrl.data.email}}</span></p>
             <div layout="row"layout-align="end end">
 
-              <span><md-button ui-sref="index.empreg({'key':1,'key1':'{{$ctrl.data.jpCode}}'})"><ng-md-icon icon="create"   ><md-tooltip>Edit</md-tooltip></ng-md-icon>Edit</md-button>
+              <span><md-button ui-sref="index.empreg({'key':1,'key1':'{{$ctrl.data.jpCode}}'})" ng-show="value1"><ng-md-icon icon="create"   ><md-tooltip>Edit</md-tooltip></ng-md-icon>Edit</md-button>
           </div>
     </md-card-content>
     </md-card-actions>
