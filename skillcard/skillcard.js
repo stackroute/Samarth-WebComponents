@@ -11,7 +11,7 @@
                     candidateid: '<',
                     showheader: '<',
                     picsize: '@?',
-                    contentsize : '@?'
+                    contentsize : '@?',
                     data: "=?"
                 },
                 transclude: {
