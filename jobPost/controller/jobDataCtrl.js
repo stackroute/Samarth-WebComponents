@@ -5,8 +5,16 @@
   .module("samarth-webcomponents")
   .controller('jobDataCtrl',jobDataCtrl);
 
-  function jobDataCtrl($scope,jobProfileFactory,$state,jobProviderList,$mdDialog) 
-  {
+  function jobDataCtrl($scope,jobProfileFactory,$state,jobProviderList,$mdDialog,$rootElement) 
+  { 
+    if($rootElement.attr('ng-app')=="samarth")
+            {   
+              $scope.value=true;
+            }
+            else 
+            {
+               $scope.value=false; 
+            }
     // var vm = this;
     $scope.msg="";
     $scope.header="";

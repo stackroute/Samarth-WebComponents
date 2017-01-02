@@ -30,7 +30,7 @@
     function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
         $rootScope,$rootElement) {
         var ctrl = this;
-        console.log("Inside skill section", ctrl.candidateid);
+        console.log("Inside skill section", ctrl);
         // ctrl.lang = "English";
         ctrl.loadLangData = function(lang) {
             // ctrl.lang = lang;
@@ -128,8 +128,13 @@
             for (i = 0; i <= 40; i++) {
                 $scope.exp.push(i);
             }
-            $scope.skillObject = val;
-            let skill = val.skillname;
+            console.log("dsddsddsw",val != '');
+            if(val != '')
+            {
+                console.log("Entered into if loop", val);
+                $scope.skillObject = val;
+                let skill = val.skillname;
+            }
             $scope.header = header;
             $scope.hide = function() {
                 $mdDialog.hide();
@@ -147,7 +152,7 @@
                         metadata: {}
                     }]
                 };
-
+                console.log("skilllllllll", skillobj);
                 if (header === 'Add Skill') {
                     $http({
                         method: 'post',
@@ -163,7 +168,7 @@
                 if (header === 'Edit Skill') {
                     $http({
                         method: 'patch',
-                        url: '/skill/' + ctrl.candidateid + '/' + skill,
+                        url: '/skill/' + ctrl.candidateid + '/' + skillobj.skillname,
                         //url: "http://localhost:8081/skill/" + ctrl.candidateid + "/" + skill,
                         data: skillObj
                     }).then(function mySucces(response)  {

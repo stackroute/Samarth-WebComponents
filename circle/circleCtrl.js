@@ -1,7 +1,6 @@
 
 (function() {
-
-
+    'use strict';
     angular.module('samarth-webcomponents')
         .component('circle', {
             templateUrl:  './samarth-webcomponents/circle/templates/circles.html',
@@ -10,16 +9,8 @@
                 data: '<'
             },
             transclude: {
-
-                    circleStats: 'circleStats'
-                   
+                    circleStats: 'circleStats'  
                 }
-
-                circleStats: 'circleStats'
-
-            
-            }
-
         });
 
     // Ctrl for circle component
