@@ -70,16 +70,16 @@
         // console.log($scope.items);
         });
 
-          jobProfileFactory.languageReq().then(function(data)
+        jobProfileFactory.languageReq().then(function(data)
+        {
+         let arr = [];
+          console.log("language",data.data.length);
+          for( let p = 0; p < data.data.length; p = p + 1)
           {
-           let arr = [];
-            console.log("language",data.data.length);
-            for( let p = 0; p < data.data.length; p = p + 1)
-            {
-              arr.push(data.data[p].language);
-            }
-              vm.language = arr;
-          });
+            arr.push(data.data[p].language);
+          }
+            $scope.language = arr;
+        });
 
         function addInput() {
           $scope.skill={};
