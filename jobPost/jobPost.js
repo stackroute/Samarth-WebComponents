@@ -11,19 +11,14 @@
             views: {
                 'content@': {
                     templateUrl: './samarth-webcomponents/jobPost/template/jobPost.html',
-                    controller: 'jobDataCtrl',
+                    controller: 'jobDataCtrl'
                 }
-            }
+            },
+            params: {
+                    'key': 'value1',
+                    'key1': 'value2'
+                }
      
         })
-     //     .state('index.jobPost.ui', {
-     //        url:'qwe',
-     //        views: {
-     //            'content@': {
-     //                template: "<h1>'./samarth-webcomponents/jobPost/template/jobPost.html'</h1>"
-                   
-     //            }
-            
-          }
-     // });
+    }
  }());   

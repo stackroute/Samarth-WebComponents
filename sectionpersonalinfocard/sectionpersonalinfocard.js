@@ -44,14 +44,29 @@
             }
         });
 
-    function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate) {
+    function personalinfocardCtrl($http, $mdDialog, $rootScope, datagenerate,$rootElement) {
         var ctrl = this;
         ctrl.personalInfo = {};
 
+        // ctrl.lang = "English";
+        console.log("$rootElement.attr('ng-app')");
+        console.log($rootElement.attr('ng-app'));
         ctrl.loadLangData = function(lang) {
-            datagenerate.getjson("section", lang).then(function(result) {
-                ctrl.items = result;
+            // ctrl.lang = lang;
+            // Setting language default to English for Samarth-Placement, as it is not multilingual as of now
+         // if($rootElement.attr('ng-app')=="samarth")
+         //    {
+         //        ctrl.lang = "English";
+         //    }
+   
+            datagenerate.getjson("section",lang).then(function(result) {
+                if($rootElement.attr('ng-app')=="samarth")
+            {
+                ctrl.languagedata = result;
+            }
+                
 
+                ctrl.items = result;
             });
             //end datagenerate
         }
