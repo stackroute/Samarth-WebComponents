@@ -1,0 +1,36 @@
+
+<md-card class="card transparent" md-colors="{background: 'grey-200'}"  >
+    <md-card-header>
+        <md-card-avatar>
+          <img fallback-src="samarth-webcomponents/jobprovidercard/default.jpg" ng-src="{{$ctrl.data.url}}" class="md-user-avatar"/>
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-headline">{{$ctrl.data.name |uppercase}}</span>
+            <span class="md-subhead">{{$ctrl.data.jpCode}}</span>
+        </md-card-header-text>
+        <div layout="column" layout-align="end start">
+            <p class="md-subhead"><span><ng-md-icon icon="star" md-colors="{color: 'yellow-500'}"><md-tooltip>Type</md-tooltip></ng-md-icon>{{$ctrl.data.type}}</span></p>
+            <!-- <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.location}}</span></p> -->
+        </div>
+    </md-card-header>
+    <md-card-content layout="column" >
+
+                <!-- <p><span><ng-md-icon icon="group"><md-tooltip>Type</md-tooltip></ng-md-icon>{{$ctrl.data.type}}</span></p> -->
+                <p class="md-subhead"><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.location}}</span></p>
+            <!-- <div layout="column">
+
+
+            </div> -->
+
+                    <!-- <p><span><ng-md-icon icon="group"><md-tooltip>Type</md-tooltip></ng-md-icon>{{$ctrl.data.type}}</span></p> -->
+                    <!-- <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{$ctrl.data.location}}</span></p> -->
+                    <p class="md-body-1"><span><ng-md-icon icon="email" ><md-tooltip>Email</md-tooltip></ng-md-icon>{{$ctrl.data.email}}</span></p>
+            <div layout="row"layout-align="end end">
+
+              <span><md-button ui-sref="index.empreg({'key':1,'key1':'{{$ctrl.data.jpCode}}'})" ng-show="value1"><ng-md-icon icon="create"   ><md-tooltip>Edit</md-tooltip></ng-md-icon>Edit</md-button>
+          </div>
+    </md-card-content>
+    </md-card-actions>
+</md-card>
+
+<!-- </div> -->

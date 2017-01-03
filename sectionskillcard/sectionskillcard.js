@@ -28,13 +28,24 @@
 
 
     function sectionskillcardCtrl($http, sectionskillcard, $mdDialog, datagenerate,
-        $rootScope) {
+        $rootScope,$rootElement) {
         var ctrl = this;
-        console.log("Inside skill section", ctrl.candidateid);
+        console.log("Inside skill section", ctrl);
+        // ctrl.lang = "English";
         ctrl.loadLangData = function(lang) {
-            datagenerate.getjson("section", lang).then(function(result) {
-                ctrl.items = result;
+            // ctrl.lang = lang;
+            // Setting language default to English for Samarth-Placement, as it is not multilingual as of now
+         // if($rootElement.attr('ng-app')=="samarth")
+         //    {
+         //        ctrl.lang = "English";
+         //    }
 
+            datagenerate.getjson("section",lang).then(function(result) {
+                ctrl.items = result;
+                if($rootElement.attr('ng-app')=="samarth")
+            {
+                ctrl.languagedata = result;
+            }
             });
             //end datagenerate
         }
@@ -117,8 +128,13 @@
             for (i = 0; i <= 40; i++) {
                 $scope.exp.push(i);
             }
-            $scope.skillObject = val;
-            let skill = val.skillname;
+            console.log("dsddsddsw",val != '');
+            if(val != '')
+            {
+                console.log("Entered into if loop", val);
+                $scope.skillObject = val;
+                let skill = val.skillname;
+            }
             $scope.header = header;
             $scope.hide = function() {
                 $mdDialog.hide();
@@ -136,7 +152,7 @@
                         metadata: {}
                     }]
                 };
-
+                console.log("skilllllllll", skillobj);
                 if (header === 'Add Skill') {
                     $http({
                         method: 'post',
@@ -152,7 +168,7 @@
                 if (header === 'Edit Skill') {
                     $http({
                         method: 'patch',
-                        url: '/skill/' + ctrl.candidateid + '/' + skill,
+                        url: '/skill/' + ctrl.candidateid + '/' + skillobj.skillname,
                         //url: "http://localhost:8081/skill/" + ctrl.candidateid + "/" + skill,
                         data: skillObj
                     }).then(function mySucces(response)  {

@@ -21,13 +21,25 @@
             }
         });
 
-    function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope) {
+    function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope,$rootElement) {
 
         var ctrl = this;
 
+       // ctrl.lang = "English";
         ctrl.loadLangData = function(lang) {
-            datagenerate.getjson("section", lang).then(function(result) {
+            // ctrl.lang = lang;
+            // Setting language default to English for Samarth-Placement, as it is not multilingual as of now
+         // if($rootElement.attr('ng-app')=="samarth")
+         //    {
+         //        ctrl.lang = "English";
+         //    }
+
+            datagenerate.getjson("section",lang).then(function(result) {
                 ctrl.items = result;
+                 if($rootElement.attr('ng-app')=="samarth")
+            {
+                ctrl.languagedata = result;
+            }
             }); //end datagenerate
         }
 

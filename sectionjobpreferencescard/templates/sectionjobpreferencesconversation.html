@@ -1,0 +1,56 @@
+<md-dialog aria-label="Education">
+    <form name="preferencesForm" required ng-cloak>
+        <md-toolbar id="conversationDialogtoolbar">
+            <div class="md-toolbar-tools">
+                <h2 id="headingtext">{{header}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon id="headingtext">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content layout="column">
+            <div id="conversationDialogcontent" layout-padding layout-wrap>
+            <md-radio-group name="val" ng-model="looking_jobs" layout="row"  >
+           <label>Looking for a job?&nbsp;&nbsp;</label>
+          <md-radio-button  value="Yes" ng-click="ShowPassport('Y')" class="md-primary" style="outline: none;">Yes</md-radio-button>
+          <md-radio-button id="cii" value="No" ng-click="ShowPassport('N')" class="md-primary" style="outline: none;">No</md-radio-button>
+        </md-radio-group><br>
+        <span ng-show="IsVisible">
+                 I am looking for a <md-input-container>
+                    <label>Role(s)</label>
+                    <input type="text" ng-model="roles" id="input1">
+                 </md-input-container>opportunity as a
+                <md-input-container>
+                     <md-select ng-model="engagement_type">
+                        <md-option ng-repeat="engagement_type in ['Full Time','Part Time','Flexible']" ng-value="engagement_type">
+                            {{engagement_type}}
+                        </md-option>
+                    </md-select> 
+               </md-input-container>,Starting from <md-input-container>
+                    <label>dd/mm/yyyy</label>
+                    <input type="text" ng-model="joining_date" id="input1">
+                </md-input-container>and expecting remuneration of 
+                 <md-input-container>
+                    <label>Salary</label>
+                    <input type="text" ng-model="expected_salary" id="input1">
+                </md-input-container>,prefer to work at locations
+                 <md-input-container>
+                    <label>Locations</label>
+                    <input type="text" ng-model="locations" id='input1'>
+                </md-input-container>Interested to work on <md-input-container>
+                    <label>Skills</label>
+                    <input type="text" ng-model="skills" id='input1' >
+                </md-input-container></span>
+               
+                </div>
+        </md-dialog-content>
+        <md-dialog-actions class="conversationDialog" layout="row" layout-align="center center" id="savebtn">
+            <div>
+                <md-button class="md-raised" id="addbutton" contenteditable="false"  ng-click="save(header);cancel()">
+                    SAVE
+                </md-button>
+            </div>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
