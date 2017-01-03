@@ -72,8 +72,13 @@
 
           jobProfileFactory.languageReq().then(function(data)
           {
-            // console.log("data and",data.data);
-            $scope.language = data.data;
+           let arr = [];
+            console.log("language",data.data.length);
+            for( let p = 0; p < data.data.length; p = p + 1)
+            {
+              arr.push(data.data[p].language);
+            }
+              vm.language = arr;
           });
 
         function addInput() {
@@ -91,9 +96,10 @@
 
         function removeLang()
         {
-          if(lanIter >= 0)
-          lanIter--;
+          if(lanIter != 0)
           $scope.selectedLanguage.pop();
+          if(lanIter >= 1)
+          lanIter--;
           console.log(lanIter);
         };
 

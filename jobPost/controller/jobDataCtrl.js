@@ -5,7 +5,7 @@
   .module("samarth-webcomponents")
   .controller('jobDataCtrl',jobDataCtrl);
 
-  function jobDataCtrl($scope,jobProfileFactory,$state,jobProviderList,$mdDialog,$rootElement) 
+  function jobDataCtrl($scope, jobProfileFactory, $state, jobProviderList, $mdDialog, $rootElement) 
   { 
     if($rootElement.attr('ng-app')=="samarth")
             {   
