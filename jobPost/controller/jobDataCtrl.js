@@ -141,7 +141,6 @@
            $scope.showAlert();
           }, function(err) {
             console.log("Error in updating job: ", err);
-            alert("in error fac ", err);
             $scope.msg='Some error occurred! Please try again..';
             $scope.msg=err;
           });
