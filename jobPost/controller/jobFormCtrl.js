@@ -3,7 +3,7 @@
  angular
  .module('samarth-webcomponents')
  .controller('dialogController', dialogController);
- function dialogController ($scope,$mdDialog,professionFac) 
+ function dialogController ($scope, $mdDialog, professionFac, jobProfileFactory) 
  {
   $scope.skills=[{}];
   $scope.qualifications=[{}];
@@ -16,7 +16,7 @@
       fullscreen: true,
       preserveScope: true,
       templateUrl: './samarth-webcomponents/jobPost/template/jobDescForm.html',
-      controller: function dialogController($scope, $mdDialog,professionFac)
+      controller: function dialogController($scope, $mdDialog, professionFac, jobProfileFactory)
       {
         $scope.expertise = [
           "Beginner",
@@ -70,40 +70,16 @@
         // console.log($scope.items);
         });
 
-        // function languagesFact()
-        // {
-          // languageFact.languageReq().then(function(data)
-          // {
-          //   // console.log(data);
-            // let temps = [];
-            // let k = 0;
-            // let count = 0;
-            // for(let i = 0; i < data.data.length - 1; i = i + 1)
-            // {
-            //  for(let j = i + 1; j < data.data.length; j = j + 1)
-            //  {
-            //    if(data.data[i].language.trim().toLowerCase() ===
-            //                      data.data[j].language.trim().toLowerCase())
-            //    {
-            //      count = 1;
-            //    }
-            //  }
-            //  if(count === 0 && data.data[i].language.trim() !== '')
-            //  {
-            //    temps[k] = data.data[i].language.trim().substring(0, 1).toUpperCase()
-            //                          + data.data[i].language.trim().
-            //                          substring(1, data.data[i].language.length)
-            //                          .toLowerCase();
-            //    k = k + 1;
-            //  }
-            //  count = 0;
-            // }
-            // console.log("fgh");
-            // console.log(temps);
-            // console.log(data.data);
-            $scope.language = ["hindi","english","punjabi"];
-          // });
-        // }
+        jobProfileFactory.languageReq().then(function(data)
+        {
+         let arr = [];
+          console.log("language",data.data.length);
+          for( let p = 0; p < data.data.length; p = p + 1)
+          {
+            arr.push(data.data[p].language);
+          }
+            $scope.language = arr;
+        });
 
         function addInput() {
           $scope.skill={};
@@ -120,9 +96,10 @@
 
         function removeLang()
         {
-          if(lanIter >= 0)
-          lanIter--;
+          if(lanIter != 0)
           $scope.selectedLanguage.pop();
+          if(lanIter >= 1)
+          lanIter--;
           console.log(lanIter);
         };
 

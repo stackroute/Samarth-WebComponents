@@ -5,7 +5,7 @@
   .module("samarth-webcomponents")
   .controller('jobDataCtrl',jobDataCtrl);
 
-  function jobDataCtrl($scope,jobProfileFactory,$state,jobProviderList,$mdDialog,$rootElement) 
+  function jobDataCtrl($scope, jobProfileFactory, $state, jobProviderList, $mdDialog, $rootElement) 
   { 
     if($rootElement.attr('ng-app')=="samarth")
             {   
@@ -141,7 +141,6 @@
            $scope.showAlert();
           }, function(err) {
             console.log("Error in updating job: ", err);
-            alert("in error fac ", err);
             $scope.msg='Some error occurred! Please try again..';
             $scope.msg=err;
           });
