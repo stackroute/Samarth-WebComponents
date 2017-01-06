@@ -130,7 +130,7 @@
                 let skillObj = {
                     skills: [{
                         skillname: skillobj.skillname,
-                        category: skillobj.category,
+                        // category: skillobj.category,
                         expertise: skillobj.expertise,
                         experience: skillobj.experience,
                         metadata: {}
