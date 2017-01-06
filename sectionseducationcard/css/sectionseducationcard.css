@@ -48,6 +48,10 @@
     outline: none;
 }
 
+#educationCancelIcon {
+  float: right;
+}
+
 #educardcontent:focus {
     outline: none;
 }

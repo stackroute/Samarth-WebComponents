@@ -21,7 +21,7 @@
             }
         });
 
-    function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope,$rootElement) {
+    function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope,$rootElement,deleteEducationService) {
 
         var ctrl = this;
 
@@ -237,6 +237,15 @@
                 }
 
             }
+        }
+        ctrl.deleteEducation = function(value) {
+            let education = value.title;
+            deleteEducationService.removeEducation(ctrl.candidateid, education).then(function mySucces(response)  {
+                    console.log('delete res');
+                    $rootScope.$emit('datachanged', {});
+            }, function myError(response) {
+                    console.log('error in deleting education section');
+            });
         }
 
     }
