@@ -5,11 +5,7 @@
  .savebutton {
      color: #0098b4;
  }
-
- #addbutton {
-    color: #0098b4;
-}
-
+ 
  .changeProjectDurationFont {
      font-size: 14px;
      margin: 10px;
@@ -45,4 +41,3 @@
  .material-icons.md-18 {
      font-size: 18px;
  }
-

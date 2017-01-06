@@ -11,19 +11,45 @@
                     candidateid: '<',
                     showheader: '<',
                     picsize: '@?',
-                    contentsize : '@?'
-                        // data: "="
+                    contentsize : '@?',
+                    data: "=?"
                 },
                 transclude: {
                     cardactions: 'cardactions',
-                    badges: 'badges'
+                    badges: 'badges',
+                    buttons: 'buttons'
                 }
         });
 
-        function skillcardCtrl($window, $timeout, $mdDialog, skillcardService) {
+        function skillcardCtrl($window, $timeout, $mdDialog, skillcardService, $rootScope, $state, $http) {
             let ctrl = this;
             let name;
+            console.log("entered in to controller of skillcard");
+            console.log($rootScope);
+            if($rootScope.pre=="dashboard")
+            {
+                ctrl.view="View Detail";
+                ctrl.action="Suggest";
+            }
+            if($rootScope.pre=="jobsearch")
+            {
+                ctrl.view="View Detail";
+                ctrl.action="Apply";
+            }
+            if($rootScope.pre=="jobprofile")
+            {
+                ctrl.view="approve";
+                ctrl.action="Reject";
+            }
+
             
+            
+            $rootScope.$on('$stateChangeStart', function(event, toState,previousState, toParams, fromState) {
+                console.log("pre"+$rootScope.pre);
+                console.log(fromState.name);
+                console.log(toState.name);
+                });
+
             let showEditForm = false ;
 
             this.edit = function(newUrl){
@@ -49,6 +75,24 @@
 
             skillcardService.getskillcarddata(this.candidateid).then(function(result) {
                 ctrl.data = result;
+                console.log("canduidate id =" , ctrl.candidateid);
+                $http({
+                    method: 'GET',
+                    url: '/jobpreferences/' + ctrl.candidateid
+                }).then(function successCallback(response) {
+                    console.log('entered into  response of factory of skill card', response)
+                    // console.log(response.data[0].preferences.looking_jobs);
+                    if(response.data[0] === undefined)
+                    {
+                        console.log("entered into if loop");
+                        ctrl.data.looking_jobs = "No"   
+                    }
+                    else{
+                        ctrl.data.looking_jobs = response.data[0].preferences.looking_jobs;
+                    }
+                    }, function errorCallback(response) {
+                        console.log('Error occurred during preferences');
+                    });
             });
 
             function createDownloadUrl() {

@@ -1,19 +1,20 @@
-(function() {
-    let scripts = document.getElementsByTagName('script');
-    let currentScriptPath = scripts[scripts.length - 1].src;
 
+(function() {
+    'use strict';
     angular.module('samarth-webcomponents')
-        .component('myCircle', {
-            templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
-                '/')) + '/templates/circles.html',
-            controller: circleCrtl,
+        .component('circle', {
+            templateUrl:  './samarth-webcomponents/circle/templates/circles.html',
+            controller: circleCtrl,
             bindings: {
                 data: '<'
-            }
+            },
+            transclude: {
+                    circleStats: 'circleStats'  
+                }
         });
 
     // Ctrl for circle component
-    function circleCrtl($http, $log, $scope, $mdColorPalette) {
+    function circleCtrl($http, $log, $scope, $mdColorPalette) {
         console.log('data : ');
         $scope.prof = this.data;
         console.log($scope.prof);

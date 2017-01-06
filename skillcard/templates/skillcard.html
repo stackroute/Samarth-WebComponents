@@ -77,11 +77,16 @@
         <div layout="row" id="section1" flex hide-xs hide-sm layout-align="center center">
             <div flex align="left" layout="column" layout-padding>
                 <span flex>
-    <span class="details3"><md-icon class="material-icons md-10">work</md-icon> {{$ctrl.data.profession}}<span class="detail1"> ( {{$ctrl.data.designation}} )</span>
+                <span class="details3"><md-icon class="material-icons md-10">work</md-icon> {{$ctrl.data.profession}}<span class="detail1"> ( {{$ctrl.data.designation}} )</span>
             </div>
         </div>
-        
+
         <div flex-offset="5" flex="20" layout="column" layout-align-xs="center center" layout-align-sm="center center">
+            <p>
+                <md-icon class="material-icons">remove_red_eye</md-icon>
+                Looking for job :
+                <span>{{$ctrl.data.looking_jobs}}</span>
+            </p>
             <p>
                 <md-icon class="material-icons">room</md-icon>
                 <span>{{$ctrl.data.location}}</span>
@@ -118,6 +123,10 @@
             <md-icon class="material-icons">file_download</md-icon>
         </md-button>
     </a>
+
+    <span ng-transclude="buttons">
+    </span>
+
     <span ng-transclude="cardactions">
     </span>
 </md-card-actions>
@@ -243,11 +252,16 @@
                             <span>{{$ctrl.data.contact}}</span>
                         </p>
                     </div>
-                    <div flex="40" id="section2" layout="column">
+                    <div flex="40" id="section2" layout="column" layout-padding>
                         <span>
                         <md-icon class="material-icons">mail outline</md-icon>
                             <span>{{$ctrl.data.email}}</span>
                         </span>
+                        <p>
+                            <md-icon class="material-icons">remove_red_eye</md-icon>
+                            Looking for job :
+                            <span>{{$ctrl.data.looking_jobs}}</span>
+                        </p>
                     </div>
                 </div>
                 <div layout="row">
