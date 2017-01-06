@@ -1,4 +1,3 @@
-<!-- <div ng-repeat="data in $ctrl.data"> -->
 <md-card class="card transparent" md-colors="{background: 'white-100'}" flex >
     <md-card-header>
         <md-card-header-text>
@@ -6,12 +5,11 @@
             <span class="md-subhead"><ng-md-icon icon="work"></ng-md-icon><md-tooltip md-direction="left">Role</md-tooltip>{{$ctrl.data.jb.role}}</span>
         </md-card-header-text>
         <md-card-avatar layout="column" flex="30" class="avatar" hide-xs>
-            <!-- <md-icon>business</md-icon> -->
             <img class="md-user-avatar avatar" fallback-src="samarth-webcomponents/jobcard/default.png" ng-src="{{$ctrl.data.logo}}" alt="Image not available">
         </md-card-avatar>
     </md-card-header>
     <md-card-content layout="column">
-        <div ng-transclude="message" layout="column"></div>
+      <div ng-transclude="message" layout="column"></div>
       <div layout="row" layout-padding >
           <p><span><ng-md-icon icon="layers" md-colors="{color: 'indigos-700'}"><md-tooltip>Profession:</md-tooltip></ng-md-icon>{{$ctrl.data.jb.profession[0]}}</span></p>
       </div>
@@ -25,7 +23,6 @@
             <div layout="column" flex-gt-xs="30" flex-gt-md="30" flex-md="30" class=" md-subhead">
                 <span><ng-md-icon icon="history"><md-tooltip>Experience</md-tooltip></ng-md-icon>{{$ctrl.data.jb.experience}}</span>
             </div>
-
         </div>
         <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span>
             <md-chips class="custom-chips" ng-model="$ctrl.data.jb.skills" md-transform-chip="data.Skills($chip)" md-removable="false" readonly="true">
@@ -37,109 +34,12 @@
             </md-chips>
         </p>
     </md-card-content>
-   <!--  <md-card-content layout="column">
-        <div layout-sm="column"  >
-           <div layout="column" layout-gt-sm="row">
-                <div flex="50">
-                <p><span><ng-md-icon icon="location_on"><md-tooltip>Location</md-tooltip></ng-md-icon>{{data.location}}</span></p>
-                </div>
-                <div flex="50">
-                <p><span><ng-md-icon icon="person_add"><md-tooltip>Job opennings</md-tooltip></ng-md-icon>{{data.openings}}</span></p>
-                </div>
-            </div>
-           <div layout="column" layout-gt-sm="row">
-                <div flex="50">
-                <p><span><ng-md-icon icon="history"><md-tooltip>Experience</md-tooltip></ng-md-icon>{{data.experience}}</span></p>
-                </div>
-                <div flex="50">
-                <p><span><ng-md-icon icon="event_busy"><md-tooltip>Closing Date For the Job</md-tooltip></ng-md-icon>{{data.closedate|date:'yyyy-MM-dd'}}</span></p>
-                </div>
-          </div>
-    </md-card-content> -->
     <md-card-action layout="row" >
-       <a id="jsonDownload" ng-click="downloadedData()">
-       </a>
-  <md-tooltip>Share</md-tooltip>
-       <md-icon class="md-primary" class="material-icons"  md-colors="{color: 'indigo-600'}" layout-padding>share</md-icon><md-tooltip>Share Card</md-tooltip>
+       <a id="jsonDownload" ng-click="downloadedData()"></a>
+    <md-tooltip>Share</md-tooltip>
+        <md-icon class="md-primary" class="material-icons"  md-colors="{color: 'indigo-600'}" layout-padding>share</md-icon><md-tooltip>Share Card</md-tooltip>
             <md-tooltip>Download Card</md-tooltip>
-              <md-icon class="material-icons" md-colors="{color: 'indigo-600'}">file_download</md-icon>
-
-
+        <md-icon class="material-icons" md-colors="{color: 'indigo-600'}">file_download</md-icon>
       <div ng-transclude="buttons"></div>
     </md-card-actions>
-
 </md-card>
-
-<!-- <div id="totalcardarea">
-    <md-card layout="column" class="bodyContent" flex>
-        <md-card-header layout-gt-sm="row" layout-sm="column" layout-xs="column" flex layout-padding class="headerSection">
-            <md-card-header-text layout="column" ng-show="$ctrl.showheader" layout flex>
-                <div layout="row" layout-align="start center">
-
-                    <div flex="80" layout="column">
-                        <div class="md-block md-padding">
-                            <i class="material-icons md-display-1">school</i>
-                            <span class="md-display-1">{{job.jobRole}}</span>
-                        </div>
-                        <div layout="row" class="md-block md-padding">
-                            <i class="material-icons">layers</i>
-                            <span class="md-display-1" layout="row">{{job.jobProfession}}</span>
-                        </div>
-                        <div layout="row" class="md-block md-padding">
-                            <i class="material-icons">group_work</i>
-                            <span class="md-title" layout="row">{{job.departmentName}}</span>
-                        </div>
-                    </div>
-
-                    <div flex="20" layout="column" hide-xs>
-                        <md-card-avatar class="avatar">
-                            <img class="md-user-avatar avatar" ng-src="{{job.employer.employerLogo}}" alt="Logo">
-                        </md-card-avatar>
-                        <div></div>
-                    </div>
-                </div>
-
-                <div layout-xs="column" layout-gt-xs="row" flex>
-                    <span class="md-title" flex-xs flex-gt-xs="60"><i class="material-icons md-padding">business</i>&nbsp;{{job.employer.employerName}}</span>
-                    <span class="md-title" flex-xs flex-gt-xs="40"><i class="material-icons md-padding">location_on</i>&nbsp;{{job.jobLocation}}</span>
-                </div>
-            </md-card-header-text>
-        </md-card-header>
-        <md-card-content flex layout="column" class="md-padding">
-            <div layout="column" class="md-padding">
-
-                <label class="md-title md-padding"><i class="material-icons">pets</i><span>Skills Required</span></label>
-                <md-chips ng-model="job.skillsRequired" class="md-padding" md-max-chips="3" readonly="true">
-                    <md-chip-template>
-                        <strong>{{$chip.skillName}}</strong>
-                        <em>({{$chip.experience}}months)</em>
-                    </md-chip-template>
-                </md-chips>
-            </div>
-            <div layout-xs="column" layout-gt-xs="row">
-                <span class="md-title" flex-xs flex-gt-xs="60">Experience:{{job.experience.experienceYear}}&nbsp;Years&nbsp;{{job.experience.experienceMonth}}&nbsp;months</span>
-                <span class="md-title" flex-xs flex-gt-xs="40"><i class="material-icons">date_range</i>Posted on: {{job.jobPostDate | date:'yyyy-MM-dd'}}</span>
-            </div>
-            <div layout-xs="column" layout-gt-xs="row">
-                <div flex="">
-                    <i class="material-icons">next_week</i>
-                    <span class="md-title" flex-xs flex-gt-xs="60">Salary offered : &#8377; {{job.salaryOffered}}</span>
-                </div>
-                <span class="md-title" flex-xs flex-gt-xs="40"><i class="material-icons">date_range</i>Last date: {{job.jobLastDate | date:'yyyy-MM-dd'}}.</span>
-            </div>
-        </md-card-content>
-
-        <md-card-actions layout="row" layout-align="end center">
-            <a id="jsonDownload" ng-click="downloadedData()">
-                <md-icon class="material-icons">share</md-icon>
-            </a>
-            <a id="download">
-                <md-button ng-click="render($event)">
-                    <md-icon class="material-icons">file_download</md-icon>
-                </md-button>
-            </a>
-            <div class="action" ng-transclude>
-            </div>
-        </md-card-actions>
-    </md-card>
-</div> -->
