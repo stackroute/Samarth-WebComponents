@@ -17,4 +17,18 @@ angular.module('samarth-webcomponents')
                 });
             }
         };
+    })
+    .factory('deleteEducationService', function($http, $rootScope) {
+        return {
+            removeEducation: function(candidateid, title) {
+                return $http({
+                    method: 'DELETE',
+                    url: '/education/' + candidateid + '/' + title
+                }).then(function mySucces(response)  {
+                    console.log('mySucces service');
+                }, function myError(response) {
+                    console.log('error in getting sectioneducation');
+                });
+            }
+        };
     });

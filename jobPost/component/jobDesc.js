@@ -4,7 +4,7 @@
       .module('samarth-webcomponents')
       .component('jobDesc',{
       templateUrl: './samarth-webcomponents/jobPost/template/jobDesc.html',
-      bindings: { data: '<',
+      bindings: { data: '=',
                    txt: '@'      
                 },
        controller:'jobDescCtrl',
@@ -13,10 +13,18 @@
        transclude:true
       })
       .controller('jobDescCtrl', jobDescCtrl);
-      function jobDescCtrl(){
+      function jobDescCtrl($rootElement){
             let vm=this;
-            vm.job={};
-            vm.job.skills={};
+           if($rootElement.attr('ng-app')=="samarth")
+           {  
+             vm.value1=true;
+           }
+           else
+           {
+              vm.value1=false;
+           }
+            vm.job=vm.data;
+            vm.job.skills=vm.data.skills;
             vm.newSkill=function(){};
 
             function newSkill(chip) {
