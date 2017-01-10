@@ -19,7 +19,7 @@ angular.module('samarth-webcomponents')
                 return $http({
                     method: 'GET',
                         url: '/candidates/' + candidateid +
-                              '/qboxquestions?sections=' + "skills" +
+                              '/qboxquestions?sections=' + sectionArray +
                               '&limit=2&skip=0&lang=English'         
 
                 }).then(function successCallback(response) {
