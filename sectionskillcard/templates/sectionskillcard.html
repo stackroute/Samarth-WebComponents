@@ -10,8 +10,19 @@
 			<md-chips>
 				<md-chip title="{{value.experience}} yrs" md-colors="::{background: 'grey-300'}" style="cursor:pointer;">
 				{{value.skillname | capitalize}}
-				<i ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" class="material-icons" style="font-size: 14px;">mode_edit</i>
-				<i ng-click="$ctrl.deleteSkill(value)" class="material-icons" style="font-size: 14px;">cancel</i>
+				<md-menu>
+          <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+            <i class="md-menu-origin material-icons" style="font-size: 14px;">mode_edit</i>
+          </md-button>
+          <md-menu-content width="2">
+            <md-menu-item ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')">
+              <md-button> <span md-menu-align-target style="color: black;">Edit</span>  </md-button>
+            </md-menu-item>
+            <md-menu-item ng-click="$ctrl.showConfirm($event,value)">
+              <md-button> <span md-menu-align-target style="color: black;">Delete</span>  </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
 			</md-chips>
 		</div>
 	</md-card-content>

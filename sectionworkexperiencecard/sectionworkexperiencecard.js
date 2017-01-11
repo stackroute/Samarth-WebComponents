@@ -42,7 +42,7 @@
         })
 
     function workexperiencecardCtrl($http, $mdDialog,
-        datagenerate, $rootScope,$rootElement) {
+        datagenerate, $rootScope,$rootElement,deleteWEService) {
         var ctrl = this;
         // ctrl.lang = "English";
         ctrl.loadLangData = function(lang) {
@@ -112,6 +112,29 @@
 
         })
 
+        ctrl.showConfirm = function(ev,object) {
+    
+            var confirm = $mdDialog.confirm()
+            .title('Would you like to delete the selected Work Experience?')          
+            .targetEvent(ev)
+            .ok('YES!')
+            .cancel('Not sure, maybe later!');
+
+            $mdDialog.show(confirm).then(function() { //when user clicks on "YES"
+                // console.log(object);
+                let designation = object.designation;
+                deleteWEService.removeworkexp(ctrl.candidateid, designation).then(function mySucces(response)  {
+                            console.log('deleted res');
+                            $rootScope.$emit('workexpdata', {});//reloads the WE section with new records after deletion
+                    }, function myError(response) {
+                            console.log('error in deleting skill section');
+                    });
+                $mdDialog.hide();
+            }, function() { 
+                $mdDialog.hide();//Hide the prompt when user clicks CANCEL!
+            });
+        };//end showConfirm
+
         ctrl.showAdvanced = function($event, header, object) {
 
             $mdDialog.show({
@@ -134,7 +157,7 @@
 
 
         function dialogCtrl($scope, $mdDialog, $http, header, object,
-            candidateid) {
+            candidateid,deleteWEService) {
 
             $scope.header = header;
             $scope.projectObj = object;

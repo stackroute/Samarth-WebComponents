@@ -45,10 +45,21 @@
                   </md-chips>
                 </span>
                 </div>
-                <a class="pointCursor" flex="10" ng-click="$ctrl.showAdvanced($event,'Edit work',value)" title="Click to Edit">
-                    <md-icon class="material-icons md-18">mode_edit</md-icon>
-                </a>
             </div>
+            <!-- *********Menu to Edit/Delete*********** -->
+                <md-menu>
+                  <md-button style="float: right;" aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    <md-icon  md-menu-origin class="material-icons md-18">mode_edit</md-icon>
+                  </md-button>
+                  <md-menu-content width="2">
+                    <md-menu-item>
+                      <md-button ng-click="$ctrl.showAdvanced($event,'Edit work',value)" title="Click to Edit"> <span style="color: black;" md-menu-align-target>EDIT</span></md-button>
+                    </md-menu-item>
+                    <md-menu-item >
+                      <md-button ng-click="$ctrl.showConfirm($event,value)" title="Click to Delete"> <span style="color: black;" md-menu-align-target>DELETE</span></md-button>
+                    </md-menu-item>
+                  </md-menu-content>
+                </md-menu>
         </div>
     </md-card-content>
     <div layout="row" flex-offset="90" flex-offset-xs="75" layout-align="center center">

@@ -11,9 +11,6 @@
                     <md-icon>{{eduDetail.institute.type}}</md-icon>
                     {{eduDetail.title}}
                 </span>
-                <a flex="10" class="pointCursor" flex="10" ng-click="$ctrl.deleteEducation(eduDetail)" title="Click to delete" id="educationCancelIcon">
-                    <md-icon class="material-icons md-18">cancel</md-icon>
-                </a>
             </div>
             <md-divider></md-divider>
             <div layout="row" layout-wrap id="data">
@@ -32,11 +29,20 @@
                                 <md-icon>room</md-icon>
                                 {{eduDetail.institute.location}}
                     </span>
-                <div layout="row" flex="90"></div>
-                <a flex="10" class="pointCursor" flex="10" ng-click="$ctrl.showAdvanced($event,'Edit Education',eduDetail)" title="Click to Edit">
-                    <md-icon class="material-icons md-18">mode_edit</md-icon>
-                </a>
             </div>
+            <md-menu>
+              <md-button style="float: right;" aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                <md-icon  md-menu-origin class="material-icons md-18">mode_edit</md-icon>
+              </md-button>
+              <md-menu-content width="2">
+                <md-menu-item ng-click="$ctrl.showAdvanced($event,'Edit Education', eduDetail)">
+                <md-button><span md-menu-align-target style="color: black;">Edit</span></md-button>
+              </md-menu-item>
+              <md-menu-item ng-click="$ctrl.showConfirm($event , eduDetail)">
+                <md-button><span md-menu-align-target style="color: black;">Delete</span></md-button>
+              </md-menu-item>
+              </md-menu-content>
+            </md-menu>
         </div>
     </md-card-content>
     <div layout="row" flex-offset="90" flex-offset-xs="75" layout-align="center center">
@@ -55,4 +61,3 @@
         <md-button class="md-raised" id="addbutton" ng-click="$ctrl.showAdvanced($event,'Add Education','')">{{$ctrl.languagedata.addeducation}}</md-button>
     </md-card-actions>
 </md-card>
-
