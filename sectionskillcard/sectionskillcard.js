@@ -180,14 +180,25 @@
 				$mdDialog.hide();
 			};
 		}
-		ctrl.deleteSkill = function(value) {
-					let skill = value.skillname;
-					deleteSkillService.removeSkill(ctrl.candidateid, skill).then(function mySucces(response)  {
-							console.log('delete res');
-							$rootScope.$emit('skilldatachanged', {});
-					}, function myError(response) {
-							console.log('error in deleting skill section');
-					});
-				}
+		ctrl.showConfirm = function(ev,value) {
+		    var confirm = $mdDialog.confirm()
+		    .title('Would you like to delete the skill?')
+		    .targetEvent(ev)
+		    .ok('Yes')
+		    .cancel('Cancel');
+		    $mdDialog.show(confirm).then(function() {
+						let skill = value.skillname;
+						deleteSkillService.removeSkill(ctrl.candidateid, skill).then(function mySucces(response)  {
+								console.log('delete res');
+								$rootScope.$emit('skilldatachanged', {});
+						}, function myError(response) {
+								console.log('error in deleting skill section');
+						});
+						$mdDialog.hide();
+		    }, function() {
+		      $mdDialog.hide();
+		    });
+		  };
 	}
 })();
+
