@@ -24,16 +24,7 @@
     function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope,$rootElement,deleteEducationService) {
 
         var ctrl = this;
-
-       // ctrl.lang = "English";
         ctrl.loadLangData = function(lang) {
-            // ctrl.lang = lang;
-            // Setting language default to English for Samarth-Placement, as it is not multilingual as of now
-         // if($rootElement.attr('ng-app')=="samarth")
-         //    {
-         //        ctrl.lang = "English";
-         //    }
-
             datagenerate.getjson("section",lang).then(function(result) {
                 ctrl.items = result;
                  if($rootElement.attr('ng-app')=="samarth")
@@ -235,19 +226,30 @@
                                 console.log('error in updating education');
                             });
                 }
+                $mdDialog.hide();
 
-            }
+            };
         }
-        ctrl.deleteEducation = function(value) {
+        ctrl.showConfirm= function( ev , value ){
+          var confirm = $mdDialog.confirm()
+          .title('Would you like to delete')
+          .targetEvent(ev)
+          .ok('YES')
+          .cancel('Cancel');
+          $mdDialog.show(confirm).then(function(){
             let education = value.title;
             deleteEducationService.removeEducation(ctrl.candidateid, education).then(function mySucces(response)  {
-                    console.log('delete res');
-                    $rootScope.$emit('datachanged', {});
+            console.log('delete res');
+            $rootScope.$emit('datachanged', {});
             }, function myError(response) {
-                    console.log('error in deleting education section');
-            });
-        }
+              console.log('error in deleting education section');
+          });
+          $mdDialog.hide();
+        },function(){
+          $mdDialog.hide();
+        });
+
+      };
 
     }
 })();
-
