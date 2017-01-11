@@ -123,47 +123,21 @@
 
             $scope.candidateid = candidateid;
             $scope.header = header;
-            $scope.projectObj = object;
-            $scope.skills = $scope.projectObj.skills;
-            console.log("skills", $scope.skills)
+            $scope.project = {};
+            // $scope.skills = $scope.projectObj.skills;
+            // console.log("skills", $scope.skills)
 
             $scope.submit = function() {
                 $scope.Skills.push('');
             };
             if (object != '') {
-                $scope.Project = object.name;
-                $scope.Duration = object.duration.durationInMonths;
-                $scope.Client = object.workplace;
-                $scope.Location = object.location;
-                $scope.Salary = object.income;
-
-            } else {
-                $scope.Project = "";
-                $scope.Duration = "";
-                $scope.Client = "";
-                $scope.Location = "";
-                $scope.Salary = "";
-                $scope.Skills = ["skillname"];
-            }
-
+                $scope.project = object;
+               
+            } 
             $scope.submit = function() {
                 $scope.Skills.push('');
             };
-            if (object != '') {
-                $scope.Project = object.name;
-                $scope.Duration = object.duration.durationInMonths;
-                $scope.Client = object.workplace;
-                $scope.Location = object.location;
-                $scope.Salary = object.income;
-            } else {
-                $scope.Project = '';
-                $scope.Duration = '';
-                $scope.Client = '';
-                $scope.Location = '';
-                $scope.Salary = '';
-                $scope.Skills = ['skillname'];
-            }
-
+            
             $scope.hide = function() {
                 $mdDialog.hide();
             };
@@ -176,49 +150,47 @@
 
 
             $scope.save = function(header) {
-                var skill = $scope.skills.toString().split(",");
-                console.log("Header" + header)
+                console.log("Save called");
+                // var skill = $scope.skills.toString().split(",");
+                // console.log("Header" + header)
 
-                var projectData = {
+                // var projectData = {
 
-                    "projects": [{
-                        "name": $scope.Project,
-                        "workplace": $scope.Client,
-                        "location": $scope.Location,
-                        "income": $scope.Salary,
-                        "duration": {
-                            "from": "09/08/2016",
-                            "to": "09/11/2016",
-                            "durationInMonths": $scope.Duration
-                        },
-                        "skills": skill,
-                        "meta": []
-                    }]
-                } 
+                //     "projects": [{
+                //         "name": $scope.Project,
+                //         "workplace": $scope.Client,
+                //         "location": $scope.Location,
+                //         "role": $scope.Role,
+                //         "durationInMonths": $scope.Duration,
+                //         "skills": skill,
+                //         "meta": []
+                //     }]
+                // } 
 
                 if (header == 'Add Project') {
-                    console.log('before adding project', projectData);
+                   // console.log('before adding project', projectData);
                     $http({
                         method: 'POST',
                         url: '/project/' + ctrl.candidateid,
-                        data: projectData,
+                        data: $scope.project,
                         crossDomain: true
                     }).then(function successCallback(response) {
-                        console.log('After adding project', response.data);
+                        // console.log('After adding project', response.data);
                         $rootScope.$emit('projectdata', {});
                     }, function errorCallback(response) {
                         console.log('Error accord during Project Section');
                     });
                 } else {
-                    console.log('projectdata', projectData);
+                    console.log(header);
+                    // console.log('projectdata', projectData);
                     $http({
                         method: 'PATCH',
                         url: '/project/' + ctrl.candidateid + '/' +
                             object.name,
-                        data: projectData,
+                        data: $scope.project,
                         crossDomain: true
                     }).then(function successCallback(response) {
-                        console.log('After updating project', response.data);
+                        // console.log('After updating project', response.data);
                         $rootScope.$emit('projectdata', {});
                     }, function errorCallback(response) {
                         console.log('Error accord during updating Project Section');

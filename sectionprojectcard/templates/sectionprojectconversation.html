@@ -14,25 +14,26 @@
                 I have done
                 <md-input-container>
                     <label>Projectname</label>
-                    <input id="input1" type="text" ng-model="Project" name="project" required>
+                    <input type="text" ng-model="project.name" name="project" required>
                     <div ng-messages="projectForm.project.$error" role="alert">
                         <div ng-message="required">Please Enter Your Project</div>
                     </div>
                 </md-input-container> Project with duration
                 <md-input-container>
-                    <label>Duration</label>
-                    <input type="text" ng-model="Duration" name="duration" id="input1">
-                    <div ng-messages="projectForm.duration.$error" role="alert">
-                    </div>
+                    <label>DurationInMonths</label>
+                    <input type="text" ng-model="project.duration" name="duration" >
                 </md-input-container>
                 <md-input-container>
                     <label>Location</label>
-                    <input type="text" ng-model="Location" id="input1">
+                    <input type="text" ng-model="project.location" name="location" required>
+                    <div ng-messages="projectForm.Location.$error" role="alert">
+                        <div ng-message="required">Please Enter Your Location</div>
+                    </div>
                 </md-input-container>
                 with skills
                 <md-input-container>
                     <label>Skills</label>
-                    <input type="text" ng-model="skills" id='input1' required>
+                    <input type="text" ng-model="project.skills" name="skills" required>
                     <div ng-messages="projectForm.skills.$error" role="alert">
                         <div ng-message="required">Please Enter Your Skills</div>
                     </div>
@@ -40,12 +41,12 @@
                 at
                 <md-input-container>
                     <label>Client</label>
-                    <input type="text" ng-model="Client" id="input1">
+                    <input type="text" ng-model="project.client" name="client">
                 </md-input-container>
-                and Salary was
+                and your Role in the Project was
                 <md-input-container>
-                    <label>Salary</label>
-                    <input type="text" ng-model="Salary" id="input1">
+                    <label>Role</label>
+                    <input type="text" ng-model="project.role" name="role">
                 </md-input-container>
             </div>
         </md-dialog-content>
