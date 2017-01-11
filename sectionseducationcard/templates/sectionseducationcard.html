@@ -29,21 +29,20 @@
                                 <md-icon>room</md-icon>
                                 {{eduDetail.institute.location}}
                     </span>
-
-                <md-menu>
-                  <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)" >
-                    <i class="md-menu-origin material-icons" style="font-size: 16px; ">mode_edit</i>
-                  </md-button>
-                  <md-menu-content width="2">
-                    <md-menu-item ng-click="$ctrl.showAdvanced($event,'Edit Education', eduDetail)">
-                    <md-button><span md-menu-align-target style="color: black;">Edit</span></md-button>
-                  </md-menu-item>
-                  <md-menu-item ng-click="$ctrl.showConfirm($event , eduDetail)">
-                    <md-button><span md-menu-align-target style="color: black;">Delete</span></md-button>
-                  </md-menu-item>
-                  </md-menu-content>
-                </md-menu>
             </div>
+            <md-menu>
+              <md-button style="float: right;" aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                <md-icon  md-menu-origin class="material-icons md-18">mode_edit</md-icon>
+              </md-button>
+              <md-menu-content width="2">
+                <md-menu-item ng-click="$ctrl.showAdvanced($event,'Edit Education', eduDetail)">
+                <md-button><span md-menu-align-target style="color: black;">Edit</span></md-button>
+              </md-menu-item>
+              <md-menu-item ng-click="$ctrl.showConfirm($event , eduDetail)">
+                <md-button><span md-menu-align-target style="color: black;">Delete</span></md-button>
+              </md-menu-item>
+              </md-menu-content>
+            </md-menu>
         </div>
     </md-card-content>
     <div layout="row" flex-offset="90" flex-offset-xs="75" layout-align="center center">

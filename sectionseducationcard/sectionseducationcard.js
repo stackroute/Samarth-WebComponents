@@ -232,7 +232,7 @@
         }
         ctrl.showConfirm= function( ev , value ){
           var confirm = $mdDialog.confirm()
-          .title('Would you like to delete Qualification?')
+          .title('Would you like to delete Qualification ?')
           .targetEvent(ev)
           .ok('YES')
           .cancel('Cancel');
