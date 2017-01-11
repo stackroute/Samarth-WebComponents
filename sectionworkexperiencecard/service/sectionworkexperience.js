@@ -21,4 +21,18 @@ angular.module('samarth-webcomponents')
             }
 
         };
+    })
+    .factory('deleteWEService', function($http) {
+        return {
+            removeworkexp: function(candidateid, designation) {
+                return $http({
+                    method: 'DELETE',
+                    url: '/work/' + candidateid + '/' + designation
+                }).then(function mySucces(response)  {
+                    console.log('mySucces service');
+                }, function myError(response) {
+                    console.log('error in getting sectionWorkExperience');
+                });
+            }
+        };
     });
