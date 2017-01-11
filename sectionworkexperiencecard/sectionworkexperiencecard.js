@@ -42,7 +42,7 @@
         })
 
     function workexperiencecardCtrl($http, $mdDialog,
-        datagenerate, $rootScope,$rootElement) {
+        datagenerate, $rootScope,$rootElement,deleteWEService) {
         var ctrl = this;
         // ctrl.lang = "English";
         ctrl.loadLangData = function(lang) {
@@ -157,7 +157,7 @@
 
 
         function dialogCtrl($scope, $mdDialog, $http, header, object,
-            candidateid) {
+            candidateid,deleteWEService) {
 
             $scope.header = header;
             $scope.projectObj = object;
