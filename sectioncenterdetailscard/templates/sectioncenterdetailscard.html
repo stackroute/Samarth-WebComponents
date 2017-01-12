@@ -1,0 +1,32 @@
+<div layout-gt-sm="row" layout="column" class="styling">
+	<div flex-gt-sm="100" flex="">
+		<md-toolbar layout="row" class="md-hue-3">
+			<div class="md-toolbar-tools" layout-align="center center">
+				<span>Center details</span>
+			</div>
+		</md-toolbar>
+
+		<md-content>
+			<md-list flex="">
+				<md-list-item class="md-3-line" ng-repeat="center in $ctrl.centerDetails">
+					<div class="md-list-item-text" layout="column">
+						<h4>{{center.name}}</h4>
+						<h4>{{center.location}}</h4>
+						<h4>{{center.reg}}</h4>
+						<h4>{{center.centertype}}</h4>
+						<h4>{{center.address}}</h4>
+						<h4>{{center.email}}</h4>
+						<h4>{{center.mobile}}</h4>
+						<h4>{{center.status}}</h4>
+					</div>
+					<md-divider ></md-divider>
+					<div layout="row" layout-align="end center">
+						<a class="pointCursor" ng-click="$ctrl.showAdvance($event,center,'Edit Info')" title="Click to Edit">
+							<md-icon class="">mode_edit</md-icon>
+						</a>
+					</div>
+				</md-list-item>
+			</md-list>
+		</md-content>
+	</div>
+</div>

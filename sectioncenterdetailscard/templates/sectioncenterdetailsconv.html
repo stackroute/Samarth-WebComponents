@@ -1,0 +1,63 @@
+<md-dialog>
+    <form name="centerdForm" ng-cloak required>
+        <md-toolbar id="conversationDialogtoolbar">
+            <div class="md-toolbar-tools">
+                <h1 id="headingtext">{{header}}</h1>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon id="headingtext">close</md-icon>.
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content layout="column">
+            <div id="conversationDialogcontent" layout-padding layout-wrap>
+                Center name is
+                <md-input-container>
+                    <label>Center name</label>
+                    <input ng-model="centerObject.name" id='input1' name="name" required>
+                    <div ng-messages="centerdForm.name.$error" role="alert">
+                        <div ng-message="required">Please Enter Center Name</div>
+                    </div>
+                </md-input-container>
+                and is located at
+                <md-input-container>
+                    <label>Center location</label>
+                    <input ng-model="centerObject.location" id='input1'>
+                </md-input-container>. Center registration id is
+                <md-input-container>
+                    <label>Registration id</label>
+                    <input ng-model="centerObject.reg" id='input1'>
+                </md-input-container>
+                <br> Center type is
+                <md-input-container>
+                    
+                </md-input-container>
+                and address is
+                <md-input-container>
+                    <label>Address</label>
+                    <input ng-model="centerObject.address" id='input1'>
+                </md-input-container>
+                and you can drop us a mail at
+                <md-input-container>
+                    <label>Email-id</label>
+                    <input ng-model="centerObject.email" id='input1' required type="email">
+                </md-input-container>
+                , contact us at
+                <md-input-container>
+                    <label>Contact us</label>
+                    <input ng-model="centerObject.mobile" id='input1'>
+                </md-input-container>
+                Center status is
+                <md-input-container>
+                    <label>Status</label>
+                    <input ng-model="centerObject.status" id='input1'>
+                </md-input-container>
+            </div>
+            <div flex layout="row" layout-align="center center">
+                <md-button class="md-raised" id="savebutton" ng-disabled="centerdForm.$invalid" ng-click="save(centerObject)" contenteditable="false">
+                    Save
+                </md-button>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>
