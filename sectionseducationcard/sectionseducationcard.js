@@ -64,6 +64,7 @@
 
         $http.get('/education/' + ctrl.candidateid).then(function(
             response) {
+            console.log("---------=========>>>>>>>>>>");
             for (var noOfObjects = 0; noOfObjects < response.data[0].qualification.length; noOfObjects++) {
                 for (var record = 0; record < 1; record++) {
 
@@ -91,6 +92,9 @@
 
             $http.get('/education/' + ctrl.candidateid).then(
                 function(response) {
+                    console.log("response is:");
+                    console.log(response.data);
+                    if (response.data != undefined) {
                     for (var noOfObjects = 0; noOfObjects < response.data[0].qualification
                         .length; noOfObjects++) {
                         for (var record = 0; record < 1; record++) {
@@ -110,6 +114,7 @@
                             ctrl.colleges.push(ctrl.eduDetails[i]);
                         }
                     }
+                }
                 });
         })
         ctrl.showAdvanced = function(ev, header, object) {
