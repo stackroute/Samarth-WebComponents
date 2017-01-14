@@ -19,7 +19,10 @@
         <span ng-show="IsVisible">
                  I am looking for a <md-input-container>
                     <label>Role(s)</label>
-                    <input type="text" ng-model="roles" id="input1">
+                    <input type="text" ng-model="roles" id="input1" name="role" required>
+                    <div ng-messages="projectForm.role.$error" role="alert">
+                        <div ng-message="required">Please Enter Your preffered role</div>
+                    </div>
                  </md-input-container>opportunity as a
                 <md-input-container>
                      <md-select ng-model="engagement_type">
@@ -37,18 +40,24 @@
                 </md-input-container>,prefer to work at locations
                  <md-input-container>
                     <label>Locations</label>
-                    <input type="text" ng-model="locations" id='input1'>
+                    <input type="text" ng-model="locations" id='input1' name="location"  required >
+                    <div ng-messages="projectForm.Location.$error" role="alert">
+                        <div ng-message="required">Please Enter Your Location</div>
+                    </div>
                 </md-input-container>Interested to work on <md-input-container>
                     <label>Skills</label>
-                    <input type="text" ng-model="skills" id='input1' >
+                    <input type="text" ng-model="skills" name="skills" id='input1' required >
+                    <div ng-messages="projectForm.skills.$error" role="alert">
+                        <div ng-message="required">Please Enter Your skills</div>
+                    </div>
                 </md-input-container></span>
                
                 </div>
         </md-dialog-content>
         <md-dialog-actions class="conversationDialog" layout="row" layout-align="center center" id="savebtn">
             <div>
-                <md-button class="md-raised" id="addbutton" contenteditable="false"  ng-click="save(header);cancel()">
-                    SAVE
+                <md-button class="md-raised" id="addbutton" contenteditable="false" ng-disabled="projectForm.$invalid"  ng-click="save(header);cancel()">
+                SAVE
                 </md-button>
             </div>
         </md-dialog-actions>

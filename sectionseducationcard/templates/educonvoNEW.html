@@ -36,12 +36,15 @@
                 with final score of
                 <md-input-container>
                     <label>Score</label>
-                    <input id="input1" ng-model="result">
+                    <input id="input1" ng-model="result" name="score" required> 
+                    <div ng-messages="eduForm.score.$error" role="alert">
+                        <div ng-message="required">Please enter Score</div>
+                    </div>
                 </md-input-container>
-                <md-input-container>
+                <!-- <md-input-container>
                     <label>Unit</label>
                     <input id="input1" ng-model="unit">
-                </md-input-container>
+                </md-input-container> -->
                 . I did it from
                 <md-input-container>
                     <label>Institute Name</label>
