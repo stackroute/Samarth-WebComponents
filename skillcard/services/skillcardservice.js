@@ -1,5 +1,16 @@
 angular.module('samarth-webcomponents')
-    .service('skillcardService', function($http, $filter, $rootScope) {
+    .service('skillcardService', function($http, $filter, $rootScope,$q) {
+        // AWS.config.region = 'ap-south-1';
+        // AWS.config.update({ accessKeyId: 'AKIAIEJFMACVX4TI2O5A', secretAccessKey: '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' });
+
+        // var bucket = new AWS.S3({ params: { Bucket: 'samarthuploads', maxRetries: 10 }, httpOptions: { timeout: 360000 } });
+        //         console.log(bucket);
+        // let awsBucket= {};
+        // awsBucket = bucket;
+        // console.log(awsBucket);
+
+        this.Progress = 0;
+
         return {
             getskillcarddata: function(candidateid) {
                 let skillcarddata = {};
@@ -59,6 +70,71 @@ angular.module('samarth-webcomponents')
                     console.log('error in getting skillcard details');
                 });
             },
+
+            // ConnectAWS: function () {
+            //     /* body... */
+            //     return $http({
+            //         method: 'GET',
+            //         url: '/skillcard/aws'
+            //         // data: {profilepicUrl:newUrl}
+            //     }).then(function successCallback(response) {
+            //         console.log("Connecting to storage server!!!!");
+            //         console.log(response);
+            //         let awsBucket = response.data;
+            //         console.log('from input function: '+awsBucket.region);
+            //         return response;
+            //     }, function errorCallback(err) {
+            //         console.log('Error connecting to storage server!!!!');
+            //         return err;
+            //     });  
+
+            // },
+
+            Upload: function (file) {
+                
+               return $http({
+                    method: 'GET',
+                    url: '/skillcard/aws'
+                    // data: {profilepicUrl:newUrl}
+                }).then(function successCallback(response) {
+                    console.log("Connecting to storage server!!!!");
+                    console.log(response);
+                    let awsBucket = response.data;
+                    console.log('from input function: '+awsBucket.region);
+                     // ConnectAWS();
+                AWS.config.region = awsBucket.region;
+                AWS.config.update({ accessKeyId: awsBucket.accessKeyId, secretAccessKey: awsBucket.secretAccessKey });
+
+                var bucket = new AWS.S3({ params: { Bucket: awsBucket.Bucket, maxRetries: 10 }, httpOptions: { timeout: 360000 } });
+                console.log(bucket);
+                var deferred = $q.defer();
+                var params = { Bucket: 'samarthuploads', Key: file.name, ContentType: file.type, Body: file };
+                var options = {
+                    // Part Size of 10mb
+                    partSize: 10 * 1024 * 1024,
+                    queueSize: 1,
+                    // Give the owner of the bucket full control
+                    ACL: 'bucket-owner-full-control'
+                };
+                var uploader = bucket.upload(params, options, function (err, data) {
+                    if (err) {
+                        deferred.reject(err);
+                    }
+                    console.log(data);
+                    deferred.resolve(data);
+                });
+                uploader.on('httpUploadProgress', function (event) {
+                    deferred.notify(event);
+                });
+
+                return deferred.promise;
+                    // return response;
+                }, function errorCallback(err) {
+                    console.log('Error connecting to storage server!!!!');
+                    return err
+                });  
+               
+            },//end Upload()
             uploadPicUrl: function(newUrl,candidateid){
                 console.log("inside service");
                 return $http({
@@ -66,13 +142,13 @@ angular.module('samarth-webcomponents')
                     url: 'personalinfo/' + candidateid + '/' +"profilepic/",
                     data: {profilepicUrl:newUrl}
                 }).then(function successCallback(response) {
-                    console.log("About to update Url");
+                    console.log("Updating newPicURL in Database");
                     return response;
                 }, function errorCallback(err) {
                     console.log('Error accord during Project Section')
                     return err;
                 });  
-            }
+            }//end uploadPicUrl()
 
         };
     });
