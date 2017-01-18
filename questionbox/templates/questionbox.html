@@ -18,7 +18,7 @@
         </div>
         <div layout="row">
             <div flex="90" flex-xs="80" class="input">
-                <input class="ques1" name="ques1" type="text" value="$ctrl.clear" ng-model="$ctrl.clear" ng-keyup="$event.keyCode == 13 ? $ctrl.increaseIndex() : null" />
+                <input class="ques1" name="ques1" type="text" ng-model="$ctrl.clear" ng-keyup="$event.keyCode == 13 ? $ctrl.increaseIndex() : null" />
             </div>
             <div flex="10" flex-xs="20">
                 <button class="forward" ng-click="$ctrl.increaseIndex()">
