@@ -24,7 +24,16 @@
     function educationcardCtrl($mdDialog, $http, datagenerate, $rootScope,$rootElement,deleteEducationService) {
 
         var ctrl = this;
+
+       // ctrl.lang = "English";
         ctrl.loadLangData = function(lang) {
+            // ctrl.lang = lang;
+            // Setting language default to English for Samarth-Placement, as it is not multilingual as of now
+         // if($rootElement.attr('ng-app')=="samarth")
+         //    {
+         //        ctrl.lang = "English";
+         //    }
+
             datagenerate.getjson("section",lang).then(function(result) {
                 ctrl.items = result;
                  if($rootElement.attr('ng-app')=="samarth")
@@ -55,6 +64,7 @@
 
         $http.get('/education/' + ctrl.candidateid).then(function(
             response) {
+            console.log("---------=========>>>>>>>>>>");
             for (var noOfObjects = 0; noOfObjects < response.data[0].qualification.length; noOfObjects++) {
                 for (var record = 0; record < 1; record++) {
 
@@ -82,6 +92,9 @@
 
             $http.get('/education/' + ctrl.candidateid).then(
                 function(response) {
+                    console.log("response is:");
+                    console.log(response.data);
+                    if (response.data != undefined) {
                     for (var noOfObjects = 0; noOfObjects < response.data[0].qualification
                         .length; noOfObjects++) {
                         for (var record = 0; record < 1; record++) {
@@ -101,6 +114,7 @@
                             ctrl.colleges.push(ctrl.eduDetails[i]);
                         }
                     }
+                }
                 });
         })
         ctrl.showAdvanced = function(ev, header, object) {
@@ -134,30 +148,30 @@
                 $scope.batch = object.batch;
                 if (object.outcome != "") {
                     $scope.result = object.outcome.result;
-                    $scope.unit = object.outcome.unit;
+                    // $scope.unit = object.outcome.unit;
                 } else {
                     $scope.result = "";
-                    $scope.unit = "";
+                    // $scope.unit = "";
                 }
 
                 $scope.name = object.institute.name;
                 $scope.location = object.institute.location;
                 $scope.affiliation = object.institute.affiliation;
                 $scope.uniqueID = object._id;
-                $scope.to = object.to;
-                $scope.from = object.from;
+                // $scope.to = object.to;
+                // $scope.from = object.from;
                 $scope.type = object.institute.type;
                 $scope.academicType = object.academicType;
             } else {
                 $scope.title = "";
                 $scope.batch = "";
                 $scope.result = "";
-                $scope.unit = "";
+                // $scope.unit = "";
                 $scope.name = "";
                 $scope.location = "";
                 $scope.affiliation = "";
-                $scope.to = "";
-                $scope.from = "";
+                // $scope.to = "";
+                // $scope.from = "";
                 $scope.type = "";
                 $scope.academicType = "";
                 $scope.type = "";
@@ -178,8 +192,8 @@
                     "qualification": [{
                         "title": $scope.title,
                         "batch": $scope.batch,
-                        "from": $scope.to,
-                        "to": $scope.from,
+                        // "from": $scope.to,
+                        // "to": $scope.from,
                         "academicType": $scope.academicType,
                         "institute": {
                             "name": $scope.name,
@@ -190,7 +204,7 @@
                         },
                         "outcome": {
                             "result": $scope.result,
-                            "unit": $scope.unit
+                            // "unit": $scope.unit
                         }
                     }]
                 }
@@ -226,30 +240,18 @@
                                 console.log('error in updating education');
                             });
                 }
-                $mdDialog.hide();
 
-            };
+            }
         }
-        ctrl.showConfirm= function( ev , value ){
-          var confirm = $mdDialog.confirm()
-          .title('Would you like to delete Qualification ?')
-          .targetEvent(ev)
-          .ok('YES')
-          .cancel('Cancel');
-          $mdDialog.show(confirm).then(function(){
+        ctrl.deleteEducation = function(value) {
             let education = value.title;
             deleteEducationService.removeEducation(ctrl.candidateid, education).then(function mySucces(response)  {
-            console.log('delete res');
-            $rootScope.$emit('datachanged', {});
+                    console.log('delete res');
+                    $rootScope.$emit('datachanged', {});
             }, function myError(response) {
-              console.log('error in deleting education section');
-          });
-          $mdDialog.hide();
-        },function(){
-          $mdDialog.hide();
-        });
-
-      };
+                    console.log('error in deleting education section');
+            });
+        }
 
     }
 })();

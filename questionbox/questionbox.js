@@ -6,14 +6,15 @@ angular.module('samarth-webcomponents')
         templateUrl: currentScriptPathQuestion.substring(0, currentScriptPathQuestion.lastIndexOf(
             '/')) + '/templates/questionbox.html',
         controller: questionBoxCtrl          
-    });
+    })
 
-function questionBoxCtrl($timeout, $auth, quesnboxService, $rootScope) {
+function questionBoxCtrl($timeout, $auth, quesnboxService, $rootScope, $scope) {
     var candidateid = $auth.getPayload().uname;
     console.log("data from user", candidateid);
     var ctrl = this;
     ctrl.showMaxBtn = false;
     ctrl.displayAlertMessage = false;
+    
     ctrl.showInputBox = function() {
         ctrl.displayInputBox = false;
     }
@@ -64,6 +65,7 @@ function questionBoxCtrl($timeout, $auth, quesnboxService, $rootScope) {
         if (ctrl.clear == '') {
             ctrl.displayAlertMessage = true;
         } else {
+            ctrl.clear=ctrl.clear.charAt(0).toUpperCase() + ctrl.clear.substr(1).toLowerCase();
             ctrl.displayAlertMessage = false;
             ctrl.currentQuestionIndex = ctrl.currentQuestionIndex + 1;
             ctrl.val = Math.floor((ctrl.currentQuestionIndex / ctrl.questionArray.length) *
