@@ -20,10 +20,10 @@ angular.module('samarth-webcomponents')
     })
     .factory('deleteEducationService', function($http, $rootScope) {
         return {
-            removeEducation: function(candidateid, title) {
+            removeEducation: function(candidateid, title, nameofins) {
                 return $http({
                     method: 'DELETE',
-                    url: '/education/' + candidateid + '/' + title
+                    url: '/education/' + candidateid + '/' + title + '/' + nameofins
                 }).then(function mySucces(response)  {
                     console.log('mySucces service');
                 }, function myError(response) {

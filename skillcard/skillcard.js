@@ -21,7 +21,7 @@
                 }
         });
 
-        function skillcardCtrl($window, $timeout, $mdDialog, Upload, skillcardService, $rootScope, $state, $http) {
+        function skillcardCtrl($window, $timeout, $mdDialog, skillcardService, $rootScope, $state, $http) {
             let ctrl = this;
             let name= '';
             console.log("entered in to controller of skillcard");
