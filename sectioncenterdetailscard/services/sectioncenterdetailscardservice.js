@@ -1,4 +1,5 @@
-angular.module('samarth-webcomponents').factory('datagenerate', ['$http',
+angular.module('samarth-webcomponents')
+.factory('datagenerate', ['$http',
     function($http) {
 
         return {
@@ -14,4 +15,36 @@ angular.module('samarth-webcomponents').factory('datagenerate', ['$http',
             }
         }
     }
-]);
+    ])
+.factory('datagenerateFactory', function($http) {
+    return {
+        getdata: function() {
+            let data = {};
+            return $http({
+                method: 'GET',
+                url: '/centertype',
+                type: 'JSON'
+            })
+            .then(function mySucces(response) {
+                data = response.data;
+                return data;
+            }, function errorCallback(response) {
+                return response.error.message;
+            });
+        }
+    };
+})
+.factory('statuscenterFactory', function($http) {
+    return {
+        statusdisable : function(regId, centerDetail) {
+            return $http({
+                method: 'POST',
+                url: '/center/disable/' + regId,
+                data: centerDetail
+
+            }).then(function(response)  {
+             return response.data;
+         });
+        }
+    }
+});

@@ -9,21 +9,50 @@
             '/')) + '/templates/sectioncenterdetailscard.html',
         controller: centerdetailscardCtrl,
         bindings: {
-            reg: '<'
-        },        
+            centerCode: '<'
+        },
     })
     .controller('centerdetailscardCtrl',centerdetailscardCtrl);
 
-    function centerdetailscardCtrl($scope, $http, $mdDialog, datagenerate, $state) {
+    function centerdetailscardCtrl($scope, $http, $mdDialog, datagenerate, datagenerateFactory, statuscenterFactory, $state) {
         var ctrl = this;
         ctrl.centerDetails=[];
-        datagenerate.getjson().then(function(result) {
+        ctrl.centerType=[];
+        // ctrl.centerstatus='';
+        // ctrl.regId='';
+        function getCenterList(){
+          datagenerate.getjson().then(function(result) {
             ctrl.centerDetails=result;
         },function(err){
             console.log(err);
+        });  
+        }
+        
+        getCenterList();
+        datagenerateFactory.getdata().then(function(response){
+             ctrl.centerType = response;
+             console.log("centerType" + response);
         });
 
-        ctrl.showAdvance = function(ev, centerDetails, title) {
+
+        ctrl.disable = function(centerDetail) {
+            console.log(centerDetail);
+            centerstatus = centerDetail.status;
+            regId = centerDetail.centerCode;
+            console.log(" centerCode id "+regId);
+            
+            statuscenterFactory.statusdisable(regId, centerDetail).then(function(response){
+             // ctrl.centerDetail = response;
+             getCenterList();
+             console.log("center status: " + centerstatus);
+        });
+        };
+        
+
+        ctrl.showAdvance = function(ev, centerDetails,title) {
+
+            centerType=ctrl.centerType;
+            
             console.log("Current Script path ", currentScriptPath);
             $mdDialog.show({
                 controller: dialogCtrl,
@@ -33,7 +62,8 @@
                 clickOutsideToClose: true,
                 locals: {
                     val: centerDetails,
-                    header: title
+                    header: title,
+                    ctype:centerType
                 },
                     fullscreen: ctrl.customFullscreen
                 })
@@ -44,11 +74,13 @@
             });
         };
 
-        function dialogCtrl($scope, $mdDialog, val, header,$http) {
+        function dialogCtrl($scope, $mdDialog, val,ctype, header,$http) {
             $scope.centerObject =val;
+            $scope.centerType=ctype;
+
             console.log($scope.centerObject);
-            // $scope.header = header;
-            // console.log(header);
+            console.log($scope.centerType);
+            
             $scope.hide = function() {
                 $mdDialog.hide();
             };
@@ -59,7 +91,8 @@
             $scope.save = function(centerdetailsObject) {
                     $http({
                         method: 'POST',
-                        url: '/center/update' + $scope.centerObject.reg
+                        url: '/center/update/' + centerdetailsObject.centerCode,
+                        data:centerdetailsObject
                     }).then(function mySucces(response)  {
                        console.log("dsds");
                     }, function myError(response) {
