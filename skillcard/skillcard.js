@@ -23,7 +23,7 @@
 
         function skillcardCtrl($window, $timeout, $mdDialog, Upload, skillcardService, $rootScope, $state, $http) {
             let ctrl = this;
-            let name;
+            let name= '';
             console.log("entered in to controller of skillcard");
 
             console.log($rootScope);
@@ -153,6 +153,7 @@
             });
 
             function createDownloadUrl() {
+                if(ctrl.data != undefined){
                 name = ctrl.data.name + '.png';
                 ctrl.data1 = ctrl.data;
                 ctrl.downloaddata = JSON.stringify(ctrl.data1);
@@ -162,6 +163,7 @@
                     }),
                     url = $window.URL || $window.webkitURL;
                 ctrl.fileUrl = url.createObjectURL(blob);
+            }
             }
             let getCanvas;
             $timeout(createDownloadUrl, 1000);

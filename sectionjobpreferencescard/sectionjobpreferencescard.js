@@ -181,7 +181,7 @@
                         crossDomain: true
                     }).then(function successCallback(response) {
                         console.log('After adding preferences', response.data);
-                        console.log("afeer");
+                        console.log("after");
                         $rootScope.$emit('preferencedata', {});
                     }, function errorCallback(response) {
                         console.log('Error accord during Preferences');
