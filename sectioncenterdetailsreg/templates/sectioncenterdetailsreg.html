@@ -9,72 +9,87 @@
         <md-input-container class=" md-block">
           <label>Center name</label>
           <md-icon class="material-icons">home</md-icon>
-          <input type="text" name="Name" required md-no-asterisk ng-model="$ctrl.center.name" />
-          <div ng-messages="centerForm.name.$error">
+          <input type="text" name="cname" required md-no-asterisk ng-model="$ctrl.center.cname" />
+          <div ng-messages="centerForm.cname.$error">
             <div ng-message="required">Center name is required.</div>
           </div>
         </md-input-container>
-        <!-- Registration NO field -->
-        <md-input-container class="md-block">
-          <md-icon class="material-icons">code</md-icon>
-          <label>Center code</label>
-          <input name="reg" ng-model="$ctrl.center.reg" type="text" pattern="[0-9]{8}" md-maxlength="8" ng-required="true">
-          <div ng-messages="centerForm.reg.$error" role="alert">
-            <div ng-message="required">You should need to correct registration number</div>
-            <div ng-message="pattern">The value should have only 8 digits number</div>
+
+
+        <!-- Registration field -->
+        <!-- <md-input-container class="md-block">
+          <md-icon ng-show="vm.availability=='disabled'" style="color:black">do_not_disturb</md-icon>
+          <md-icon ng-show="vm.availability=='Available'" style="color:green">done</md-icon>
+          <md-icon ng-show="vm.availability=='Not available'" style="color:red">clear</md-icon>
+          <input ng-model="vm.center.centerCode" ng-disabled="vm.checked" md-minlength="8" md-maxlength="8" name="centerCode" type="text" placeholder="Center id" ng-required="true">
+          <div ng-messages="centerForm.centerCode.$error" ng-show="centerForm.centerCode.$dirty || myForm.centerCode.$touched">
           </div>
-        </md-input-container>
-        <!-- Center type -->
-        <div layout="row" layout-align="center center">
-          <md-input-container flex>
-            <label>Center type</label>
-            <md-icon class="material-icons">work</md-icon>
-            <md-select name=" centertype" ng-model="register.user.centertype" required>
-              <md-option ng-repeat="(key, value) in register.centertypes" ng-value="value.centertypes">{{value.centertypes}}</md-option>
-            </md-select>
-            <div ng-messages="signupForm.centertype.$error">
-            <div ng-message="required">Please Select your center type</div>
+          </md-input-container> -->
+
+
+
+          <!-- Registration NO field -->
+          <md-input-container class="md-block">
+            <md-icon class="material-icons">code</md-icon>
+            <label>Center code</label>
+            <input name="centerCode" ng-model="$ctrl.center.centerCode" type="text" pattern="[0-9]{8}" md-maxlength="8" ng-required="true">
+            <div ng-messages="centerForm.centerCode.$error" role="alert">
+              <div ng-message="required">You should need to correct registration number</div>
+              <div ng-message="pattern">The value should have only 8 digits number</div>
             </div>
           </md-input-container>
-        </div>
-        <!-- <div layout="row" layout-align="center center"> -->
-        <md-input-container class=" md-block">
-          <label>Location</label>
-          <md-icon class="material-icons">place</md-icon>
-          <input type="text" name="Location" required md-no-asterisk ng-model="$ctrl.center.location" />
-          <div ng-messages="centerForm.Location.$error">
-            <div ng-message="required">Location is required.</div>
-          </div>
-        </md-input-container>
-        <md-input-container class=" md-block">
-          <label>Address</label>
-          <md-icon class="material-icons">home</md-icon>
-          <input type="text" name="Address" required md-no-asterisk ng-model="$ctrl.center.address" />
-          <div ng-messages="centerForm.Address.$error">
-            <div ng-message="required">Location is required.</div>
-          </div>
-        </md-input-container>
-        <!-- Center number -->
-        <md-input-container class="md-block">
-          <md-icon class="material-icons">phone</md-icon>
-          <label>Center contact No</label>
-          <input name="mobile" ng-model="$ctrl.center.mobile" type="text" pattern="[0-9]{10}" md-maxlength="10" ng-required="true">
-          <div ng-messages="centerForm.mobile.$error" role="alert">
-            <div ng-message="required">You should need to correct mobile number</div>
-            <div ng-message="pattern">The value should have only 10 digits number</div>
-          </div>
-        </md-input-container>
-        <!-- Status enable or disable -->
-        <md-input-container>
-          <md-radio-group name="status" ng-model="vm.candidate.status" layout="row" ng-required="true" flex-offset="50">
-            <label><md-icon>wc</md-icon>Status </label>
-            <md-radio-button value="Enable"  flex="85" class="md-primary">Enable</md-radio-button>
-            <md-radio-button value="Disable" flex="85" class="md-primary">Disable</md-radio-button>
-          </md-radio-group>
-        </md-input-container>
-        <section layout layout-padding="" layout-align="center center">
-          <md-button type="submit" class="md-raised md-primary" ng-disabled="false"> &nbsp;Add&nbsp;</md-button>
-        </section>
-      </form>
+          
+          <!-- Center type -->
+          
+            <md-input-container class="md-block">
+              <label>Center type</label>
+              <md-icon class="material-icons">work</md-icon>
+              <md-select name=" centerType" ng-model="$ctrl.center.centerType">
+                <md-option ng-repeat="centers in $ctrl.centerType" ng-value="centers.centerTypeTitle">{{centers.centerTypeTitle}}</md-option>
+              </md-select>
+              <div ng-messages="signupForm.centerType.$error">
+                <div ng-message="required">Please Select your center type</div>
+              </div>
+            </md-input-container>
+          <!-- <div layout="row" layout-align="center center"> -->
+          <md-input-container class=" md-block">
+            <label>Location</label>
+            <md-icon class="material-icons">place</md-icon>
+            <input type="text" name="Location" required md-no-asterisk ng-model="$ctrl.center.location" />
+            <div ng-messages="centerForm.Location.$error">
+              <div ng-message="required">Location is required.</div>
+            </div>
+          </md-input-container>
+          <md-input-container class=" md-block">
+            <label>Address</label>
+            <md-icon class="material-icons">home</md-icon>
+            <input type="text" name="Address" required md-no-asterisk ng-model="$ctrl.center.address" />
+            <div ng-messages="centerForm.Address.$error">
+              <div ng-message="required">Location is required.</div>
+            </div>
+          </md-input-container>
+          <!-- Center number -->
+          <md-input-container class="md-block">
+            <md-icon class="material-icons">phone</md-icon>
+            <label>Center contact No</label>
+            <input name="mobile" ng-model="$ctrl.center.mobile" type="text" pattern="[0-9]{10}" md-maxlength="10" ng-required="true">
+            <div ng-messages="centerForm.mobile.$error" role="alert">
+              <div ng-message="required">You should need to correct mobile number</div>
+              <div ng-message="pattern">The value should have only 10 digits number</div>
+            </div>
+          </md-input-container>
+          <!-- Status enable or disable -->
+          <md-input-container>
+            <md-radio-group name="status" ng-model="$ctrl.center.status" layout="row" flex-offset="50">
+              <label><md-icon>star</md-icon>Status </label>
+              <md-radio-button value="Enable"  flex="85" class="md-primary">Enable</md-radio-button>
+              <md-radio-button value="Disable" flex="85" class="md-primary">Disable</md-radio-button>
+            </md-radio-group>
+          </md-input-container>
+          <section layout layout-padding="" layout-align="center center">
+            <md-button type="submit" class="md-raised md-primary" ng-disabled="false"> &nbsp;Add&nbsp;</md-button>
+            <md-button class="md-raised md-primary" ng-disabled="false" ng-click="cancelButton()"> &nbsp;Cancel&nbsp;</md-button>
+          </section>
+        </form>
+      </div>
     </div>
-  </div>

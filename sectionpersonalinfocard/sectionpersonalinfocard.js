@@ -133,6 +133,7 @@
                 let personalinfoObj = {
                     personalInfo: {
                         name: personalinfoObject.name,
+                        adharcard: personalinfoObject.adharcard,
                         dob: personalinfoObject.dob,
                         gender: personalinfoObject.gender,
                         maritialstatus: personalinfoObject.maritialstatus,
