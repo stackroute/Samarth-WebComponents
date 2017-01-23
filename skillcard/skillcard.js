@@ -111,7 +111,7 @@
                 //     this.showEditForm =false;
                 // }else{
                     ctrl.showEditForm = true;
-                    console.log(this.showEditForm);
+                    // console.log(this.showEditForm);
                     ctrl.hideEditForm = false;
                 // }
             }
