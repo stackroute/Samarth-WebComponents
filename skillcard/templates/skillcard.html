@@ -139,8 +139,8 @@
         <div flex="25" hide-sm hide-xs>
             <div layout="column" layout-align="center center">
                 <div layout-align="center center">
-                    <div ng-hide="$ctrl.showEditForm">
-                        <a href="#" ng-click="$ctrl.edit()" class="md-icon-button" aria-label="edit">
+                    <div ng-hide="$ctrl.hideEditForm">
+                        <a href="#" ng-click="$ctrl.edit($event)" class="md-icon-button" aria-label="edit">
                         <md-tooltip md-direction="right">
                          click here to upload New Pic
                             </md-tooltip>
@@ -160,6 +160,11 @@
                                     <button type="file" ngf-select="$ctrl.uploadFiles($files)" ngf-multiple="true">
                                         Select File
                                     </button>
+                                    <md-button ng-click="$ctrl.cancelUpload()">
+                                        <md-icon class="material-icons">cancel</md-icon>
+                                    </md-button>
+
+                                    <button ng-click>Cancel</button>
                                 </p>
                             </div>
                             <div ng-show="Files.length > 0">
@@ -211,12 +216,25 @@
                     <!-- <div ng-show="$ctrl.showEditForm"> -->
                         <form novalidate ng-show="$ctrl.showEditForm">
                 <div>
-                    <h1>Upload Files</h1>
+                    <h1>Change your current DP!</h1>
                     
                     <p>
-                        <button type="file" ngf-select="$ctrl.uploadFiles($files)" ngf-multiple="true">
+                        <!-- <button type="file" ngf-select="$ctrl.uploadFiles($files)" ngf-multiple="true">
                             Select File
-                        </button>
+                        </button> -->
+                        <md-button type="file" ngf-select="$ctrl.uploadFiles($files)" ngf-multiple="true">
+                            <md-tooltip md-direction="left">
+                                Select File and Upload!
+                            </md-tooltip>
+                            <md-icon class="material-icons">cloud_upload</md-icon>
+                        </md-button>
+                        <md-button ng-click="$ctrl.cancelUpload()">
+                            <md-tooltip md-direction="right">
+                                Not sure, maybe later!
+                            </md-tooltip>
+                            <md-icon class="material-icons">undo</md-icon>
+                        </md-button>
+
                     </p>
                 </div>
                 <div ng-show="Files.length > 0">

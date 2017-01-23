@@ -24,6 +24,7 @@
         function skillcardCtrl($window, $timeout, $mdDialog, skillcardService, $rootScope, $state, $http) {
             let ctrl = this;
             let name= '';
+            ctrl.data = {};
             console.log("entered in to controller of skillcard");
 
             console.log($rootScope);
@@ -52,38 +53,26 @@
                 });
 
             let showEditForm = false ;
+            let hideEditForm = true ;
             let newPicURL = '';
             let candidateID = this.candidateid; 
 
-            closeEditForm = function () {
-                /* body... */
-                this.showEditForm =false;
+            // closeEditForm = function () {
+            //      body... 
+            //     this.showEditForm =false;
+            // }
+
+
+            this.cancelUpload = function (){
+                console.log(this.showEditForm);
+                this.showEditForm = false;
             }
+
+
 
             this.uploadFiles = function (files) {
                 this.Files = files;
 
-                // async.series([
-                //     function(done) {
-                //         console.log('ConnectAWS function')
-                //         done()
-                //     },
-                //       function() {
-                //         console.log('second thing')
-                        
-                //         // done(new Error('another thing'))
-                //       }
-
-                // ])
-                // this.amazonBucket = [];
-                // skillcardService.ConnectAWS().then(function (result) {
-                //     /* body... */
-                //     // amazonBucket = result;
-                //     console.log('Connected to storage server!!!');
-                // }, function (error) {
-                //     /* body... */
-                //     console.log('Error while connecting to storage server!!!');
-                // });
 
                 if (files && files.length > 0) {
                     angular.forEach(this.Files, function (file, key) {
@@ -92,12 +81,15 @@
                             file.Success = true;
                             newPicURL = result.Location;
                             console.log('newPicURL: '+ newPicURL);
+                            ctrl.data.profilepic = newPicURL;
                             skillcardService.uploadPicUrl(newPicURL,candidateID);
-                            closeEditForm();
+                            ctrl.showEditForm = false;
+                            ctrl.hideEditForm = true;
                         }, function (error) {
                             // Mark the error
                             this.Error = error;
-                            this.showEditForm =false;
+                            ctrl.showEditForm =true;
+                            ctrl.hideEditForm = false;
                             alert('some error occured while uploading the pic, Please try after sometime!');
 
                         }, function (progress) {
@@ -110,17 +102,18 @@
 
             this.edit = function(){
                 // console.log("newURl ---->",newUrl);
-                if(this.showEditForm){
+                // if(this.showEditForm){
 
-                    // skillcardService.uploadPicUrl(newUrl,this.candidateid);
-                    // ctrl.data.profilepic = newUrl;
-                    console.log("upload form open");
+                //     // skillcardService.uploadPicUrl(newUrl,this.candidateid);
+                //     // ctrl.data.profilepic = newUrl;
+                //     console.log("upload form open");
 
-                    this.showEditForm =false;
-                }else{
-                    this.showEditForm = true;
+                //     this.showEditForm =false;
+                // }else{
+                    ctrl.showEditForm = true;
                     console.log(this.showEditForm);
-                }
+                    ctrl.hideEditForm = false;
+                // }
             }
 
             if(!this.picsize) {
