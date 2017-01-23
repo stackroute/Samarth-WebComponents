@@ -130,9 +130,9 @@
 
 
             $scope.save = function(header) {
-                var skill = $scope.skills.toString().split(",");
-                var location=$scope.locations.toString().split(",");
-                var role=$scope.roles.toString().split(",");
+                // var skill = $scope.skills.toString().split(",");
+                // var location=$scope.locations.toString().split(",");
+                // var role=$scope.roles.toString().split(",");
 
                 console.log("Header" + header)
                 console.log("save");
@@ -145,9 +145,9 @@
                     "preferences":{
                         "looking_jobs":$scope.looking_jobs,
                         "expected_salary": $scope.expected_salary,
-                        "locations": location,
-                        "roles": role,
-                        "skills": skill,
+                        "locations": $scope.locations,
+                        "roles": $scope.roles,
+                        "skills": $scope.skills,
                         "joining_date":$scope.joining_date,
                         "engagement_type":$scope.engagement_type
                         
