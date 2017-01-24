@@ -206,8 +206,8 @@
         <div flex="75" flex-xs="100">
             <div flex="100" hide-gt-sm>
                 <div layout="column" layout-align="center center">
-                   <div ng-hide="$ctrl.showEditForm">
-                        <a href="#" ng-click="$ctrl.edit()" class="md-icon-button" aria-label="edit">
+                   <div ng-hide="$ctrl.hideEditForm">
+                        <a href="#" ng-click="$ctrl.edit($event)" class="md-icon-button" aria-label="edit">
                         <md-tooltip md-direction="right">
                          click here to upload New Pic
                             </md-tooltip>
