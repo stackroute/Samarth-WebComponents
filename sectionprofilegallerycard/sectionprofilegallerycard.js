@@ -117,6 +117,7 @@
                 $scope.name = currentimage.name;
                 $scope.title = currentimage.title;
                 $scope.desc = currentimage.desc;
+                $scope.url = currentimage.link;
 
                 $scope.hide = function() {
                   $mdDialog.hide();
