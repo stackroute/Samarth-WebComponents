@@ -25,9 +25,11 @@
 
     
 
-    function profilegallerycardCtrl($scope, $http, $mdDialog, $rootScope,$rootElement) {
+    function profilegallerycardCtrl($scope, $http, $mdDialog, $rootScope,$rootElement, sectionprofilegalleryservice) {
         var ctrl = this;
         ctrl.personalInfo = {};
+        // console.log(this.candidateid);
+        // let candidateID = this.candidateid;
 
         // ctrl.lang = "English";
         // console.log("$rootElement.attr('ng-app')");
@@ -42,56 +44,64 @@
 
         alert('In profilegallerycard controller');
 
-        ctrl.images = [
-            {
-              'name': '1.jpg',
-              'title': 'Image 1',
-              'desc': 'this is image 1 and it is a sample image uploaded by noone.',
-              'link': 'http://placehold.it/350x150' // used only for this example
-            },
-            {
-              'name': '2.gif',
-              'title': 'Image 2',
-              'desc': 'this is image 2 and it is a sample image uploaded by noone.',
-              'link': 'http://placehold.it/500x200'
-            },
-            {
-              'name': '3.png',
-              'title': 'Image 3',
-              'desc': 'this is image 3 and it is a sample image uploaded by noone.',
-              'link': 'http://placehold.it/200x200'
-            },
-            {
-              'name': '4.png',
-              'title': 'Image 4',
-              'desc': 'this is image 4 and it is a sample image uploaded by noone.',
-              'link': 'http://placehold.it/500x500'
-            },
-            {
-              'name': '5.png',
-              'title': 'Image 5',
-              'desc': 'this is image 5 and it is a sample image uploaded by noone.',
-              'link': 'http://placehold.it/300x200'
-            },
-            {
-              'name': '6.png',
-              'title': 'Image 6',
-              'desc': 'this is image 6 and it is a sample image uploaded by noone.',
-              'link': 'http://placehold.it/150x150'
-            },
-            {
-              'name': '7.png',
-              'title': 'Image 7',
-              'desc': 'this is image 7 and it is a sample image uploaded by noone.',
-              'link': 'http://placehold.it/150x150'
-            },
-            {
-              'name': '8.png',
-              'title': 'Image 8',
-              'desc': 'this is image 8 and it is a sample image uploaded by noone.',
-              'link': 'http://placehold.it/150x150'
-            },
-            ];
+        sectionprofilegalleryservice.getGallery(this.candidateid).then(function(result) {
+                ctrl.data = result;
+                
+                console.log('data in gallery controller ');
+                console.log(ctrl.data);
+                
+            });
+
+        // ctrl.images = [
+        //     {
+        //       'name': '1.jpg',
+        //       'title': 'Image 1',
+        //       'desc': 'this is image 1 and it is a sample image uploaded by noone.',
+        //       'link': 'http://placehold.it/350x150' // used only for this example
+        //     },
+        //     {
+        //       'name': '2.gif',
+        //       'title': 'Image 2',
+        //       'desc': 'this is image 2 and it is a sample image uploaded by noone.',
+        //       'link': 'http://placehold.it/500x200'
+        //     },
+        //     {
+        //       'name': '3.png',
+        //       'title': 'Image 3',
+        //       'desc': 'this is image 3 and it is a sample image uploaded by noone.',
+        //       'link': 'http://placehold.it/200x200'
+        //     },
+        //     {
+        //       'name': '4.png',
+        //       'title': 'Image 4',
+        //       'desc': 'this is image 4 and it is a sample image uploaded by noone.',
+        //       'link': 'http://placehold.it/500x500'
+        //     },
+        //     {
+        //       'name': '5.png',
+        //       'title': 'Image 5',
+        //       'desc': 'this is image 5 and it is a sample image uploaded by noone.',
+        //       'link': 'http://placehold.it/300x200'
+        //     },
+        //     {
+        //       'name': '6.png',
+        //       'title': 'Image 6',
+        //       'desc': 'this is image 6 and it is a sample image uploaded by noone.',
+        //       'link': 'http://placehold.it/150x150'
+        //     },
+        //     {
+        //       'name': '7.png',
+        //       'title': 'Image 7',
+        //       'desc': 'this is image 7 and it is a sample image uploaded by noone.',
+        //       'link': 'http://placehold.it/150x150'
+        //     },
+        //     {
+        //       'name': '8.png',
+        //       'title': 'Image 8',
+        //       'desc': 'this is image 8 and it is a sample image uploaded by noone.',
+        //       'link': 'http://placehold.it/150x150'
+        //     },
+        //     ];
                
             ctrl.expand = function(ev,currentimage) {
                 $mdDialog.show({
@@ -118,7 +128,10 @@
                 $scope.name = currentimage.name;
                 $scope.title = currentimage.title;
                 $scope.desc = currentimage.desc;
-                $scope.url = currentimage.link;
+                $scope.url = currentimage.url;
+
+
+                console.log($scope.url);
 
                 $scope.hide = function() {
                   $mdDialog.hide();
@@ -140,7 +153,10 @@
                     parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose:true,
-                    fullscreen: $scope.customFullscreen, // Only for -xs, -sm breakpoints.
+                    fullscreen: $scope.customFullscreen,
+                    locals: {
+                        candidateid: ctrl.candidateid
+                    } // Only for -xs, -sm breakpoints.
                     
                 })
                 .then(function(answer) {
@@ -150,13 +166,46 @@
                 });
             };
 
-            function addNewDialogController($scope, $mdDialog) {
+            function addNewDialogController($scope, $mdDialog, candidateid) {
 
-                // $scope.image = currentimage;
-                // $scope.name = currentimage.name;
-                // $scope.title = currentimage.title;
-                // $scope.desc = currentimage.desc;
+                $scope.title = '';
+                $scope.desc = '';
+
+
+                console.log($scope.title);
+                console.log($scope.desc);
+                let cid = candidateid;
+                let title = $scope.title; 
+                let desc = $scope.desc; 
                 // $scope.url = currentimage.link;
+
+                $scope.uploadFiles = function (files) {
+                    let Files = files;
+
+
+                if (files && files.length > 0) {
+                    angular.forEach(Files, function (file, key) {
+                        sectionprofilegalleryservice.Upload(file).then(function (result) {
+                            // Mark as success
+                            file.Success = true;
+                            let url = result.Location;
+                            console.log('newPicURL: '+ url);
+                            // ctrl.data.profilepic = newPicURL;
+                            sectionprofilegalleryservice.uploadGallery(cid,$scope.title,$scope.desc,url);
+                            
+                        }, function (error) {
+                            // Mark the error
+                            this.Error = error;
+                            
+                            alert('some error occured while uploading the pic, Please try after sometime!');
+
+                        }, function (progress) {
+                            // Write the progress as a percentage
+                            file.Progress = (progress.loaded / progress.total) * 100
+                        });
+                    });
+                }
+            }
 
                 $scope.hide = function() {
                   $mdDialog.hide();
