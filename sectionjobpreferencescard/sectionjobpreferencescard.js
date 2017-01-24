@@ -102,11 +102,11 @@
              console.log(object);
             if (object != '') {
                 $scope.looking_jobs=object.looking_jobs;
-                $scope.expected_salary = "";
+                $scope.expected_salary = object.expected_salary;
                 $scope.roles = object.roles;
                 $scope.skills = object.skills;
-                $scope.engagement_type="";
-                $scope.joining_date="";
+                $scope.engagement_type=object.engagement_type;
+                $scope.joining_date=object.joining_date;
                 $scope.locations = object.locations;
             } else {
                 $scope.looking_jobs="",
@@ -144,13 +144,12 @@
 
                     "preferences":{
                         "looking_jobs":$scope.looking_jobs,
-                        "expected_salary": $scope.expected_salary,
-                        "locations": $scope.locations,
                         "roles": $scope.roles,
+                        "locations": $scope.locations,
                         "skills": $scope.skills,
-                        "joining_date":$scope.joining_date,
-                        "engagement_type":$scope.engagement_type
-                        
+                        "expected_salary": $scope.expected_salary,
+                        "engagement_type":$scope.engagement_type,
+                        "joining_date":$scope.joining_date                        
                     }
                 };
            /* }*/
