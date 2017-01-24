@@ -3,6 +3,7 @@
     let currentScriptPath = scripts[scripts.length - 1].src;
 
     let expandedview = currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/')) + '/templates/expandedview.html';
+    let addNewView = currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/')) + '/templates/addNew.html';
 
     angular.module('samarth-webcomponents')
         .component('myProfilegallerycard', {
@@ -92,9 +93,9 @@
             },
             ];
                
-            ctrl.showAdvanced = function(ev,currentimage) {
+            ctrl.expand = function(ev,currentimage) {
                 $mdDialog.show({
-                    controller: DialogController,
+                    controller: expandDialogController,
                     templateUrl: expandedview,
                     parent: angular.element(document.body),
                     targetEvent: ev,
@@ -111,13 +112,51 @@
                 });
             };
 
-            function DialogController($scope, $mdDialog, currentimage) {
+            function expandDialogController($scope, $mdDialog, currentimage) {
 
                 $scope.image = currentimage;
                 $scope.name = currentimage.name;
                 $scope.title = currentimage.title;
                 $scope.desc = currentimage.desc;
                 $scope.url = currentimage.link;
+
+                $scope.hide = function() {
+                  $mdDialog.hide();
+                };
+
+                $scope.cancel = function() {
+                  $mdDialog.cancel();
+                };
+
+                $scope.answer = function(answer) {
+                  $mdDialog.hide(answer);
+                };
+            }
+
+            ctrl.addNew = function(ev) {
+                $mdDialog.show({
+                    controller: addNewDialogController,
+                    templateUrl: addNewView,
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose:true,
+                    fullscreen: $scope.customFullscreen, // Only for -xs, -sm breakpoints.
+                    
+                })
+                .then(function(answer) {
+                  $scope.status = 'You said the information was "' + answer + '".';
+                }, function() {
+                  $scope.status = 'You cancelled the dialog.';
+                });
+            };
+
+            function addNewDialogController($scope, $mdDialog) {
+
+                // $scope.image = currentimage;
+                // $scope.name = currentimage.name;
+                // $scope.title = currentimage.title;
+                // $scope.desc = currentimage.desc;
+                // $scope.url = currentimage.link;
 
                 $scope.hide = function() {
                   $mdDialog.hide();
