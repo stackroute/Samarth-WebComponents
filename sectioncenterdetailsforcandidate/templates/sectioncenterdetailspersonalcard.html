@@ -3,16 +3,16 @@
         <md-card-header-text layout="row">
             <div class="md-headline">Center details</div>
         </md-card-header-text>
-    </md-card-header>   
- 
+    </md-card-header>
+
 <md-card-content>
         <div layout-gt-xs="column" layout-xs="column" class="top-padding">
-            <!-- <div layout="row" class="email">
-                <div>
-                    <md-icon class="icons">email</md-icon>
-                </div>
-                <div>{{$ctrl.centerdetailspersonal.email}}</div>
-            </div> -->
+          <div layout="row" flex>
+          <div>
+              <md-icon class="icons">card_travel</md-icon>
+          </div>
+          <div><strong> {{$ctrl.centerdetailspersonal[0].cname}}</strong></div>
+          </div>
             <div layout-xs="column" layout-gt-xs="row" layout-padding flex flex-xs="100">
                     <div layout-xs="column" layout="column" flex-xs="100" flex-gt-xs="25">
                         <div layout="row" flex>
@@ -21,17 +21,17 @@
                             </div>
                             <div> {{$ctrl.centerdetailspersonal[0].mobile}}</div>
                         </div>
-                        <div layout="row" flex>
-                        <div>
-                            <md-icon class="icons">card_travel</md-icon>
-                        </div>
-                        <div> {{$ctrl.centerdetailspersonal[0].cname}}</div>
+                        <div layout="row" class="email">
+                            <div>
+                                <md-icon class="icons">email</md-icon>
+                            </div>
+                            <div>{{$ctrl.centerdetailspersonal[0].email}}</div>
                         </div>
                     </div>
-                
+
                 <md-divider id="horizontal-divider" hide-gt-xs show-xs></md-divider>
                 <md-divider hide-xs show-gt-xs class="vertical-divider"></md-divider>
-               
+
                 <div layout="column" flex-xs="100" flex-gt-xs="25">
                     <div layout="row" class="comp-padding" layout-wrap>
                         <div>
@@ -41,7 +41,7 @@
                     </div>
                     <div layout="row" flex class="comp-padding">
                         <div>
-                            <md-icon class="icons">home</md-icon>
+                            <md-icon class="icons">location_city</md-icon>
                         </div>
                         <div layout="column">
                             <div layout-align="start start">
@@ -52,10 +52,10 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <md-divider hide-xs show-gt-xs class="vertical-divider"></md-divider>
                 <md-divider hide-gt-xs show-xs id="horizontal-divider"></md-divider>
-                
+
                 <div layout="column" flex-xs="100" flex-gt-xs="25">
                     <div layout="column" flex>
                         <div class="md-subhead" hide-xs>
@@ -75,7 +75,7 @@
                                     {{$ctrl.centerdetailspersonal[0].centerCode}}
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
