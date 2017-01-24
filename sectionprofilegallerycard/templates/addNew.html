@@ -1,0 +1,85 @@
+
+
+<md-dialog>
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>ADD NEW IMAGE</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon class="">cancel</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content layout="column" layout-wrap layout-fill layout-align=" center center">
+
+            <br><br>
+                
+                <md-input-container>
+                    <label>Title</label>
+                    <input ng-model="user.title">
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Description</label>
+                    <textarea ng-model="user.desc" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                </md-input-container>
+
+            
+
+                <md-button class="md-raised md-primary">Select&Upload</md-button>
+
+
+        
+
+    </md-dialog-content>
+
+    
+      
+      
+  </form>
+</md-dialog>
+
+    <!-- <form novalidate ng-show="$ctrl.showEditForm">
+                            <div>
+                                <h1>Upload Files</h1>
+                                
+                                <p>
+                                    <md-button type="file" ngf-select="$ctrl.uploadFiles($files)" ngf-multiple="true">
+                                        <md-tooltip md-direction="left">
+                                            Select File and Upload!
+                                         </md-tooltip>
+                                        <md-icon class="material-icons">cloud_upload</md-icon>
+                                    </md-button>
+                                    <md-button ng-click="$ctrl.cancelUpload()">
+                                        <md-tooltip md-direction="right">
+                                            Not sure, maybe later!
+                                        </md-tooltip>
+                                        <md-icon class="material-icons">undo</md-icon>
+                                    </md-button>
+
+                                </p>
+                            </div>
+                            <div ng-show="Files.length > 0">
+                                <div ng-repeat="file in Files">
+                                    File:
+                                    <div>
+                                        {{file.name}} {{file.$error}} {{file.$errorParam}}
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{file.Progress}}%;">
+                                            {{file.Progress | number:0}}%
+                                        </div>
+                                    </div>
+                                    <div class="alert alert-info" role="alert" ng-show="file.Progress == 100 && !file.Success">Processing, please wait...</div>
+                                    <div class="alert alert-success" role="alert" ng-show="file.Success">Upload Complete!</div>
+                                </div>
+                                <div class="alert alert-danger" role="alert" ng-show="errorMsg.length > 0">
+                                    Oooops we had trouble uploading the file. Please refresh the page and try again.
+                                    <p>If the problem persits please supply us with the following details</p>
+                                    <p>{{errorMsg}}</p>
+                                </div>
+                                <div>{{Error}}</div>
+                            </div>
+                        </form> -->
