@@ -45,9 +45,9 @@
           <md-input-container class=" md-block">
             <label>Location</label>
             <md-icon class="material-icons">place</md-icon>
-            <input type="text" name="Location" required md-no-asterisk ng-model="centerObject.location" />
-            <div ng-messages="centerForm.Location.$error">
-              <div ng-message="required">Location is required.</div>
+            <input type="text" name="location" required md-no-asterisk ng-model="centerObject.centerLocation" />
+            <div ng-messages="centerForm.centerLocation.$error">
+              <div ng-message="required">Center location is required.</div>
             </div>
           </md-input-container>
           <md-input-container class=" md-block">
@@ -84,6 +84,7 @@
             <md-button class="md-raised" id="cancelbutton" ng-click="cancel()">
                 Cancel
             </md-button>
+            
         </div>
         </div>
         </md-dialog-content>

@@ -1,47 +1,35 @@
 <div layout-gt-sm="row" layout="column" class="styling">
-	<div flex-gt-sm="100" flex="">
-		<md-toolbar layout="row" class="md-hue-3">
-			<div class="md-toolbar-tools" layout-align="center center">
-				<span>Center details</span>
-			</div>
-		</md-toolbar>
-
-		<md-content>
-			<md-list flex="95">
-				<md-list-item class="md-3-line" ng-repeat="center in $ctrl.centerDetails">
-					<div class="md-list-item-text" layout="column">
-						<!-- <h4><strong>Center name: </strong>{{center.cname}}</h4>
-						<h4><strong>Center location: </strong>{{center.location}}</h4>
-						<h4><strong>Center id: </strong>{{center.centerCode}}</h4>
-						<h4><strong>Center type: </strong>{{center.centerType}}</h4>
-						<h4><strong>Address: </strong>{{center.address}}</h4>
-						<h4><strong>Email: </strong>{{center.email}}</h4>
-						<h4><strong>Contact us: </strong>{{center.mobile}}</h4>
-						<h4><strong>Center status: </strong>{{center.status}}</h4> -->
-
-						<h4>{{center.cname}}</h4>
-						<h4>{{center.centerLocation}}</h4>
-						<h4>{{center.centerCode}}</h4>
-						<h4>{{center.centerType}}</h4>
-						<h4>{{center.address}}</h4>
-						<h4>{{center.email}}</h4>
-						<h4>{{center.mobile}}</h4>
-						<h4>{{center.status}}</h4>
-					</div>
-					<md-divider ></md-divider>
-
-
-					<div layout="row" layout-align="end center">
-						<a class="pointCursor" ng-click="$ctrl.showAdvance($event,center,'Edit Info')" title="Click to Edit">
-							<md-icon class="">mode_edit</md-icon>
-						</a>
-					</div>
-					<div layout="row" layout-align="end center">
-					<md-button ng-click="$ctrl.disable(center)">
-                	<i class="material-icons">delete_forever</i></md-button>
-					</div>
-				</md-list-item>
-			</md-list>
-		</md-content>
-	</div>
+    <div flex-gt-sm="100" flex="">
+        <md-toolbar layout="row" class="md-hue-3">
+            <div class="md-toolbar-tools" layout-align="center center">
+                <span>Center details</span>
+            </div>
+        </md-toolbar>
+        <md-content>
+            <md-list flex="95">
+                <md-list-item class="md-3-line" ng-repeat="center in $ctrl.centerDetails">
+                <div class="md-list-item-text" layout="row">
+                  <img alt="{{ person.name }}" ng-src="placementcenterimage.jpg" class="md-avatar" />
+                  <div layout="column">
+                        <h4><strong> Center name: </strong>{{center.cname}} ({{center.centerCode}})</h4>
+                        <h4><strong>Center location: </strong>{{center.centerLocation}} ({{center.centerType}})</h4>
+                        <h4><strong>Region: </strong>{{center.address}}</h4>
+                        <h4><strong>Contact us: </strong>{{center.mobile}}</h4>
+                        <h4><strong>Status: </strong>{{center.status}}</h4>
+                    </div>
+                    </div>
+                    <md-divider ></md-divider>    
+                    
+                    
+                    <div layout="row" layout-align="end center">
+                        <a class="pointCursor" ng-click="$ctrl.showAdvance($event,center,'Edit Info')" title="Click to Edit">
+                            <md-icon class="">mode_edit</md-icon>
+                        </a>
+                   <md-button ng-click="$ctrl.disable(center)">
+                    <i class="material-icons">delete_forever</i></md-button>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
 </div>

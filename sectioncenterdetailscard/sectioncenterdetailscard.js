@@ -22,6 +22,7 @@
         // ctrl.regId='';
         function getCenterList(){
           datagenerate.getjson().then(function(result) {
+            console.log(result);
             ctrl.centerDetails=result;
         },function(err){
             console.log(err);
@@ -31,7 +32,7 @@
         getCenterList();
         datagenerateFactory.getdata().then(function(response){
              ctrl.centerType = response;
-             console.log("centerType" + response);
+             // console.log("centerType" + response);
         });
 
 
