@@ -1,0 +1,66 @@
+<md-card flex>
+    <md-card-header ng-show="true" hide-gt-sm md-colors="::{background: 'primary-700'}">
+        <md-card-header-text layout="row">
+            <div class="md-headline">PROFILE GALLERY</div>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content layout="row" layout-xs="column" layout-align="center center" layout-wrap class="cardsContent" layout-fill>
+<!-- 
+     <ul ng-controller="GalleryCtrl">
+      <li ng-repeat="image in images">
+        <a ng-click="openLightboxModal($index)">
+          <img ng-src="{{image.thumbUrl}}" class="img-thumbnail">
+          </a>
+      </li>
+      </ul> -->
+
+      <div flex="20" class="md-whiteframe-1dp" flex-xs="100" ng-repeat="image in $ctrl.images" ng-model="$ctrl.limitval" layout-margin>
+         <div class="md-media-lg card-media">
+              <img ng-src="{{ image.link }}"  alt="image not available" width="100%" height="100%" ng-click="$ctrl.showAdvanced($event,image)"/>
+          </div>     
+      </div>
+      <!-- <md-card flex-xs="100" flex-sm="45" flex="30" ng-repeat="image in images" > -->
+                    <!-- <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{ x.Title }}</span>
+                            <span class="md-subhead">{{ x.Year }}</span>
+                        </md-card-title-text>
+                    </md-card-title> -->
+                    <!-- <h1>HIIII</h1>
+                    <md-card-content layout="row" layout-align="space-between">
+                       
+                    </md-card-content> -->
+                    <!-- <md-card-actions layout="row" layout-wrap>
+                            <md-button class="md-icon-button" aria-label="Favorite">
+                              <md-icon md-svg-icon="../img/icons/favourite.svg"></md-icon>
+                              <md-tooltip md-direction="top">
+                                Add to favorites
+                              </md-tooltip>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Details" ui-sref="detailView({title:x.Title})">
+                              <md-icon md-svg-icon="../img/icons/menu.svg"></md-icon>
+                              <md-tooltip md-direction="top">
+                                More
+                              </md-tooltip>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Share">
+                              <md-icon md-svg-icon="../img/icons/share-arrow.svg"></md-icon>
+                              <md-tooltip md-direction="top">
+                                Share
+                              </md-tooltip>
+                            </md-button>
+                    </md-card-actions> -->
+                <!-- </md-card> -->
+
+</md-card-content>
+<md-card-actions layout="row" flex layout-align="end">
+    <md-footer layout="row">
+        <div ng-transclude="verify">
+        </div>
+        <a class="pointCursor" ng-click="$ctrl.showAdvanced()" title="Click to Edit">
+            <md-icon class="">mode_edit</md-icon>
+        </a>
+    </md-footer>
+</md-card-actions>
+</md-card>
+
