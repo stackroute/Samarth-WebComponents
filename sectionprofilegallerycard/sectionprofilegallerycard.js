@@ -6,7 +6,7 @@
 
     angular.module('samarth-webcomponents')
         .component('myProfilegallerycard', {
-            templatename: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
+            templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf(
                 '/')) + '/templates/sectionprofilegallerycard.html',
             controller: profilegallerycardCtrl,
             bindings: {
@@ -95,7 +95,7 @@
             ctrl.showAdvanced = function(ev,currentimage) {
                 $mdDialog.show({
                     controller: DialogController,
-                    templatename: expandedview,
+                    templateUrl: expandedview,
                     parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose:true,
