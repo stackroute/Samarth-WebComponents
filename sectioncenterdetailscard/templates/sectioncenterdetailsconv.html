@@ -29,7 +29,7 @@
           <md-input-container class="md-block">
           <h5><span>Center code: {{centerObject.centerCode}}</span></h5>
           </md-input-container>
-          
+
           <!-- Center type -->
           <md-input-container class="md-block">
               <label>Center type</label>
@@ -51,10 +51,10 @@
             </div>
           </md-input-container>
           <md-input-container class=" md-block">
-            <label>Address</label>
+            <label>Region</label>
             <md-icon class="material-icons">home</md-icon>
-            <input type="text" name="Address" required md-no-asterisk ng-model="centerObject.address" />
-            <div ng-messages="centerForm.Address.$error">
+            <input type="text" name="Region" required md-no-asterisk ng-model="centerObject.region" />
+            <div ng-messages="centerForm.Region.$error">
               <div ng-message="required">Location is required.</div>
             </div>
           </md-input-container>
@@ -76,7 +76,7 @@
               <md-radio-button value="Disable" flex="85" class="md-primary">Disable</md-radio-button>
             </md-radio-group>
           </md-input-container>
-          
+
             <div flex layout="row" layout-align="center center">
                 <md-button class="md-raised" id="savebutton" ng-disabled="centerdForm.$invalid" ng-click="save(centerObject)" contenteditable="false">
                 Save
@@ -84,7 +84,7 @@
             <md-button class="md-raised" id="cancelbutton" ng-click="cancel()">
                 Cancel
             </md-button>
-            
+
         </div>
         </div>
         </md-dialog-content>
