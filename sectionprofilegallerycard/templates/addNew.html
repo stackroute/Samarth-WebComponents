@@ -18,17 +18,17 @@
                 
                 <md-input-container>
                     <label>Title</label>
-                    <input ng-model="user.title">
+                    <input ng-model="title">
                 </md-input-container>
 
                 <md-input-container>
                     <label>Description</label>
-                    <textarea ng-model="user.desc" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                    <textarea ng-model="desc" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                 </md-input-container>
 
             
 
-                <md-button class="md-raised md-primary">Select&Upload</md-button>
+                <md-button type="file" ngf-select="uploadFiles($files)" ngf-multiple="true" class="md-raised md-primary">Select&Upload</md-button>
 
 
         
