@@ -34,6 +34,13 @@
                                 </md-card-avatar>
                                 
                         </div>
+                         <div flex>
+                <span flex="50">
+                    <md-progress-linear md-mode="determinate" value="20" class="progress"></md-progress-linear>
+                    10%
+                </span>
+
+                </div>
                         <div>
                             <span class="details2">{{$ctrl.data.name}}</span>
                         <br>
@@ -51,6 +58,13 @@
                                     <img ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
                                 </md-card-avatar>
                         </div>
+                         <div flex>
+                <span flex="50">
+                    <md-progress-linear md-mode="determinate" value="20" class="progress"></md-progress-linear>
+                    10%
+                </span>
+
+                </div>
                         <div>
                             <span flex-offset="15" layout-align="center center" class="detail">{{$ctrl.data.name}}</span>
                             <br>
@@ -136,7 +150,9 @@
         </md-card-content>
 <md-card-content ng-if="$ctrl.picsize != 'small'" class="content_default">
     <div layout="row" layout-align="center center" class="md-whiteframe-2dp">
+        
         <div flex="25" hide-sm hide-xs>
+
             <div layout="column" layout-align="center center">
                 <div layout-align="center center">
                     <div ng-hide="$ctrl.hideEditForm">
@@ -196,18 +212,29 @@
                         </form>
                     <!-- </div> -->
                 </div>
+
                 <div>
+                <span >
+                    <md-progress-linear md-mode="determinate" value="20" class="progress"></md-progress-linear>
+                    10%
+                </span>
+
+                </div>
+
+                <div>
+
                     <span class="details2">{{$ctrl.data.name}}</span>
                     <br>
                     
                 </div>
             </div>
+        
         </div>
         <div flex="75" flex-xs="100">
             <div flex="100" hide-gt-sm>
                 <div layout="column" layout-align="center center">
-                   <div ng-hide="$ctrl.hideEditForm">
-                        <a href="#" ng-click="$ctrl.edit($event)" class="md-icon-button" aria-label="edit">
+                   <div ng-hide="$ctrl.showEditForm">
+                        <a href="#" ng-click="$ctrl.edit()" class="md-icon-button" aria-label="edit">
                         <md-tooltip md-direction="right">
                          click here to upload New Pic
                             </md-tooltip>
@@ -264,6 +291,13 @@
                     <div>{{Error}}</div>
                 </div>
       </form>
+      <div flex>
+                <span flex="50">
+                    <md-progress-linear md-mode="determinate" value="20" class="progress" ></md-progress-linear>
+                    10%
+                </span>
+
+                </div>
                     <!-- </div> -->
                     <div>
                         <span flex-offset="15" layout-align="center center" class="detail">{{$ctrl.data.name}}</span>
@@ -271,7 +305,7 @@
                         <span flex-offset="20" layout-align="center center">{{$ctrl.data.age}} yrs , {{$ctrl.data.gender}}</span>
                         <br>
                         <br>
-                        <span flex-offset="20" class="detail1" layout-align="center center"><md-icon class="material-icons">work</md-icon> {{$ctrl.data.profession}} </span>
+                        <span flex-offset="20" class="detail1" layout-align="center center"><md-icon class="material-icons">work</md-icon> ctrl.data.name{{$ctrl.data.profession}} </span>
                         <br>
                         <span flex-offset="25" >
                         ({{$ctrl.data.designation}})
