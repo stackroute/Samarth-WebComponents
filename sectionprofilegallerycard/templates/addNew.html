@@ -7,7 +7,7 @@
         <h2>ADD NEW IMAGE</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
-          <md-icon class="">cancel</md-icon>
+          <md-icon class="">close</md-icon>
         </md-button>
       </div>
     </md-toolbar>
@@ -26,9 +26,22 @@
                     <textarea ng-model="desc" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                 </md-input-container>
 
-            
+                <div>
+                    <md-checkbox                        
+                        aria-label="Checkbox 2"
+                        data-ng-model="chkval"
+                        class="md-warn md-align-top-left" flex>
+                        I agree to Term and Conditions and Declare
+                        <p>
+                        <li>I am solely responsible for any copyrights of Media files uploaded to Samarth</li>
+                        <li>I agree not to upload any media, which offends or causes embarassments to any individual or organisation</li>
+                        <li>I understand, Samarth can remove any media files with or without informing me</li>
+                        <li>I abide by the rules and actions of Samarth in case found, I have violated the terms and condition</li>
+                        </p>
+                    </md-checkbox>
+                </div>
 
-                <md-button type="file" ngf-select="uploadFiles($files)" ngf-multiple="true" class="md-raised md-primary">Select&Upload</md-button>
+                <md-button type="file" ng-disabled="!chkval" ngf-select="uploadFiles($files)" ngf-multiple="true" class="md-raised md-primary">Select&Upload</md-button>
 
 
         

@@ -82,13 +82,7 @@ angular.module('samarth-webcomponents')
                     	TITLE: imgtitle,
                     	DESC: imgdesc
                     }
-                }).then(function successCallback(response) {
-                    console.log("Updating newPic in Profile Gallery schema");
-                    return response;
-                }, function errorCallback(err) {
-                    console.log('Error occured during adding pic to Profile Gallery!!!!!!!')
-                    return err;
-                });  
+                }) 
             }//end uploadPicUrl()
         }
     });

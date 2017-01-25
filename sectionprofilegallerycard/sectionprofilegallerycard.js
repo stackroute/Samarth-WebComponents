@@ -42,7 +42,8 @@
         //  //        ctrl.lang = "English";
         //  //    }
 
-        alert('In profilegallerycard controller');
+        // alert('In profilegallerycard controller');
+
 
         sectionprofilegalleryservice.getGallery(this.candidateid).then(function(result) {
                 ctrl.data = result;
@@ -156,13 +157,13 @@
                     fullscreen: $scope.customFullscreen,
                     locals: {
                         candidateid: ctrl.candidateid
-                    } // Only for -xs, -sm breakpoints.
-                    
+                    } // Only for -xs, -sm breakpoints.                    
                 })
-                .then(function(answer) {
-                  $scope.status = 'You said the information was "' + answer + '".';
-                }, function() {
-                  $scope.status = 'You cancelled the dialog.';
+                .then(function(newUploadFile) {
+                  console.log('You said the information was "', newUploadFile);
+                   ctrl.data.push(newUploadFile);
+                }, function(err) {
+                  console.log('You cancelled the dialog.', err);
                 });
             };
 
@@ -191,7 +192,15 @@
                             let url = result.Location;
                             console.log('newPicURL: '+ url);
                             // ctrl.data.profilepic = newPicURL;
-                            sectionprofilegalleryservice.uploadGallery(cid,$scope.title,$scope.desc,url);
+                            sectionprofilegalleryservice
+                            .uploadGallery(cid,$scope.title,$scope.desc,url)
+                            .then(function successCallback(response) {
+                                console.log("Updating newPic in Profile Gallery schema ", response);
+                                $mdDialog.hide(response.data);
+                            }, function errorCallback(err) {
+                                console.log('Error occured during adding pic to Profile Gallery!!!!!!!')
+                                $mdDialog.cancel(err);
+                            });                         
                             
                         }, function (error) {
                             // Mark the error
@@ -213,10 +222,6 @@
 
                 $scope.cancel = function() {
                   $mdDialog.cancel();
-                };
-
-                $scope.answer = function(answer) {
-                  $mdDialog.hide(answer);
                 };
             }
         //     datagenerate.getjson("section",lang).then(function(result) {
