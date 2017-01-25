@@ -139,3 +139,8 @@ position: 'relative',
     font-size: 16px;
 }
 
+.progress{
+    width: 200px;
+    margin: 10px auto 5px auto;
+}
+
