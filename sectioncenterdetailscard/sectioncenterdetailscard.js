@@ -14,14 +14,14 @@
     })
     .controller('centerdetailscardCtrl',centerdetailscardCtrl);
 
-    function centerdetailscardCtrl($scope, $http, $mdDialog, datagenerate, datagenerateFactory, statuscenterFactory, $state) {
+    function centerdetailscardCtrl($scope, $http, $mdDialog, dataCenters, datagenerateFactory, statuscenterFactory, $state) {
         var ctrl = this;
         ctrl.centerDetails=[];
         ctrl.centerType=[];
         // ctrl.centerstatus='';
         // ctrl.regId='';
         function getCenterList(){
-          datagenerate.getjson().then(function(result) {
+          dataCenters.getjson().then(function(result) {
             console.log(result);
             ctrl.centerDetails=result;
         },function(err){

@@ -1,5 +1,5 @@
 angular.module('samarth-webcomponents')
-.factory('datagenerate', ['$http',
+.factory('dataCenters', ['$http',
     function($http) {
 
         return {
@@ -8,7 +8,7 @@ angular.module('samarth-webcomponents')
                     method: 'get',
                     url: '/center/getall/',
                 }).then(function success(response) {
-                    console.log(response);
+                  
                     return response.data;
                 }, function error(err) {
                     console.log("error", err);

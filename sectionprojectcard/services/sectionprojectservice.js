@@ -2,6 +2,7 @@ angular.module('samarth-webcomponents')
     .factory('datagenerate', function($http) {
         return {
             getjson: function(key, lang) {
+                console.log('key, lang', key, lang);
                 let data = {};
                 return $http({
                     method: 'GET',
@@ -12,7 +13,7 @@ angular.module('samarth-webcomponents')
                     data = response.data;
 
 
-                    console.log(data);
+                    // console.log(data);
                     return data;
                 }, function errorCallback(response) {
                     return response.error.message;

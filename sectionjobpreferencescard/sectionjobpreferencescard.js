@@ -45,8 +45,9 @@
             url: '/jobpreferences/' + ctrl.candidateid
 
         }).then(function successCallback(response) {
-            
+            if(response.data[0] !== undefined){
             ctrl.preferences = response.data[0].preferences;
+        }
 
         }, function errorCallback(response) {
             console.log('Error accord during preferences Sec');
