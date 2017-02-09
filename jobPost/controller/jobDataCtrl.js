@@ -84,8 +84,8 @@
       try
       {
         $scope.jobData.jpCode= $scope.selectedItem.jpCode;
-        console.log("In final submit button");
-        console.log(Object.keys($scope.jobData.criteria).length);
+        // console.log("In final submit button");
+        // console.log(Object.keys($scope.jobData.criteria).length);
         if(Object.keys($scope.jobData.criteria).length === 0 || Object.keys($scope.jobData.desc).length === 0)
         {
           $scope.msg=("Please fill all the details");

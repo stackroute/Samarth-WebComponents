@@ -14,7 +14,7 @@
         return service;
 
         function jpCodeCheck(jpCode) {
-            console.log(jpCode);
+            // console.log(jpCode);
             return $http({
                 method: 'GET',
                 url: '/employer/codeCheck/' + jpCode

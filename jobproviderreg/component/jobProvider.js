@@ -23,9 +23,9 @@
         vm.subjobprovider = subjobprovider;
         vm.savechanges = savechanges;
         vm.foo = $state.params.key;
-        console.log(vm.foo);
+        // console.log(vm.foo);
         vm.bar = $state.params.key1;
-        console.log("y" + vm.bar);
+        // console.log("y" + vm.bar);
         vm.save = true;
         vm.register = false;
 
