@@ -14,11 +14,11 @@ angular.module('samarth-webcomponents')
                     url: '/profilegallery/' + candidateid
 
                 }).then(function mySucces(response)  {
-                    console.log(response);
+                    if(response.data[0] !== undefined){
                     let object = response.data[0].gallery;
-                    console.log('reached service of profilegallery');
-                    console.log(object);
-                    return object;
+                     return object;
+                  }
+                   
                 }, function myError(response) {
                     console.log('error in getting skillcard details');
                 });
@@ -54,7 +54,7 @@ angular.module('samarth-webcomponents')
                     if (err) {
                         deferred.reject(err);
                     }
-                    console.log(data);
+                   
                     deferred.resolve(data);
                 });
                 uploader.on('httpUploadProgress', function (event) {
@@ -71,8 +71,7 @@ angular.module('samarth-webcomponents')
             },//end Upload()
 
             uploadGallery: function(candidateid,imgtitle,imgdesc,imgurl){
-                console.log("inside Uploadgallery function");
-                console.log(imgtitle,imgdesc);
+                
                 return $http({
                     method: 'POST',
                     url: '/profilegallery/' + candidateid ,

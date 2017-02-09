@@ -21,12 +21,12 @@
     function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $scope,$rootElement) {
         let ctrl = this;
 
-        if(!ctrl.languagedata) {
-            ctrl.languagedata = 'English';
-        }
+        // if(!ctrl.languagedata) {
+        //     ctrl.languagedata = 'English';
+        // }
 
-        console.log("hjjjjjjjjjjjjjjjjggggggggggggggggggggggggggggggggggg");
-        console.log(ctrl.candidateid);
+        // console.log("hjjjjjjjjjjjjjjjjggggggggggggggggggggggggggggggggggg");
+        // console.log(ctrl.candidateid);
        // ctrl.lang = "English";
         ctrl.loadLangData = function(lang) {
             // ctrl.lang = lang;
@@ -35,14 +35,18 @@
          //    {
          //        ctrl.lang = "English";
          //    }
-
+            
             datagenerate.getjson("section",lang).then(function(result) {
+                
                 ctrl.items = result;
-                 if($rootElement.attr('ng-app')=="samarth")
+             
+                 if($rootElement.attr('ng-app')==="samarth")
             {
                 ctrl.languagedata = result;
+                              
             }
             }); // end datagenerate
+            
         };
 
         function getItem(key) {
