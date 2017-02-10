@@ -36,7 +36,7 @@
                 vm.save = false;
                 vm.register = true;
                 $scope.profiling = response.data;
-                console.log($scope.profiling);
+               
                 vm.jobprovider = $scope.profiling[0];
                 vm.checked = true;
 
@@ -66,7 +66,9 @@
                            .targetEvent(ev)
                        );
                     };
-
+                    // console.log("Called before");
+                    // $state.go('index.emp');
+                    // console.log("Called after");
                 }),
                 function(err) {
                     vm.msg = 'Some error occurred';
@@ -151,6 +153,8 @@
                             vm.msg = "Some error occured!!";
                         }
 
+                    $state.go('index.emp');
+                   
                 }),
                 function(err) {
                     vm.msg = 'Some error occurred';
