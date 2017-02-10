@@ -70,7 +70,7 @@
       $scope.header="Build Your Job Profile";
       jobProviderList.getJobProvider().then(function(response)
       {
-        console.log(response.data);
+        
         $scope.querySearch=response.data;
       },
       function(err)
@@ -97,7 +97,12 @@
           {
            $scope.msg=response.data.msg;
            $scope.showAlert();
-           // $scope.showAlert();
+           $scope.selectedItem='';
+           $scope.jobData={};
+           $scope.jobData.desc={};
+          $scope.joprovider="";
+          $scope.jobData.criteria={};
+           $state.go('index.dashboard');
           },
           function(err)
           {
@@ -110,22 +115,14 @@
         $scope.showAlert();
       }
     }
-    console.log("controller");
-    console.log($scope.jobData);
+  
 
 
     function updateJob()
     {
       try {
-        console.log("update");
-        console.log($scope.jobData);
-        // alert($scope.jobData.jobcode+" "+"in update ");
-        console.log($scope.jobData.criteria.jobcode+" "+"in update ");
-        // console.log("hey")
-        // console.log($scope.jobData);
-        // $scope.jobData.desc = '';
-        console.log('Job data before update: ', $scope.jobData);
-        if(Object.keys($scope.jobData.criteria).length === 0 || Object.keys($scope.jobData.desc).length === 0)
+        
+               if(Object.keys($scope.jobData.criteria).length === 0 || Object.keys($scope.jobData.desc).length === 0)
         {
           $scope.msg=("Please update the details"); 
           $scope.showAlert();
