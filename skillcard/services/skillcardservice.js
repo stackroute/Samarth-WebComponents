@@ -108,7 +108,7 @@ angular.module('samarth-webcomponents')
                 var bucket = new AWS.S3({ params: { Bucket: awsBucket.Bucket, maxRetries: 10 }, httpOptions: { timeout: 360000 } });
                 console.log(bucket);
                 var deferred = $q.defer();
-                var params = { Bucket: 'samarthuploads', Key: file.name, ContentType: file.type, Body: file };
+                var params = { Bucket: awsBucket.Bucket, Key: file.name, ContentType: file.type, Body: file };
                 var options = {
                     // Part Size of 10mb
                     partSize: 10 * 1024 * 1024,
