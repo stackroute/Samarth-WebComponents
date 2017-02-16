@@ -38,10 +38,17 @@
                     <input ng-model="personalObject.maritialstatus" id='input1'>
                 </md-input-container>
                 and gender is
-                <md-input-container>
+                <!-- <md-input-container>
                     <label>Gender</label>
                     <input ng-model="personalObject.gender" id='input1'>
-                </md-input-container>
+                </md-input-container> -->
+                <md-input-container>
+                     <md-select ng-model="personalObject.gender">
+                        <md-option ng-repeat="gender in ['Male','Female']" ng-value="gender">
+                            {{gender}}
+                        </md-option>
+                    </md-select> 
+               </md-input-container>
                 .I communicate in
                 <md-input-container>
                     <label>Language</label>
