@@ -27,7 +27,7 @@
                     </div>
                 </md-input-container>
                 during
-                <md-input-container>
+                <!-- <md-input-container>
                     <label>From mm-dd-yyyy</label>
                     <input type="text" class="datepicker" ng-model="from" id="input1" formatted-date1 format="medium" />
                 </md-input-container>
@@ -35,6 +35,12 @@
                 <md-input-container>
                     <label>To mm-dd-yyyy</label>
                     <input type="text" ng-model="to" id="input1" formatted-date format="medium" />
+                </md-input-container> -->
+                <md-input-container>
+                    <md-datepicker ng-model="from"   name ='from' placeholder="From"></md-datepicker>
+                </md-input-container>
+                <md-input-container>
+                    <md-datepicker ng-model="to"   name ='to' placeholder="To"></md-datepicker>
                 </md-input-container>
                 duration
                 <md-input-container>

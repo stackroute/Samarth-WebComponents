@@ -30,10 +30,15 @@
                             {{engagement_type}}
                         </md-option>
                     </md-select> 
-               </md-input-container>,Starting from <md-input-container>
+               </md-input-container>,Starting from 
+               <!-- <md-input-container>
                     <label>dd/mm/yyyy</label>
                     <input type="text" ng-model="joining_date" id="input1">
-                </md-input-container>and expecting remuneration of 
+                </md-input-container> -->
+                 <md-input-container>
+                    <md-datepicker ng-model="joining_date"   name ='input1' placeholder="Select joining date"></md-datepicker>
+                </md-input-container>
+                and expecting remuneration of 
                  <md-input-container>
                     <label>Salary</label>
                     <input type="text" ng-model="expected_salary" id="input1">

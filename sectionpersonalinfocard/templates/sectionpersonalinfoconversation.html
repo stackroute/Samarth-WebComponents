@@ -24,9 +24,12 @@
                     <label>Current Location</label>
                     <input ng-model="personalObject.location" id='input1'>
                 </md-input-container>. I was born on
-                <md-input-container>
+                <!-- <md-input-container>
                     <label>DOB (mm/dd/yyyy)</label>
                     <input ng-model="personalObject.dob" id='input1' formatted-date format="small" />
+                </md-input-container> -->
+                <md-input-container>
+                    <md-datepicker ng-model="personalObject.dob" placeholder="DOB"></md-datepicker>
                 </md-input-container>
                 .
                 <br> My marital status is
