@@ -17,40 +17,15 @@
       <div flex="20" class="md-whiteframe-1dp" flex-xs="100" ng-repeat="image in $ctrl.data" ng-model="$ctrl.limitval" layout-margin >
          <div class="md-media-lg card-media">
               <img ng-src="{{ image.url }}" class="pointCursor" alt="image not available" width="150" height="100" ng-click="$ctrl.expand($event,image)"/>
-          </div>     
+          </div> 
+          <!-- ********* Delete uploaded image in gallery*********** -->
+                
+                  <md-button style="float: right;" aria-label="Open demo menu" class="md-icon-button" ng-click="$ctrl.showConfirm($event,image)" title="Click to Delete">
+                    <md-icon  md-menu-origin class="material-icons md-18">cancel</md-icon>
+                  </md-button>
+                    
       </div>
-      <!-- <md-card flex-xs="100" flex-sm="45" flex="30" ng-repeat="image in images" > -->
-                    <!-- <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline">{{ x.Title }}</span>
-                            <span class="md-subhead">{{ x.Year }}</span>
-                        </md-card-title-text>
-                    </md-card-title> -->
-                    <!-- <h1>HIIII</h1>
-                    <md-card-content layout="row" layout-align="space-between">
-                       
-                    </md-card-content> -->
-                    <!-- <md-card-actions layout="row" layout-wrap>
-                            <md-button class="md-icon-button" aria-label="Favorite">
-                              <md-icon md-svg-icon="../img/icons/favourite.svg"></md-icon>
-                              <md-tooltip md-direction="top">
-                                Add to favorites
-                              </md-tooltip>
-                            </md-button>
-                            <md-button class="md-icon-button" aria-label="Details" ui-sref="detailView({title:x.Title})">
-                              <md-icon md-svg-icon="../img/icons/menu.svg"></md-icon>
-                              <md-tooltip md-direction="top">
-                                More
-                              </md-tooltip>
-                            </md-button>
-                            <md-button class="md-icon-button" aria-label="Share">
-                              <md-icon md-svg-icon="../img/icons/share-arrow.svg"></md-icon>
-                              <md-tooltip md-direction="top">
-                                Share
-                              </md-tooltip>
-                            </md-button>
-                    </md-card-actions> -->
-                <!-- </md-card> -->
+      
 
 </md-card-content>
 <md-card-actions layout="row" flex layout-align="end">
@@ -58,9 +33,7 @@
         <div ng-transclude="verify">
         </div>
         <md-button class="md-raised" ng-click="$ctrl.addNew($event)" title="Click to Add images" style="color: blue">ADD</md-button>
-        <!-- <a class="md-raised" ng-click="$ctrl.addNew($event)" title="Click to Add images">
-            <md-icon class="">ADD</md-icon>
-        </a> -->
+        
     </md-footer>
 </md-card-actions>
 </md-card>

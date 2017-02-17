@@ -21,4 +21,18 @@ angular.module('samarth-webcomponents')
             }
 
         };
+    })
+    .factory('deleteProjectService', function($http) {
+        return {
+            removeproject: function(candidateid, projName) {
+                return $http({
+                    method: 'DELETE',
+                    url: '/project/' + candidateid + '/' + projName
+                }).then(function mySucces(response)  {
+                    console.log('mySucces service');
+                }, function myError(response) {
+                    console.log('error in getting sectionProject');
+                });
+            }
+        };
     });

@@ -18,7 +18,7 @@
             }
         });
 
-    function projectsectioncardCtrl($http, $mdDialog, datagenerate, $rootScope, $scope,$rootElement) {
+    function projectsectioncardCtrl($http, $mdDialog, datagenerate, deleteProjectService, $rootScope, $scope,$rootElement) {
         let ctrl = this;
 
         // if(!ctrl.languagedata) {
@@ -103,6 +103,32 @@
                 console.log('Error accord during Project Section');
             });
         });
+
+
+        //--------- confirm project delete function ---------------
+        ctrl.showConfirm = function(ev,object) {
+    
+            var confirm = $mdDialog.confirm()
+            .title('Would you like to delete the selected Project?')          
+            .targetEvent(ev)
+            .ok('YES!')
+            .cancel('Not sure, maybe later!');
+
+            $mdDialog.show(confirm).then(function() { //when user clicks on "YES"
+                // console.log(object);
+                // alert("inside confirm event of deletion function");
+                let projectName = object.name;
+                deleteProjectService.removeproject(ctrl.candidateid, projectName).then(function mySucces(response)  {
+                            console.log('deleted project data successfully');
+                            $rootScope.$emit('projectdata', {});//reloads the Project section with new records after deletion
+                    }, function myError(response) {
+                            console.log('error in deleting project');
+                    });
+                $mdDialog.hide();
+            }, function() { 
+                $mdDialog.hide();//Hide the prompt when user clicks CANCEL!
+            });
+        };//end showConfirm
 
         ctrl.showAdvanced = function(ev, header, object) {
             $mdDialog.show({
