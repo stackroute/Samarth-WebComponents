@@ -27,22 +27,8 @@
 
     function profilegallerycardCtrl($scope, $http, $mdDialog, $rootScope,$rootElement, sectionprofilegalleryservice) {
         var ctrl = this;
-        ctrl.personalInfo = {};
-        // console.log(this.candidateid);
-        // let candidateID = this.candidateid;
-
-        // ctrl.lang = "English";
-        // console.log("$rootElement.attr('ng-app')");
-        // console.log($rootElement.attr('ng-app'));
-        // ctrl.loadLangData = function(lang) {
-        //     // ctrl.lang = lang;
-        //     // Setting language default to English for Samarth-Placement, as it is not multilingual as of now
-        //  // if($rootElement.attr('ng-app')=="samarth")
-        //  //    {
-        //  //        ctrl.lang = "English";
-        //  //    }
-
-        // alert('In profilegallerycard controller');
+        // ctrl.personalInfo = {};
+        
 
 
         sectionprofilegalleryservice.getGallery(this.candidateid).then(function(result) {
@@ -53,11 +39,31 @@
                 
             });
 
+        $rootScope.$on("gallerydata", function() {
+            ctrl.data = [];
+            ctrl.totaldata = 0;
+
+            $http.get('/profilegallery/' + ctrl.candidateid)
+                .then(function success(response) {
+                    for (var noofobj = 0; noofobj < response.data.length; noofobj++) {
+                        for (var record = 0; record < response.data[noofobj].gallery
+                            .length; record++) {
+                            ctrl.data.push(response.data[noofobj].gallery[
+                                record]);
+                        }
+                        ctrl.totaldata = ctrl.data.length;
+                    }
+                }, function error(response) {
+                    console.log("error occored ", response);
+                });
+
+        })
+
          //--------- confirm gallery-image delete function ---------------
         ctrl.showConfirm = function(ev,object) {
     
             var confirm = $mdDialog.confirm()
-            .title('Would you like to delete the selected Project?')          
+            .title('Would you like to delete the selected Image?')          
             .targetEvent(ev)
             .ok('YES!')
             .cancel('Not sure, maybe later!');
@@ -68,8 +74,8 @@
                 let imageTitle = object.title;
                 sectionprofilegalleryservice.removeImage(ctrl.candidateid, imageTitle).then(function mySucces(response)  {
                             console.log('deleted gallery image successfully');
-                            alert("the image has been deleted, refresh the page!!!!");
-                            // $rootScope.$emit('projectdata', {});//reloads the Project section with new records after deletion
+                            // alert("the image has been deleted, refresh the page!!!!");
+                            $rootScope.$emit('gallerydata', {});                            
                     }, function myError(response) {
                             console.log('error in deleting gallery image');
                     });
@@ -138,7 +144,7 @@
                 })
                 .then(function(newUploadFile) {
                   console.log('You said the information was "', newUploadFile);
-                   ctrl.data.push(newUploadFile);
+                   // ctrl.data.push(newUploadFile);
                 }, function(err) {
                   console.log('You cancelled the dialog.', err);
                 });
@@ -174,6 +180,7 @@
                             .then(function successCallback(response) {
                                 console.log("Updating newPic in Profile Gallery schema ", response);
                                 $mdDialog.hide(response.data);
+                                $rootScope.$emit('gallerydata', {});
                             }, function errorCallback(err) {
                                 console.log('Error occured during adding pic to Profile Gallery!!!!!!!')
                                 $mdDialog.cancel(err);
