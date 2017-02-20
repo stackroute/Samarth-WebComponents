@@ -54,19 +54,10 @@
                         jobproviderfactory.Upload(file).then(function (result) {
                             // Mark as success
                             file.Success = true;
-                            alert(result);
+                            // alert(result);
                             vm.jobprovider.url = result.Location;
-                            console.log('newPicURL: '+ vm.jobprovider.url);
-                            // ctrl.data.profilepic = newPicURL;
-                            // sectionprofilegalleryservice
-                            // .uploadGallery(cid,$scope.title,$scope.desc,url)
-                            // .then(function successCallback(response) {
-                            //     console.log("Updating newPic in Profile Gallery schema ", response);
-                            //     $mdDialog.hide(response.data);
-                            // }, function errorCallback(err) {
-                            //     console.log('Error occured during adding pic to Profile Gallery!!!!!!!')
-                            //     $mdDialog.cancel(err);
-                            // });                         
+                            // console.log('newPicURL: '+ vm.jobprovider.url);
+                                                                       
                             
                         }, function (error) {
                             // Mark the error
@@ -106,7 +97,7 @@
                        );
                     };
                     // console.log("Called before");
-                    // $state.go('index.emp');
+                    $state.go('index.emp');
                     // console.log("Called after");
                 }),
                 function(err) {

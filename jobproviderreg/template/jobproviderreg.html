@@ -3,7 +3,7 @@
  "Opportunities are like sunrises. If you wait too long, you miss them." </span>
  </div>
       <div layout="row" layout-align="center center"  layout-margin layout-padding >
-                <form name="myForm"  style="{height:"800px";}" flex flex-sm="66" flex-md="66" flex-gt-md="50" class="md-whiteframe-4dp">
+                <form name="myForm"  style="{height:"1000px";}" flex flex-sm="66" flex-md="66" flex-gt-md="50" class="md-whiteframe-4dp">
                   <div layout="row" layout-align="center center">
                               <h3 md-title md-colors="{color: 'blue-A700'}">JOB PROVIDER</h3>
                           </div>
@@ -59,15 +59,13 @@
                         <!-- Use floating placeholder instead of label -->
                         <md-icon>people</md-icon>
                         <input ng-model="vm.jobprovider.about" type="text" placeholder="Description ">
-                    </md-input-container>
-                   
-                    <md-button type="file" ng-model="Object.Location" ngf-select="vm.uploadFiles($files)" ngf-multiple="true" class="md-raised md-primary">Upload your DP!</md-button>
-
-                    <!-- <md-input-container class="md-block">
-                        
+                    </md-input-container>         
+                    <md-input-container class="md-block">
                         <md-icon>link</md-icon>
-                        <input ng-model="vm.jobprovider.url" type="url" placeholder="Image url ">
-                    </md-input-container> -->
+                        <input ng-model="vm.jobprovider.url" type="url" placeholder="Image url " ng-disabled="true"> <md-icon type="file" ngf-select="vm.uploadFiles($files)" ngf-multiple="true" >cloud_upload <md-tooltip md-direction="top">
+                         Click here to upload new image!
+                            </md-tooltip></md-icon> </input>                          
+                    </md-input-container>
                     <section layout="row"  layout-align="center">
                         <md-button ng-click="vm.subjobprovider()" class="md-raised md-primary" ng-disabled="false"  ng-hide="vm.register">&nbspRegister&nbsp</md-button>
                         <md-button type="button" class="md-raised md-primary" ng-disabled="false"   ng-hide="vm.save" ng-click="vm.savechanges(); showAlert($event)">&nbspSave&nbsp</md-button>
