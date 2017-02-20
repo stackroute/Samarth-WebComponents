@@ -22,6 +22,7 @@
         vm.jobprovider.jpCode = "";
         vm.subjobprovider = subjobprovider;
         vm.savechanges = savechanges;
+        vm.uploadFiles = uploadFiles;
         vm.foo = $state.params.key;
         // console.log(vm.foo);
         vm.bar = $state.params.key1;
@@ -43,6 +44,44 @@
             });
         }
 
+
+        function uploadFiles(files){
+            let Files = files;
+
+
+                if (files && files.length > 0) {
+                    angular.forEach(Files, function (file, key) {
+                        jobproviderfactory.Upload(file).then(function (result) {
+                            // Mark as success
+                            file.Success = true;
+                            alert(result);
+                            vm.jobprovider.url = result.Location;
+                            console.log('newPicURL: '+ vm.jobprovider.url);
+                            // ctrl.data.profilepic = newPicURL;
+                            // sectionprofilegalleryservice
+                            // .uploadGallery(cid,$scope.title,$scope.desc,url)
+                            // .then(function successCallback(response) {
+                            //     console.log("Updating newPic in Profile Gallery schema ", response);
+                            //     $mdDialog.hide(response.data);
+                            // }, function errorCallback(err) {
+                            //     console.log('Error occured during adding pic to Profile Gallery!!!!!!!')
+                            //     $mdDialog.cancel(err);
+                            // });                         
+                            
+                        }, function (error) {
+                            // Mark the error
+                            this.Error = error;
+                            
+                            alert('some error occured while uploading the pic, Please try after sometime!');
+
+                        }, function (progress) {
+                            // Write the progress as a percentage
+                            file.Progress = (progress.loaded / progress.total) * 100
+                        });
+                    });
+                }
+
+        }
 
         function savechanges() {
 
