@@ -31,10 +31,10 @@ angular.module('samarth-webcomponents')
                     url: '/profilegallery/aws'
                     // data: {profilepicUrl:newUrl}
                 }).then(function successCallback(response) {
-                    console.log("Connecting to storage server!!!!");
-                    console.log(response);
+                    // console.log("Connecting to storage server!!!!");
+                    // console.log(response);
                     let awsBucket = response.data;
-                    console.log('from input function: '+awsBucket.region);
+                    // console.log('from input function: '+awsBucket.region);
                      // ConnectAWS();
                 AWS.config.region = awsBucket.region;
                 AWS.config.update({ accessKeyId: awsBucket.accessKeyId, secretAccessKey: awsBucket.secretAccessKey });
@@ -42,7 +42,7 @@ angular.module('samarth-webcomponents')
                 var bucket = new AWS.S3({ params: { Bucket: awsBucket.Bucket, maxRetries: 10 }, httpOptions: { timeout: 360000 } });
                 console.log(bucket);
                 var deferred = $q.defer();
-                var params = { Bucket: 'samarthuploads', Key: file.name, ContentType: file.type, Body: file };
+                var params = { Bucket: awsBucket.Bucket, Key: file.name, ContentType: file.type, Body: file };
                 var options = {
                     // Part Size of 10mb
                     partSize: 10 * 1024 * 1024,
