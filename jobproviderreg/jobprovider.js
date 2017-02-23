@@ -12,8 +12,8 @@ angular.module("samarth-webcomponents")
                     }
                 },
                 params: {
-                    'key': 'vty',
-                    'key1': 'abc'
+                    'key': null,
+                    'key1': null
                 }
 
             })
