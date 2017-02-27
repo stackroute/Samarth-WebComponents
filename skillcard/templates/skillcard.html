@@ -1,5 +1,3 @@
-
-
 <div id="totalcardarea" flex-xs flex-gt-xs layout="column" layout-xs="column" class="md-padding ">
     <md-card class="md-whiteframe-2dp" md-theme='default' md-theme-watch>
         <md-card-header id="headersection" ng-show="$ctrl.showheader" hide-gt-sm>
@@ -12,8 +10,8 @@
                 </div>
                 <md-card-avatar id="avatar">
                     <!-- <img class="circle" ng-src="{{$ctrl.data.profilepic}}"> -->
-                    <img ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
-                    <img ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
+                    <img crossOrigin="anonymous" ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
+                    <img crossOrigin="anonymous" ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
                 </md-card-avatar>
                 
             <!-- </div> --> 
@@ -29,14 +27,14 @@
                         <div layout-align="center center">
                                 <md-card-avatar id="avatar">
                                     <!-- <img class="profile_pic_circle" ng-src="{{$ctrl.data.profilepic}}"> -->
-                                    <img ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
-                            <img ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
+                                    <img crossOrigin="anonymous" ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
+                            <img crossOrigin="anonymous" ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
                                 </md-card-avatar>
                                 
                         </div>
                          <div flex>
-                <span flex="50">
-                    <md-progress-linear md-mode="determinate" value="20" class="progress"></md-progress-linear>
+                <span data-html2canvas-ignore="true" flex="50">
+                    <md-progress-linear data-html2canvas-ignore="true" md-mode="determinate" value="20" class="progress"></md-progress-linear>
                     10%
                 </span>
 
@@ -54,13 +52,13 @@
                     <div layout="column" layout-align="center center">
                         <div>
                                 <md-card-avatar id="avatar">
-                                    <img ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
-                                    <img ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
+                                    <img crossOrigin="anonymous" ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
+                                    <img crossOrigin="anonymous" ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
                                 </md-card-avatar>
                         </div>
                          <div flex>
-                <span flex="50">
-                    <md-progress-linear md-mode="determinate" value="20" class="progress"></md-progress-linear>
+                <span data-html2canvas-ignore="true" flex="50">
+                    <md-progress-linear data-html2canvas-ignore="true" md-mode="determinate" value="20" class="progress"></md-progress-linear>
                     10%
                 </span>
 
@@ -71,7 +69,7 @@
                             <span flex-offset="20" layout-align="center center">{{$ctrl.data.age}} yrs , {{$ctrl.data.gender}}</span>
                             <br>
                             <br>
-                            <span flex-offset="20" class="detail1" layout-align="center center"><md-icon class="material-icons">work</md-icon> {{$ctrl.data.profession}} </span>
+                            <span flex-offset="20" class="detail1" layout-align="center center"><md-icon crossOrigin="anonymous" class="material-icons">work</md-icon> {{$ctrl.data.profession}} </span>
                             <br>
                             <span flex-offset="25" flex-offset-sm="15">
                                     ({{$ctrl.data.designation}})
@@ -93,7 +91,7 @@
                     <div layout="row" id="section1" flex hide-xs hide-sm layout-align="center center">
                         <div flex align="left" layout="column" layout-padding>
                             <span flex>
-                            <span class="details3"><md-icon class="material-icons md-10">work</md-icon> {{$ctrl.data.profession}}<span class="detail1"> ( {{$ctrl.data.designation}} )</span>
+                            <span class="details3"><md-icon crossOrigin="anonymous" class="material-icons md-10">work</md-icon> {{$ctrl.data.profession}}<span class="detail1"> ( {{$ctrl.data.designation}} )</span>
                         </div>
                     </div>
 
@@ -130,12 +128,12 @@
                 </div>
             </div>
         </div>
-        <md-card-actions id="skillcardtoolbar" layout="row" layout-align="end center">
+        <md-card-actions data-html2canvas-ignore="true" id="skillcardtoolbar" layout="row" layout-align="end center">
             <a ng-href="{{ $ctrl.fileUrl }}" download="Scard.json">
                 <md-icon class="material-icons">share</md-icon>
             </a>
             <a id="download" download>
-                <md-button ng-click="$ctrl.render($event)">
+                <md-button ng-click="$ctrl.render()">
                     <md-icon class="material-icons">file_download</md-icon>
                 </md-button>
             </a>
@@ -146,7 +144,7 @@
             <span ng-transclude="cardactions">
             </span>
         </md-card-actions>
-        </div>
+        
         </md-card-content>
 <md-card-content ng-if="$ctrl.picsize != 'small'" class="content_default">
     <div layout="row" layout-align="center center" class="md-whiteframe-2dp">
@@ -162,8 +160,8 @@
                             </md-tooltip>
                             <md-card-avatar id="avatar">
                                 <!-- <img class="profile_pic_circle" ng-src="{{$ctrl.data.profilepic}}"> -->
-                                <img ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
-                                <img ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
+                                <img crossOrigin="anonymous" ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
+                                <img crossOrigin="anonymous" ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
                             </md-card-avatar>
                        </button>
                     </div>
@@ -214,8 +212,8 @@
                 </div>
 
                 <div>
-                <span >
-                    <md-progress-linear md-mode="determinate" value="20" class="progress"></md-progress-linear>
+                <span data-html2canvas-ignore="true" >
+                    <md-progress-linear data-html2canvas-ignore="true" md-mode="determinate" value="20" class="progress"></md-progress-linear>
                     10%
                 </span>
 
@@ -240,8 +238,8 @@
                             </md-tooltip>
                             <md-card-avatar id="avatar">
                                 <!-- <img class="profile_pic_circle" ng-src="{{$ctrl.data.profilepic}}"> -->
-                                <img ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
-                                <img ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
+                                <img crossOrigin="anonymous" ng-if="$ctrl.picsize == 'small'" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">
+                                <img crossOrigin="anonymous" ng-if="$ctrl.picsize != 'small'" class="pic_circle_default" ng-src="{{$ctrl.data.profilepic}}">
                             </md-card-avatar>
                        </button>
                     </div>
@@ -292,8 +290,8 @@
                 </div>
       </form>
       <div flex>
-                <span flex="50">
-                    <md-progress-linear md-mode="determinate" value="20" class="progress" ></md-progress-linear>
+                <span data-html2canvas-ignore="true" flex="50">
+                    <md-progress-linear data-html2canvas-ignore="true" md-mode="determinate" value="20" class="progress" ></md-progress-linear>
                     10%
                 </span>
 
@@ -305,7 +303,7 @@
                         <span flex-offset="20" layout-align="center center">{{$ctrl.data.age}} yrs , {{$ctrl.data.gender}}</span>
                         <br>
                         <br>
-                        <span flex-offset="20" class="detail1" layout-align="center center"><md-icon class="material-icons">work</md-icon> {{$ctrl.data.profession}} </span>
+                        <span flex-offset="20" class="detail1" layout-align="center center"><md-icon crossOrigin="anonymous" class="material-icons">work</md-icon> {{$ctrl.data.profession}} </span>
                         <br>
                         <span flex-offset="25" >
                         ({{$ctrl.data.designation}})
@@ -327,7 +325,7 @@
                 <div layout="row" id="section1" flex hide-xs hide-sm>
                     <div flex align="left" layout="column" layout-padding>
                         <span flex flex-offset="5">
-    <span class="details2"><md-icon class="material-icons md-20">work</md-icon> {{$ctrl.data.profession}}<span class="detail1"> ( {{$ctrl.data.designation}} )</span>
+    <span class="details2"><md-icon crossOrigin="anonymous" class="material-icons md-20">work</md-icon> {{$ctrl.data.profession}}<span class="detail1"> ( {{$ctrl.data.designation}} )</span>
                     </div>
                 </div>
                 <div layout="row" flex flex-offset="5" hide-xs hide-sm>
@@ -380,7 +378,7 @@
                         </md-chip-template>
                     </md-chips>
                 </div>
-                <md-card-actions id="skillcardtoolbar" layout="row" layout-align="end center">
+                <md-card-actions data-html2canvas-ignore="true" id="skillcardtoolbar" layout="row" layout-align="end center">
                     <a ng-href="{{ $ctrl.fileUrl }}" download="Scard.json">
                         <md-icon class="material-icons">share</md-icon>
                     </a>

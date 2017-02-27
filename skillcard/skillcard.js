@@ -24,6 +24,7 @@
         function skillcardCtrl($window, $timeout, $mdDialog, skillcardService, $rootScope, $state, $http) {
             let ctrl = this;
             let name= '';
+            ctrl.downloadCard = true;
             ctrl.data = {};
             console.log("entered in to controller of skillcard");
 
@@ -125,6 +126,7 @@
 
             skillcardService.getskillcarddata(this.candidateid).then(function(result) {
                 ctrl.data = result;
+                // console.log(result);
                 console.log("canduidate id =" , ctrl.candidateid);
                 $http({
                     method: 'GET',
@@ -161,39 +163,43 @@
             let getCanvas;
             $timeout(createDownloadUrl, 1000);
 
-            ctrl.render = function(ev) {
+ ctrl.render = function() {
 
-                // html2canvas(document.getElementById('totalcardarea').innerHTML, {
-                //     useCORS: true,
-                //     onrendered: function (canvas) {
-                //     var imgval = canvas.toDataURL("image/png");
-                //     // document.getElementById("HiddenField1").value = dataUrl;
-                //                      imgval = imgval.Replace("data:image/png;base64,", "");
-                //     byte[] imgData = Convert.FromBase64String(imgval);
+                // var lines = '<div id="downloadCard" layout="row" flex="70" class="dontShow"> \
+                //                 <div flex="35" layout="column">\
+                //                     <b>{{$ctrl.data.name}}</b>\
+                //                     <b>{{$ctrl.data.profession}} ({{$ctrl.data.designation}})</b>\
+                //                     <b>DOB: {{$ctrl.data.dob}} ({{$ctrl.data.age}} yrs)</b>\
+                //                     <b>Email: {{$ctrl.data.email}}</b> <b>Phone: {{$ctrl.data.contact}}</b>\
+                //                     <b>Location: {{$ctrl.data.location}}</b> <b>Skills:</b><i ng-repeat="skill in $ctrl.data.skills">{{skill.skillname}}</i>\
+                //                 </div>\
+                //                 <div flex="35" layout="column">\
+                //                     <img crossOrigin="anonymous" class="pic_circle_small" ng-src="{{$ctrl.data.profilepic}}">\
+                //                 </div>\
+                //             </div>'
 
-                //     using (System.Drawing.Image image = System.Drawing.Image.FromStream(new MemoryStream(imgData)))
-                //     {
-                //         String path = Server.MapPath("~/imgFolder");
-                //          image.Save(path + "\\output.jpg", ImageFormat.Jpeg);  // Or Png
-
-                //     }
-                //     }
-                // });
                 let card = document.querySelector('#totalcardarea');
                 console.log(card);
                 
-                // let card = angular.element(document.querySelector('#totalcardarea'));
-                // let card = document.getElementById('totalcardarea').innerHTML;
-                html2canvas(card, { allowTaint: true,
+                
+                html2canvas(card, { allowTaint: false,
                     useCORS: true,
                     logging: true,
+                    // height: 400,
+                    // width: 300,
+                    background: "#0b61ea",
+                    proxy: "https://samarthuploads.s3.ap-south-1.amazonaws.com/",
                     onrendered: function(canvas) {
-                        // getCanvas = canvas;
-                        // card.appendChild(getCanvas);
-                        // ctrl.downloadcard(canvas);
-                        // ctrl.showConfirm(ev);
-                        // var myImage = canvas.toDataURL("image/png");
-                        // window.open(canvas.toDataURL("image/jpeg"));
+                        // var extra_canvas = document.createElement("canvas");
+                        // // extra_canvas.setAttribute('width',40);
+                        // // extra_canvas.setAttribute('height',30);
+                        // var ctx = extra_canvas.getContext('2d');
+                        // ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,400,300);
+                // var dataURL = extra_canvas.toDataURL();
+                // var img = $(document.createElement('img'));
+                // img.attr('src', dataURL);
+                // // insert the thumbnail at the top of the page
+                // $('body').prepend(img);
 
                         let anchor = angular.element(document.querySelector('#download'));
                         var imgageData = canvas.toDataURL("image/png");
