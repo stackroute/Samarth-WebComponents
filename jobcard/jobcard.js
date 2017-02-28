@@ -38,6 +38,38 @@ function jobcardCtrl($scope, jobCardService,$rootElement, $window, $timeout) {
     {
         $scope.name = "apply";
     }
+
+    $scope.downloadJob = function(){
+        let card = document.querySelector('#jobCard');
+                console.log(card);
+                
+                
+                html2canvas(card, { allowTaint: false,
+                    useCORS: true,
+                    logging: true,
+                    // height: 400,
+                    // width: 300,
+                    background: "#0b61ea",
+                    proxy: "https://samarthuploads.s3.ap-south-1.amazonaws.com/",
+                    onrendered: function(canvas) {
+                        // var extra_canvas = document.createElement("canvas");
+                        // // extra_canvas.setAttribute('width',40);
+                        // // extra_canvas.setAttribute('height',30);
+                        // var ctx = extra_canvas.getContext('2d');
+                        // ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,400,300);
+                // var dataURL = extra_canvas.toDataURL();
+                // var img = $(document.createElement('img'));
+                // img.attr('src', dataURL);
+                // // insert the thumbnail at the top of the page
+                // $('body').prepend(img);
+
+                        let anchor = angular.element(document.querySelector('#download'));
+                        var imgageData = canvas.toDataURL("image/png");
+                        var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+                        anchor.attr("download", "your_pic_name.png").attr("href", newData);
+                    }
+                    });
+    };
     // $scope.job = this.job;
      //let data = this.data;
     // let jobID = data.jobID;

@@ -1,11 +1,11 @@
-<md-card class="card transparent" md-colors="{background: 'white-100'}" flex >
+<md-card id="jobCard" class="card transparent" md-colors="{background: 'white-100'}" flex >
     <md-card-header>
         <md-card-header-text>
             <span class="md-headline"><md-tooltip md-direction="left">Title</md-tooltip>{{$ctrl.data.jb.title}}</span>
             <span class="md-subhead"><ng-md-icon icon="work"></ng-md-icon><md-tooltip md-direction="left">Role</md-tooltip>{{$ctrl.data.jb.role}}</span>
         </md-card-header-text>
         <md-card-avatar layout="column" flex="30" class="avatar" hide-xs>
-            <img class="md-user-avatar avatar" fallback-src="samarth-webcomponents/jobcard/default.png" ng-src="{{$ctrl.data.logo}}" alt="Image not available">
+            <img crossOrigin="anonymous" fallback-src="samarth-webcomponents/jobcard/default.png" ng-src="{{$ctrl.data.logo}}" alt="Image not available">
         </md-card-avatar>
     </md-card-header>
     <md-card-content layout="column">
@@ -34,12 +34,17 @@
             </md-chips>
         </p>
     </md-card-content>
-    <md-card-action layout="row" >
+    <md-card-action data-html2canvas-ignore="true" layout="row" >
        <a id="jsonDownload" ng-click="downloadedData()"></a>
     <md-tooltip>Share</md-tooltip>
         <md-icon class="md-primary" class="material-icons"  md-colors="{color: 'indigo-600'}" layout-padding>share</md-icon><md-tooltip>Share Card</md-tooltip>
-            <md-tooltip>Download Card</md-tooltip>
-        <md-icon class="material-icons" md-colors="{color: 'indigo-600'}">file_download</md-icon>
+            
+            <a id="download" download>
+                <md-button ng-click="downloadJob()">
+                    <md-icon class="material-icons">file_download</md-icon>
+                </md-button>
+            </a>
+        
       <div ng-transclude="buttons"></div>
     </md-card-actions>
 </md-card>
