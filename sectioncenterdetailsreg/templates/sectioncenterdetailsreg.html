@@ -55,10 +55,19 @@
            <div ng-message="required">Location is required.</div>
          </div>
        </md-input-container>
+    <!-- Center address  -->
+      <md-input-container class=" md-block">
+       <label>Center Address</label>
+       <md-icon class="material-icons">home</md-icon>
+       <input type="text" name="address" required md-no-asterisk ng-model="$ctrl.center.address" />
+       <div ng-messages="centerForm.address.$error">
+         <div ng-message="required">Center address is required.</div>
+       </div>
+     </md-input-container>
        <!-- Center number -->
        <md-input-container class="md-block">
          <md-icon class="material-icons">phone</md-icon>
-         <label>Center contact No</label>
+         <label>Center Contact No</label>
          <input name="mobile" ng-model="$ctrl.center.mobile" type="text" pattern="[0-9]{10}" md-maxlength="10" ng-required="true">
          <div ng-messages="centerForm.mobile.$error" role="alert">
            <div ng-message="required">You should need to correct mobile number</div>
