@@ -1,7 +1,7 @@
 angular.module('samarth-webcomponents')
    .service('sectionprofilegalleryservice', function($http, $filter, $rootScope,$q) {
         
-
+        let awsBucket = {};
        
 
         return {
@@ -24,8 +24,9 @@ angular.module('samarth-webcomponents')
                 });
             },
 
-        	Upload: function (file) {
+        	Upload: function (file,candidateid) {
                 
+               
                return $http({
                     method: 'GET',
                     url: '/profilegallery/aws'
@@ -33,7 +34,10 @@ angular.module('samarth-webcomponents')
                 }).then(function successCallback(response) {
                     // console.log("Connecting to storage server!!!!");
                     // console.log(response);
-                    let awsBucket = response.data;
+                    let cid = candidateid;
+                    // let timeInMs = Date.now();
+                    awsBucket = response.data;
+                    console.log(awsBucket);
                     // console.log('from input function: '+awsBucket.region);
                      // ConnectAWS();
                 AWS.config.region = awsBucket.region;
@@ -42,7 +46,7 @@ angular.module('samarth-webcomponents')
                 var bucket = new AWS.S3({ params: { Bucket: awsBucket.Bucket, maxRetries: 10 }, httpOptions: { timeout: 360000 } });
                 console.log(bucket);
                 var deferred = $q.defer();
-                var params = { Bucket: awsBucket.Bucket, Key: file.name, ContentType: file.type, Body: file };
+                var params = { Bucket: awsBucket.Bucket, Key: cid+"/"+file.name, ContentType: file.type, Body: file };
                 var options = {
                     // Part Size of 10mb
                     partSize: 10 * 1024 * 1024,
@@ -70,7 +74,7 @@ angular.module('samarth-webcomponents')
                
             },//end Upload()
 
-            uploadGallery: function(candidateid,imgtitle,imgdesc,imgurl){
+            uploadGallery: function(candidateid,imgtitle,imgdesc,imgurl,filename){
                 
                 return $http({
                     method: 'POST',
@@ -79,19 +83,64 @@ angular.module('samarth-webcomponents')
                     	URL:imgurl,
                     	CANDIDATEID: candidateid,
                     	TITLE: imgtitle,
-                    	DESC: imgdesc
+                    	DESC: imgdesc,
+                        FILENAME: filename
                     }
                 }) 
             },//end uploadPicUrl()
 
+            Delete: function (candidateid, imageName) {
+                
+               
+               return $http({
+                    method: 'GET',
+                    url: '/profilegallery/aws'
+                    // data: {profilepicUrl:newUrl}
+                }).then(function successCallback(response) {
+                    // console.log("Connecting to storage server!!!!");
+                    // console.log(response);
+                    let cid = candidateid;
+                    // let timeInMs = Date.now();
+                    awsBucket = response.data;
+                    console.log(awsBucket);
+                    // console.log('from input function: '+awsBucket.region);
+                     // ConnectAWS();
+                AWS.config.region = awsBucket.region;
+                AWS.config.update({ accessKeyId: awsBucket.accessKeyId, secretAccessKey: awsBucket.secretAccessKey });
+
+                var bucket = new AWS.S3({ params: { Bucket: awsBucket.Bucket, maxRetries: 10 }, httpOptions: { timeout: 360000 } });
+                console.log(bucket);
+                var deferred = $q.defer();
+                var params = { Bucket: awsBucket.Bucket, Key: candidateid+"/"+imageName};
+                
+                bucket.deleteObject(params, function(err, data) {
+                    if (err) {
+                        deferred.reject(err);
+                    }
+                   
+                    deferred.resolve(data);
+                });
+                
+
+                return deferred.promise;
+                    // return response;
+                }, function errorCallback(err) {
+                    console.log('Error connecting to storage server!!!!');
+                    return err
+                });  
+               
+            },//end Delete()
+
             removeImage: function(candidateid,imageTitle){
-                return $http({
-                    method: 'DELETE',
-                    url: '/profilegallery/' + candidateid + '/' + imageTitle
-                    
-                }) 
-            }
+                    return $http({
+                        method: 'DELETE',
+                        url: '/profilegallery/' + candidateid + '/' + imageTitle                        
+                    }) 
+            }//end removeImage()     
+                
+                
         }
+        
     });
 
 

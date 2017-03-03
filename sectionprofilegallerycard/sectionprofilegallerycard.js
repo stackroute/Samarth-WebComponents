@@ -72,18 +72,25 @@
                 // console.log(object);
                 // alert("inside confirm event of deletion function");
                 let imageTitle = object.title;
-                sectionprofilegalleryservice.removeImage(ctrl.candidateid, imageTitle).then(function mySucces(response)  {
-                            console.log('deleted gallery image successfully');
+                let imageName = object.filename;
+                sectionprofilegalleryservice.Delete(ctrl.candidateid,imageName).then(function mySucces(response)  {
+                            console.log('deleted gallery image successfully from aws!!!!');
                             // alert("the image has been deleted, refresh the page!!!!");
+                            sectionprofilegalleryservice
+                            .removeImage(ctrl.candidateid,imageTitle)
+                            .then(function successCallback(response) {
+                                console.log("Deleted from db!!!!", response);
+                                
                             $rootScope.$emit('gallerydata', {});                            
                     }, function myError(response) {
                             console.log('error in deleting gallery image');
                     });
                 $mdDialog.hide();
-            }, function() { 
-                $mdDialog.hide();//Hide the prompt when user clicks CANCEL!
+                }, function() { 
+                    $mdDialog.hide();//Hide the prompt when user clicks CANCEL!
+                });
             });
-        };//end showConfirm
+        }//end showConfirm
 
         
                
@@ -104,7 +111,7 @@
                 }, function() {
                   $scope.status = 'You cancelled the dialog.';
                 });
-            };
+            }//end expand
 
             function expandDialogController($scope, $mdDialog, currentimage) {
 
@@ -128,7 +135,7 @@
                 $scope.answer = function(answer) {
                   $mdDialog.hide(answer);
                 };
-            }
+            }//end expandDialogController
 
             ctrl.addNew = function(ev) {
                 $mdDialog.show({
@@ -148,7 +155,7 @@
                 }, function(err) {
                   console.log('You cancelled the dialog.', err);
                 });
-            };
+            }//end addNew
 
             function addNewDialogController($scope, $mdDialog, candidateid) {
 
@@ -169,14 +176,15 @@
 
                 if (files && files.length > 0) {
                     angular.forEach(Files, function (file, key) {
-                        sectionprofilegalleryservice.Upload(file).then(function (result) {
+                        sectionprofilegalleryservice.Upload(file,cid).then(function (result) {
                             // Mark as success
                             file.Success = true;
                             let url = result.Location;
                             console.log('newPicURL: '+ url);
+                            let fileName = file.name;
                             // ctrl.data.profilepic = newPicURL;
                             sectionprofilegalleryservice
-                            .uploadGallery(cid,$scope.title,$scope.desc,url)
+                            .uploadGallery(cid,$scope.title,$scope.desc,url,fileName)
                             .then(function successCallback(response) {
                                 console.log("Updating newPic in Profile Gallery schema ", response);
                                 $mdDialog.hide(response.data);
@@ -198,7 +206,7 @@
                         });
                     });
                 }
-            }
+            
 
                 $scope.hide = function() {
                   $mdDialog.hide();
@@ -209,6 +217,8 @@
                 };
             }
      
-    }
-})();
+    
+        }// end addNewDialogController
 
+ }
+})();
