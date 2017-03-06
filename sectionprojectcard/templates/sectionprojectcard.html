@@ -46,7 +46,12 @@
                      </span>
                 </div>
                 <!-- *********Menu to Edit/Delete*********** -->
-                <md-menu>
+                
+                <!-- <a flex="10" ng-click="$ctrl.showAdvanced($event,'Edit Project',project)" title="Click to Edit">
+                    <md-icon class="editIcon">mode_edit</md-icon>
+                </a> -->
+            </div>
+            <md-menu>
                   <md-button style="float: right;" aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
                     <md-icon  md-menu-origin class="material-icons md-18">mode_edit</md-icon>
                   </md-button>
@@ -59,10 +64,6 @@
                     </md-menu-item>
                   </md-menu-content>
                 </md-menu>
-                <!-- <a flex="10" ng-click="$ctrl.showAdvanced($event,'Edit Project',project)" title="Click to Edit">
-                    <md-icon class="editIcon">mode_edit</md-icon>
-                </a> -->
-            </div>
         </div>
     </md-card-content>
     <div layout="row" flex-offset="90" flex-offset-xs="75" layout-align="center center">

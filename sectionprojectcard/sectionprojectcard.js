@@ -181,28 +181,32 @@
 
             $scope.save = function(header) {
                 console.log("Save called");
-                // var skill = $scope.skills.toString().split(",");
-                // console.log("Header" + header)
+                var skill = $scope.project.skills.toString().split(",");
+                console.log("Header" + header)
 
-                // var projectData = {
+                var projectData = {
 
-                //     "projects": [{
-                //         "name": $scope.Project,
-                //         "workplace": $scope.Client,
-                //         "location": $scope.Location,
-                //         "role": $scope.Role,
-                //         "durationInMonths": $scope.Duration,
-                //         "skills": skill,
-                //         "meta": []
-                //     }]
-                // } 
+                    "projects": [{
+                        "name": $scope.project.name,
+                        "client": $scope.project.client,
+                        "location": $scope.project.location,
+                        "role": $scope.project.role,
+                        "durationInMonths": $scope.project.durationInMonths,
+                        "skills": skill,
+                        "meta": []
+                    }]
+                } 
 
+                // let projectData = {
+                //     projects: [$scope.project]
+                // };
+                // projectData.push($scope.project);
                 if (header == 'Add Project') {
                    // console.log('before adding project', projectData);
                     $http({
                         method: 'POST',
                         url: '/project/' + ctrl.candidateid,
-                        data: $scope.project,
+                        data: projectData,
                         crossDomain: true
                     }).then(function successCallback(response) {
                         // console.log('After adding project', response.data);
